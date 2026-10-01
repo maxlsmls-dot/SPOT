@@ -51,7 +51,7 @@ Grading key used in each readout: **Confirmed** (two or more first-hand sources 
 
 ## Topic 3 — Ceiling on Discovery Mode (thesis point 4)
 
-**Question:** What caps the share of recommendations that can be DM-enrolled? Product rule, engagement guardrail, label contract, or regulation (Texas AG CID Apr-2026, Capolongo arbitration)? Have any surfaces been added since 2024? Do any majors participate? Public record as of Oct-2026: eligible contexts are still Radio, Autoplay and Mixes; majors have historically refused the program.
+**Question:** What caps the share of recommendations that can be DM-enrolled? Product rule, engagement guardrail, label contract, or regulation (Texas AG CID Apr-2026, Capolongo arbitration)? Have any surfaces been added since 2024? Do any majors participate? Public record as of Oct-2026: eligible contexts are still Radio, Autoplay and Mixes. On the majors, the public record only shows 2021 criticism and later reporting that "many" eschewed enrollment while at least one tested it; 2025–26 participation is not public. Working assumption from expert calls: the majors do participate. Cite the call that establishes it, and extract the share of their catalog enrolled and when it ramped, because that ramp is the growth phase whose completion is the saturation claim.
 
 | Call | Ceiling cited | Surfaces it applies to | Nature of the constraint | Majors in or out | Quote / paraphrase |
 |------|--------------|------------------------|--------------------------|------------------|--------------------|
@@ -123,5 +123,6 @@ _pending — filled once calls are in_
 
 - Which experts are most credible on each topic and why
 - Interactions: DM ceiling × haircut → marketplace GP; superfan wholesale ask × Music Pro → ARPU without gross profit; friction × conversion → MAU and ad impressions
-- Claims already dropped on public evidence: "audiobook growth is slowing" (company reports listening hours +37% y/y); "majors began participating in DM" (majors have historically refused); "royalties owed" on the bundle (remedied prospectively by the 2025 direct deals)
+- Claims dropped on public evidence: "audiobook growth is slowing" (company reports listening hours +37% y/y); "royalties owed" on the bundle (remedied prospectively by the 2025 direct deals)
+- Claim held as a working assumption pending a citation: "majors participate in DM and their ramp-in was the growth phase" (public record shows only 2021 criticism; participation status in 2025–26 is not public)
 - Open questions for the next Tegus search

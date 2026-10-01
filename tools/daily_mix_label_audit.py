@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Structural ceiling on Discovery Mode: what share of recommendation slots
-sit in DM-addressable catalog?
+"""Label-group composition of Discovery Mode contexts.
 
-Majors have historically refused Discovery Mode, so DM can only ever claim the
-non-major share of Radio / Autoplay / Mixes. This script measures that share in
-the DM contexts you can observe: your Daily Mixes, artist Radio playlists, and
-Discover Weekly. Run it on several accounts (friends, with permission) to get a
-range (thesis point 4).
+Measures what share of the tracks in the DM contexts you can observe (Daily
+Mixes, artist Radio, Discover Weekly) sit in major-label vs distributor/indie
+catalog. Interpretation depends on whether the majors participate in DM:
+  - if they do not, the non-major share is a hard ceiling on DM's reach;
+  - if they do (the working assumption from expert calls), the split shows who
+    bears the haircut and whether slots skew to major frontline releases.
+Run it on several accounts (friends, with permission) to get a range
+(thesis point 4).
 
 Setup (one time):
   1. Create an app at developer.spotify.com; set redirect URI http://127.0.0.1:8080/callback

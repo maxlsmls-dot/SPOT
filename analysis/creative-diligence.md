@@ -40,13 +40,15 @@ Everything here is free, public, and runnable in the window alongside the Tegus 
 
 | # | Method | Produces | Refutes us if | Time |
 |---|---|---|---|---|
-| 4.1 | **Daily Mix / Radio label audit** (`tools/daily_mix_label_audit.py`) on 5–10 accounts | The share of recommendation slots in DM contexts that sit in non-major catalog. Since majors refuse DM, this is a hard structural ceiling on DM's share of those surfaces, measured rather than asserted | Non-major share of Mixes above ~50% (ceiling is far away) | 2 min per account |
+| 4.1 | **Daily Mix / Radio label audit** (`tools/daily_mix_label_audit.py`) on 5–10 accounts | The label-group composition of the DM contexts (major vs distributor/indie catalog). If majors participate, this no longer bounds DM; it shows who bears the haircut and whether recommendation slots skew to major frontline releases, which is what major enrollment looks like from the outside. If majors do not participate, the non-major share is a hard ceiling on DM's reach in those surfaces | Non-major share tiny and majors confirmed out (DM has little room either way) | 2 min per account |
 | 4.2 | **Loud & Clear 2026** site: counts of artists above listener and earnings thresholds, 2021–2025 | Growth of the DM-eligible pool (≥25k monthly listeners, ≥3 eligible songs); a flattening pool means enrollment TAM is flattening | Eligible pool still growing double digits | 10 min |
 | 4.3 | **Spotify for Artists DM page** via Wayback | Any change to eligibility thresholds, contexts, or the 30% haircut; a lowered threshold is Spotify reaching for enrollment, which is what a nearing ceiling looks like | A new context added | 10 min |
 | 4.4 | **Distributor help centers and blogs** (TuneCore, DistroKid, CD Baby, Symphonic Aug-2026 post) via Wayback | Stated uplift claims over time (TuneCore once cited 1.5x for sub-1M-listener artists); default-enrollment policies | Uplift claims rising | 20 min |
 | 4.5 | **EDGAR full-text**: "Discovery Mode" and "marketplace" across SPOT 20-Fs 2023–25 and WMG/UMG filings | Year-over-year drift in Spotify's own marketplace language and any label risk-factor mention | Language strengthening | 15 min |
 | 4.6 | **Texas AG and Travis County court search** for Spotify CID enforcement; Capolongo arbitration docket | Whether the regulatory ceiling is moving toward enforcement | CID closed with no action | 10 min |
 | 4.7 | **Marquee / Showcase pages** via Wayback | Market expansions and minimum budgets; whether the paid side of marketplace is still growing | Rapid expansion into new markets in 2026 | 10 min |
+| 4.8 | **Spotify for Artists dashboards from artist or manager contacts** (any artist with ≥25k monthly listeners sees a Discovery Mode tab: streams in DM contexts, uplift, enrolled tracks). Also **crowdsourced DM stats**: search Reddit r/musicmarketing, r/WeAreTheMusicMakers, r/spotify for posted "Discovery Mode results" screenshots 2022–26 | First-hand per-track uplift now vs 2023–24 and the share of an artist's streams coming through DM contexts; a crowdsourced uplift distribution over time. This is the only free primary data on the economic ceiling | Uplift stable or rising; DM-context share of streams still growing | 30 min plus outreach |
+| 4.9 | **Major-label catalog in DM, observed**: on a few test accounts, seed Radio from a major-label frontline artist and log how often the next 50 tracks are same-label frontline releases vs catalog vs indie, repeated across labels | A weak but observable signal of whether major catalog is being promoted in DM contexts; use only alongside a transcript that states participation | Pattern indistinguishable across labels | 30 min |
 
 ## Point 5 — AI opex
 
@@ -76,7 +78,7 @@ Everything here is free, public, and runnable in the window alongside the Tegus 
 - **Hours 0–3, data desk.** Install, kick off 1.1, 1.3/3.1, 1.4 (unattended). Do 2.1, 2.2, 5.1, 5.2, 4.3, 3.3, X.6 by hand. Set up 4.1 and run it on your own account; recruit 4–8 friends' accounts for the evening.
 - **Hours 3–16, Tegus reading** (see sprint file). Scripts finish in the background; check `data/` at hour 8.
 - **Hours 16–22, filings and analysis.** 5.4, 5.7, 3.5, 1.6, X.1, X.3, X.4, X.5. Chart 1.1 and 4.1.
-- **Hours 22–27, grade and rewrite.** Every point gets a grade and the one chart that carries it: the ARPU tailwind decay (1.1), the DM-addressable share of Mixes (4.1), the review ad-complaint spike (3.1), the Meta Ad Library creative count by month (5.1).
+- **Hours 22–27, grade and rewrite.** Every point gets a grade and the one chart that carries it: the ARPU tailwind decay (1.1), the label composition of DM contexts (4.1) and the crowdsourced uplift series (4.8), the review ad-complaint spike (3.1), the Meta Ad Library creative count by month (5.1).
 - **Hours 27–30, Q&A.**
 
 The four charts above are the "what did you find that the Street does not have" answer.
