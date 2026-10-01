@@ -1,70 +1,127 @@
-# Triangulation matrix — Spotify (SPOT)
+# Triangulation matrix — Spotify (SPOT) short
 
-Three topics. Every claim below is attributed to a call number and quoted or closely paraphrased. Expert credentials are in `calls-index.md`. Nothing here is an investment view; it is a readout of what the experts said and where they agree or disagree.
+Six topics mapped to the five thesis points in `short-pitch-SPOT.md`. Every claim is attributed to a call number and quoted or closely paraphrased. Expert credentials live in `calls-index.md`. The matrix is a readout of what experts said and where they agree or disagree; the investment view sits in the pitch.
+
+Grading key used in each readout: **Confirmed** (two or more first-hand sources agree), **Supported** (one first-hand source, or several second-hand), **Unproven** (no substantive evidence yet), **Contradicted** (first-hand evidence against).
+
+| Topic | Thesis point | What it has to establish |
+|---|---|---|
+| 1 | 2 — Add-ons | Music Pro / AI covers / superfan: timing, label economics, attach precedents |
+| 2 | 4 — DM ceiling | Share of streams flowing through Discovery Mode today |
+| 3 | 4 — DM ceiling | Where the cap sits: product rule, engagement guardrail, label terms, regulation |
+| 4 | 1 — Pricing | Hike cadence, elasticity, and how much of a hike the labels keep |
+| 5 | 3 — Emerging markets | Conversion, free-tier friction, the Lite reversal, bundle mix |
+| 6 | 5 — AI opex | Compute, launch marketing, content integrity: is the step-up temporary |
 
 ---
 
-## Topic 1 — Add-ons, additional subscription tiers, and other upsell levers
+## Topic 1 — Add-ons, superfan tier, and other upsell levers (thesis point 2)
 
-**Question:** What do experts say about Spotify's add-ons (audiobooks, lossless/HiFi, superfan/"Music Pro"), additional tiers, à-la-carte products, bundling, and any other means to lift ARPU beyond headline price increases?
+**Question:** What do experts say about Music Pro / superfan, the AI covers add-on, Audiobooks+, Platinum, and other means to lift ARPU beyond headline price increases? Timing, gating items, label wholesale asks, attach precedents.
 
-### Evidence by call
-
-| Call | What the expert said | Quote / paraphrase | Confidence in expert's vantage |
-|------|----------------------|--------------------|-------------------------------|
+| Call | What the expert said | Quote / paraphrase | Vantage (first-hand / second-hand) |
+|------|----------------------|--------------------|-----------------------------------|
 | — | — | — | — |
 
 ### Readout
-
 - **Consensus:** _pending_
 - **Dissent / outliers:** _pending_
-- **Numbers cited (price points, attach rates, ARPU uplift):** _pending_
-- **Gaps (what nobody addressed):** _pending_
+- **Numbers cited (price points, attach rates, wholesale share of add-on price):** _pending_
+- **Gaps:** _pending_
+- **Grade:** _pending_
 
 ---
 
-## Topic 2 — Share of streams on Spotify that flow through Discovery Mode / Marketplace
+## Topic 2 — Share of streams on Spotify that flow through Discovery Mode / Marketplace (thesis point 4)
 
-**Question:** What percentage of total Spotify streams are Discovery Mode–enrolled or otherwise Marketplace-influenced (Discovery Mode, Marquee, Showcase)? How do experts arrive at their number?
+**Question:** What percentage of total streams, and of streams in the eligible contexts (Radio, Autoplay, Mixes), go to DM-enrolled tracks? How does the expert arrive at the number? Is enrollment still growing?
 
-### Evidence by call
-
-| Call | Figure cited | Scope of the figure (all streams / algorithmic streams / specific surfaces) | Basis (first-hand data, label-side view, inference) | Quote / paraphrase |
-|------|-------------|-------------------------------------------------------------------------------|------------------------------------------------------|--------------------|
+| Call | Figure cited | Scope (all streams / eligible contexts / a distributor's catalog) | Basis (dashboard data, label-side view, inference) | Quote / paraphrase |
+|------|-------------|-------------------------------------------------------------------|----------------------------------------------------|--------------------|
 | — | — | — | — | — |
 
 ### Readout
-
 - **Range of estimates:** _pending_
-- **Consensus:** _pending_
-- **Dissent / outliers:** _pending_
-- **Definitional traps (what "streams via Discovery Mode" means to each expert):** _pending_
+- **Enrollment trend (rising / plateau / falling):** _pending_
+- **Per-track uplift now vs 2023:** _pending_
+- **Definitional traps:** _pending_
+- **Grade:** _pending_
 
 ---
 
-## Topic 3 — Ceiling on Discovery Mode: how much of the recommendation algorithm can be filled with DM content
+## Topic 3 — Ceiling on Discovery Mode (thesis point 4)
 
-**Question:** What is the practical or stated cap on the share of algorithmic recommendations (Radio, Autoplay, Smart Shuffle, Discover Weekly, Daily Mix, etc.) that can be Discovery Mode–enrolled tracks? Is the cap a product rule, a quality/engagement constraint, a label-negotiated limit, or a regulatory constraint?
+**Question:** What caps the share of recommendations that can be DM-enrolled? Product rule, engagement guardrail, label contract, or regulation (Texas AG CID Apr-2026, Capolongo arbitration)? Have any surfaces been added since 2024? Do any majors participate? Public record as of Oct-2026: eligible contexts are still Radio, Autoplay and Mixes; majors have historically refused the program.
 
-### Evidence by call
-
-| Call | Ceiling cited | Which surfaces it applies to | Nature of the constraint (product rule / engagement guardrail / label deal / regulatory) | Quote / paraphrase |
-|------|--------------|------------------------------|------------------------------------------------------------------------------------------|--------------------|
-| — | — | — | — | — |
+| Call | Ceiling cited | Surfaces it applies to | Nature of the constraint | Majors in or out | Quote / paraphrase |
+|------|--------------|------------------------|--------------------------|------------------|--------------------|
+| — | — | — | — | — | — |
 
 ### Readout
-
 - **Range of estimates:** _pending_
-- **Consensus:** _pending_
-- **Dissent / outliers:** _pending_
-- **Where experts are speculating vs. reporting:** _pending_
+- **Consensus on the binding constraint:** _pending_
+- **Surface additions since 2024:** _pending_
+- **Reporting vs speculating:** _pending_
+- **Grade:** _pending_
+
+---
+
+## Topic 4 — Price hike cadence, elasticity, and label escalators (thesis point 1)
+
+**Question:** How does Spotify decide hike timing? What churn did the Jul-23, Jun-24 and Feb-26 US hikes produce, and did the Feb-26 round behave differently with North America already saturating? Is a price premium to Apple Music and YouTube Music an explicit constraint? Under the 2025 Streaming 2.0 deals, what share of a hike flows to labels, and how (per-sub minimum, ARPU floor, % of increase)?
+
+| Call | Claim | Which hike / market | Number cited (churn, share to labels, premium tolerance) | Quote / paraphrase | Vantage |
+|------|-------|---------------------|-----------------------------------------------------------|--------------------|---------|
+| — | — | — | — | — | — |
+
+### Readout
+- **Hike decision process and cadence:** _pending_
+- **Churn evidence by hike:** _pending_
+- **Label share of a hike:** _pending_
+- **Premium-to-peers tolerance:** _pending_
+- **Grade:** _pending_
+
+---
+
+## Topic 5 — Emerging-market conversion and free-tier friction (thesis point 3)
+
+**Question:** What is subs/MAU conversion in India, Indonesia and the other friction markets? Why was Premium Lite scrapped at six months and Standard cut 30%? What does deprecating low-end Android remove? How much of RoW and LatAm subscriber growth is telco bundles and at what ARPU? Public record: Q2-26 RoW is ~37% of MAU and 15% of subs (conversion ~16%) vs ~56% in Europe and North America.
+
+| Call | Market | Claim | Number cited (conversion, bundle share, ARPU) | Quote / paraphrase | Vantage |
+|------|--------|-------|-----------------------------------------------|--------------------|---------|
+| — | — | — | — | — | — |
+
+### Readout
+- **Conversion by market:** _pending_
+- **Why Lite failed:** _pending_
+- **Bundle share of adds:** _pending_
+- **Expected MAU trajectory under friction:** _pending_
+- **Grade:** _pending_
+
+---
+
+## Topic 6 — AI and compute opex: temporary or structural (thesis point 5)
+
+**Question:** What drives the 2026 opex step-up (€200M incremental; Q2 opex +19% ex-FX and social charges; Q3 implied ~+25% y/y)? Inference cost per user for DJ / Prompted Playlists / remix tool; how it scales; whether it sits in cost of revenue or opex; launch marketing tied to subscriber targets; content-integrity cost against AI upload volume. Public record: FY-25 20-F shows R&D down €93M on lower social costs but IT costs up €30M on cloud usage; headcount flat at ~7,300.
+
+| Call | Cost bucket (inference / marketing / integrity / other) | Claim | Number cited | Quote / paraphrase | Vantage |
+|------|----------------------------------------------------------|-------|--------------|--------------------|---------|
+| — | — | — | — | — | — |
+
+### Readout
+- **Inference scaling with usage:** _pending_
+- **Marketing as a structural subscriber lever:** _pending_
+- **Content-integrity cost trend:** _pending_
+- **Internal view of "normalize in Q4":** _pending_
+- **Grade:** _pending_
 
 ---
 
 ## Cross-topic synthesis
 
-_pending — filled once all calls are in_
+_pending — filled once calls are in_
 
 - Which experts are most credible on each topic and why
-- Where the three topics interact (e.g., DM ceiling × DM take rate → Marketplace revenue; tiering → mix of algorithmic vs. user-driven listening)
-- Open questions to take back to Tegus or to the next call
+- Interactions: DM ceiling × haircut → marketplace GP; superfan wholesale ask × Music Pro → ARPU without gross profit; friction × conversion → MAU and ad impressions
+- Claims already dropped on public evidence: "audiobook growth is slowing" (company reports listening hours +37% y/y); "majors began participating in DM" (majors have historically refused); "royalties owed" on the bundle (remedied prospectively by the 2025 direct deals)
+- Open questions for the next Tegus search

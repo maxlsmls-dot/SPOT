@@ -24,8 +24,8 @@ SOURCE: Tegus web reader, pasted <date pasted>
 
 ## Index
 
-| # | Date | Expert | File | Topics hit (1/2/3) |
-|---|------|--------|------|--------------------|
+| # | Date | Expert | File | Topics hit (1–6) |
+|---|------|--------|------|------------------|
 | — | — | — | — | — |
 
 (Index is maintained in `analysis/calls-index.md`; this table mirrors it.)
