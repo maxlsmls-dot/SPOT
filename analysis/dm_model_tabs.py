@@ -159,7 +159,7 @@ def build():
     ws[f"C{rr}"].fill = GOLD; A["case"] = f"{IN}$C${rr}"; sel = A["case"]
     w.blank()
     w.section("A. Group revenue, €M (denominator for basis points)")
-    rr = w.row("Total revenue", [15673, 17186, 19510, 21300], "FY'24-FY'25: Form 20-F (FY'25 Premium 15,350, Ad-Supported 1,836). FY'26E: Q1-Q2 actuals + Q3 guide + Q4 model; FY'27E: model. Placeholders, link to IS total revenue.", fmt=FM)
+    rr = w.row("Total revenue", [15673, 17186, 19500, 21300], "FY'24-FY'25: Form 20-F (FY'25 Premium 15,350, Ad-Supported 1,836). FY'26E-FY'27E: same placeholders as the audiobook tabs; link to IS total revenue.", fmt=FM)
     for col in ["E", "F"]: ws[f"{col}{rr}"].fill = GOLD
     for col, k in zip(YC, ["rev24", "rev25", "rev26", "rev27"]): A[k] = f"{IN}${col}${rr}"
     rr = w.row("% y/y growth", ["", f"=D{rr}/C{rr}-1", f"=E{rr}/D{rr}-1", f"=F{rr}/E{rr}-1"], "Marketplace gross profit must grow at least this fast to hold its margin contribution flat.", italic=True, fmt=FP1)
@@ -185,8 +185,11 @@ def build():
     rr = w.row("Marketplace gross profit, 2025 as a multiple of 2021", [4.0], "Investor Day 21 May 2026: 2025 marketplace gross profit was four times 2021. Implies a ~41% CAGR 2021-25.", fmt=FMULT); A["mult"] = f"{IN}$C${rr}"
     rr = w.row("Marketplace gross profit, €M", [f"={A['mk21']}*{A['mult']}^(3/4)", f"={A['mk21']}*{A['mult']}"], "FY'25 = 2021 x multiple (floor). FY'24 is not disclosed: interpolated at the 2021-25 CAGR, so the FY'25 y/y effect on the bridge is an estimate.", fmt=FM)
     A["mk24"] = f"{IN}$C${rr}"; A["mk25"] = f"{IN}$D${rr}"
-    rr = w.row("Discovery Mode share of marketplace gross profit (FY'25 col)", ["", 0.45], "KEY LEVER. Not disclosed. Marquee/Showcase are booked as Ad-Supported revenue (+€58M in FY'24 from marketplace growth, 20-F); Discovery Mode is a reduction of cost of revenue. Range 35-65%. Used to calibrate the FY'25 enrolled share on the bridge.", fmt=FP0)
+    rr = w.row("Discovery Mode share of marketplace gross profit (FY'25 col)", ["", 0.80], "KEY LEVER. Not disclosed. Marquee/Showcase are booked as Ad-Supported revenue and that whole segment earned only €330M of gross profit in FY'25 (20-F), which caps them at roughly €150-250M and puts Discovery Mode at 60-80% of marketplace. Used in 'DM share' calibration mode to solve the enrolled share on the bridge; ignored in 'Measured s' mode.", fmt=FP0)
     ws[f"D{rr}"].fill = YELLOW; A["dmsh"] = f"{IN}$D${rr}"
+    rr = w.row("Calibration mode, FY'25: 'DM share' solves s from the share above; 'Measured s' solves the share from the measured s in section E", ["", "DM share"],
+               "The FY'25 identity D = pool x e x s x discount has one free variable. Type exactly 'DM share' or 'Measured s'. Never overwrite the solved cell on the bridge (D12): that breaks the identity and makes FY'25 look like a decline against FY'24.", fmt=None)
+    ws[f"D{rr}"].fill = GOLD; A["mode"] = f"{IN}$D${rr}"
     w.blank()
     w.section("D. Music royalty pool, €M (the pool the Discovery Mode discount is taken from)")
     rr = w.row("Royalties paid to music rights holders", [9250, 10100, f"={A['rev26']}*$D${w.r+2}", f"={A['rev27']}*$D${w.r+2}"], "Loud & Clear: $10bn in 2024 and $11bn in 2025, converted at ~1.08 / ~1.09. After all discounts, so the pre-discount pool is ~3% higher. FY'26E-FY'27E scale with revenue at the FY'25 ratio (royalties are the greater of a % of revenue and per-subscriber minimums).", fmt=FM)
@@ -198,25 +201,27 @@ def build():
     w.section("E. Discovery Mode structural levers")
     rr = w.row("DM royalty discount on DM-context streams", [0.30, 0.30, 0.30, 0.30], "Program term: the rights holder accepts a 30% lower royalty on streams served in Radio, Autoplay and (from Jan 2024) Mixes. Set a lower FY'27E value to model a claw-back at the major-label renewals.", fmt=FP0)
     for col, k in zip(YC, ["d24", "d25", "d26", "d27"]): A[k] = f"{IN}${col}${rr}"
-    rr = w.row("e: share of all streams served from DM-eligible surfaces (Radio + Autoplay + Mixes), FY'25", ["", 0.18], "KEY LEVER (Topic 3). Not disclosed. Spotify: 33% of discoveries happen in algorithmic contexts; third parties put algorithmic listening near 40% of streams, of which Radio/Autoplay/Mixes is a subset; enrolled established artists report DM-context at 3.5-5% of their streams (data tab). Range 12-25%. 'Autoplay growth' moves this lever.", fmt=FP0)
-    ws[f"D{rr}"].fill = YELLOW; A["e25"] = f"{IN}$D${rr}"
-    # e path with selector
-    rr_e = w.row("e path, FY'26E-FY'27E (active case)", ["", "", None, None], "Bull: autoplay / programmed listening keeps gaining share and new surfaces (Smart Shuffle, DJ sessions) are added. Base: plateau (Reddit mentions of autoplay/recs peaked in 2025; DJ/Smart Shuffle discussion halved since 2024; Smart Shuffle removable from Apr-25). Bear: surfaces lose share (users disable autoplay, AI-slop clean-up trims recommendation volume).", fmt=FP1)
+    FDELTA = '+0.0%;-0.0%;0.0%'
+    rr = w.row("e: share of all streams served from DM-eligible surfaces (Radio + Autoplay + Mixes), FY'25", ["", 0.33], "KEY LEVER (Topic 3). Not disclosed. The 2018 prospectus put Spotify-programmed listening at ~30% before Autoplay became default-on and before Smart Shuffle and the Mixes expansion; Spotify says 33% of discoveries happen in algorithmic contexts. Range 25-35%. 'Autoplay growth' moves this lever.", fmt=FP0)
+    ws[f"D{rr}"].fill = YELLOW; A["e25"] = f"{IN}$D${rr}"; e25row = rr
+    rr_e = w.row("e, FY'26E-FY'27E (active case) = FY'25 + case change below", ["", "", None, None], "Bull: autoplay / programmed listening keeps gaining share and new surfaces (Smart Shuffle, DJ sessions) are added. Base: slow drift (Reddit mentions of autoplay/recs peaked in 2025; DJ/Smart Shuffle discussion halved since 2024; Smart Shuffle removable from Apr-25). Bear: no growth, or surfaces lose share (users disable autoplay, AI-slop clean-up trims recommendation volume). Case rows are changes vs FY'25 in points.", fmt=FP1)
     eb, ebase, ebu = rr_e + 1, rr_e + 2, rr_e + 3
     for col in ["E", "F"]:
-        c = ws[f"{col}{rr_e}"]; c.value = f'=IF({sel}="Bear",{col}{eb},IF({sel}="Bull",{col}{ebu},{col}{ebase}))'; c.font = F_TXT; c.alignment = CENTER; c.number_format = FP1; c.fill = GOLD
-    for name, vals, bd in [("Bear", [0.17, 0.16], Border(left=THIN, top=THIN)), ("Base", [0.18, 0.18], Border(left=THIN)), ("Bull", [0.195, 0.21], Border(left=THIN, bottom=THIN))]:
-        r2 = w.row(name, ["", "", vals[0], vals[1]], fmt=FP1); ws[f"B{r2}"].border = bd
+        c = ws[f"{col}{rr_e}"]; c.value = f'=$D${e25row}+IF({sel}="Bear",{col}{eb},IF({sel}="Bull",{col}{ebu},{col}{ebase}))'; c.font = F_TXT; c.alignment = CENTER; c.number_format = FP1; c.fill = GOLD
+    for name, vals, bd in [("Bear", [0.0, 0.01], Border(left=THIN, top=THIN)), ("Base", [0.005, 0.01], Border(left=THIN)), ("Bull", [0.015, 0.02], Border(left=THIN, bottom=THIN))]:
+        r2 = w.row(name, ["", "", vals[0], vals[1]], fmt=FDELTA); ws[f"B{r2}"].border = bd
     A["e26"] = f"{IN}$E${rr_e}"; A["e27"] = f"{IN}$F${rr_e}"
     A["e_rows"] = dict(Bear=eb, Base=ebase, Bull=ebu)
-    rr = w.row("s: enrolled share of eligible-surface streams, FY'25", ["", f"='{SH_BR}'!$D$12"], "KEY LEVER (Topic 2). Solved on the bridge from the marketplace disclosure: s = Discovery Mode gross profit / (pool x e x discount). Replace with the expert-call figure by changing the DM share (section C) until this matches.", fmt=FP1)
-    ws[f"D{rr}"].fill = YELLOW; A["s25"] = f"{IN}$D${rr}"
-    rr_s = w.row("s path, FY'26E-FY'27E (active case)", ["", "", None, None], "Bull: enrollment keeps compounding (+8 pt a year). Base: creeps up (+3 pt a year) because staying in is defensive (opting out cut radio/autoplay streams 50-70% in the charted cases) even as the lift fades. Bear: capped at the FY'26E level (label pushback, Congressional scrutiny, lifts too small to justify 30%).", fmt=FP1)
+    rr = w.row("Measured s, FY'25: enrolled share of eligible-surface streams from sampling (used only in 'Measured s' mode)", ["", 0.33], "Spotify burner-account method (tools/dm_autoplay): share of tracks served in Autoplay / Radio sessions that are Discovery Mode-enrolled, weighted by plays. Enter the sampled figure here and switch the calibration mode in section C; the bridge then back-solves the DM share of marketplace.", fmt=FP1)
+    A["smeas"] = f"{IN}$D${rr}"
+    rr = w.row("s: enrolled share of eligible-surface streams, FY'25 (active)", ["", f"='{SH_BR}'!$D$12"], "KEY LEVER (Topic 2). In 'DM share' mode this is solved on the bridge: s = Discovery Mode gross profit / (pool x e x discount). In 'Measured s' mode it is the measured figure above. Do not type over this cell or bridge D12.", fmt=FP1)
+    ws[f"D{rr}"].fill = YELLOW; A["s25"] = f"{IN}$D${rr}"; s25row = rr
+    rr_s = w.row("s, FY'26E-FY'27E (active case) = FY'25 + case change below", ["", "", None, None], "Bull: enrollment keeps rising. Base: creeps up because staying in is defensive (opting out cut radio/autoplay streams 50-70% in the charted cases) even as the lift fades. Bear: flat to down (label pushback, Congressional scrutiny, lifts too small to justify 30%). Case rows are changes vs FY'25 in points, so they stay valid whichever calibration mode is on.", fmt=FP1)
     sb, sbase, sbu = rr_s + 1, rr_s + 2, rr_s + 3
     for col in ["E", "F"]:
-        c = ws[f"{col}{rr_s}"]; c.value = f'=IF({sel}="Bear",{col}{sb},IF({sel}="Bull",{col}{sbu},{col}{sbase}))'; c.font = F_TXT; c.alignment = CENTER; c.number_format = FP1; c.fill = GOLD
-    for name, vals, bd in [("Bear", [0.55, 0.55], Border(left=THIN, top=THIN)), ("Base", [0.56, 0.59], Border(left=THIN)), ("Bull", [0.61, 0.69], Border(left=THIN, bottom=THIN))]:
-        r2 = w.row(name, ["", "", vals[0], vals[1]], fmt=FP1); ws[f"B{r2}"].border = bd
+        c = ws[f"{col}{rr_s}"]; c.value = f'=$D${s25row}+IF({sel}="Bear",{col}{sb},IF({sel}="Bull",{col}{sbu},{col}{sbase}))'; c.font = F_TXT; c.alignment = CENTER; c.number_format = FP1; c.fill = GOLD
+    for name, vals, bd in [("Bear", [-0.01, -0.005], Border(left=THIN, top=THIN)), ("Base", [0.0, 0.01], Border(left=THIN)), ("Bull", [0.01, 0.025], Border(left=THIN, bottom=THIN))]:
+        r2 = w.row(name, ["", "", vals[0], vals[1]], fmt=FDELTA); ws[f"B{r2}"].border = bd
     A["s26"] = f"{IN}$E${rr_s}"; A["s27"] = f"{IN}$F${rr_s}"
     A["s_rows"] = dict(Bear=sb, Base=sbase, Bull=sbu)
     rr_m = w.row("Marquee + Showcase gross profit growth, % y/y (active case)", ["", "", None, None], "Marquee (sponsored recommendation, CPC) and Showcase (home banner) sold to labels; near-100% margin Ad-Supported revenue. Bull +20% (extends 2021-25); Base +10% (below revenue growth, so a small drag in bp); Bear flat.", fmt=FP0)
@@ -236,12 +241,12 @@ def build():
     b.blank()
     b.section("1. Calibration at FY'25 (values in the FY'25 column)")
     R["mk"] = b.row("Marketplace gross profit (disclosed: 4x 2021)", [f"={A['mk24']}", f"={A['mk25']}"], "FY'24 interpolated, FY'25 floor; see inputs section C.", fmt=FM)
-    R["dmsh"] = b.row("Discovery Mode share of marketplace gross profit", ["", f"={A['dmsh']}"], fmt=FP0)
-    R["D25"] = b.row("D: Discovery Mode gross profit", [f"=C{R['mk']}*{A['dmsh']}", f"=D{R['mk']}*D{R['dmsh']}"], "FY'24 at the same share: estimate.", fmt=FM)
+    R["dmsh"] = b.row("Discovery Mode share of marketplace gross profit (input in 'DM share' mode; solved in 'Measured s' mode)", ["", f"=IF({A['mode']}=\"Measured s\",IF(D{R['mk']}=0,0,{A['pool25']}*{A['e25']}*{A['smeas']}*{A['d25']}/D{R['mk']}),{A['dmsh']})"], "Calibration mode is set on the inputs tab (section C). FY'24 uses the same share, so both years sit on one definition.", fmt=FP0)
+    R["D25"] = b.row("D: Discovery Mode gross profit", [f"=C{R['mk']}*D{R['dmsh']}", f"=D{R['mk']}*D{R['dmsh']}"], "FY'24 at the same share: estimate.", fmt=FM)
     R["Q25"] = b.row("Q: Marquee + Showcase gross profit", [f"=C{R['mk']}-C{R['D25']}", f"=D{R['mk']}-D{R['D25']}"], fmt=FM)
     R["poole"] = b.row("Royalty pool on eligible surfaces = pool x e", ["", f"={A['pool25']}*{A['e25']}"], fmt=FM)
     assert b.r + 1 == 12, b.r   # inputs tab links s25 to bridge D12
-    R["s25"] = b.row("s: implied enrolled share of eligible-surface streams = D / (pool x e x discount)", ["", f"=IF(D{R['poole']}*{A['d25']}=0,0,D{R['D25']}/(D{R['poole']}*{A['d25']}))"], "Topic 2 of the triangulation matrix. Above 100% means the DM share or e is set too high.", bold=True, fill=YELLOW, box=True, fmt=FP1)
+    R["s25"] = b.row("s: enrolled share of eligible-surface streams = D / (pool x e x discount), or the measured figure", ["", f"=IF({A['mode']}=\"Measured s\",{A['smeas']},IF(D{R['poole']}*{A['d25']}=0,0,D{R['D25']}/(D{R['poole']}*{A['d25']})))"], "Topic 2 of the triangulation matrix. Solved cell: do not type over it. Above 100% means the DM share or e is set too high.", bold=True, fill=YELLOW, box=True, fmt=FP1)
     R["exs"] = b.row("DM-context enrolled streams as a share of all streams = e x s", ["", f"={A['e25']}*D{R['s25']}"], "'Share of streams via Discovery Mode' as the calls will phrase it.", fmt=FP1)
     R["ceil"] = b.row("Ceiling: D at 100% enrollment of today's surfaces", ["", f"=D{R['poole']}*{A['d25']}"], fmt=FM)
     R["run"] = b.row("Remaining runway at today's surfaces and discount, €M", ["", f"=D{R['ceil']}-D{R['D25']}"], "The whole remaining Discovery Mode lever, before any new surface or a bigger discount.", fmt=FM)
@@ -290,14 +295,14 @@ def build():
     CASE = {}
     for name in ["Bull", "Base", "Bear"]:
         er, sr, mr = A["e_rows"][name], A["s_rows"][name], A["m_rows"][name]
-        rD = b.row(f"{name}: D, Discovery Mode gross profit", [f"=C{R['D']}", f"=D{R['D']}", f"=E{R['pool']}*{IN}$E${er}*{IN}$E${sr}*E{R['d']}", f"=F{R['pool']}*{IN}$F${er}*{IN}$F${sr}*F{R['d']}"], fmt=FM)
+        rD = b.row(f"{name}: D, Discovery Mode gross profit", [f"=C{R['D']}", f"=D{R['D']}", f"=E{R['pool']}*(D{R['e']}+{IN}$E${er})*(D{R['s']}+{IN}$E${sr})*E{R['d']}", f"=F{R['pool']}*(D{R['e']}+{IN}$F${er})*(D{R['s']}+{IN}$F${sr})*F{R['d']}"], fmt=FM)
         rQ = b.row(f"{name}: Q, Marquee + Showcase gross profit", [f"=C{R['Q']}", f"=D{R['Q']}", f"=D{b.r+1}*(1+{IN}$E${mr})", f"=E{b.r+1}*(1+{IN}$F${mr})"], fmt=FM)
         rM = b.row(f"{name}: M = D + Q", [f"={c}{rD}+{c}{rQ}" for c in YC], fmt=FM)
         rE = b.row(f"{name}: y/y gross margin effect, bp", ["", f"=D{R['eff']}", f"=(E{rM}/E{R['rev']}-D{rM}/D{R['rev']})*10000", f"=(F{rM}/F{R['rev']}-E{rM}/E{R['rev']})*10000"], bold=True, fmt=FBP)
         rG = b.row(f"{name}: illustrative gross margin", [f"={A['gm24']}", f"={A['gm25']}", f"=D{b.r+1}+(E{R['oth']}+E{rE})/10000", f"=E{b.r+1}+(F{R['oth']}+F{rE})/10000"],
-                   {"Bull": "Needs marketplace to keep growing near 30% a year and enrollment to reach ~69% of eligible-surface streams by FY'27E: the saturation the artist data says is already biting.",
-                    "Base": "What the two datasets describe: Discovery Mode adds about 10 bp a year, Marquee drifts slightly negative, marketplace is roughly neutral to the margin path.",
-                    "Bear": "Listener backlash shrinks the surfaces the program lives on; marketplace becomes a 25-30 bp a year drag."}[name], bold=True, top=True, fmt=FP1)
+                   {"Bull": "Surfaces and enrollment both keep rising; marketplace keeps adding margin.",
+                    "Base": "What the two datasets describe: slow drift in surfaces, enrollment creeping up because staying in is defensive; marketplace roughly neutral to slightly positive for the margin path.",
+                    "Bear": "Enrollment slips and Marquee stalls; marketplace becomes a drag because it grows slower than revenue."}[name], bold=True, top=True, fmt=FP1)
         CASE[name] = dict(D=rD, Q=rQ, M=rM, E=rE, G=rG)
         if name != "Bear": b.blank()
     R["case"] = CASE
@@ -316,7 +321,7 @@ def build():
             gridcell(se, f"{col}{r2}", f"={BR}$F${R['pool']}*$B{r2}*{col}${rr}*{BR}$F${R['d']}/{BR}$F${R['rev']}*10000", FBP)
     s.row("FY'25 Discovery Mode contribution, bp (bridge)", [f"={BR}D{R['D']}/{BR}D{R['rev']}*10000"], fmt=FBP)
     s.row("FY'25 e and s (bridge)", [f"={BR}D{R['e']}", f"={BR}D{R['s']}"], fmt=FP1)
-    s.row("Reading: at e = 18% each 10 pt of enrolled share is worth roughly 30 bp in FY'27E; with e and s flat the lever adds nothing further. Cells beyond s = 100% are impossible.", label_font=F_I)
+    s.row("Reading: each 10 pt of enrolled share is worth pool x e x 10% x discount / revenue (roughly 55 bp in FY'27E at e = 33%); with e and s flat the lever adds nothing further in bp. Cells beyond s = 100% are impossible.", label_font=F_I)
     s.blank()
     s.row("Implied FY'25 enrolled share s for e (rows) x Discovery Mode share of marketplace gross profit (columns). The expert-call answers on Topics 2 and 3 should land in one of these cells; above 100% is impossible.", label_font=F_I)
     rr2 = s.row("e  \\  DM share of marketplace GP", label_font=F_B)
