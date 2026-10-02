@@ -1,0 +1,10 @@
+filing,period_end,cumulative_eur_m,increment_eur_m,months_in_increment,eur_m_per_month,filing_url,note
+6-K Q2-24,2024-06-30,46,46,4,11.5,https://www.sec.gov/Archives/edgar/data/1639920/000163992024000009/spot-20240630x6xk.htm,"of which EUR 35M relates to Apr-Jun 2024; March 2024 alone about EUR 11M"
+6-K Q3-24,2024-09-30,94,48,3,16.0,https://www.sec.gov/Archives/edgar/data/1639920/000163992024000013/spot-20240930x6xk.htm,
+20-F FY24,2024-12-31,150,56,3,18.7,https://www.sec.gov/Archives/edgar/data/1639920/000163992025000003/ck0001639920-20241231.htm,
+6-K Q1-25,2025-03-31,205,55,3,18.3,https://www.sec.gov/Archives/edgar/data/1639920/000163992025000006/spot-20250331x6xk.htm,
+6-K Q2-25,2025-06-30,256,51,3,17.0,https://www.sec.gov/Archives/edgar/data/1639920/000163992025000012/spot-20250630x6xk.htm,
+6-K Q3-25,2025-09-30,308,52,3,17.3,https://www.sec.gov/Archives/edgar/data/1639920/000162828025048927/spot-20250930x6xk.htm,"first filing to add: any liability would be partially offset by direct deals with publishers"
+20-F FY25,2025-12-31,358,50,3,16.7,https://www.sec.gov/Archives/edgar/data/1639920/000162828026006874/ck0001639920-20251231.htm,
+6-K Q1-26,2026-03-31,410,52,3,17.3,https://www.sec.gov/Archives/edgar/data/0001639920/000162828026027951/spot-20260331x6xk.htm,"USD 473M at the time"
+6-K Q2-26,2026-06-30,437,27,3,9.0,https://www.sec.gov/Archives/edgar/data/0001639920/000162828026052543/spot-20260630x6xk.htm,"as quoted by Music Ally 7 Sep 2026; a second reading gives EUR 473M (increment 63); verify in the filing"

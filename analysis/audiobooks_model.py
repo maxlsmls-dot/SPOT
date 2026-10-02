@@ -61,21 +61,39 @@ INPUTS = [
     ("prem_rev_h126", "Premium revenue H1-26", 8480, "€M", "H1-26", "4,150 + 4,330", "D"),
     ("prem_rev_9m24", "Premium revenue 9M-24", 10114, "€M", "9M24", "FY24 13,819 less Q4-24 3,705", "D"),
     ("prem_rev_9m25", "Premium revenue 9M-25", 11333, "€M", "9M25", "3,771 + 3,737 + 3,825", "D"),
-    # B: bundle saving
-    ("bundle_13m", "Bundle mechanical-royalty reduction, 1 Mar 2024 to 31 Mar 2025 (13 months)", 205, "€M", "Mar24-Mar25", "Spotify 6-K Q1-25: 'additional royalties that would be due would be approximately €205 million, plus potentially penalties and interest'", "D"),
-    ("bundle_months", "Months in the disclosure period", 13, "months", "", "", "D"),
+    # B: bundle saving. MLC contingency series: "additional royalties that would be due" if Premium were not a bundle, cumulative from 1 Mar 2024
+    ("mlc_cum_q224", "MLC contingency, cumulative 1 Mar 2024 to 30 Jun 2024", 46, "€M", "Q2-24", "6-K Q2-24: 'approximately €46 million, of which approximately €35 million relates to the three months ended June 30, 2024'", "D"),
+    ("mlc_q224_only", "of which the three months April to June 2024", 35, "€M", "Q2-24", "6-K Q2-24 (same sentence)", "D"),
+    ("mlc_cum_q324", "MLC contingency, cumulative to 30 Sep 2024", 94, "€M", "Q3-24", "6-K Q3-24", "D"),
+    ("mlc_cum_q424", "MLC contingency, cumulative to 31 Dec 2024", 150, "€M", "Q4-24", "20-F FY24", "D"),
+    ("mlc_cum_q125", "MLC contingency, cumulative to 31 Mar 2025", 205, "€M", "Q1-25", "6-K Q1-25", "D"),
+    ("mlc_cum_q225", "MLC contingency, cumulative to 30 Jun 2025", 256, "€M", "Q2-25", "6-K Q2-25", "D"),
+    ("mlc_cum_q325", "MLC contingency, cumulative to 30 Sep 2025", 308, "€M", "Q3-25", "6-K Q3-25: first filing to add 'Any liability would be partially offset by direct deals with publishers'", "D"),
+    ("mlc_cum_q425", "MLC contingency, cumulative to 31 Dec 2025", 358, "€M", "Q4-25", "20-F FY25", "D"),
+    ("mlc_cum_q126", "MLC contingency, cumulative to 31 Mar 2026", 410, "€M", "Q1-26", "6-K Q1-26 (USD 473M at the time, per NMPA 'nearly $480 million by Spotify's own admission')", "D"),
+    ("mlc_cum_q226", "MLC contingency, cumulative to 30 Jun 2026", 437, "€M", "Q2-26", "6-K Q2-26 as quoted by Music Ally, 7 Sep 2026. A second reading of the same filing gives €473M (which is also the USD value of the Q1-26 figure). Verify against the Q2-26 6-K legal-proceedings note before quoting", "D"),
+    ("bundle_rr_2026", "Gross bundle saving 2026E", 205, "€M", "FY26E", "Placeholder: 4 x average quarterly contingency increment Q2-25 to Q1-26 (€51M). Link to model: bundle saving FY26E", "L"),
+    ("bundle_rr_2027", "Gross bundle saving 2027E", 205, "€M", "FY27E", "Placeholder: flat on 2026E; Phonorecords IV settlement runs to end-2027. Link to model: bundle saving FY27E", "L"),
     ("nmpa_first_year", "NMPA estimate of first-year publisher loss", 230, "$M", "2024-25", "NMPA via Billboard", "R"),
-    ("bb_q423_mech", "Mechanical royalties paid, Q4-23 (MLC reports)", 97.3, "$M", "Q4-23", "Billboard analysis", "R"),
-    ("bb_q425_mech", "Mechanical royalties paid, Q4-25 (MLC reports; majors direct-licensed, so not comparable after 2025)", 53.3, "$M", "Q4-25", "Billboard analysis", "R"),
+    ("nmpa_cum_2026", "NMPA estimate of cumulative publisher loss to Spotify and Amazon bundling since 2024", 495, "$M", "Jun-26", "NMPA annual meeting, Jun 2026 ('nearly $500 million')", "R"),
+    ("bb_q423_mech", "Mechanical royalties paid to the MLC, paid tiers, Q4-23", 97.3, "$M", "Q4-23", "Billboard analysis of Spotify's MLC reports", "R"),
+    ("bb_q425_mech", "Mechanical royalties paid to the MLC, paid tiers, Q4-25", 53.3, "$M", "Q4-25", "Billboard analysis (-45%)", "R"),
+    ("bb_q423_rate", "Blended mechanical per-stream rate, paid tiers, Q4-23", 0.00068, "$/stream", "Q4-23", "Billboard analysis", "R"),
+    ("bb_q425_rate", "Blended mechanical per-stream rate, paid tiers, Q4-25", 0.00033, "$/stream", "Q4-25", "Billboard analysis (-51%)", "R"),
+    ("eurusd_q425", "EUR/USD, Q4-25 average", 1.16, "x", "Q4-25", "Approximate", "E"),
     ("music_alloc", "Music share of bundle revenue under CRB allocation", 0.52, "%", "", "NMPA / Billboard ('$5.70 of the bundle')", "R"),
     ("share_umpg", "UMPG share of US mechanicals", 0.22, "%", "", "Estimate from US publishing market shares (range 20-25%)", "E"),
     ("share_wcm", "Warner Chappell share of US mechanicals", 0.13, "%", "", "Estimate (range 11-15%)", "E"),
-    ("share_smp", "Sony Music Publishing share of US mechanicals", 0.26, "%", "", "Estimate; SMP ranked #1 publisher in 2025 (range 23-28%)", "E"),
+    ("share_kobalt", "Kobalt share of US mechanicals", 0.05, "%", "", "Estimate; largest independent (range 4-7%)", "E"),
+    ("share_smp", "Sony Music Publishing share of US mechanicals", 0.26, "%", "", "Estimate; SMP ranked #1 publisher in every quarter of 2025 (range 23-28%)", "E"),
+    ("share_bmg", "BMG share of US mechanicals", 0.03, "%", "", "Estimate (range 2-4%)", "E"),
     ("start_umpg", "UMPG direct licence start month (2025)", 2, "month", "2025", "Announced 26 Jan 2025; reported to 'nullify' the bundle discount going forward", "R"),
     ("start_wcm", "Warner Chappell direct licence start month (2025)", 3, "month", "2025", "Announced 6 Feb 2025; 'supersedes the bundling payment structure' (MBW)", "R"),
-    ("start_smp", "Sony Music Publishing direct licence start month (2025)", 10, "month", "2025", "Announced Sep 2025; direct US licence", "R"),
-    ("restoration", "Share of the bundle discount restored to direct-licensed publishers", 1.0, "%", "", "Assumption per reporting ('nullified'); sensitivity at 50%", "E"),
-    ("mlc_loss_2027", "MLC amended complaint succeeds in 2027 (1 = yes): remaining saving goes to zero", 0, "flag", "2027", "Scenario switch. Interlocutory appeal denied 1 Sep 2026; case continues at district court", "E"),
+    ("start_kobalt", "Kobalt direct licence start month (2025)", 9, "month", "2025", "Announced 13 Aug 2025; 'bespoke terms rather than the compulsory licence rates'", "R"),
+    ("start_smp", "Sony Music Publishing direct licence start month (2025)", 10, "month", "2025", "Announced 18 Sep 2025; direct US licence", "R"),
+    ("start_bmg", "BMG direct licence start month (2025)", 11, "month", "2025", "Announced 9 Oct 2025", "R"),
+    ("restoration", "Share of the bundle discount restored to direct-licensed publishers", 0.75, "%", "", "Estimate. Spotify: liability 'partially offset by direct deals'. MBW on the Warner deal: terms 'continue to recognize a difference between bundled and music-only listeners' but payments 'substantially improved'. Range 50-100%", "E"),
+    ("mlc_loss_2027", "MLC amended complaint succeeds in 2027 (1 = yes): the independents' share of the saving goes to zero", 0, "flag", "2027", "Scenario switch. Interlocutory appeal denied 1 Sep 2026; fact discovery cutoff 13 Mar 2027; no trial date set", "E"),
     # C: audiobook licensing cost
     ("c_2024", "Audiobook licensing cost 2024 ('hundreds of millions of dollars a year' by Oct-24)", 190, "€M", "FY24", "Axios 15 Oct 2024; Spotify newsroom Mar-25 repeats; 'tens of millions' by Feb-24 (Digital Music News). Sized as a full year", "E"),
     ("c_g_2025", "Audiobook licensing cost growth 2025 (listeners +30-36%, hours +35-37%, DACH launch, Family members)", 0.58, "%", "FY25", "Spotify newsroom Mar-25, Oct-25; estimate", "E"),
@@ -118,23 +136,34 @@ I = {k: v for k, _, v, *_ in INPUTS}
 
 def compute():
     r = {}
-    run_rate = I["bundle_13m"] / I["bundle_months"] * 12
-    r["run_rate"] = run_rate
-    months_active = {2024: 10, 2025: 12, 2026: 12, 2027: 12}
-    handback_months = {
-        "umpg": {2024: 0, 2025: 13 - I["start_umpg"], 2026: 12, 2027: 12},
-        "wcm": {2024: 0, 2025: 13 - I["start_wcm"], 2026: 12, 2027: 12},
-        "smp": {2024: 0, 2025: 13 - I["start_smp"], 2026: 12, 2027: 12},
-    }
-    shares = {"umpg": I["share_umpg"], "wcm": I["share_wcm"], "smp": I["share_smp"]}
-    r["B_gross"], r["B_handback"], r["B"] = {}, {}, {}
+    # MLC contingency series -> quarterly increments (gross bundle discount)
+    series = [("6-K Q2-24", "Jun-24", I["mlc_cum_q224"], 4), ("6-K Q3-24", "Sep-24", I["mlc_cum_q324"], 3), ("20-F FY24", "Dec-24", I["mlc_cum_q424"], 3),
+              ("6-K Q1-25", "Mar-25", I["mlc_cum_q125"], 3), ("6-K Q2-25", "Jun-25", I["mlc_cum_q225"], 3), ("6-K Q3-25", "Sep-25", I["mlc_cum_q325"], 3),
+              ("20-F FY25", "Dec-25", I["mlc_cum_q425"], 3), ("6-K Q1-26", "Mar-26", I["mlc_cum_q126"], 3), ("6-K Q2-26", "Jun-26", I["mlc_cum_q226"], 3)]
+    r["mlc_series"] = []
+    prev = 0
+    for filing, pe, cum, months in series:
+        inc = cum - prev; r["mlc_series"].append((filing, pe, cum, inc, months, inc / months)); prev = cum
+    r["mlc_avg_q"] = sum(x[3] for x in r["mlc_series"][4:8]) / 4  # Q2-25 .. Q1-26
+    r["B_gross"] = {2024: I["mlc_cum_q424"], 2025: I["mlc_cum_q425"] - I["mlc_cum_q424"], 2026: I["bundle_rr_2026"], 2027: I["bundle_rr_2027"]}
+    pubs = {"umpg": ("share_umpg", "start_umpg"), "wcm": ("share_wcm", "start_wcm"), "kobalt": ("share_kobalt", "start_kobalt"), "smp": ("share_smp", "start_smp"), "bmg": ("share_bmg", "start_bmg")}
+    shares = {p: I[k] for p, (k, _) in pubs.items()}
+    handback_months = {p: {2024: 0, 2025: 13 - I[st], 2026: 12, 2027: 12} for p, (_, st) in pubs.items()}
+    r["S_direct"] = sum(shares.values())
+    r["B_handback"], r["B"] = {}, {}
     for y in YEARS:
-        gross = run_rate * months_active[y] / 12
-        hb = sum(run_rate * shares[p] * handback_months[p][y] / 12 for p in shares) * I["restoration"]
+        gross = r["B_gross"][y]
+        hb = gross * sum(shares[p] * handback_months[p][y] / 12 for p in shares) * I["restoration"]
         b = gross - hb
         if y == 2027 and I["mlc_loss_2027"]:
-            b = 0
-        r["B_gross"][y], r["B_handback"][y], r["B"][y] = gross, hb, b
+            b = gross * r["S_direct"] * (1 - I["restoration"])  # independents' share goes to zero; un-restored part of direct deals stays
+        r["B_handback"][y], r["B"][y] = hb, b
+    # Billboard cross-check of the gross discount (Q4-25)
+    r["bb_streams_q423"] = I["bb_q423_mech"] / I["bb_q423_rate"] / 1000
+    r["bb_streams_q425"] = I["bb_q425_mech"] / I["bb_q425_rate"] / 1000
+    r["bb_counterfactual"] = r["bb_streams_q425"] * I["bb_q423_rate"] * 1000
+    r["bb_discount_usd"] = r["bb_counterfactual"] - I["bb_q425_mech"]
+    r["bb_discount_eur"] = r["bb_discount_usd"] / I["eurusd_q425"]
     # C
     c = {2024: I["c_2024"]}
     c[2025] = c[2024] * (1 + I["c_g_2025"]); c[2026] = c[2025] * (1 + I["c_g_2026"]); c[2027] = c[2026] * (1 + I["c_g_2027"])
@@ -259,16 +288,53 @@ def build_workbook(r):
 
     # 1. Bundle saving
     put("1. Bundle mechanical-royalty saving (B)", bold=True)
-    R_rr = put("Run-rate bundle saving, €M per year (13-month disclosure x 12/13)", single=f"={A['bundle_13m']}/{A['bundle_months']}*12", fmt=FMT_M)
-    R_mo = put("Months bundle active in year", vals=[10, 12, 12, 12], fmt=FMT_INT)
-    R_gross = put("Gross saving = run-rate x months / 12", vals=[f"=$B${R_rr}*{c}{R_mo}/12" for c in COLS], fmt=FMT_M)
-    R_u = put("UMPG months on direct licence", vals=[0, f"=13-{A['start_umpg']}", 12, 12], fmt=FMT_INT)
-    R_w = put("Warner Chappell months on direct licence", vals=[0, f"=13-{A['start_wcm']}", 12, 12], fmt=FMT_INT)
-    R_s = put("Sony Music Publishing months on direct licence", vals=[0, f"=13-{A['start_smp']}", 12, 12], fmt=FMT_INT)
-    R_hb = put("Hand-back to direct-licensed publishers = run-rate x sum(share x months / 12) x restoration",
-               vals=[f"=$B${R_rr}*({A['share_umpg']}*{c}{R_u}+{A['share_wcm']}*{c}{R_w}+{A['share_smp']}*{c}{R_s})/12*{A['restoration']}" for c in COLS], fmt=FMT_M)
-    R_B = put("B  Net bundle saving (2027: zero if MLC switch = 1)",
-              vals=[f"={c}{R_gross}-{c}{R_hb}" for c in COLS[:3]] + [f"=IF({A['mlc_loss_2027']}=1,0,F{R_gross}-F{R_hb})"], fmt=FMT_M, bold=True)
+    put("a. MLC contingency disclosed in Spotify filings: additional royalties due if Premium were not a bundle, cumulative from 1 Mar 2024 (€M)", bold=True)
+    h = put("Filing (period end)", vals=["Cumulative", "Increment", "Months", "€M per month"], bold=True)
+    for col in COLS: an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
+    series_keys = [("6-K Q2-24 (30 Jun 2024)", "mlc_cum_q224", 4), ("6-K Q3-24 (30 Sep 2024)", "mlc_cum_q324", 3), ("20-F FY24 (31 Dec 2024)", "mlc_cum_q424", 3),
+                   ("6-K Q1-25 (31 Mar 2025)", "mlc_cum_q125", 3), ("6-K Q2-25 (30 Jun 2025)", "mlc_cum_q225", 3), ("6-K Q3-25 (30 Sep 2025)", "mlc_cum_q325", 3),
+                   ("20-F FY25 (31 Dec 2025)", "mlc_cum_q425", 3), ("6-K Q1-26 (31 Mar 2026)", "mlc_cum_q126", 3), ("6-K Q2-26 (30 Jun 2026): verify, see inputs note", "mlc_cum_q226", 3)]
+    R_series = {}
+    prev_row = None
+    for label, key, months in series_keys:
+        rr = nxt()
+        inc = f"=C{rr}" if prev_row is None else f"=C{rr}-C{prev_row}"
+        put(label, vals=[f"={A[key]}", inc, months, f"=D{rr}/E{rr}"], fmt=FMT_M); an[f"F{rr}"].number_format = '0.0'
+        R_series[key] = rr; prev_row = rr
+    put("   of which April to June 2024 (so March 2024 alone was about €11M)", vals=[f"={A['mlc_q224_only']}", "", 3, f"=C{nxt()}/E{nxt()}"], fmt=FMT_M); an[f"F{state['row']}"].number_format = '0.0'
+    R_avg = put("Average quarterly increment, Q2-25 to Q1-26", single=f"=AVERAGE(D{R_series['mlc_cum_q225']}:D{R_series['mlc_cum_q126']})", fmt='0.0')
+    put("Annualised", single=f"=B{R_avg}*4", fmt=FMT_M)
+    put("Reading: the increment ran at €50-56M a quarter from Q4-24 to Q1-26 with no step down after the direct deals, so the figure is gross: Spotify still reports every paid-tier stream through the MLC at the bundle rate and pays the direct-licensed publishers a top-up outside it. The Q2-26 increment of €27M is either an FX translation effect or the first filing to net out direct-deal publishers; the 6-K wording decides which.")
+    put("")
+    put("b. Gross bundle saving by year", bold=True)
+    R_gross = put("Gross saving (2024-25 from filings; 2026E-27E placeholders on the inputs tab)",
+                  vals=[f"={A['mlc_cum_q424']}", f"={A['mlc_cum_q425']}-{A['mlc_cum_q424']}", f"={A['bundle_rr_2026']}", f"={A['bundle_rr_2027']}"], fmt=FMT_M, bold=True)
+    put("NMPA: first-year loss $230M; cumulative to Jun-26 (with Amazon) nearly $500M", single=f"={A['nmpa_first_year']}", extra={"C": f"={A['nmpa_cum_2026']}"}, fmt=FMT_M)
+    put("")
+    put("c. Cross-check: Billboard analysis of Spotify's MLC reports, paid tiers", bold=True)
+    R_bm = put("Mechanical royalties paid to the MLC, $M: Q4-23 (col B), Q4-25 (col C)", single=f"={A['bb_q423_mech']}", extra={"C": f"={A['bb_q425_mech']}"}, fmt='0.0')
+    R_br = put("Blended per-stream rate, $: Q4-23 (col B), Q4-25 (col C)", single=f"={A['bb_q423_rate']}", extra={"C": f"={A['bb_q425_rate']}"}, fmt='0.00000')
+    R_bs = put("Implied paid-tier streams, bn: Q4-23 (col B), Q4-25 (col C)", single=f"=B{R_bm}/B{R_br}/1000", extra={"C": f"=C{R_bm}/C{R_br}/1000"}, fmt='0.0')
+    R_bc = put("Counterfactual Q4-25 payment at the Q4-23 rate, $M", single=f"=C{R_bs}*B{R_br}*1000", fmt='0.0')
+    R_bd = put("Implied quarterly bundle discount, $M", single=f"=B{R_bc}-C{R_bm}", fmt='0.0')
+    R_bf = put("EUR/USD, Q4-25", single=f"={A['eurusd_q425']}", fmt=FMT_X)
+    put("Implied quarterly discount, €M (col B) vs 6-K Q4-25 increment (col C)", single=f"=B{R_bd}/B{R_bf}", extra={"C": f"=D{R_series['mlc_cum_q425']}"}, fmt='0.0')
+    put("Reading: streams in the MLC reports grew 19bn between the two quarters, so direct-licensed publishers have not left the blanket licence. Two independent sources put the gross discount at about €50M a quarter.")
+    put("")
+    put("d. Hand-back to direct-licensed publishers", bold=True)
+    h = put("Publisher (share of US mechanicals in col B)", vals=["Months on direct licence", "", "", ""], bold=True)
+    an[f"C{h}"].alignment = Alignment(horizontal="left")
+    pub_rows = {}
+    for label, sk, st in [("UMPG", "share_umpg", "start_umpg"), ("Warner Chappell", "share_wcm", "start_wcm"), ("Kobalt", "share_kobalt", "start_kobalt"),
+                          ("Sony Music Publishing", "share_smp", "start_smp"), ("BMG", "share_bmg", "start_bmg")]:
+        pub_rows[sk] = put(label, single=f"={A[sk]}", vals=[0, f"=13-{A[st]}", 12, 12], fmt=FMT_INT); an[f"B{pub_rows[sk]}"].number_format = FMT_PCT0
+    first, last = min(pub_rows.values()), max(pub_rows.values())
+    R_S = put("Sum of shares on direct licences (independents are the remainder, still paid at the bundle rate via the MLC)", single=f"=SUM(B{first}:B{last})", fmt=FMT_PCT0)
+    R_rest = put("Restoration of the bundle discount in the direct deals", single=f"={A['restoration']}", fmt=FMT_PCT0)
+    R_hb = put("Hand-back = gross x sum(share x months / 12) x restoration",
+               vals=[f"={c}{R_gross}*SUMPRODUCT($B${first}:$B${last},{c}{first}:{c}{last})/12*$B${R_rest}" for c in COLS], fmt=FMT_M)
+    R_B = put("B  Net bundle saving (2027: if MLC switch = 1, the independents' share goes to zero)",
+              vals=[f"={c}{R_gross}-{c}{R_hb}" for c in COLS[:3]] + [f"=IF({A['mlc_loss_2027']}=1,F{R_gross}*$B${R_S}*(1-$B${R_rest}),F{R_gross}-F{R_hb})"], fmt=FMT_M, bold=True)
     put("")
 
     # 2. Licensing cost on included hours
@@ -341,30 +407,23 @@ def build_workbook(r):
         rr = nxt(); put(label, vals=[rev_f, cost_f, f"=D{rr}/C{rr}"], fmt=FMT_M); an[f"E{rr}"].number_format = FMT_PCT
     put("Note: the incremental ratio holds at 48-50% in every period against a ~66% average ratio. It bounds the growth in C rather than measuring it: music royalties, the bundle saving, marketplace offsets and the Partner Program all move inside the same line.")
     put("")
-    put("c. Bundle saving, external references", bold=True)
-    put("NMPA first-year publisher loss estimate ($M)", single=f"={A['nmpa_first_year']}", fmt=FMT_M)
-    put("MLC mechanical royalties paid, $M: Q4-23 (col B), Q4-25 (col C); direct-licensed publishers leave the MLC pool after 2025, so the series overstates the net saving",
-        single=f"={A['bb_q423_mech']}", extra={"C": f"={A['bb_q425_mech']}"}, fmt='0.0')
-    put("")
-
     # 7. Sensitivity (live)
     put("7. Sensitivity: 2027E, by audiobook cost growth (rows) and bundle-discount restoration / MLC outcome (columns)", bold=True)
-    S = f"({A['share_umpg']}+{A['share_wcm']}+{A['share_smp']})"
-    R_h1 = put("Restoration of bundle discount", vals=[0.5, 1.0, 1.0], fmt=FMT_PCT0)
+    R_h1 = put("Restoration of bundle discount", vals=[0.5, 0.75, 0.75], fmt=FMT_PCT0)
     R_h2 = put("MLC complaint succeeds in 2027 (1 = yes)", vals=[0, 0, 1], fmt=FMT_INT)
     h = put("Cost growth p.a. 2026-27 (col A)", vals=["Change in N 2027, bp", "Change in N 2027, bp", "Change in N 2027, bp"], bold=True)
     for col in COLS[:3]: an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
     for gr in [0.20, 0.30, 0.45, 0.60]:
         rr = nxt()
-        vals = [f"=((IF({c}${R_h2}=1,0,$B${R_rr}*(1-{S}*{c}${R_h1}))-$B${R_rr}*(1-{S}*{c}${R_h1}))+($F${R_Agp}-$E${R_Agp})-$D${R_C}*(1+$A{rr})*$A{rr})/$F${R_grp}*10000" for c in COLS[:3]]
+        vals = [f"=((IF({c}${R_h2}=1,$F${R_gross}*$B${R_S}*(1-{c}${R_h1}),$F${R_gross}*(1-$B${R_S}*{c}${R_h1}))-$E${R_gross}*(1-$B${R_S}*{c}${R_h1}))+($F${R_Agp}-$E${R_Agp})-$D${R_C}*(1+$A{rr})*$A{rr})/$F${R_grp}*10000" for c in COLS[:3]]
         put(gr, vals=vals, fmt=FMT_BP); an[f"A{rr}"].number_format = FMT_PCT0; an[f"A{rr}"].font = F_BLUE
     h = put("Cost growth p.a. 2026-27 (col A)", vals=["N 2027, €M", "N 2027, €M", "N 2027, €M"], bold=True)
     for col in COLS[:3]: an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
     for gr in [0.20, 0.30, 0.45, 0.60]:
         rr = nxt()
-        vals = [f"=IF({c}${R_h2}=1,0,$B${R_rr}*(1-{S}*{c}${R_h1}))+$F${R_Agp}-$D${R_C}*(1+$A{rr})^2" for c in COLS[:3]]
+        vals = [f"=IF({c}${R_h2}=1,$F${R_gross}*$B${R_S}*(1-{c}${R_h1}),$F${R_gross}*(1-$B${R_S}*{c}${R_h1}))+$F${R_Agp}-$D${R_C}*(1+$A{rr})^2" for c in COLS[:3]]
         put(gr, vals=vals, fmt=FMT_M); an[f"A{rr}"].number_format = FMT_PCT0; an[f"A{rr}"].font = F_BLUE
-    put("Restoration below 100% does not change the 2027 headwind (B is flat 2026 to 2027 once all three majors are on direct licences); it changes the level of N.")
+    put("Restoration does not change the 2027 headwind (B is flat 2026 to 2027 once every direct deal is a full year old); it changes the level of N. An MLC win removes the independents' share of the gross saving.")
 
     an.column_dimensions["A"].width = 88; an.column_dimensions["B"].width = 14
     for col in COLS: an.column_dimensions[col].width = 13
@@ -384,7 +443,7 @@ def decision_rows(r):
     rows.append(["1. Book publishers' cost (ΔC, €M) grows faster than priced-channel gross profit (ΔA_gp, €M)", "ΔC > ΔA_gp in 2025 and 2026",
                  f"2025: ΔC {r['dC'][2025]:+.0f} vs ΔA_gp {r['dA_gp'][2025]:+.0f}; 2026: ΔC {r['dC'][2026]:+.0f} vs ΔA_gp {r['dA_gp'][2026]:+.0f}", "CONFIRMED"])
     rows.append(["2. Music publishers claw back the bundle saving (B falls)", "B(2026) < B(2024)",
-                 f"B: 2024 {r['B'][2024]:.0f} → 2025 {r['B'][2025]:.0f} → 2026 {r['B'][2026]:.0f} (direct deals reported to nullify the discount; restoration factor is an assumption)", "SUPPORTED"])
+                 f"B: 2024 {r['B'][2024]:.0f} → 2025 {r['B'][2025]:.0f} → 2026 {r['B'][2026]:.0f}. Gross saving is disclosed (€{r['B_gross'][2024]:.0f}M 2024, €{r['B_gross'][2025]:.0f}M 2025); five direct deals cover ~{r['S_direct']:.0%} of US mechanicals; restoration ({I['restoration']:.0%}) is an estimate", "SUPPORTED"])
     rows.append(["3. Net contribution N is negative by 2026", "N(2026) ≤ 0",
                  f"N: 2024 {r['N'][2024]:.0f}, 2025 {r['N'][2025]:.0f}, 2026 {r['N'][2026]:.0f}, 2027 {r['N'][2027]:.0f} (€M). Negative in every year once the price increase is excluded", "CONFIRMED"])
     rows.append(["4. Paid attach is low after a full year", "< 1% of eligible subscribers; < 3% of listeners",
@@ -398,14 +457,14 @@ def decision_rows(r):
     return rows
 
 SOURCES = [
-    "Spotify Form 6-K, Q1-25 (bundle: ~€205M additional royalties for 1 Mar 2024–31 Mar 2025 if the MLC prevailed): sec.gov/Archives/edgar/data/1639920/000163992025000006/spot-20250331x6xk.htm",
+    "MLC contingency series (legal proceedings note in each filing): 6-K Q2-24 sec.gov/Archives/edgar/data/1639920/000163992024000009/spot-20240630x6xk.htm; 6-K Q3-24 .../000163992024000013/spot-20240930x6xk.htm; 20-F FY24 .../000163992025000003/ck0001639920-20241231.htm; 6-K Q1-25 .../000163992025000006/spot-20250331x6xk.htm; 6-K Q2-25 .../000163992025000012/spot-20250630x6xk.htm; 6-K Q3-25 .../000162828025048927/spot-20250930x6xk.htm; 20-F FY25 .../000162828026006874/ck0001639920-20251231.htm; 6-K Q1-26 .../000162828026027951/spot-20260331x6xk.htm; 6-K Q2-26 .../000162828026052543/spot-20260630x6xk.htm",
+    "Billboard, 'How Much Have Spotify Bundles Decreased the Mechanical Per-Stream Rate? (Analysis)': Q4-23 $97.3M at $0.00068 per stream; Q4-25 $53.3M at $0.00033; streams +19.3bn",
+    "Direct deals: UMPG 26 Jan 2025 (MBW); Warner Chappell 6 Feb 2025 (MBW: 'supersedes the bundling payment structure'; terms 'continue to recognize a difference between bundled and music-only listeners'); Kobalt 13 Aug 2025 (CMU, MBW); Sony Music Publishing 18 Sep 2025 (MBW, Variety); BMG 9 Oct 2025 (CMU)",
+    "MLC v. Spotify USA Inc., S.D.N.Y. 1:24-cv-03809: dismissed with prejudice 29 Jan 2025; reconsideration granted Sep 2025; amended complaint 1 Oct 2025 (valuation of the bundle components and the Audiobook Access tier); jury demand 8 Oct 2025; interlocutory appeal denied 1 Sep 2026; fact discovery cutoff 13 Mar 2027",
     "Spotify Form 20-F FY2024 and FY2025 (Premium cost of revenue drivers, royalty component increases, Premium GM): sec.gov/Archives/edgar/data/1639920/000163992025000003/ck0001639920-20241231.htm ; .../000162828026006874/ck0001639920-20251231.htm",
     "Spotify Form 6-K Q2-26 (H1-26 Premium cost of revenue +€500M, content +€474M, ratio 67%→65%): sec.gov/Archives/edgar/data/0001639920/000162828026052543/spot-20260630x6xk.htm",
     "Spotify Form 6-K Q3-25 (9M-25 royalty component +€588M): sec.gov/Archives/edgar/data/1639920/000162828025048927/spot-20250930x6xk.htm",
-    "Billboard, 'How much have Spotify bundles decreased the mechanical per-stream rate' (Q4-23 $97.3M → Q4-25 $53.3M; per-stream −51%)",
-    "NMPA statements: $150M (May 2024), $230M first-year loss, ~$500M cumulative with Amazon (2025–26); Billboard 'bundling controversy one year later'",
-    "Direct deals: UMPG (26 Jan 2025, DMN/Billboard: bundle discount 'nullified going forward'); Warner Chappell (6 Feb 2025, MBW: 'supersedes the bundling payment structure'); Sony Music Publishing (Sep 2025, MBW)",
-    "MLC v. Spotify: dismissal Jan 2025 (Variety); amended complaint late 2025; interlocutory appeal denied 1 Sep 2026 (MBW, Soundstock)",
+    "NMPA statements: $150M (May 2024), $230M first-year loss, nearly $500M cumulative with Amazon (annual meeting, Jun 2026; 'nearly $480 million by Spotify's own admission')",
     "Audiobook cost phrases: Digital Music News 5 Feb 2024 ('tens of millions'); Axios 15 Oct 2024 ('hundreds of millions annually'); Spotify newsroom 13 Mar 2025",
     "Spotify newsroom 15 Oct 2025 (two-year stats: listeners +36%, hours +37%, >50% tried); Mar 2025 (listeners +30%, hours +35%, 400k titles); Publishers Weekly 2026 (listeners +60%, Audiobooks+ $100M ARR, >1M payers)",
     "The Bookseller 2025 / TechCrunch 17 Jul 2025 ('more than 25% of Premium subscribers listening')",
@@ -491,9 +550,12 @@ def findings(r):
     L.append("| Book publishers paid on consumption (−ΔC) | " + " | ".join(f"{-r['dC'][y]:.0f}" for y in YEARS[1:]) + " |")
     L.append("| Paid hours offset (ΔA_gp) | " + " | ".join(f"{r['dA_gp'][y]:+.0f}" for y in YEARS[1:]) + " |")
     L.append("| Net | " + " | ".join(f"{r['dN'][y]:.0f}" for y in YEARS[1:]) + " |")
-    L.append("\nTwo different rights-holder groups, two different mechanisms. The music publishers' claw-back is contractual: UMPG (Jan-25), Warner Chappell (Feb-25) and Sony Music Publishing (Sep-25) moved to direct US licences that reporting describes as nullifying the bundle discount. The book publishers' claw-back is volumetric: per-title fees and pool payments on consumption that the company reports growing 35–60% a year. The priced channel offsets roughly a sixth of the book-publisher cost growth.\n")
+    L.append("\nTwo different rights-holder groups, two different mechanisms. The music publishers' claw-back is contractual: UMPG (Jan-25), Warner Chappell (Feb-25), Kobalt (Aug-25), Sony Music Publishing (Sep-25) and BMG (Oct-25) moved to direct US licences that supersede the bundle rate. The book publishers' claw-back is volumetric: per-title fees and pool payments on consumption that the company reports growing 35–60% a year. The priced channel offsets roughly a sixth of the book-publisher cost growth.\n")
     L.append("## 3. How each term was sized\n")
-    L.append(f"**B.** Spotify's own 6-K puts the bundle reduction at €{I['bundle_13m']}M for the 13 months to March 2025, a run-rate of €{r['run_rate']:.0f}M a year, consistent with the NMPA's $230M first-year figure and Billboard's finding that MLC mechanical payments fell 45% between Q4-23 and Q4-25. Hand-backs assume the three majors' publishers hold ~{(I['share_umpg']+I['share_wcm']+I['share_smp']):.0%} of US mechanicals and that their direct deals restore {I['restoration']:.0%} of the discount; the Billboard series cannot test this because direct-licensed publishers drop out of MLC data. The remaining €{r['B'][2026]:.0f}M (independents) is what the MLC's amended complaint is pursuing.\n")
+    L.append(f"**B.** The gross saving is disclosed. Every 6-K and 20-F since Q2-24 states the additional royalties that would be due to the MLC if Premium were not a bundle, cumulative from 1 March 2024. The quarterly increments run at €50-56M from Q4-24 to Q1-26, so the gross discount is about €{r['B_gross'][2024]:.0f}M for 2024 (ten months) and €{r['B_gross'][2025]:.0f}M for 2025. Billboard's analysis of Spotify's MLC reports gives the same answer independently: at the Q4-23 per-stream rate, Q4-25 streams would have cost ${r['bb_counterfactual']:.0f}M against ${I['bb_q425_mech']:.1f}M paid, a discount of €{r['bb_discount_eur']:.0f}M for the quarter versus the filing increment of €{r['mlc_series'][6][3]:.0f}M. Streams in the MLC reports grew between the two quarters, so the direct-licensed publishers have not left the blanket licence: the contingency is gross and the hand-back must be estimated. Five direct deals (UMPG Jan-25, Warner Chappell Feb-25, Kobalt Aug-25, Sony Music Publishing Sep-25, BMG Oct-25) cover an estimated {r['S_direct']:.0%} of US mechanicals; restoration is set at {I['restoration']:.0%} because Spotify calls the offset partial and the Warner terms still distinguish bundled from music-only listeners. The remaining independents' share (€{r['B_gross'][2026]*(1-r['S_direct']):.0f}M a year) is what the MLC's amended complaint pursues.\n")
+    L.append("| Filing | Period end | Cumulative €M | Increment €M | Months | €M per month |\n|---|---|---|---|---|---|")
+    for filing, pe, cum, inc, months, pm in r["mlc_series"]: L.append(f"| {filing} | {pe} | {cum:.0f} | {inc:.0f} | {months} | {pm:.1f} |")
+    L.append("\nThe Q2-26 figure is quoted by Music Ally as €437M; a second reading of the same filing gives €473M. The increment is €27M on the first reading and €63M on the second. Verify in the Q2-26 6-K legal-proceedings note. The 2026E placeholder uses the Q2-25 to Q1-26 average and does not depend on it.\n")
     L.append(f"**C.** Anchored on the company's words: 'tens of millions' three months after US launch (Feb-24) and 'hundreds of millions of dollars a year' by Oct-24, set at €{I['c_2024']}M for 2024 and grown by disclosed consumption growth. Market-share triangulation: {I['spot_us_share_lo']:.0%}–{I['spot_us_share_hi']:.0%} of $2.43B US publisher receipts, times {I['nonus_uplift']:.1f}x for non-US markets, gives €{r['C_tri_lo']:.0f}–{r['C_tri_hi']:.0f}M for 2025 against the base €{r['C'][2025]:.0f}M. Low/high cases at {I['c_low_mult']:.0%}/{I['c_high_mult']:.0%} of base.\n")
     L.append(f"**A.** Audiobooks+ reached ~$100M ARR and >1M payers by mid-2026 (ARR per payer ≈ ${r['arr_per_payer']:.0f}/yr, consistent with the $11.99 price and a mix of top-ups). Gross profit assumes paid hours carry the same publisher payments at a {I['a_cogs_ratio']:.0%} cost ratio.\n")
     L.append("## 4. Residual cross-check (inconclusive, and that matters)\n")
@@ -508,10 +570,10 @@ def findings(r):
     L.append("| Test | Threshold | Result | Verdict |\n|---|---|---|---|")
     for row in decision_rows(r): L.append("| " + " | ".join(str(x) for x in row) + " |")
     L.append("\n## 7. Sensitivity (ΔN 2027, bp of group revenue)\n")
-    L.append("| C growth p.a. | restoration 0.5 | restoration 1.0 | restoration 1.0 + MLC loss |\n|---|---|---|---|")
+    L.append("| C growth p.a. | restoration 50% | restoration 75% (base) | restoration 75% + MLC loss |\n|---|---|---|---|")
     for gr in [0.20, 0.30, 0.45, 0.60]:
         vals = []
-        for rest, mlc in [(0.5, 0), (1.0, 0), (1.0, 1)]:
+        for rest, mlc in [(0.5, 0), (0.75, 0), (0.75, 1)]:
             sv = dict(I); sv["restoration"] = rest; sv["mlc_loss_2027"] = mlc; sv["c_g_2026"] = gr; sv["c_g_2027"] = gr
             vals.append(compute_with(sv)["dN_bp"][2027])
         L.append(f"| {gr:.0%} | " + " | ".join(f"{v:.0f}" for v in vals) + " |")
@@ -520,7 +582,7 @@ def findings(r):
     L.append(f"- From 2025 the reclassification is being handed back to the majors' publishers through direct deals while consumption compounds. On base assumptions the net line moves from about −€{-r['N'][2024]:.0f}M in 2024 to −€{-r['N'][2027]:.0f}M in 2027, a {-r['dN_bp'][2025]:.0f}/{-r['dN_bp'][2026]:.0f}/{-r['dN_bp'][2027]:.0f}bp headwind in 2025/2026/2027.")
     L.append("- Spotify's only governors are the hour cap (already 12 h in every market launched since 2024), the per-title triggers, and the pool rate. Audible at $8.99 and Amazon's free book remove the price lever.")
     L.append("- The priced channel is real but small: it funds roughly a sixth of the consumption cost growth and attaches below 1% of eligible subscribers, which is the platform's own evidence against a 3% Music Pro attach.")
-    L.append("- Caveats: C is triangulated, not disclosed; the restoration factor on the direct deals is reported, not quantified; the residual method is silent. The direction survives every sensitivity in section 7; the size ranges from ~30 to ~110bp a year.")
+    L.append("- Caveats: C is triangulated, not disclosed; the gross bundle saving is disclosed but the restoration factor on the direct deals is an estimate; the residual method is silent. The direction survives every sensitivity in section 7; the size ranges from ~30 to ~110bp a year.")
     open(os.path.join(ROOT, "analysis", "audiobooks-findings.md"), "w").write("\n".join(L))
 
 def main():
