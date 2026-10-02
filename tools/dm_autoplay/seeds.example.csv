@@ -1,0 +1,11 @@
+seed_uri,seed_group,genre,pop_tier,note
+spotify:track:REPLACE_ME_1,UMG,pop,high,"UMG frontline, pop, popularity >= 70"
+spotify:track:REPLACE_ME_2,SONY,pop,high,"Sony frontline, pop, popularity >= 70"
+spotify:track:REPLACE_ME_3,WMG,pop,high,"WMG frontline, pop, popularity >= 70"
+spotify:track:REPLACE_ME_4,INDIE,pop,high,"Independent label, pop, popularity >= 70"
+spotify:track:REPLACE_ME_5,DIY,pop,high,"Self-released, pop, popularity >= 70"
+spotify:track:REPLACE_ME_6,UMG,pop,mid,"UMG frontline, pop, popularity 40-69"
+spotify:track:REPLACE_ME_7,SONY,hip-hop,high,
+spotify:track:REPLACE_ME_8,WMG,rock,mid,
+spotify:track:REPLACE_ME_9,INDIE,electronic,mid,
+spotify:track:REPLACE_ME_10,DIY,lofi,mid,
