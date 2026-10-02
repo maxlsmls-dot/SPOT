@@ -1,13 +1,13 @@
 # Driving a gross margin assumption from Discovery Mode and autoplay growth
 
-Date: 2026-10-02. Inputs: `data/spotify_autoplay_sentiment.xlsx`, `data/discovery_mode_efficacy.xlsx`. Model: `analysis/spot_gm_driver_model.xlsx` (built by `analysis/build_gm_model.py`). Nothing here is an investment view; it is a way to turn the two datasets and Spotify's disclosures into a margin input.
+Date: 2026-10-02. Inputs: `data/spotify_autoplay_sentiment.xlsx`, `data/discovery_mode_efficacy.xlsx`. Model tabs: `data/SPOT_DM_Tabs.xlsx` (built by `analysis/dm_model_tabs.py`), formatted to the operating model's conventions so the eight tabs can be copied in as they are. Nothing here is an investment view; it is a way to turn the two datasets and Spotify's disclosures into a margin input.
 
 ## Bottom line
 
 - Discovery Mode (DM) is a royalty discount, not revenue. Spotify's saving is simply: enrolled DM-context streams × 30% × their royalty. It does not depend on whether the artist gains, so falling *efficacy* for artists does not by itself cut the saving. What it does is cap future growth of the lever and raise the odds of backlash.
-- The lever is bounded. At the calibrated inputs (eligible surfaces = 18% of streams, ~53% of those streams enrolled) the entire remaining DM runway at today's surfaces and discount is roughly 150 bps of consolidated gross margin, and that runway shrinks in bps terms every year revenue grows.
-- "Growth slowing" is a margin headwind, not just slower help. Gross margin is a ratio: marketplace gross profit grew roughly 41% a year from 2021 to 2025 and now sits at ~370 bps of margin. With revenue compounding at 12-14%, marketplace has to grow at least that fast to hold its contribution flat. A marketplace growing 8-12% is ~zero incremental bps; one growing 0-5% is negative.
-- Translated into the model: a street-style continuation (Scenario A) puts 2028E gross margin near 36.2%; the slowing thesis (B) near 34.5%; saturation with backlash (C) near 33.6%. The DM-and-autoplay piece alone is worth about 165 bps between A and B in 2028 and 260 bps between A and C. The non-marketplace drivers (pricing, audiobooks, podcasts, ad mix) are a placeholder in the model and should be replaced from the P&L model.
+- The lever is bounded. At the calibrated inputs (eligible surfaces = 18% of streams, ~53% of those streams enrolled) the entire remaining DM runway at today's surfaces and discount is roughly 150 bp of consolidated gross margin, and that runway shrinks in bp terms every year revenue grows.
+- "Growth slowing" is a margin headwind, not just slower help. Gross margin is a ratio: marketplace gross profit grew roughly 41% a year from 2021 to 2025 and now sits at ~370 bp of margin. With revenue compounding at 9-14%, marketplace has to grow at least that fast to hold its contribution flat. A marketplace growing 10-15% is ~zero incremental bp; one growing 0-5% is negative.
+- Translated into the tabs: the Base case (the slowing thesis) gives a marketplace effect on gross margin of +4 bp in FY'26E and +11 bp in FY'27E, against an estimated +84 bp in FY'25. Bull (street-style continuation) gives +54 and +67 bp; Bear (saturation with backlash) gives −27 and −25 bp. On the illustrative path that is FY'27E gross margin of 35.0% / 34.0% / 33.3% for Bull / Base / Bear, with the non-marketplace drivers held at a placeholder that should be replaced from the model's own GM build.
 - The two workbooks support the *direction* (plateauing autoplay salience, fading DM lift, defensive enrollment) but not magnitudes. The two numbers the expert calls must pin down are exactly the model's two levers: the share of streams on DM-eligible surfaces (Topic 3, the ceiling) and the share of those that are enrolled (Topic 2).
 
 ## 1. What the two workbooks contain, and how far to trust them
@@ -30,7 +30,7 @@ Every post in r/spotify and r/truespotify from January 2023 to October 1 2026 (2
 
 What holds up:
 
-- The workbook is internally consistent. Every formula is correct, the By Year counts reconcile to the 4,000 scored rows, there are no duplicate posts, and the theme patterns are documented on the Notes tab. Blue/black colour convention is followed.
+- The workbook is internally consistent. Every formula is correct, the By Year counts reconcile to the 4,000 scored rows, there are no duplicate posts, and the theme patterns are documented on the Notes tab.
 - Topic salience rose through 2025 and the tone of the discussion has worsened every year. 2026 H1 was the most negative half-year in the series (44% negative on all posts). Discussion of the AI DJ / Smart Shuffle novelty has fallen by half since 2024, and in April 2025 Spotify made Smart Shuffle removable (the 959-upvote "You can now remove Smart Shuffle! Finally" post).
 - AI-generated music went from a non-topic to 4.6% of autoplay posts. The highest-upvoted posts of 2025-26 are about AI tracks surfacing in Discover Weekly and recommendations.
 
@@ -73,7 +73,7 @@ What does not hold up, or needs care:
 - **The lift comparison is 4 campaigns versus 3.** A rank test on those seven values is not significant (roughly p = 0.1). The lift metric also rewards songs with a tiny prior base (the 7.4x Oct 2024 campaign had 359 prior-28-day streams). The direction is plausible; the magnitude is not evidence.
 - **The 18 before/after pairs trend toward "Up" over time** (2023: 1 up / 5 down; 2025-26: 3 up / 0 down), the opposite of the thesis. The workbook explains this as mix shift toward small artists, which is reasonable, but it means the pairs cannot support the time claim either way.
 - The Reference tab's undated list of 13 "lift (%)" figures mixes multiples (2.77, 0.55) with percentages (20, 30, 60), so its median of 2.14 is meaningless. The intent-rate list is labelled "%" but stored as fractions (harmless).
-- The Summary labels 7.5% as the "median DM share of monthly streams (established artists)", but the underlying list mixes four established artists at 3.5-5% with catalog-heavy and tiny artists at 33-50%. Use 4% for established artists.
+- The Summary labels 7.5% as the "median DM share of monthly streams (established artists)", but the underlying list mixes four established artists at 3.5-5% with catalog-heavy and tiny artists at 33-50%. Use 4% for established artists; the data tab now separates the two groups.
 - Everything is self-selected from one subreddit; the workbook says so itself ("illustrates a thesis; it cannot carry one on its own").
 
 Verdict: strong on mechanism and direction, weak on magnitude. It justifies modelling the enrolled share as creeping up rather than compounding, and the eligible-surface share as capped.
@@ -89,12 +89,12 @@ What Spotify has disclosed about size:
 | Marketplace gross profit, 2018 | under EUR 20m | Investor Day, June 2022 |
 | Marketplace gross profit, 2021 | more than EUR 160m | Investor Day, June 2022 |
 | Marketplace gross profit, 2025 | 4x 2021 (so EUR 640m or more) | Investor Day, May 2026 |
-| Consolidated gross margin | 2023 ~25.6%; 2024 ~30%; 2025 32%; Q1 2026 33.0%; Q2 2026 33.4%; Q3 2026 guide 32.9% | 20-F, shareholder letters |
+| Consolidated gross margin | 2024 30.1%; 2025 32.0%; Q1 2026 33.0%; Q2 2026 33.4%; Q3 2026 guide 32.9% | 20-F, shareholder letters |
 | Premium gross margin | 2023 29%; 2024 33%; 2025 34%; Q2 2026 35% | 20-F, Q2 2026 letter |
 | 2030 target | gross margin 35-40%, mid-teens revenue CAGR | Investor Day, May 2026 |
-| Royalties paid to music rights holders, 2025 | USD 11bn (~EUR 10.1bn) | Loud & Clear 2026 |
+| Royalties paid to music rights holders | USD 10bn in 2024, USD 11bn in 2025 (~EUR 9.3bn, ~EUR 10.1bn) | Loud & Clear 2025, 2026 |
 
-The identity the model uses:
+The identity the tabs use:
 
     DM gross profit = royalty pool × e × s × d
 
@@ -102,65 +102,67 @@ where `e` is the share of streams on DM-eligible surfaces (Radio, Autoplay, Mixe
 
 Why DM is zero-sum for artists but not for Spotify: the program reallocates slots, it does not create listening. The one artist in the dataset who checked total streams saw Spotify report +55% in DM contexts while the song's total fell. So Spotify's saving is `pool × e × s × d` whether or not the artist benefits.
 
-## 3. Calibration to 2025
+## 3. Calibration to FY'25 (`DM GM Bridge`, section 1)
 
-With marketplace gross profit at EUR 640m (372 bps of 2025 revenue) and DM assumed to be 45% of it (the split is undisclosed; Marquee is the older and larger-revenue product):
+With marketplace gross profit at EUR 640m (372 bp of FY'25 revenue) and DM assumed to be 45% of it (the split is undisclosed; Marquee is the older and larger-revenue product):
 
 | | Value |
 |---|---|
-| DM gross profit 2025 | ~EUR 288m, ~168 bps |
-| Marquee + Showcase 2025 | ~EUR 352m, ~205 bps |
+| DM gross profit FY'25 | ~EUR 288m, ~168 bp |
+| Marquee + Showcase FY'25 | ~EUR 352m, ~205 bp |
 | Royalty pool on eligible surfaces (EUR 10.1bn × 18%) | ~EUR 1.8bn |
 | Implied enrolled share `s` | ~53% |
 | Implied DM-context enrolled streams, share of all streams (`e × s`) | ~9.5% |
-| Ceiling at 100% enrollment, today's surfaces | ~EUR 545m, ~317 bps |
-| Remaining runway | ~EUR 257m, ~150 bps of 2025 revenue |
+| Ceiling at 100% enrollment, today's surfaces | ~EUR 545m, ~317 bp |
+| Remaining runway | ~EUR 257m, ~150 bp of FY'25 revenue |
 
-The Inputs tab has a grid of implied `s` for `e` from 12% to 25% and DM share of marketplace from 35% to 65%. Any expert-call answer on Topic 2 or 3 should land in one of those cells; combinations above 100% are impossible and would mean the DM share of marketplace is set too high.
+FY'24 marketplace gross profit is not disclosed; the tabs interpolate it at the 2021-25 CAGR (~EUR 450m), which makes the FY'25 y/y marketplace effect an estimate of about +84 bp of the +190 bp reported, consistent with management's "about a third of the expansion came from the music business".
+
+The `DM Sensitivity` tab has a grid of implied `s` for `e` from 12% to 24% and DM share of marketplace from 35% to 65%. Any expert-call answer on Topic 2 or 3 should land in one of those cells; combinations above 100% are impossible and would mean the DM share of marketplace is set too high.
 
 ## 4. Translating "growth slowing" into the levers
 
-| Lever | Evidence in the workbooks | Evidence elsewhere | Scenario B setting |
+| Lever | Evidence in the workbooks | Evidence elsewhere | Base-case setting |
 |---|---|---|---|
 | `e`, eligible-surface share | Autoplay topic share peaked in 2025; DJ / Smart Shuffle discussion halved since 2024; Smart Shuffle made removable; AI-slop complaints at 4.6% of topic posts and Spotify's Sept 2025 clean-up trims recommendation inventory | Spotify: 33% of discoveries happen in algorithmic contexts; no new DM surface announced since Mixes (Jan 2024) | flat at 18% |
-| `s`, enrolled share | Lift fading (4.1x to 0.8x medians, n small); 100% of sub-10k artists go up so the tail keeps enrolling; above 10k a coin flip; enrollment is defensive (opting out costs 50-70% of radio streams) | Billboard: manager-reported lifts fell from 200-300% to 20-30%; House Judiciary letters on "race to the bottom" | +3 pts a year (creep, not compounding) |
-| `d`, discount | not observable | Label renewals and regulatory pressure are the only things that move it | 30% held |
+| `s`, enrolled share | Lift fading (4.1x to 0.8x medians, n small); 100% of sub-10k artists go up so the tail keeps enrolling; above 10k a coin flip; enrollment is defensive (opting out costs 50-70% of radio streams) | Billboard: manager-reported lifts fell from 200-300% to 20-30%; House Judiciary letters on "race to the bottom" | +3 pt a year (56%, 59%) |
+| `d`, discount | not observable | Label renewals and regulatory pressure are the only things that move it | 30% held (per-year input on the inputs tab) |
 | Marquee / Showcase | not covered | Ad-Supported gross margin fell to 13.0% in Q1 2026; marketplace revenue growth not called out in 2026 letters | +10% a year |
 
-The ratio point is the heart of the answer. Marketplace gross profit must grow at the revenue growth rate (14% / 13% / 12% in the model) just to hold its ~370 bps contribution. Over 2021-25 it grew ~41% a year, which is why it has been a visible driver of the 25% to 32% expansion (roughly 200 of the ~520 bps; management says about a third of expansion came from the music business). If it grows 10-15% from here it is margin-neutral, and if it grows below that it is a headwind even though it keeps growing in euros.
+The ratio point is the heart of the answer. Marketplace gross profit must grow at the revenue growth rate just to hold its ~370 bp contribution. Over 2021-25 it grew ~41% a year, which is why it has been a visible driver of the 25% to 32% expansion. If it grows 10-15% from here it is margin-neutral, and if it grows below that it is a headwind even though it keeps growing in euros.
 
-## 5. Scenario outputs (from `Scenarios` tab)
+## 5. Case outputs (`DM GM Bridge`, sections 4-6)
 
-Common: revenue EUR 17.2bn → 19.6bn → 22.1bn → 24.8bn; royalty pool at 58.8% of revenue; "other drivers" placeholder of +100 / +180 / +240 bps cumulative (set so Scenario B lands near H1 2026 actuals and the Q3 guide; replace from the P&L model).
+Common: revenue EUR 17.2bn → 19.5bn → 21.3bn (placeholders to link to the IS); royalty pool at 58.8% of revenue; non-marketplace y/y expansion placeholder of +100 / +80 bp (set so Base lands near H1 2026 actuals and the Q3 guide; replace from the model's own GM build).
 
-| | 2025A | 2026E | 2027E | 2028E |
-|---|---|---|---|---|
-| A: continued growth (e +1.5 pt/yr, s +8 pt/yr, Marquee +20%) | 32.0% | 33.5% | 34.9% | 36.2% |
-| B: slowing (e flat, s +3 pt/yr, Marquee +10%) | 32.0% | 33.0% | 33.9% | 34.5% |
-| C: saturation with backlash (e -1 pt/yr, s capped, Marquee flat) | 32.0% | 32.7% | 33.2% | 33.6% |
-| DM change vs 2025, A / B / C (bps) | 0 | +42 / +10 / -3 | +88 / +20 / -12 | +138 / +29 / -22 |
-| Marquee change vs 2025, A / B / C (bps) | 0 | +11 / -7 / -25 | +24 / -12 / -46 | +40 / -16 / -63 |
-| Implied marketplace gross profit growth, A / B / C | | 30% / 15% / 6% | 29% / 14% / 3% | 27% / 14% / 3% |
+| | FY'25 | FY'26E | FY'27E |
+|---|---|---|---|
+| Bull: illustrative gross margin (e +1.5 pt/yr, s +8 pt/yr, Marquee +20%) | 32.0% | 33.5% | 35.0% |
+| Base: illustrative gross margin (e flat, s +3 pt/yr, Marquee +10%) | 32.0% | 33.0% | 34.0% |
+| Bear: illustrative gross margin (e -1 pt/yr, s capped, Marquee flat) | 32.0% | 32.7% | 33.3% |
+| Marketplace y/y gross margin effect, Bull / Base / Bear (bp) | +84 (est.) | +54 / +4 / -27 | +67 / +11 / -25 |
+| Implied marketplace gross profit growth, Bull / Base / Bear | 41% | 30% / 15% / 5% | 26% / 12% / 1% |
+| Consensus gross margin (placeholder) | 32.0% | 33.2% | 34.5% |
 
-Reading: Scenario A needs marketplace to keep growing near 30% a year and enrollment to reach ~77% of eligible-surface streams by 2028, which is the kind of saturation the artist data says is already biting. Scenario B is what the two workbooks describe, and under it DM adds about 10 bps a year. Scenario C is the case where listener backlash (AI slop, "sponsored recs", Smart Shuffle removal) shrinks the surfaces the program lives on.
+Reading: Bull needs marketplace to keep growing near 30% a year and enrollment to reach ~69% of eligible-surface streams by FY'27E, which is the kind of saturation the artist data says is already biting. Base is what the two workbooks describe, and under it DM adds about 10 bp a year while Marquee drifts flat to slightly negative. Bear is the case where listener backlash (AI slop, "sponsored recs", Smart Shuffle removal) shrinks the surfaces the program lives on. The Base path sits 16 bp below the consensus placeholder in FY'26E and 55 bp below in FY'27E.
 
-The `Sensitivity 2028` tab gives DM's 2028 contribution for any `e` × `s` pair. At `e` = 18%, each 10 points of enrolled share is worth ~32 bps in 2028; `e` has to rise to ~24% for DM to add 100 bps without enrollment moving.
+The `DM Sensitivity` tab gives DM's FY'27E contribution for any `e` × `s` pair. At `e` = 18%, each 10 points of enrolled share is worth ~32 bp in FY'27E; with enrollment flat, `e` would have to reach ~29% by FY'27E for DM alone to add 100 bp.
 
-## 6. Recommended way to carry this into the model
+## 6. Dropping the tabs into the model
 
-1. Carry gross margin as `2025 base + non-marketplace bridge + ΔDM + ΔMarquee`, with ΔDM from `pool × e × s × d` rather than a growth rate on a "marketplace" line. It makes the ceiling explicit and lets the expert calls update one cell.
-2. Under the slowing thesis, use ΔDM of +10 bps a year and ΔMarquee of about -5 to -10 bps a year (it is growing, but slower than revenue). That puts the marketplace piece at roughly zero to +15 bps a year versus the ~+50 bps a year it has contributed since 2021. Everything beyond that in the path to 35-40% by 2030 has to come from pricing, audiobooks, podcasts and ad-supported mix.
-3. Watch Premium gross margin, not consolidated: DM accrues almost entirely there. Premium went 29% → 33% → 34% → 35% (Q2 2026); a quarter where Premium stalls while pricing is still flowing through is the first read on the thesis.
-4. Signposts: whether Q3 2026 lands above the 32.9% guide; whether the letters keep using "net of certain marketplace programs" in the Premium driver sentence; any new DM surface (Smart Shuffle, DJ sessions, Discover Weekly would be a step up in `e` and a regulatory tripwire); label renewal language on the discount; Ad-Supported margin, where Marquee sits.
-5. Questions for the calls, phrased as model cells: (a) what share of total streams is served from Radio, Autoplay and Mixes, and is it still growing; (b) what share of those streams is enrolled, by major versus independent; (c) is there a product rule, label-negotiated cap, or engagement guardrail on enrolled share within those surfaces; (d) has the 30% ever been negotiated down, and is it on the table in the next major-label cycle.
+1. Copy the eight `DM ...` tabs from `data/SPOT_DM_Tabs.xlsx`. They reference only each other.
+2. On `DM Inputs`: repoint the case selector (C4) to `Valuation!$C$3`; link the FY'26E-FY'27E revenue cells (row 7) to the IS; link the consensus gross margin and consensus expansion cells to the consensus tab; replace the non-marketplace expansion placeholder (row 16) with the model's own GM build excluding marketplace.
+3. On `DM GM Bridge`: the row to carry into the GM build is "Y/y Gross Margin Effect, bp" (yellow box), added to the y/y expansion from other drivers. The level row "Marketplace Contribution to Gross Profit (M)" is already inside reported gross profit and is there for sizing only.
+4. Watch Premium gross margin, not consolidated: DM accrues almost entirely there. A quarter where Premium stalls while pricing is still flowing through is the first read on the thesis.
+5. Signposts: whether Q3 2026 lands above the 32.9% guide; whether the letters keep using "net of certain marketplace programs" in the Premium driver sentence; any new DM surface (Smart Shuffle, DJ sessions, Discover Weekly would be a step up in `e` and a regulatory tripwire); label renewal language on the discount; Ad-Supported margin, where Marquee sits.
+6. Questions for the calls, phrased as model cells: (a) what share of total streams is served from Radio, Autoplay and Mixes, and is it still growing; (b) what share of those streams is enrolled, by major versus independent; (c) is there a product rule, label-negotiated cap, or engagement guardrail on enrolled share within those surfaces; (d) has the 30% ever been negotiated down, and is it on the table in the next major-label cycle.
 
 ## Sources
 
-- Spotify FY2025 Form 20-F (revenue EUR 17,186m; Premium gross margin 34%; marketplace discounts in cost of revenue; royalty structure)
+- Spotify FY2024 and FY2025 Form 20-F (revenue EUR 15,673m and 17,186m; Premium gross margin 33% and 34%; marketplace discounts in cost of revenue; marketplace programs +EUR 58m to Ad-Supported revenue in 2024; royalty structure)
 - Spotify Q1 2026 and Q2 2026 shareholder letters (6-K exhibits: gross margin 33.0% and 33.4%; Premium 34.8% and 35%; Q3 guide 32.9%)
 - Spotify Investor Day, June 8 2022 transcript (marketplace gross profit under EUR 20m in 2018, more than EUR 160m in 2021)
 - Spotify Investor Day, May 21 2026 recap (marketplace gross profit 4x 2021; 2030 targets 35-40% gross margin)
-- Spotify Loud & Clear 2026 (USD 11bn royalties paid in 2025)
+- Spotify Loud & Clear 2025 and 2026 (USD 10bn and 11bn royalties paid)
 - Spotify for Artists Discovery Mode page (+50% saves, +44% playlist adds, +37% follows in month one; 33% of discoveries in algorithmic contexts; Mixes added January 2024)
 - Billboard, "Spotify Discovery Mode: Hated by Politicians, Loved by Managers" (lift fade reported by managers; House Judiciary scrutiny)
-- Spotify 2024 20-F (marketplace programs added EUR 58m to Ad-Supported revenue)
