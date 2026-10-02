@@ -5,9 +5,9 @@ Date: 2026-10-02. Inputs: `data/spotify_autoplay_sentiment.xlsx`, `data/discover
 ## Bottom line
 
 - Discovery Mode (DM) is a royalty discount, not revenue. Spotify's saving is simply: enrolled DM-context streams × 30% × their royalty. It does not depend on whether the artist gains, so falling *efficacy* for artists does not by itself cut the saving. What it does is cap future growth of the lever and raise the odds of backlash.
-- The lever is bounded. At the current inputs (DM = 80% of marketplace gross profit, eligible surfaces = 33% of streams, which solves to ~51% of those streams enrolled) the entire remaining DM runway at today's surfaces and discount is roughly EUR 490m, ~280 bp of consolidated gross margin, and that runway shrinks in bp terms every year revenue grows.
+- The lever is bounded. At the measured inputs (33% of streams on DM-eligible surfaces, 33% of those enrolled, so 10.9% of all streams) the saving is about EUR 340m, ~200 bp of consolidated gross margin. Each further point of enrollment is worth roughly EUR 12m, and the contribution only rises in bp terms while the saving grows faster than revenue.
 - "Growth slowing" is a margin headwind, not just slower help. Gross margin is a ratio: marketplace gross profit grew roughly 41% a year from 2021 to 2025 and now sits at ~370 bp of margin. With revenue compounding at 9-14%, marketplace has to grow at least that fast to hold its contribution flat. A marketplace growing 10-15% is ~zero incremental bp; one growing 0-5% is negative.
-- Translated into the tabs: the Base case gives a marketplace effect on gross margin of +40 bp in FY'26E and +12 bp in FY'27E, against an estimated +84 bp in FY'25, i.e. marketplace growth decelerating from 41% to ~26% to ~12%. Bull gives +60 and +37 bp; Bear +9 and −6 bp. On the illustrative path that is FY'27E gross margin of 34.8% / 34.3% / 33.8% for Bull / Base / Bear, with the non-marketplace drivers held at a placeholder that should be replaced from the model's own GM build.
+- Translated into the tabs: the Base case gives a Discovery Mode effect on gross margin of +42 bp in FY'26E and +10 bp in FY'27E, against +44 bp in FY'25, i.e. the saving's growth decelerating from ~40% to ~37% to ~14% as it converges on revenue growth. Bull gives +55 and +28 bp; Bear +19 and 0 bp. On the illustrative path that is FY'27E gross margin of 34.6% / 34.3% / 34.0% for Bull / Base / Bear, with the ex-DM drivers held at a placeholder that should be replaced from the model's own GM build.
 - The two workbooks support the *direction* (plateauing autoplay salience, fading DM lift, defensive enrollment) but not magnitudes. The two numbers the expert calls or the burner-account sampling must pin down are exactly the model's two levers: the share of streams on DM-eligible surfaces (Topic 3, the ceiling) and the share of those that are enrolled (Topic 2).
 
 ## 1. What the two workbooks contain, and how far to trust them
@@ -95,65 +95,66 @@ What Spotify has disclosed about size:
 | 2030 target | gross margin 35-40%, mid-teens revenue CAGR | Investor Day, May 2026 |
 | Royalties paid to music rights holders | USD 10bn in 2024, USD 11bn in 2025 (~EUR 9.3bn, ~EUR 10.1bn) | Loud & Clear 2025, 2026 |
 
-The Ad-Supported line is the constraint on the split. Marquee and Showcase sit in that segment at near-100% margin, so they cannot be much more than EUR 150-250m unless the core ad business loses money at the gross level, which puts DM at 60-80% of marketplace gross profit. The tabs use 80%.
+The Ad-Supported line is the sanity check on the split. Marquee and Showcase sit in that segment at near-100% margin, so they cannot be much more than EUR 150-300m unless the core ad business loses money at the gross level. At the measured inputs the tabs imply Marquee + Showcase of about EUR 300m, just inside that ceiling, and Discovery Mode at ~53% of the disclosed marketplace figure.
 
-The identity the tabs use:
+The chain the tabs use, bottom-up from the two measured stream shares:
 
-    DM gross profit = royalty pool × e × s × d
+    enrolled DM-context streams, % of all streams  = e × s
+    royalty pool before discounts                  = royalties paid / (1 − e × s × d)
+    Discovery Mode saving                          = pool × e × s × d
+    gross margin                                   = gross margin ex-DM + saving / revenue
 
-where `e` is the share of streams on DM-eligible surfaces (Radio, Autoplay, Mixes), `s` is the share of those streams that are enrolled, and `d` is the 30% discount. The eligible-surface share is what "autoplay growth" moves; the enrolled share is what DM adoption moves; `e × s` is "share of streams via Discovery Mode", which is Topic 2 of the triangulation matrix; the ceiling on `e` and `s` is Topic 3. The FY'25 identity has one free variable: the calibration-mode cell on the inputs tab says whether the bridge solves `s` from the DM share ('DM share' mode) or solves the DM share from a sampled `s` ('Measured s' mode, for the burner-account method). Never type over the solved cell on the bridge (D12); doing so breaks the identity and makes FY'25 look like a decline against FY'24.
+where `e` is the share of streams on DM-eligible surfaces (Radio, Autoplay, Mixes), `s` is the share of those streams that are enrolled, and `d` is the 30% discount. The eligible-surface share is what "autoplay growth" moves; the enrolled share is what DM adoption moves; `e × s` is "share of streams via Discovery Mode", which is Topic 2 of the triangulation matrix; the ceiling on `e` and `s` is Topic 3. The gross-up line matters because the royalties Spotify reports paying are already net of the discount. The disclosed marketplace figure (4x 2021) no longer drives anything; it sits at the bottom of the bridge as a cross-check.
 
 Why DM is zero-sum for artists but not for Spotify: the program reallocates slots, it does not create listening. The one artist in the dataset who checked total streams saw Spotify report +55% in DM contexts while the song's total fell. So Spotify's saving is `pool × e × s × d` whether or not the artist benefits.
 
-## 3. Calibration to FY'25 (`DM GM Bridge`, section 1)
+## 3. FY'25 as built (`DM GM Bridge`, sections 1-4)
 
-With marketplace gross profit at EUR 640m (372 bp of FY'25 revenue), DM at 80% of it, and eligible surfaces at 33% of streams:
+With e = 33%, s = 33%, royalties paid of EUR 10.1bn (58.8% of revenue) and the 30% discount:
 
 | | Value |
 |---|---|
-| DM gross profit FY'25 | ~EUR 512m, ~298 bp |
-| Marquee + Showcase FY'25 | ~EUR 128m, ~74 bp |
-| Royalty pool on eligible surfaces (EUR 10.1bn × 33%) | ~EUR 3.3bn |
-| Solved enrolled share `s` | ~51% |
-| DM-context enrolled streams, share of all streams (`e × s`) | ~17% |
-| Ceiling at 100% enrollment, today's surfaces | ~EUR 1,000m, ~580 bp |
-| Remaining runway | ~EUR 490m, ~280 bp of FY'25 revenue |
+| Enrolled DM-context streams, share of all streams (`e × s`) | 10.9% |
+| Royalty pool before discounts | ~EUR 10.4bn |
+| Royalties on enrolled DM-context streams, before discount | ~EUR 1.14bn |
+| Discovery Mode saving FY'25 | ~EUR 341m, ~198 bp |
+| Gross margin excluding Discovery Mode FY'25 | 30.0% (reported 32.0% less 198 bp) |
+| Cross-check: saving as share of disclosed marketplace gross profit (EUR 640m) | 53% |
+| Cross-check: implied Marquee + Showcase vs Ad-Supported gross profit | EUR 299m vs EUR 330m |
 
-FY'24 marketplace gross profit is not disclosed; the tabs interpolate it at the 2021-25 CAGR (~EUR 450m) and apply the same DM share, which makes the FY'25 y/y marketplace effect an estimate of about +84 bp of the +190 bp reported, consistent with management's "about a third of the expansion came from the music business".
-
-The `DM Sensitivity` tab has a grid of solved `s` for `e` from 12% to 24% and DM share of marketplace from 35% to 65%, and the FY'27E DM contribution for `e` × `s` pairs. Combinations above 100% are impossible.
+FY'24 e and s are back-fills (31% and 27.5%), not measurements, set so the FY'24 to FY'25 growth in the saving is close to the disclosed 2021-25 marketplace CAGR of ~41%; they only affect the FY'25 y/y line (+44 bp). The `DM Sensitivity` tab grids the FY'27E contribution, the FY'27E gross margin and the FY'27E y/y effect for `e` from 25% to 40% and `s` from 25% to 60%.
 
 ## 4. Translating "growth slowing" into the levers
 
 | Lever | Evidence in the workbooks | Evidence elsewhere | Base-case setting |
 |---|---|---|---|
 | `e`, eligible-surface share | Autoplay topic share peaked in 2025; DJ / Smart Shuffle discussion halved since 2024; Smart Shuffle made removable; AI-slop complaints at 4.6% of topic posts and Spotify's Sept 2025 clean-up trims recommendation inventory | 2018 prospectus: ~30% of listening Spotify-programmed before Autoplay default-on, Smart Shuffle and Mixes; 33% of discoveries in algorithmic contexts | 33%, +1.0 pt then +1.5 pt (cumulative) |
-| `s`, enrolled share | Lift fading (4.1x to 0.8x medians, n small); 100% of sub-10k artists go up so the tail keeps enrolling; above 10k a coin flip; enrollment is defensive (opting out costs 50-70% of radio streams) | Billboard: manager-reported lifts fell from 200-300% to 20-30%; House Judiciary letters on "race to the bottom"; majors largely not participating | solved ~51%, +5.5 pt then +6.5 pt (cumulative) |
+| `s`, enrolled share | Lift fading (4.1x to 0.8x medians, n small); 100% of sub-10k artists go up so the tail keeps enrolling; above 10k a coin flip; enrollment is defensive (opting out costs 50-70% of radio streams) | Billboard: manager-reported lifts fell from 200-300% to 20-30%; House Judiciary letters on "race to the bottom"; majors largely not participating | 33% measured, +5.5 pt then +6.5 pt (cumulative) |
 | `d`, discount | not observable | Label renewals and regulatory pressure are the only things that move it | 30% held (per-year input on the inputs tab) |
-| Marquee / Showcase | not covered | Ad-Supported gross margin fell to 13.0% in Q1 2026; marketplace revenue growth not called out in 2026 letters | +10% a year |
 
-The ratio point is the heart of the answer. Marketplace gross profit must grow at the revenue growth rate just to hold its ~370 bp contribution. Over 2021-25 it grew ~41% a year, which is why it has been a visible driver of the 25% to 32% expansion. If it grows 10-15% from here it is margin-neutral, and if it grows below that it is a headwind even though it keeps growing in euros.
+The ratio point is the heart of the answer. The saving must grow at the revenue growth rate just to hold its ~200 bp contribution. If it grows 10-15% from here it is margin-neutral, and if it grows below that it is a headwind even though it keeps growing in euros. Marquee and Showcase are outside this bridge: they are Ad-Supported revenue and belong in the ad-supported build.
 
-## 5. Case outputs (`DM GM Bridge`, sections 4-6)
+## 5. Case outputs (`DM GM Bridge`, sections 3-5)
 
-Common: revenue EUR 17.2bn → 19.5bn → 21.3bn (same placeholders as the audiobook tabs; link to the IS); royalty pool at 58.8% of revenue; non-marketplace y/y expansion placeholder of +100 / +80 bp (replace from the model's own GM build).
+Common: revenue EUR 17.2bn → 19.5bn → 21.3bn (same placeholders as the audiobook tabs; link to the IS); royalties at 58.8% of revenue; y/y expansion excluding Discovery Mode of +100 / +80 bp (placeholder; replace from the model's own GM build).
 
 | | FY'25 | FY'26E | FY'27E |
 |---|---|---|---|
-| Bull: illustrative gross margin (e +1.5 / +2.5 pt, s +7 / +10 pt, Marquee +20%) | 32.0% | 33.6% | 34.8% |
-| Base: illustrative gross margin (e +1 / +1.5 pt, s +5.5 / +6.5 pt, Marquee +10%) | 32.0% | 33.4% | 34.3% |
-| Bear: illustrative gross margin (e flat, s +3 / +3 pt, Marquee flat) | 32.0% | 33.1% | 33.8% |
-| Marketplace y/y gross margin effect, Bull / Base / Bear (bp) | +84 (est.) | +60 / +40 / +9 | +37 / +12 / -6 |
-| Implied marketplace gross profit growth, Base | 41% | 26% | 12% |
+| Bull: gross margin (e +1.5 / +2.5 pt, s +7 / +10 pt) | 32.0% | 33.6% | 34.6% |
+| Base: gross margin (e +1 / +1.5 pt, s +5.5 / +6.5 pt) | 32.0% | 33.4% | 34.3% |
+| Bear: gross margin (e flat, s +3 / +3 pt) | 32.0% | 33.2% | 34.0% |
+| Discovery Mode y/y gross margin effect, Bull / Base / Bear (bp) | +44 | +55 / +42 / +19 | +28 / +10 / 0 |
+| Discovery Mode contribution to gross margin, Base (bp, level) | 198 | 240 | 250 |
+| Implied growth in the saving, Base | 40% | 37% | 14% |
 | Consensus gross margin (placeholder) | 32.0% | 33.2% | 34.5% |
 
-Reading: the y/y effect is the change in bp level, so the shape of the enrollment path sets the shape of the effect. Base is front-loaded (+5.5 pt of enrollment in FY'26E, +1 pt more in FY'27E) so the contribution decays from +84 to +40 to +12 bp as marketplace growth converges on revenue growth; each point of enrollment is worth about EUR 10m. Bull keeps marketplace growing above 30% in FY'26E; Bear caps enrollment after a small defensive step and Marquee stalls, so marketplace turns into a drag by FY'27E. The Base path sits 20 bp above the consensus placeholder in FY'26E and 19 bp below in FY'27E.
+Reading: the y/y effect is the change in bp level, so the shape of the enrollment path sets the shape of the effect. Base is front-loaded (+5.5 pt of enrollment in FY'26E, +1 pt more in FY'27E) so the contribution decays from +44 to +42 to +10 bp as the saving's growth converges on revenue growth. Bull keeps the saving growing above 40% in FY'26E; Bear caps enrollment after a small defensive step, so the saving grows with the pool only and the contribution is flat in bp by FY'27E. The Base path sits 22 bp above the consensus placeholder in FY'26E and 18 bp below in FY'27E.
 
 ## 6. Dropping the tabs into the model
 
 1. Copy the eight `DM ...` tabs from `data/SPOT_DM_Tabs.xlsx`. They reference only each other.
-2. On `DM Inputs`: set the case selector (C4) to `=Valuation!$C$3`; link the FY'26E-FY'27E revenue cells (row 7) to the IS; link the consensus gross margin and consensus expansion cells (rows 11, 15) to the consensus tab; replace the non-marketplace expansion placeholder (row 16) with the model's own GM build excluding marketplace. The levers are the DM share (D22), the calibration mode (D23), the eligible-surface share (D31) and the measured enrolled share (D36); the active enrolled share (D37) is solved and should not be typed over.
-3. On `DM GM Bridge`: the row to carry into the GM build is "Y/y Gross Margin Effect, bp" (yellow box), added to the y/y expansion from other drivers. The level row "Marketplace Contribution to Gross Profit (M)" is already inside reported gross profit and is there for sizing only.
+2. On `DM Inputs`: set the case selector (C4) to `=Valuation!$C$3`; link the FY'26E-FY'27E revenue cells (row 7) to the IS and the royalty-% cells (row 12) to the music-cost line if the model has one; link the consensus rows (30-31) to the consensus tab; replace the ex-DM expansion placeholder (row 29) with the model's own GM build excluding Discovery Mode. The levers are e (D16), s (D21) and their case rows (18-20, 23-25, cumulative changes vs FY'25 in points).
+3. On `DM GM Bridge`: the row to carry into the GM build is "Y/y gross margin effect of Discovery Mode, bp" (yellow box, section 3), added to the y/y expansion from other drivers; or take the "Gross Margin" row in section 4 directly if the ex-DM expansion input is the model's own. The level row "Discovery Mode contribution to gross margin, bp" is already inside reported gross margin and is there for sizing.
 4. Watch Premium gross margin, not consolidated: DM accrues almost entirely there. A quarter where Premium stalls while pricing is still flowing through is the first read on the thesis.
 5. Signposts: whether Q3 2026 lands above the 32.9% guide; whether the letters keep using "net of certain marketplace programs" in the Premium driver sentence; any new DM surface (Smart Shuffle, DJ sessions, Discover Weekly would be a step up in `e` and a regulatory tripwire); label renewal language on the discount; Ad-Supported margin, where Marquee sits.
 6. Questions for the calls, phrased as model cells: (a) what share of total streams is served from Radio, Autoplay and Mixes, and is it still growing; (b) what share of those streams is enrolled, by major versus independent (the burner-account sampling in `tools/dm_autoplay` answers the same question from the outside); (c) is there a product rule, label-negotiated cap, or engagement guardrail on enrolled share within those surfaces; (d) has the 30% ever been negotiated down, and is it on the table in the next major-label cycle.
