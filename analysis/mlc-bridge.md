@@ -75,17 +75,17 @@ Hand-back(year) = gross saving × Σ(share × months on deal / 12) × restoratio
 | Gross bundle saving (disclosed) | 150 | 208 | 205 | 205 |
 | Hand-back to direct-licensed publishers | 0 | (62) | (106) | (106) |
 | **B  Net bundle saving** | **150** | **146** | **99** | **99** |
-| A  Gross profit on paid hours | 2 | 14 | 34 | 54 |
-| C  Licensing cost on included hours | (190) | (300) | (429) | (558) |
-| **N = B + A − C** | **(38)** | **(141)** | **(297)** | **(405)** |
-| Change in N, €M | | (103) | (156) | (109) |
-| Change in N, bp of group revenue | | (60) | (80) | (51) |
+| A  Paid audiobook revenue | 5 | 30 | 75 | 120 |
+| C  Audiobook licensing cost (included and paid hours) | (190) | (300) | (429) | (558) |
+| **N = B + A − C** | **(35)** | **(124)** | **(255)** | **(339)** |
+| Change in N, €M | | (89) | (131) | (84) |
+| Change in N, bp of group revenue | | (52) | (67) | (39) |
 | of which music publishers (ΔB) | | (4) | (47) | 0 |
 | of which book publishers (−ΔC) | | (110) | (129) | (129) |
-| of which paid hours (ΔA) | | +11 | +20 | +20 |
-| Headwind as share of consensus GM expansion | | | 70% | 39% |
+| of which paid audiobook revenue (ΔA) | | +25 | +45 | +45 |
+| Headwind as share of consensus GM expansion | | | 58% | 30% |
 
-Of the €99M Spotify retains from 2026, about €64M is the independents' share (31% of €205M) and about €35M is the un-restored quarter of the direct-licensed share.
+A is paid revenue counted in full because C is grown on total consumption and already carries the publisher cost of paid hours. Of the €99M Spotify retains from 2026, about €64M is the independents' share (31% of €205M) and about €35M is the un-restored quarter of the direct-licensed share.
 
 ## 6. What changed against the previous version
 
@@ -96,11 +96,12 @@ Of the €99M Spotify retains from 2026, about €64M is the independents' share
 | Gross saving 2026E | 189 | 205 | Q2-25 to Q1-26 average × 4 |
 | Direct deals | 3 majors, 61% | 5 publishers, 69% | Kobalt and BMG added |
 | Restoration | 100% | 75% | "partially offset"; bundled vs music-only distinction retained |
+| A | paid revenue less a 55% content cost | paid revenue in full | C already carries the cost of paid hours; the deduction double-counted it |
 | B 2024 / 2025 / 2026E / 2027E | 158 / 118 / 74 / 74 | 150 / 146 / 99 / 99 | |
-| N 2024 / 2025 / 2026E / 2027E | (30) / (168) / (322) / (430) | (38) / (141) / (297) / (405) | |
-| Headwind 2025 / 2026E / 2027E, bp | (81) / (79) / (51) | (60) / (80) / (51) | |
+| N 2024 / 2025 / 2026E / 2027E | (30) / (168) / (322) / (430) | (35) / (124) / (255) / (339) | |
+| Headwind 2025 / 2026E / 2027E, bp | (81) / (79) / (51) | (52) / (67) / (39) | |
 
-The 2026E and 2027E headwinds, the two that matter for the hold period, are unchanged. The 2025 headwind is smaller because the gross saving grew with US Premium revenue through 2025 and the hand-back is partial. The level of N is less negative throughout, and still negative in every year.
+N is still negative in every year. The 2026E headwind, the one inside the hold period, is about two-thirds of its earlier size, and rests on listeners up 60% (disclosed) with a 0.7x haircut from listeners to cost (estimate). The sensitivity tab in the workbook flexes that growth and the 2024 anchor.
 
 ## 7. Litigation path and the MLC switch
 
