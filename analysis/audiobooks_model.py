@@ -433,7 +433,8 @@ def inject_cached_values(path):
         for row in ws.iter_rows():
             for c in row:
                 if not (isinstance(c.value, str) and c.value.startswith("=")): continue
-                val = xl.evaluate(f"{name}!{c.coordinate}")
+                ref = f"'{name}'!{c.coordinate}" if " " in name else f"{name}!{c.coordinate}"
+                val = xl.evaluate(ref)
                 pat = re.compile(r'<c r="%s"( [^>]*)?><f>(.*?)</f><v ?/>' % c.coordinate)
                 if isinstance(val, bool): rep_ = r'<c r="%s"\1 t="b"><f>\2</f><v>%d</v>' % (c.coordinate, int(val))
                 elif isinstance(val, (int, float)): rep_ = r'<c r="%s"\1><f>\2</f><v>%s</v>' % (c.coordinate, repr(float(val)))
