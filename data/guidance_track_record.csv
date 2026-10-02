@@ -1,0 +1,31 @@
+quarter,metric,guide,actual,delta,note
+Q1-25,MAU,678,678,0,OI below guide: social charges €76M
+Q1-25,Subs,265,268,3,OI below guide: social charges €76M
+Q1-25,Revenue,4200,4190,-10,OI below guide: social charges €76M
+Q1-25,GM %,31.5,31.6,0.1,OI below guide: social charges €76M
+Q1-25,OI,548,509,-39,OI below guide: social charges €76M
+Q2-25,MAU,689,696,7,OI below guide: social charges €116M (€98M above forecast); revenue miss = FX
+Q2-25,Subs,273,276,3,OI below guide: social charges €116M (€98M above forecast); revenue miss = FX
+Q2-25,Revenue,4300,4190,-110,OI below guide: social charges €116M (€98M above forecast); revenue miss = FX
+Q2-25,GM %,31.5,31.5,0.0,OI below guide: social charges €116M (€98M above forecast); revenue miss = FX
+Q2-25,OI,539,406,-133,OI below guide: social charges €116M (€98M above forecast); revenue miss = FX
+Q3-25,MAU,710,713,3,OI beat = lower social charges (−€16M)
+Q3-25,Subs,281,281,0,OI beat = lower social charges (−€16M)
+Q3-25,Revenue,4200,4272,72,OI beat = lower social charges (−€16M)
+Q3-25,GM %,31.1,31.6,0.5,OI beat = lower social charges (−€16M)
+Q3-25,OI,485,582,97,OI beat = lower social charges (−€16M)
+Q4-25,MAU,745,751,6,OI beat: €67M of the €81M beat was social charges
+Q4-25,Subs,289,290,1,OI beat: €67M of the €81M beat was social charges
+Q4-25,Revenue,4500,4500,0,OI beat: €67M of the €81M beat was social charges
+Q4-25,GM %,32.9,33.1,0.2,OI beat: €67M of the €81M beat was social charges
+Q4-25,OI,620,701,81,OI beat: €67M of the €81M beat was social charges
+Q1-26,MAU,759,761,2,OI beat: social charges −€39M; GM timing
+Q1-26,Subs,293,293,0,OI beat: social charges −€39M; GM timing
+Q1-26,Revenue,4500,4530,30,OI beat: social charges −€39M; GM timing
+Q1-26,GM %,32.8,33.0,0.2,OI beat: social charges −€39M; GM timing
+Q1-26,OI,660,715,55,OI beat: social charges −€39M; GM timing
+Q2-26,MAU,778,777,-1,First MAU miss vs guide; OI beat = GM timing + social charges €9M below forecast
+Q2-26,Subs,299,300,1,First MAU miss vs guide; OI beat = GM timing + social charges €9M below forecast
+Q2-26,Revenue,4800,4780,-20,First MAU miss vs guide; OI beat = GM timing + social charges €9M below forecast
+Q2-26,GM %,33.1,33.4,0.3,First MAU miss vs guide; OI beat = GM timing + social charges €9M below forecast
+Q2-26,OI,630,655,25,First MAU miss vs guide; OI beat = GM timing + social charges €9M below forecast
