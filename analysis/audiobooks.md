@@ -102,3 +102,43 @@ The pricing umbrella is also gone. With Audible at $8.99 and Amazon giving away 
 ## 7. One-line version for the pitch
 
 Audiobooks are the proof that Spotify's add-on playbook produces engagement first and revenue last: three years in, more than a quarter of subscribers use them monthly, fewer than one in a hundred pays for more, the cost line grows 35–60% a year, and the "margin" attributed to the vertical is a royalty allocation that a federal court is still examining.
+
+---
+
+## Appendix A — Derivation of the paid-versus-included consumption split
+
+The claim in section 5 that nearly all incremental audiobook hours sit inside the included allowance is a derived estimate. Inputs, assumptions and sensitivity:
+
+**Disclosed inputs**
+
+| Input | Value | Source |
+|---|---|---|
+| Audiobooks+ launch and price | US, 5 Aug 2025, $11.99/month for +15 h; 10-hour top-ups at $12.99 from Mar 2024 | 9to5Mac 5 Aug 2025; Spotify newsroom Mar 2024 |
+| Audiobooks+ payers | "more than one million users" | Investor Day 21 May 2026 (Publishers Weekly) |
+| Audiobooks+ revenue | ~$100M ARR by Jul 2026; "doubled since the last update" | Investor Day recap; Q2-26 call |
+| Share of Premium subscribers listening | "more than 25%" | The Bookseller 2025; TechCrunch 17 Jul 2025 |
+| Ever tried, eligible markets | >50% of eligible Premium users | Spotify newsroom 15 Oct 2025 |
+| Growth | hours +37%, listeners +36% (Oct 2025); listeners +60% (2026) | Spotify newsroom; Publishers Weekly |
+| Included allowance | 15 h (US, UK, AU, CA, IE, NZ); 12 h in every market launched since Oct 2024 | Spotify newsroom / support |
+| Premium subscribers | 300M | Q2-26 deck |
+| Cost structure | per-title fee at ~20% listened for large publishers; consumption pool for others; 50% of list à la carte | Authors Guild; Spotify for Authors terms; publisher-side reporting (secondary) |
+| Total cost | "tens of millions" (Feb 2024) → "hundreds of millions of dollars a year" (Oct 2024) | Digital Music News; Axios |
+
+**Assumptions (not disclosed)**
+
+- Monthly listeners = 25% × 300M = 75M. The 25% dates from early 2025 on a ~270M base and may refer to eligible markets only (~170M subs), which would give ~43M.
+- Average hours per listener per month = 3–5. Not disclosed; hints are the 15-hour cap, "heavy users consistently hit their limits," and ~10-hour typical title length.
+- Paid hours = 1M payers × 15 h = 15M/month. A ceiling, not usage; some payers are one-off top-up buyers.
+
+**Sensitivity: paid share of total hours (15M paid hours)**
+
+| Monthly listeners | 2 h avg | 4 h avg | 6 h avg |
+|---|---|---|---|
+| 45M | 16.7% | 8.3% | 5.6% |
+| 75M | 10.0% | 5.0% | 3.3% |
+
+Defensible statement: paid hours are 3–17% of consumption; the included allowance is at least 83% under every combination.
+
+**Cleaner version with fewer assumptions.** Audiobooks+ revenue ≈ $100M (~€85M) against audiobook licensing cost of "hundreds of millions of dollars a year" (company, Oct 2024) plus two years of 35–60% consumption growth. On a €350–500M cost estimate the priced channel funds 15–25% of cost; on any reading of the company's phrase, well under half. The remainder is consumed inside Premium with no price against it.
+
+**What settles it.** Average monthly hours per listener, or the share of hours consumed beyond the allowance, from a former Spotify audiobooks lead.
