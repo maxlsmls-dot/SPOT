@@ -7,7 +7,7 @@ Date: 2026-10-02. Inputs: `data/spotify_autoplay_sentiment.xlsx`, `data/discover
 - Discovery Mode (DM) is a royalty discount, not revenue. Spotify's saving is simply: enrolled DM-context streams × 30% × their royalty. It does not depend on whether the artist gains, so falling *efficacy* for artists does not by itself cut the saving. What it does is cap future growth of the lever and raise the odds of backlash.
 - The lever is bounded. At the current inputs (DM = 80% of marketplace gross profit, eligible surfaces = 33% of streams, which solves to ~51% of those streams enrolled) the entire remaining DM runway at today's surfaces and discount is roughly EUR 490m, ~280 bp of consolidated gross margin, and that runway shrinks in bp terms every year revenue grows.
 - "Growth slowing" is a margin headwind, not just slower help. Gross margin is a ratio: marketplace gross profit grew roughly 41% a year from 2021 to 2025 and now sits at ~370 bp of margin. With revenue compounding at 9-14%, marketplace has to grow at least that fast to hold its contribution flat. A marketplace growing 10-15% is ~zero incremental bp; one growing 0-5% is negative.
-- Translated into the tabs: the Base case gives a marketplace effect on gross margin of +2 bp in FY'26E and +11 bp in FY'27E, against an estimated +84 bp in FY'25. Bull gives +24 and +22 bp; Bear −15 and +6 bp. On the illustrative path that is FY'27E gross margin of 34.3% / 33.9% / 33.7% for Bull / Base / Bear, with the non-marketplace drivers held at a placeholder that should be replaced from the model's own GM build. The case spread is narrow because the case rows move surfaces and enrollment by only one or two points; widen them if the calls support it.
+- Translated into the tabs: the Base case gives a marketplace effect on gross margin of +40 bp in FY'26E and +12 bp in FY'27E, against an estimated +84 bp in FY'25, i.e. marketplace growth decelerating from 41% to ~26% to ~12%. Bull gives +60 and +37 bp; Bear +9 and −6 bp. On the illustrative path that is FY'27E gross margin of 34.8% / 34.3% / 33.8% for Bull / Base / Bear, with the non-marketplace drivers held at a placeholder that should be replaced from the model's own GM build.
 - The two workbooks support the *direction* (plateauing autoplay salience, fading DM lift, defensive enrollment) but not magnitudes. The two numbers the expert calls or the burner-account sampling must pin down are exactly the model's two levers: the share of streams on DM-eligible surfaces (Topic 3, the ceiling) and the share of those that are enrolled (Topic 2).
 
 ## 1. What the two workbooks contain, and how far to trust them
@@ -127,8 +127,8 @@ The `DM Sensitivity` tab has a grid of solved `s` for `e` from 12% to 24% and DM
 
 | Lever | Evidence in the workbooks | Evidence elsewhere | Base-case setting |
 |---|---|---|---|
-| `e`, eligible-surface share | Autoplay topic share peaked in 2025; DJ / Smart Shuffle discussion halved since 2024; Smart Shuffle made removable; AI-slop complaints at 4.6% of topic posts and Spotify's Sept 2025 clean-up trims recommendation inventory | 2018 prospectus: ~30% of listening Spotify-programmed before Autoplay default-on, Smart Shuffle and Mixes; 33% of discoveries in algorithmic contexts | 33%, +0.5 pt then +1 pt |
-| `s`, enrolled share | Lift fading (4.1x to 0.8x medians, n small); 100% of sub-10k artists go up so the tail keeps enrolling; above 10k a coin flip; enrollment is defensive (opting out costs 50-70% of radio streams) | Billboard: manager-reported lifts fell from 200-300% to 20-30%; House Judiciary letters on "race to the bottom"; majors largely not participating | solved ~51%, flat then +1 pt |
+| `e`, eligible-surface share | Autoplay topic share peaked in 2025; DJ / Smart Shuffle discussion halved since 2024; Smart Shuffle made removable; AI-slop complaints at 4.6% of topic posts and Spotify's Sept 2025 clean-up trims recommendation inventory | 2018 prospectus: ~30% of listening Spotify-programmed before Autoplay default-on, Smart Shuffle and Mixes; 33% of discoveries in algorithmic contexts | 33%, +1.0 pt then +1.5 pt (cumulative) |
+| `s`, enrolled share | Lift fading (4.1x to 0.8x medians, n small); 100% of sub-10k artists go up so the tail keeps enrolling; above 10k a coin flip; enrollment is defensive (opting out costs 50-70% of radio streams) | Billboard: manager-reported lifts fell from 200-300% to 20-30%; House Judiciary letters on "race to the bottom"; majors largely not participating | solved ~51%, +5.5 pt then +6.5 pt (cumulative) |
 | `d`, discount | not observable | Label renewals and regulatory pressure are the only things that move it | 30% held (per-year input on the inputs tab) |
 | Marquee / Showcase | not covered | Ad-Supported gross margin fell to 13.0% in Q1 2026; marketplace revenue growth not called out in 2026 letters | +10% a year |
 
@@ -140,14 +140,14 @@ Common: revenue EUR 17.2bn → 19.5bn → 21.3bn (same placeholders as the audio
 
 | | FY'25 | FY'26E | FY'27E |
 |---|---|---|---|
-| Bull: illustrative gross margin (e +1.5 / +2 pt, s +1 / +2.5 pt, Marquee +20%) | 32.0% | 33.2% | 34.3% |
-| Base: illustrative gross margin (e +0.5 / +1 pt, s 0 / +1 pt, Marquee +10%) | 32.0% | 33.0% | 33.9% |
-| Bear: illustrative gross margin (e 0 / +1 pt, s -1 / -0.5 pt, Marquee flat) | 32.0% | 32.9% | 33.7% |
-| Marketplace y/y gross margin effect, Bull / Base / Bear (bp) | +84 (est.) | +24 / +2 / -15 | +22 / +11 / +6 |
-| Implied marketplace gross profit growth, Base | 41% | 14% | 12% |
+| Bull: illustrative gross margin (e +1.5 / +2.5 pt, s +7 / +10 pt, Marquee +20%) | 32.0% | 33.6% | 34.8% |
+| Base: illustrative gross margin (e +1 / +1.5 pt, s +5.5 / +6.5 pt, Marquee +10%) | 32.0% | 33.4% | 34.3% |
+| Bear: illustrative gross margin (e flat, s +3 / +3 pt, Marquee flat) | 32.0% | 33.1% | 33.8% |
+| Marketplace y/y gross margin effect, Bull / Base / Bear (bp) | +84 (est.) | +60 / +40 / +9 | +37 / +12 / -6 |
+| Implied marketplace gross profit growth, Base | 41% | 26% | 12% |
 | Consensus gross margin (placeholder) | 32.0% | 33.2% | 34.5% |
 
-Reading: with DM already ~300 bp of margin, each point of enrollment is worth about EUR 10m, so a path that moves enrollment by a point or two a year keeps marketplace close to neutral in bp terms, which is the slowing thesis in numbers. Bull needs marketplace to grow near 20% a year. Bear is the case where enrollment slips and Marquee stalls. The Base path sits 18 bp below the consensus placeholder in FY'26E and 57 bp below in FY'27E.
+Reading: the y/y effect is the change in bp level, so the shape of the enrollment path sets the shape of the effect. Base is front-loaded (+5.5 pt of enrollment in FY'26E, +1 pt more in FY'27E) so the contribution decays from +84 to +40 to +12 bp as marketplace growth converges on revenue growth; each point of enrollment is worth about EUR 10m. Bull keeps marketplace growing above 30% in FY'26E; Bear caps enrollment after a small defensive step and Marquee stalls, so marketplace turns into a drag by FY'27E. The Base path sits 20 bp above the consensus placeholder in FY'26E and 19 bp below in FY'27E.
 
 ## 6. Dropping the tabs into the model
 

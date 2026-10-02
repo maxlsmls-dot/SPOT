@@ -208,7 +208,7 @@ def build():
     eb, ebase, ebu = rr_e + 1, rr_e + 2, rr_e + 3
     for col in ["E", "F"]:
         c = ws[f"{col}{rr_e}"]; c.value = f'=$D${e25row}+IF({sel}="Bear",{col}{eb},IF({sel}="Bull",{col}{ebu},{col}{ebase}))'; c.font = F_TXT; c.alignment = CENTER; c.number_format = FP1; c.fill = GOLD
-    for name, vals, bd in [("Bear", [0.0, 0.01], Border(left=THIN, top=THIN)), ("Base", [0.005, 0.01], Border(left=THIN)), ("Bull", [0.015, 0.02], Border(left=THIN, bottom=THIN))]:
+    for name, vals, bd in [("Bear", [0.0, 0.0], Border(left=THIN, top=THIN)), ("Base", [0.01, 0.015], Border(left=THIN)), ("Bull", [0.015, 0.025], Border(left=THIN, bottom=THIN))]:
         r2 = w.row(name, ["", "", vals[0], vals[1]], fmt=FDELTA); ws[f"B{r2}"].border = bd
     A["e26"] = f"{IN}$E${rr_e}"; A["e27"] = f"{IN}$F${rr_e}"
     A["e_rows"] = dict(Bear=eb, Base=ebase, Bull=ebu)
@@ -216,11 +216,11 @@ def build():
     A["smeas"] = f"{IN}$D${rr}"
     rr = w.row("s: enrolled share of eligible-surface streams, FY'25 (active)", ["", f"='{SH_BR}'!$D$12"], "KEY LEVER (Topic 2). In 'DM share' mode this is solved on the bridge: s = Discovery Mode gross profit / (pool x e x discount). In 'Measured s' mode it is the measured figure above. Do not type over this cell or bridge D12.", fmt=FP1)
     ws[f"D{rr}"].fill = YELLOW; A["s25"] = f"{IN}$D${rr}"; s25row = rr
-    rr_s = w.row("s, FY'26E-FY'27E (active case) = FY'25 + case change below", ["", "", None, None], "Bull: enrollment keeps rising. Base: creeps up because staying in is defensive (opting out cut radio/autoplay streams 50-70% in the charted cases) even as the lift fades. Bear: flat to down (label pushback, Congressional scrutiny, lifts too small to justify 30%). Case rows are changes vs FY'25 in points, so they stay valid whichever calibration mode is on.", fmt=FP1)
+    rr_s = w.row("s, FY'26E-FY'27E (active case) = FY'25 + case change below", ["", "", None, None], "Cumulative change vs FY'25 in points. The y/y effect on the bridge is the change in bp level, so the shape of these rows sets the shape of the effect: Base is front-loaded (+5.5 pt then +1 pt more) to give a decaying marketplace contribution of roughly +84 / +40 / +12 bp, i.e. marketplace growth decelerating 41% -> ~26% -> ~12%. Bull keeps enrollment compounding; Bear caps it after a small defensive step. Rows stay valid whichever calibration mode is on.", fmt=FP1)
     sb, sbase, sbu = rr_s + 1, rr_s + 2, rr_s + 3
     for col in ["E", "F"]:
         c = ws[f"{col}{rr_s}"]; c.value = f'=$D${s25row}+IF({sel}="Bear",{col}{sb},IF({sel}="Bull",{col}{sbu},{col}{sbase}))'; c.font = F_TXT; c.alignment = CENTER; c.number_format = FP1; c.fill = GOLD
-    for name, vals, bd in [("Bear", [-0.01, -0.005], Border(left=THIN, top=THIN)), ("Base", [0.0, 0.01], Border(left=THIN)), ("Bull", [0.01, 0.025], Border(left=THIN, bottom=THIN))]:
+    for name, vals, bd in [("Bear", [0.03, 0.03], Border(left=THIN, top=THIN)), ("Base", [0.055, 0.065], Border(left=THIN)), ("Bull", [0.07, 0.10], Border(left=THIN, bottom=THIN))]:
         r2 = w.row(name, ["", "", vals[0], vals[1]], fmt=FDELTA); ws[f"B{r2}"].border = bd
     A["s26"] = f"{IN}$E${rr_s}"; A["s27"] = f"{IN}$F${rr_s}"
     A["s_rows"] = dict(Bear=sb, Base=sbase, Bull=sbu)
