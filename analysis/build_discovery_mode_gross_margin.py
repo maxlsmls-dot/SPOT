@@ -256,14 +256,99 @@ for y in HIST:
 note(wi, 42, "History from 20-F filings (FY2021-FY2025); see Financials sheet. FY2026 run-rate check: H1 2026 revenue EUR 9.31bn, Q3 2026 guide ~EUR 5.0bn. "
      "The placeholder build is deliberately simple; the model only needs a revenue line to turn the DM % into EUR.")
 
-section(wi, 44, "E. Gross margin EXCLUDING Discovery Mode, forecast (input; replace with your model's ex-DM margin path)")
-put(wi, 45, 1, "Gross margin ex-DM", TXT); put(wi, 45, 2, "% of revenue", NOTE)
-for y, v in zip(FC, [0.326, 0.331, 0.336, 0.341, 0.346]):
-    put(wi, 45, COL[y], v, INP, "0.0%", RIGHT, KEYFILL)
-GM_EX_ROW = 45
-note(wi, 46, "History ex-DM is derived on the Revenue & GM sheet (reported margin less the DM contribution). Forecast defaults add +50bp a year to the FY2025 ex-DM base, "
-     "so reported margin lands near the bottom of the 35-40% FY2030 target range (Investor Day, 21 May 2026). Everything above DM in the margin stack (price, mix, "
-     "audiobooks, podcasts, bundle mechanicals, Marquee) belongs here.")
+section(wi, 44, "E. Gross margin EXCLUDING Discovery Mode, forecast")
+put(wi, 45, 1, "Ex-DM gross margin change y/y (applied to the derived FY2025 ex-DM base)", TXT); put(wi, 45, 2, "bp", NOTE)
+for y in FC:
+    put(wi, 45, COL[y], 50, INP, "0", RIGHT, KEYFILL)
+GM_EX_STEP_ROW = 45
+put(wi, 46, 1, "Ex-DM gross margin OVERRIDE (paste your model's ex-DM margin level; blank = FY2025 base + steps)", BOLD); put(wi, 46, 2, "% of revenue", NOTE)
+for y in FC:
+    put(wi, 46, COL[y], None, INP, "0.0%", RIGHT, KEYFILL)
+GM_EX_OVR_ROW = 46
+note(wi, 47, "History ex-DM is derived on the Revenue & GM sheet (reported margin less the DM contribution), so it re-bases automatically when the DM level changes. "
+     "Everything above DM in the margin stack (podcast turnaround, bundle mechanicals, price floors, Marquee, delivery costs) belongs here.")
+
+section(wi, 49, "F. Marketplace anchor and calibration (your view: Discovery Mode is at least 80% of Marketplace gross profit)")
+put(wi, 50, 1, "Calibration mode (0 = as entered; 1 = hold s_dm, re-level s_ctx; 2 = hold s_ctx, re-level s_dm; 3 = re-level both)", BOLD)
+put(wi, 50, 2, 1, INP, "0", RIGHT, KEYFILL)
+put(wi, 50, 3, '=CHOOSE($B$50+1,"as entered (public bounds)","hold s_dm, re-level s_ctx","hold s_ctx, re-level s_dm","re-level both equally")', FMLB)
+put(wi, 51, 1, "Marketplace gross profit FY2021", TXT); put(wi, 51, 2, "EUR m", NOTE)
+put(wi, 51, 3, 160, INP, "#,##0", RIGHT)
+put(wi, 51, 4, "Investor Day 8 Jun 2022: 'more than EUR 160m' (Marquee, Showcase, Discovery Mode and related tools).", NOTE)
+put(wi, 52, 1, "Marketplace gross profit multiple, FY2025 vs FY2021", TXT); put(wi, 52, 2, "x", NOTE)
+put(wi, 52, 3, 4.0, INP, "0.0x", RIGHT)
+put(wi, 52, 4, "Third-party recap of Investor Day 21 May 2026 ('about 4x 2021'). Not an official EUR figure.", NOTE)
+put(wi, 53, 1, "Marketplace gross profit by year (geometric interpolation)", TXT); put(wi, 53, 2, "EUR m", NOTE)
+for y in HIST:
+    put(wi, 53, COL[y], f"=$C$51*$C$52^({y - 2021}/4)", FML, "#,##0", RIGHT)
+put(wi, 54, 1, "Discovery Mode share of Marketplace gross profit", TXT); put(wi, 54, 2, "%", NOTE)
+for y, v in zip(HIST, [0.30, 0.50, 0.65, 0.75, 0.80]):
+    put(wi, 54, COL[y], v, INP, "0%", RIGHT, KEYFILL if y == 2025 else None)
+put(wi, 55, 1, "Anchor: Discovery Mode gross profit", BOLD); put(wi, 55, 2, "EUR m", NOTE)
+for y in HIST:
+    put(wi, 55, COL[y], f"={COL[y]}53*{COL[y]}54", FMLB, "#,##0", RIGHT)
+put(wi, 56, 1, "Anchor: Discovery Mode saving as % of total revenue", TXT); put(wi, 56, 2, "% of total rev", NOTE)
+for y in HIST:
+    put(wi, 56, COL[y], f"={COL[y]}55/'Revenue & GM'!{COL[y]}13", LNK, "0.00%", RIGHT)
+put(wi, 57, 1, "Anchor: DM streams as % of all music streams required (= row 56 / (d x r_rec x m), Base commission)", TXT); put(wi, 57, 2, "% of music streams", NOTE)
+for y in HIST:
+    put(wi, 57, COL[y], f"={COL[y]}56/({COL[y]}27*$C$8*$C$9)", FML, "0.0%", RIGHT)
+
+put(wi, 59, 1, "Calibrated DM streams as % of music streams (P), by scenario", BOLD)
+put(wi, 59, 4, "History = anchor. Forecast = anchored FY2025 level + the scenario's change in s_ctx x s_dm versus FY2025 as entered, so scenario deltas carry over in full.", NOTE)
+P_ROW = {}
+for i, (name, rc, rd) in enumerate([("Bear", 12, 19), ("Base", 13, 20), ("Bull", 14, 21)]):
+    r = 60 + i
+    P_ROW[name] = r
+    put(wi, r, 1, f"  {name}", TXT); put(wi, r, 2, "% of music streams", NOTE)
+    for y in HIST:
+        c = COL[y]
+        put(wi, r, c, f"=IF($B$50=0,{c}{rc}*{c}{rd},{c}$57)", FML, "0.0%", RIGHT)
+    for y in FC:
+        c = COL[y]
+        put(wi, r, c, f"=IF($B$50=0,{c}{rc}*{c}{rd},MIN(1,{c}{rc}*{c}{rd}+($G$57-$G$13*$G$20)))", FML, "0.0%", RIGHT)
+put(wi, 63, 1, "  Selected scenario", BOLD); put(wi, 63, 2, "% of music streams", NOTE)
+for y in YEARS:
+    put(wi, 63, COL[y], f"=CHOOSE($B$4,{COL[y]}60,{COL[y]}61,{COL[y]}62)", FMLB, "0.0%", RIGHT)
+
+put(wi, 65, 1, "Calibrated s_ctx, by scenario (decomposition of P per calibration mode) - USED BY THE MODEL", BOLD)
+CTX_CAL = {}
+for i, (name, rc, rd) in enumerate([("Bear", 12, 19), ("Base", 13, 20), ("Bull", 14, 21)]):
+    r = 66 + i
+    CTX_CAL[name] = r
+    put(wi, r, 1, f"  {name}", TXT); put(wi, r, 2, "% of music streams", NOTE)
+    for y in YEARS:
+        c = COL[y]
+        pr = P_ROW[name]
+        put(wi, r, c, f"=CHOOSE($B$50+1,{c}{rc},MIN(1,{c}{pr}/{c}{rd}),{c}{rc},MIN(1,{c}{rc}*SQRT({c}{pr}/({c}{rc}*{c}{rd}))))", FML, "0.0%", RIGHT)
+put(wi, 69, 1, "  Selected scenario", BOLD); put(wi, 69, 2, "% of music streams", NOTE)
+for y in YEARS:
+    put(wi, 69, COL[y], f"=CHOOSE($B$4,{COL[y]}66,{COL[y]}67,{COL[y]}68)", FMLB, "0.0%", RIGHT)
+CTX_CAL_SEL = 69
+
+put(wi, 71, 1, "Calibrated s_dm, by scenario - USED BY THE MODEL", BOLD)
+DM_CAL = {}
+for i, (name, rc, rd) in enumerate([("Bear", 12, 19), ("Base", 13, 20), ("Bull", 14, 21)]):
+    r = 72 + i
+    DM_CAL[name] = r
+    put(wi, r, 1, f"  {name}", TXT); put(wi, r, 2, "% of context streams", NOTE)
+    for y in YEARS:
+        c = COL[y]
+        pr = P_ROW[name]
+        put(wi, r, c, f"=CHOOSE($B$50+1,{c}{rd},{c}{rd},MIN(1,{c}{pr}/{c}{rc}),MIN(1,{c}{rd}*SQRT({c}{pr}/({c}{rc}*{c}{rd}))))", FML, "0.0%", RIGHT)
+put(wi, 75, 1, "  Selected scenario", BOLD); put(wi, 75, 2, "% of context streams", NOTE)
+for y in YEARS:
+    put(wi, 75, COL[y], f"=CHOOSE($B$4,{COL[y]}72,{COL[y]}73,{COL[y]}74)", FMLB, "0.0%", RIGHT)
+DM_CAL_SEL = 75
+
+put(wi, 77, 1, "Plausibility check, FY2025 Base calibrated: s_ctx vs ~25% public bound ('majority of streams are active'; DM contexts a subset of programmed)", TXT)
+put(wi, 77, 2, "=G67", FML, "0.0%", RIGHT)
+put(wi, 77, 3, '=IF(G67>0.25,"ABOVE public bound","within public bound")', FMLB)
+put(wi, 78, 1, "Plausibility check, FY2025 Base calibrated: s_dm vs ~57% no-majors ceiling (Triangulation section B)", TXT)
+put(wi, 78, 2, "=G73", FML, "0.0%", RIGHT)
+put(wi, 78, 3, '=IF(G73>0.57,"ABOVE no-majors ceiling","within ceiling")', FMLB)
+note(wi, 79, "Mode 1 honours the 33% enrollment assumption and lets the context share absorb the anchor. Mode 3 splits the gap between both unknowns. Mode 0 switches the anchor off and "
+     "runs the public-bounds inputs from sections A and B. A capped value (100%) means the anchor cannot be reached inside the chain with the other inputs as set.")
 wi.freeze_panes = "C7"
 
 # =============================================================================
@@ -329,7 +414,7 @@ put(wr, 23, 1, "Gross margin ex-Discovery Mode", TXT); put(wr, 23, 2, "%", NOTE)
 for y in HIST:
     put(wr, 23, COL[y], f"={COL[y]}19-{COL[y]}22", FML, "0.0%", RIGHT)
 for y in FC:
-    put(wr, 23, COL[y], f"=Inputs!{COL[y]}{GM_EX_ROW}", LNK, "0.0%", RIGHT)
+    put(wr, 23, COL[y], f'=IF(Inputs!{COL[y]}{GM_EX_OVR_ROW}="",{COL[y - 1]}23+Inputs!{COL[y]}{GM_EX_STEP_ROW}/10000,Inputs!{COL[y]}{GM_EX_OVR_ROW})', LNK, "0.0%", RIGHT)
 put(wr, 24, 1, "Gross margin (reported history / forecast)", BOLD); put(wr, 24, 2, "%", NOTE)
 for y in HIST:
     put(wr, 24, COL[y], f"={COL[y]}19", FMLB, "0.0%", RIGHT, border=TOPLINE)
@@ -380,7 +465,7 @@ wr.freeze_panes = "C5"
 wd = wb.create_sheet("DM build")
 widths(wd, [62, 16] + [11] * 10)
 put(wd, 1, 1, "Discovery Mode gross margin build, all three scenarios", TITLE)
-put(wd, 2, 1, "DM saving as % of revenue = s_ctx x s_dm x d x r_rec x m. Spotify retains the commission (20-F: cost of revenue 'reflects discounts provided by certain rights holders in return for promotional activities in connection with marketplace programs').", NOTE)
+put(wd, 2, 1, "DM saving as % of revenue = s_ctx x s_dm x d x r_rec x m, using the CALIBRATED s_ctx and s_dm from Inputs section F (anchored to Marketplace gross profit unless calibration mode = 0). Spotify retains the commission (20-F: cost of revenue 'reflects discounts provided by certain rights holders in return for promotional activities in connection with marketplace programs').", NOTE)
 year_header(wd, 4)
 
 BLOCK = {}
@@ -418,13 +503,13 @@ def dm_block(r0, name, ctx_ref, dm_ref, d_ref):
 for i, name in enumerate(["Bear", "Base", "Bull"]):
     r0 = 6 + i * 13
     dm_block(r0, name,
-             lambda y, n=name: f"=Inputs!{COL[y]}{CTX_ROW[n]}",
-             lambda y, n=name: f"=Inputs!{COL[y]}{DM_ROW[n]}",
+             lambda y, n=name: f"=Inputs!{COL[y]}{CTX_CAL[n]}",
+             lambda y, n=name: f"=Inputs!{COL[y]}{DM_CAL[n]}",
              lambda y, n=name: f"=Inputs!{COL[y]}{D_ROW[n]}")
 r0 = 6 + 3 * 13
 dm_block(r0, "Selected",
-         lambda y: f"=Inputs!{COL[y]}{CTX_SEL}",
-         lambda y: f"=Inputs!{COL[y]}{DM_SEL}",
+         lambda y: f"=Inputs!{COL[y]}{CTX_CAL_SEL}",
+         lambda y: f"=Inputs!{COL[y]}{DM_CAL_SEL}",
          lambda y: f"=Inputs!{COL[y]}{D_SEL}")
 put(wd, r0, 1, "Selected scenario (feeds Revenue & GM)", H2)
 put(wd, r0, 3, f'=CHOOSE({SEL},"Bear","Base","Bull")', FMLB)
@@ -531,31 +616,33 @@ note(wt, r, "Reading: with ~28% of streams outside the majors and Merlin, e cann
      "If the per-track boost has faded to the 2025-26 level (b ~1.8), holding 33% needs enrollment closer to 70% of eligible catalog. That is the mechanism behind the Bear case.", 7)
 r += 2
 
-section(wt, r, "C. Sanity bound from Spotify's Marketplace disclosures")
+section(wt, r, "C. Marketplace anchor (your view; the inputs live on Inputs sheet, section F)")
 r += 1
 TC0 = r
 rows_c = [
-    ("Marketplace gross profit contribution, FY2021 (Investor Day, 8 Jun 2022: 'more than EUR 160m')", 160, "#,##0", "EUR m. Marketplace = Marquee, Showcase, Discovery Mode and related tools."),
-    ("Multiple cited at Investor Day 21 May 2026 (third-party recap: 'about 4x 2021')", 4, "0.0x", "Not an official EUR figure; treat as order of magnitude."),
-    ("Implied Marketplace gross profit, FY2025", None, "#,##0", "row 1 x row 2"),
-    ("Discovery Mode gross profit FY2025, this model (Base)", None, "#,##0", "From DM build"),
-    ("DM as share of implied Marketplace gross profit", None, "0%", "The rest is Marquee/Showcase advertising. Anything above ~50% would strain the 2021 base, where Marquee was the bulk."),
-    ("Upper bound on s_ctx x s_dm if DM were ALL of Marketplace gross profit", None, "0.0%", "row 3 / (FY2025 revenue x d x r_rec x m). The model's FY2025 product is shown next to it."),
+    ("Marketplace gross profit FY2021 (Investor Day 2022: 'more than EUR 160m')", "=Inputs!$C$51", "#,##0", None, None, "EUR m"),
+    ("Multiple by FY2025 (third-party recap of Investor Day 2026: 'about 4x')", "=Inputs!$C$52", "0.0x", None, None, ""),
+    ("Implied Marketplace gross profit FY2025", "=Inputs!$G$53", "#,##0", None, None, "EUR m"),
+    ("Discovery Mode share of Marketplace gross profit FY2025 (your assumption: at least 80%)", "=Inputs!$G$54", "0%", None, None, ""),
+    ("Anchor: Discovery Mode gross profit FY2025 / bp of gross margin", "=Inputs!$G$55", "#,##0", "=Inputs!$G$56*10000", "0", "EUR m / bp"),
+    ("DM streams as % of music streams: required by the anchor / as entered in A and B", "=Inputs!$G$57", "0.0%", "=Inputs!$G$13*Inputs!$G$20", "0.0%", ""),
+    ("Re-level factor on the product", "=Inputs!$G$57/(Inputs!$G$13*Inputs!$G$20)", "0.0x", None, None, ""),
+    ("Calibrated FY2025 (Base): s_ctx / s_dm under the selected calibration mode", "=Inputs!$G$67", "0.0%", "=Inputs!$G$73", "0.0%", ""),
 ]
-for i, (lab, val, fmt, src) in enumerate(rows_c):
+for i, (lab, f1, fmt1, f2, fmt2, unit) in enumerate(rows_c):
     rr = TC0 + i
     put(wt, rr, 1, lab, TXT, align=WRAP)
     wt.merge_cells(start_row=rr, start_column=1, end_row=rr, end_column=3)
-    if val is not None:
-        put(wt, rr, 5, val, INP, fmt, RIGHT)
-    put(wt, rr, 4, src, NOTE, align=WRAP)
-    wt.row_dimensions[rr].height = 40
-put(wt, TC0 + 2, 5, f"=E{TC0}*E{TC0 + 1}", FML, "#,##0", RIGHT)
-put(wt, TC0 + 3, 5, f"='DM build'!G{BLOCK['Base']['eur']}", LNK, "#,##0", RIGHT)
-put(wt, TC0 + 4, 5, f"=E{TC0 + 3}/E{TC0 + 2}", FML, "0%", RIGHT)
-put(wt, TC0 + 5, 5, f"=E{TC0 + 2}/('Revenue & GM'!G{REV_USED}*Inputs!G27*{R_REC}*{M_SHARE})", FML, "0.0%", RIGHT)
-put(wt, TC0 + 5, 6, f"='DM build'!G{BLOCK['Base']['share']}", LNK, "0.0%", RIGHT)
-put(wt, TC0 + 5, 7, "model FY2025", NOTE)
+    put(wt, rr, 4, unit, NOTE)
+    put(wt, rr, 5, f1, LNK, fmt1, RIGHT)
+    if f2:
+        put(wt, rr, 6, f2, LNK, fmt2, RIGHT)
+    wt.row_dimensions[rr].height = 30
+r = TC0 + len(rows_c)
+note(wt, r, "Reading: the anchor needs Discovery Mode streams to be about a fifth of all music streams, roughly 4x the public-bounds estimate. Holding enrollment at 33%, DM contexts must "
+     "carry ~60% of streams, above Spotify's own 'majority of streams are active'. Re-levelling both gives roughly 30% x 70%, which needs either an Autoplay share far larger than the "
+     "25bn-stream sample captured, or enrollment past the no-majors ceiling. The anchor rests on a third-party recap of the '4x' and on the DM share supplied; test both against the Tegus calls.", 7)
+wt.row_dimensions[r].height = 56
 
 # =============================================================================
 # FINANCIALS (reported data)
@@ -685,6 +772,7 @@ sources = [
     ("S45", "Spotify newsroom: Smart Shuffle (Mar 2023)", "https://newsroom.spotify.com/2023-03-08/smart-shuffle-new-life-spotify-playlists/"),
     ("S46", "Spotify newsroom: AI DJ (Mar 2023)", "https://newsroom.spotify.com/2023-03-08/spotify-new-personalized-ai-dj-how-it-works/"),
     ("S47", "r/musicmarketing Discovery Mode evidence (this repo)", "analysis/discovery_mode_efficacy.xlsx"),
+    ("S48", "Analyst view (2 Oct 2026): Discovery Mode is at least 80% of Marketplace gross profit", "user input; drives Inputs section F"),
 ]
 for i, h in enumerate(["#", "Document", "URL"], 1):
     put(wsrc, 4, i, h, HDR, fill=HFILL)
@@ -697,36 +785,61 @@ for i, (k, d, u) in enumerate(sources):
 # SUMMARY (first sheet)
 # =============================================================================
 ws = wb.create_sheet("Summary", 0)
-widths(ws, [58, 13, 13, 13, 13, 13, 13, 13, 13, 13])
+widths(ws, [60, 16, 16, 13, 13, 13, 13, 13, 13, 13])
 put(ws, 1, 1, "Spotify Discovery Mode: from autoplay share of streams to gross margin", TITLE)
-put(ws, 2, 1, "Chain: share of music streams in DM contexts (Radio, Autoplay, Mixes)  x  share of those that are DM-enrolled  x  30% commission  x  recording royalties as % of music revenue  x  music share of revenue  =  DM saving as % of revenue. Scenario and every assumption live on Inputs.", NOTE, align=WRAP)
-ws.merge_cells("A2:J2"); ws.row_dimensions[2].height = 30
+put(ws, 2, 1, "Chain: share of music streams in DM contexts (Radio, Autoplay, Mixes)  x  share of those that are DM-enrolled  x  30% commission  x  recording royalties as % of music revenue  x  music share of revenue  =  DM saving as % of revenue. "
+    "The model is anchored to your view that Discovery Mode is at least 80% of Marketplace gross profit (Inputs section F); the public-bounds estimate is shown beside it for reference.", NOTE, align=WRAP)
+ws.merge_cells("A2:J2"); ws.row_dimensions[2].height = 40
 
 put(ws, 4, 1, "Selected scenario", BOLD); put(ws, 4, 2, f'=CHOOSE({SEL},"Bear","Base","Bull")', LNK)
-put(ws, 4, 4, "(change on Inputs!B4)", NOTE)
+put(ws, 4, 3, "(Inputs!B4)", NOTE)
+put(ws, 4, 5, "Calibration mode", BOLD)
+put(ws, 4, 6, '=CHOOSE(Inputs!$B$50+1,"0: as entered","1: hold s_dm, re-level s_ctx","2: hold s_ctx, re-level s_dm","3: re-level both")', LNK)
+put(ws, 4, 9, "(Inputs!B50)", NOTE)
 
 section(ws, 6, "The chain, FY2025 (Base)")
+put(ws, 6, 2, "Model (anchored)", HDR, align=RIGHT, fill=HFILL)
+put(ws, 6, 3, "Public bounds only", HDR, align=RIGHT, fill=HFILL)
 G = "G"  # FY2025 column
 chain = [
-    ("Share of music streams in Discovery Mode contexts (s_ctx)", f"='DM build'!{G}{BLOCK['Base']['ctx']}", "0.0%"),
-    ("Share of those streams that are DM-enrolled (s_dm)", f"='DM build'!{G}{BLOCK['Base']['dm']}", "0.0%"),
-    ("-> Discovery Mode streams as % of all music streams", f"='DM build'!{G}{BLOCK['Base']['share']}", "0.00%"),
-    ("x Commission on recording royalties (d)", f"='DM build'!{G}{BLOCK['Base']['d']}", "0%"),
-    ("x Recording royalties % of music revenue x music share of revenue", f"={R_REC}*{M_SHARE}", "0.0%"),
-    ("-> Discovery Mode saving as % of total revenue", f"='DM build'!{G}{BLOCK['Base']['pct']}", "0.00%"),
-    ("-> Gross margin contribution (bp)", f"='DM build'!{G}{BLOCK['Base']['bp']}", "0"),
-    ("-> Discovery Mode gross profit (EUR m)", f"='DM build'!{G}{BLOCK['Base']['eur']}", "#,##0"),
+    ("Share of music streams in Discovery Mode contexts (s_ctx)", f"='DM build'!{G}{BLOCK['Base']['ctx']}", "=Inputs!G13", "0.0%"),
+    ("Share of those streams that are DM-enrolled (s_dm)", f"='DM build'!{G}{BLOCK['Base']['dm']}", "=Inputs!G20", "0.0%"),
+    ("-> Discovery Mode streams as % of all music streams", f"='DM build'!{G}{BLOCK['Base']['share']}", "=C7*C8", "0.00%"),
+    ("x Commission on recording royalties (d)", f"='DM build'!{G}{BLOCK['Base']['d']}", "=Inputs!G27", "0%"),
+    ("x Recording royalties % of music revenue x music share of revenue", f"={R_REC}*{M_SHARE}", f"={R_REC}*{M_SHARE}", "0.0%"),
+    ("-> Discovery Mode saving as % of total revenue", f"='DM build'!{G}{BLOCK['Base']['pct']}", "=C9*C10*C11", "0.00%"),
+    ("-> Gross margin contribution (bp)", f"='DM build'!{G}{BLOCK['Base']['bp']}", "=C12*10000", "0"),
+    ("-> Discovery Mode gross profit (EUR m)", f"='DM build'!{G}{BLOCK['Base']['eur']}", f"=C12*'Revenue & GM'!G{REV_USED}", "#,##0"),
 ]
-for i, (lab, f, fmt) in enumerate(chain):
-    put(ws, 7 + i, 1, lab, BOLD if lab.startswith("->") else TXT)
-    put(ws, 7 + i, 2, f, LNK, fmt, RIGHT)
+for i, (lab, f1, f2, fmt) in enumerate(chain):
+    r = 7 + i
+    put(ws, r, 1, lab, BOLD if lab.startswith("->") else TXT)
+    put(ws, r, 2, f1, LNK, fmt, RIGHT)
+    put(ws, r, 3, f2, LNK if ("Inputs" in f2 or "Revenue" in f2) else FML, fmt, RIGHT)
 
-section(ws, 16, "Scenario outputs")
+section(ws, 16, "Marketplace anchor (Inputs section F)")
+anchor = [
+    ("Marketplace gross profit FY2025, implied (EUR m)", "=Inputs!G53", "#,##0", None, None),
+    ("Discovery Mode share of Marketplace gross profit (your view)", "=Inputs!G54", "0%", None, None),
+    ("Anchor: Discovery Mode gross profit FY2025 (EUR m)  /  bp of gross margin", "=Inputs!G55", "#,##0", "=Inputs!G56*10000", "0"),
+    ("DM streams as % of music streams: required by anchor  /  as entered (public bounds)", "=Inputs!G57", "0.0%", "=Inputs!G13*Inputs!G20", "0.0%"),
+    ("Re-level factor on the product (required / as entered)", "=Inputs!G57/(Inputs!G13*Inputs!G20)", "0.0x", None, None),
+    ("Calibrated FY2025 (Base): s_ctx  /  s_dm", "=Inputs!G67", "0.0%", "=Inputs!G73", "0.0%"),
+    ("Plausibility", '=IF(Inputs!G67>0.25,"s_ctx ABOVE the ~25% public bound","s_ctx within public bound")', None, '=IF(Inputs!G73>0.57,"s_dm ABOVE the ~57% no-majors ceiling","s_dm within ceiling")', None),
+]
+for i, (lab, f1, fmt1, f2, fmt2) in enumerate(anchor):
+    r = 17 + i
+    put(ws, r, 1, lab, TXT)
+    put(ws, r, 2, f1, LNK, fmt1, RIGHT)
+    if f2:
+        put(ws, r, 3, f2, LNK, fmt2, RIGHT)
+
+section(ws, 25, "Scenario outputs (anchored)")
 heads = ["Scenario", "FY2025A bp", "FY2030E bp", "Change bp", "FY2030E EUR m", "s_ctx FY2030", "s_dm FY2030", "d FY2030"]
 for i, h in enumerate(heads, 1):
-    put(ws, 17, i, h, HDR, align=RIGHT if i > 1 else None, fill=HFILL)
+    put(ws, 26, i, h, HDR, align=RIGHT if i > 1 else None, fill=HFILL)
 for i, name in enumerate(["Bear", "Base", "Bull"]):
-    r = 18 + i
+    r = 27 + i
     b = BLOCK[name]
     put(ws, r, 1, name, BOLD)
     put(ws, r, 2, f"='DM build'!G{b['bp']}", LNK, "0", RIGHT)
@@ -736,66 +849,67 @@ for i, name in enumerate(["Bear", "Base", "Bull"]):
     put(ws, r, 6, f"='DM build'!L{b['ctx']}", LNK, "0.0%", RIGHT)
     put(ws, r, 7, f"='DM build'!L{b['dm']}", LNK, "0.0%", RIGHT)
     put(ws, r, 8, f"='DM build'!L{b['d']}", LNK, "0%", RIGHT)
-put(ws, 22, 1, "FY2030E reported gross margin, selected scenario on your ex-DM path", TXT)
-put(ws, 22, 2, f"='Revenue & GM'!L{GM_ROW}", LNK, "0.0%", RIGHT)
-put(ws, 22, 4, "Investor Day target 35-40%", NOTE)
-put(ws, 23, 1, "Share of FY2021-25 reported margin expansion explained by Discovery Mode", TXT)
-put(ws, 23, 2, "='Revenue & GM'!C34", LNK, "0%", RIGHT)
+put(ws, 31, 1, "FY2030E reported gross margin, selected scenario on your ex-DM path", TXT)
+put(ws, 31, 2, f"='Revenue & GM'!L{GM_ROW}", LNK, "0.0%", RIGHT)
+put(ws, 31, 4, "Investor Day target 35-40%", NOTE)
+put(ws, 32, 1, "Share of FY2021-25 reported margin expansion explained by Discovery Mode", TXT)
+put(ws, 32, 2, "='Revenue & GM'!C34", LNK, "0%", RIGHT)
+put(ws, 33, 1, "  ... as a share of the 'about a third from music' management cited (above 100% = DM alone exceeds the music third)", TXT)
+put(ws, 33, 2, "='Revenue & GM'!C36", LNK, "0%", RIGHT)
 
-section(ws, 25, "What the evidence supports")
+section(ws, 35, "What the evidence supports")
 pts = [
-    "1. Spotify keeps the commission. The 20-F says cost of revenue 'reflects discounts provided by certain rights holders in return for promotional activities in connection with marketplace programs', and every 2025-26 letter attributes Premium margin gains to 'music costs net of marketplace programs'. So the 30% is a gross-margin item, not a redistribution to other labels.",
-    "2. The context share is the softest number. Spotify has never disclosed Radio/Autoplay/Mixes as a share of streams. Public bounds (31% of listening programmed in 2018; majority of streams active in 2022; ~19-21% algorithmic in a 25bn-stream sample; 'up to one-fifth' in Spotify research) put DM contexts at roughly 9-20% of music streams. Base 14% for FY2025, 9-9.5% before Mixes joined in 2024.",
-    "3. Your 33% DM share of context streams is consistent with the catalog math: ~28% of streams sit outside UMG/Sony/WMG/Merlin, about half of that is enrolled, and enrolled tracks get a ~3x in-context boost. The same math caps s_dm near 45-57% unless a major opts in, and drops it toward ~23% if the boost has faded to the 2025-26 level.",
-    "4. Discovery Mode is worth about 70bp of gross margin today on Base inputs (~EUR 120m), roughly a tenth of the FY2021-25 expansion and a third of the 'music' third management cited. FY2030 runs 45-165bp across Bear-Bull, so DM moves the 2030 margin by about +/-50bp around Base. It is a real but second-order lever next to price, mix and the 35-40% target.",
-    "5. Growth in lean-back listening does not automatically flow to DM: AI DJ, Smart Shuffle and Discover Weekly are not DM contexts. The Bull case needs either a context expansion or a major label, both of which are visible events you can watch for.",
+    "1. Spotify keeps the commission. The 20-F says cost of revenue 'reflects discounts provided by certain rights holders in return for promotional activities in connection with marketplace programs', and every 2025-26 letter attributes Premium margin gains to 'music costs net of marketplace programs'. The 30% is a gross-margin item, not a redistribution to other labels.",
+    "2. Public bounds alone (DM contexts at 9-20% of music streams, 14% base; 33% of those enrolled) give about 70bp and EUR 120m for FY2025. Your anchor (Discovery Mode at least 80% of roughly EUR 640m Marketplace gross profit) gives about 300bp and EUR 510m, 4.3x larger. The model now runs on the anchor; column C of the chain keeps the public-bounds figure visible.",
+    "3. To hit the anchor, DM streams must be about a fifth of all music streams. Holding your 33% enrollment, DM contexts must carry ~60% of streams, above Spotify's own 'majority of streams are active'. Re-levelling both unknowns gives roughly 30% x 70%, which needs either an Autoplay share far larger than the 25bn-stream sample captured or enrollment beyond the no-majors ceiling. The calibration mode (Inputs!B50) picks which variable absorbs it; the plausibility row flags the result.",
+    "4. On the anchor, Discovery Mode explains about half of the FY2021-25 margin expansion, more than management's 'about a third from music' leaves for all of music. Either the '4x' recap overstates Marketplace gross profit, or the music third was framed over a different period. This is the first thing to test against the Tegus calls (Topic 2 of the triangulation matrix).",
+    "5. Forecast on the anchor: roughly 235bp Bear, 325bp Base, 395bp Bull by FY2030, i.e. the scenario deltas from the public-bounds build carried onto the anchored FY2025 level. Lean-back growth still does not reach DM automatically: AI DJ, Smart Shuffle and Discover Weekly are not DM contexts, so the Bull needs a context expansion or a major label.",
 ]
 for i, p in enumerate(pts):
-    put(ws, 26 + i, 1, p, TXT, align=WRAP)
-    ws.merge_cells(start_row=26 + i, start_column=1, end_row=26 + i, end_column=10)
-    ws.row_dimensions[26 + i].height = 44
+    put(ws, 36 + i, 1, p, TXT, align=WRAP)
+    ws.merge_cells(start_row=36 + i, start_column=1, end_row=36 + i, end_column=10)
+    ws.row_dimensions[36 + i].height = 48
 
-section(ws, 32, "Sensitivity: FY2030 gross margin contribution (bp) to the two unknowns, at Base commission and royalty assumptions")
-put(ws, 33, 1, "s_ctx (context share of music streams)  ↓   |   s_dm (DM share of context streams)  →", HDR, fill=HFILL)
-sdm_vals = [0.20, 0.25, 0.30, 0.33, 0.40, 0.50, 0.60]
+section(ws, 42, "Sensitivity: FY2030 gross margin contribution (bp) to the two unknowns, at Base commission and royalty assumptions")
+put(ws, 43, 1, "s_ctx (context share of music streams)  \u2193   |   s_dm (DM share of context streams)  \u2192", HDR, fill=HFILL)
+sdm_vals = [0.20, 0.33, 0.40, 0.50, 0.60, 0.80, 1.00]
 for j, v in enumerate(sdm_vals):
-    put(ws, 33, 2 + j, v, INP, "0%", RIGHT, HFILL)
-sctx_vals = [0.10, 0.12, 0.14, 0.16, 0.18, 0.20, 0.22]
+    put(ws, 43, 2 + j, v, INP, "0%", RIGHT, HFILL)
+sctx_vals = [0.10, 0.14, 0.20, 0.30, 0.40, 0.50, 0.60]
 for i, v in enumerate(sctx_vals):
-    r = 34 + i
+    r = 44 + i
     put(ws, r, 1, v, INP, "0%", RIGHT)
     for j in range(len(sdm_vals)):
         c = get_column_letter(2 + j)
-        put(ws, r, 2 + j, f"=$A{r}*{c}$33*Inputs!$L$27*{R_REC}*{M_SHARE}*10000", FML, "0", RIGHT)
-put(ws, 41, 1, "Each cell = s_ctx x s_dm x d (Base FY2030) x r_rec x m x 10,000. Base case is 16.5% x 38%.", NOTE)
+        put(ws, r, 2 + j, f"=$A{r}*{c}$43*Inputs!$L$27*{R_REC}*{M_SHARE}*10000", FML, "0", RIGHT)
+put(ws, 51, 1, "Each cell = s_ctx x s_dm x d (Base FY2030) x r_rec x m x 10,000. Anchored Base FY2030 sits near 57% x 38% in mode 1, or ~31% x ~71% in mode 3; public-bounds Base is 16.5% x 38%.", NOTE)
 
-# Charts
-section(ws, 43, "Chart 1. Discovery Mode gross margin contribution by scenario (bp)")
+section(ws, 53, "Chart 1. Discovery Mode gross margin contribution by scenario (bp)")
 
 
 def bp_chart():
     ch = LineChart()
+    from openpyxl.chart.series import SeriesLabel
     for name, col in (("Bear", AQUA), ("Base", BLUE), ("Bull", ORANGE)):
         b = BLOCK[name]
         data = Reference(wd, min_col=3, min_row=b["bp"], max_col=12, max_row=b["bp"])
         ch.add_data(data, from_rows=True, titles_from_data=False)
-        s = ch.series[-1]
-        from openpyxl.chart.series import SeriesLabel
-        s.tx = SeriesLabel(v=name)
-        s.graphicalProperties.line.solidFill = col
-        s.graphicalProperties.line.width = 22000
-        s.marker.symbol = "circle"
-        s.marker.size = 6
-        s.marker.graphicalProperties.solidFill = col
-        s.marker.graphicalProperties.line.solidFill = col
-        s.smooth = False
+        s_ = ch.series[-1]
+        s_.tx = SeriesLabel(v=name)
+        s_.graphicalProperties.line.solidFill = col
+        s_.graphicalProperties.line.width = 22000
+        s_.marker.symbol = "circle"
+        s_.marker.size = 6
+        s_.marker.graphicalProperties.solidFill = col
+        s_.marker.graphicalProperties.line.solidFill = col
+        s_.smooth = False
     ch.set_categories(Reference(wd, min_col=3, min_row=4, max_col=12, max_row=4))
     style_chart(ch, "Discovery Mode gross margin contribution (bp)", "bp of gross margin", "0")
     return ch
 
 
-ws.add_chart(bp_chart(), "A44")
-section(ws, 63, "Chart 2. Discovery Mode gross profit by scenario (EUR m)")
+ws.add_chart(bp_chart(), "A54")
+section(ws, 73, "Chart 2. Discovery Mode gross profit by scenario (EUR m)")
 
 
 def eur_chart():
@@ -808,26 +922,26 @@ def eur_chart():
         b = BLOCK[name]
         data = Reference(wd, min_col=7, min_row=b["eur"], max_col=12, max_row=b["eur"])  # FY2025-FY2030
         ch.add_data(data, from_rows=True, titles_from_data=False)
-        s = ch.series[-1]
-        s.tx = SeriesLabel(v=name)
-        s.graphicalProperties.solidFill = col
-        s.graphicalProperties.line.noFill = True
+        s_ = ch.series[-1]
+        s_.tx = SeriesLabel(v=name)
+        s_.graphicalProperties.solidFill = col
+        s_.graphicalProperties.line.noFill = True
     ch.set_categories(Reference(wd, min_col=7, min_row=4, max_col=12, max_row=4))
     style_chart(ch, "Discovery Mode gross profit (EUR m)", "EUR m", "#,##0")
     return ch
 
 
-ws.add_chart(eur_chart(), "A64")
+ws.add_chart(eur_chart(), "A74")
 
-section(ws, 83, "Legend")
-for i, s in enumerate([
-    "Blue text = hardcoded input (change freely). Black = formula. Green = link to another sheet. Yellow fill = the cells to edit first: scenario selector, revenue override, ex-DM margin path.",
-    "Sheets: Inputs (all assumptions) -> DM build (three scenarios computed side by side) -> Revenue & GM (bridge) ; Triangulation (where the two unknowns come from) ; Financials (reported data) ; Sources.",
-    "To wire into your revenue build: paste revenue into Inputs row 40 and your ex-DM margin into Inputs row 45, or link 'Revenue & GM'!row 22 (DM % of revenue) and row 27 (DM EUR) straight into your cost of revenue line.",
+section(ws, 93, "Legend")
+for i, t in enumerate([
+    "Blue text = hardcoded input (change freely). Black = formula. Green = link to another sheet. Yellow fill = the cells to edit first: scenario selector (Inputs!B4), calibration mode (Inputs!B50), DM share of Marketplace (Inputs!G54), revenue override (row 40), ex-DM margin steps or override (rows 45-46).",
+    "Sheets: Inputs (assumptions, anchor and calibration) -> DM build (three scenarios side by side) -> Revenue & GM (bridge) ; Triangulation (where the two unknowns come from) ; Financials (reported data) ; Sources.",
+    "To wire into your revenue build: paste revenue into Inputs row 40 and your ex-DM margin into Inputs row 46, or link 'Revenue & GM'!row 22 (DM % of revenue) and row 27 (DM EUR) straight into your cost of revenue line.",
 ]):
-    put(ws, 84 + i, 1, s, NOTE, align=WRAP)
-    ws.merge_cells(start_row=84 + i, start_column=1, end_row=84 + i, end_column=10)
-    ws.row_dimensions[84 + i].height = 28
+    put(ws, 94 + i, 1, t, NOTE, align=WRAP)
+    ws.merge_cells(start_row=94 + i, start_column=1, end_row=94 + i, end_column=10)
+    ws.row_dimensions[94 + i].height = 28
 
 for sh in wb.worksheets:
     sh.sheet_properties.pageSetUpPr.fitToPage = True
