@@ -1,6 +1,6 @@
 # Audiobooks economics — findings
 
-Model: `analysis/audiobooks_model.py` → `data/SPOT_audiobooks_model.xlsx` (two tabs, Audiobooks_Inputs and Audiobooks_Analysis, live formulas; forecast placeholders for 2026E–2027E are flagged LINK TO MODEL). Identity: N(t) = B(t) + A_gp(t) − C(t). The June 2024 price increase is deliberately outside N.
+Model: `analysis/audiobooks_model.py` → `data/SPOT_audiobooks_model.xlsx` (two tabs, Audiobooks_Inputs and Audiobooks_Bridge, live formulas; forecast placeholders for 2026E–2027E are flagged LINK TO MODEL). Identity: N(t) = B(t) + A_gp(t) − C(t). The June 2024 price increase is deliberately outside N.
 
 ## 1. The bridge
 

@@ -1,6 +1,6 @@
 # MLC data bridge: from Spotify's filings to the bundle-saving term
 
-Purpose: replace the estimated bundle saving in the audiobooks model with the figure Spotify itself discloses, and show exactly how that figure becomes the B term in N = B + A − C. Data file: `data/mlc_contingency.csv`. Model: `analysis/audiobooks_model.py` → `data/SPOT_audiobooks_model.xlsx`, Audiobooks_Analysis section 1.
+Purpose: replace the estimated bundle saving in the audiobooks model with the figure Spotify itself discloses, and show exactly how that figure becomes the B term in N = B + A − C. Data file: `data/mlc_contingency.csv`. Model: `analysis/audiobooks_model.py` → `data/SPOT_audiobooks_model.xlsx`, Audiobooks_Bridge section 1.
 
 ## 1. What the filings disclose
 

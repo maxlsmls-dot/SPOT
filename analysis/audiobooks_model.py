@@ -40,19 +40,26 @@ INPUTS = [
     ("prem_rev_2023", "Premium revenue 2023", 11566, "€M", "FY23", "Spotify 20-F", "D"),
     ("prem_rev_2024", "Premium revenue 2024", 13819, "€M", "FY24", "Spotify 20-F", "D"),
     ("prem_rev_2025", "Premium revenue 2025", 15350, "€M", "FY25", "Spotify 20-F", "D"),
-    ("prem_rev_2026", "Premium revenue 2026E", 17700, "€M", "FY26E", "Placeholder: H1 actual (4,150 + 4,330) plus H2 estimate. Link to model: Premium revenue FY26E", "L"),
-    ("prem_rev_2027", "Premium revenue 2027E", 19400, "€M", "FY27E", "Placeholder. Link to model: Premium revenue FY27E", "L"),
-    ("grp_rev_2023", "Group revenue 2023", 13247, "€M", "FY23", "Spotify 20-F", "D"),
     ("grp_rev_2024", "Group revenue 2024", 15673, "€M", "FY24", "Spotify 20-F", "D"),
     ("grp_rev_2025", "Group revenue 2025", 17186, "€M", "FY25", "Spotify 20-F", "D"),
     ("grp_rev_2026", "Group revenue 2026E", 19500, "€M", "FY26E", "Placeholder. Link to model: total revenue FY26E", "L"),
     ("grp_rev_2027", "Group revenue 2027E", 21300, "€M", "FY27E", "Placeholder. Link to model: total revenue FY27E", "L"),
+    ("grp_q124", "Group revenue Q1-24", 3636, "€M", "Q1-24", "Spotify Q1-24 6-K", "D"),
+    ("grp_q224", "Group revenue Q2-24", 3807, "€M", "Q2-24", "Spotify Q2-24 6-K", "D"),
+    ("grp_q324", "Group revenue Q3-24", 3988, "€M", "Q3-24", "Spotify Q3-24 6-K", "D"),
+    ("grp_q424", "Group revenue Q4-24", 4242, "€M", "Q4-24", "Spotify Q4-24 deck", "D"),
+    ("grp_q125", "Group revenue Q1-25", 4190, "€M", "Q1-25", "Spotify Q1-25 6-K", "D"),
+    ("grp_q225", "Group revenue Q2-25", 4190, "€M", "Q2-25", "Spotify Q2-25 6-K", "D"),
+    ("grp_q325", "Group revenue Q3-25", 4272, "€M", "Q3-25", "Spotify Q3-25 6-K", "D"),
+    ("grp_q425", "Group revenue Q4-25", 4500, "€M", "Q4-25", "Spotify Q4-25 deck; quarters sum to 17,152 vs 17,186 annual input, tie out in the model", "D"),
+    ("grp_q126", "Group revenue Q1-26", 4530, "€M", "Q1-26", "Spotify Q1-26 6-K", "D"),
+    ("grp_q226", "Group revenue Q2-26", 4780, "€M", "Q2-26", "Spotify Q2-26 6-K", "D"),
+    ("grp_q326", "Group revenue Q3-26E", 5000, "€M", "Q3-26E", "Placeholder: company guidance (about €5.0B). Link to model: revenue Q3-26E", "L"),
     # Premium cost of revenue (residual method)
     ("cogs_ratio_2022", "Premium cost of revenue / Premium revenue 2022", 0.72, "%", "FY22", "20-F: Premium gross margin 28%", "D"),
     ("cogs_ratio_2023", "Premium cost of revenue / Premium revenue 2023", 0.71, "%", "FY23", "FY24 20-F: 71% to 67%", "D"),
     ("cogs_ratio_2024", "Premium cost of revenue / Premium revenue 2024", 0.67, "%", "FY24", "FY24 20-F", "D"),
     ("cogs_ratio_2025", "Premium cost of revenue / Premium revenue 2025", 0.66, "%", "FY25", "FY25 20-F: Premium gross margin 34%", "D"),
-    ("cogs_inc_2024", "Premium cost of revenue increase 2024", 1093, "€M", "FY24", "FY24 20-F (+13%)", "D"),
     ("royalty_inc_2024", "of which royalty / content costs 2024", 1078, "€M", "FY24", "FY24 20-F", "D"),
     ("royalty_inc_2025", "Royalty / content cost increase 2025 (music + audiobooks + Partner Program, net of marketplace)", 765, "€M", "FY25", "FY25 20-F", "D"),
     ("royalty_inc_9m25", "Royalty / content cost increase 9M-25", 588, "€M", "9M25", "Q3-25 6-K", "D"),
@@ -81,7 +88,6 @@ INPUTS = [
     ("bb_q423_rate", "Blended mechanical per-stream rate, paid tiers, Q4-23", 0.00068, "$/stream", "Q4-23", "Billboard analysis", "R"),
     ("bb_q425_rate", "Blended mechanical per-stream rate, paid tiers, Q4-25", 0.00033, "$/stream", "Q4-25", "Billboard analysis (-51%)", "R"),
     ("eurusd_q425", "EUR/USD, Q4-25 average", 1.16, "x", "Q4-25", "Approximate", "E"),
-    ("music_alloc", "Music share of bundle revenue under CRB allocation", 0.52, "%", "", "NMPA / Billboard ('$5.70 of the bundle')", "R"),
     ("share_umpg", "UMPG share of US mechanicals", 0.22, "%", "", "Estimate from US publishing market shares (range 20-25%)", "E"),
     ("share_wcm", "Warner Chappell share of US mechanicals", 0.13, "%", "", "Estimate (range 11-15%)", "E"),
     ("share_kobalt", "Kobalt share of US mechanicals", 0.05, "%", "", "Estimate; largest independent (range 4-7%)", "E"),
@@ -102,7 +108,6 @@ INPUTS = [
     ("c_low_mult", "Low-case multiplier on audiobook licensing cost", 0.80, "x", "", "Sensitivity band", "E"),
     ("c_high_mult", "High-case multiplier on audiobook licensing cost", 1.25, "x", "", "Sensitivity band", "E"),
     ("apa_us_2025", "US audiobook publisher receipts 2025", 2430, "$M", "FY25", "Audio Publishers Association, Jun 2026 (+9%)", "R"),
-    ("apa_us_2024", "US audiobook publisher receipts 2024", 2220, "$M", "FY24", "Audio Publishers Association (+13%)", "R"),
     ("spot_us_share_lo", "Spotify share of US publisher audiobook receipts, low", 0.10, "%", "FY25", "Estimate; Audible 63.4% to 59.8% (eMarketer Mar-26), Spotify #2", "E"),
     ("spot_us_share_hi", "Spotify share of US publisher audiobook receipts, high", 0.14, "%", "FY25", "Estimate", "E"),
     ("nonus_uplift", "Non-US markets as a multiple of US cost (UK, AU, CA, IE, NZ, FR, BX, DACH, Nordics)", 1.40, "x", "FY25", "Estimate", "E"),
@@ -212,19 +217,34 @@ def compute():
 
 # ----------------------------------------------------------------------------
 # Workbook: two tabs, live formulas
-#   Audiobooks_Inputs   hard-coded inputs with source, type and link flags
-#   Audiobooks_Analysis build (B, C, A), bridge, attach, cross-checks, sensitivity
-# Colour convention: blue = hard-coded input; green = reference to the inputs tab;
-# black = formula; orange fill = estimate; yellow fill / red text = forecast placeholder to link
+#   Audiobooks_Inputs  segmented inputs (blocks A-K), each tagged with the bridge section it feeds
+#   Audiobooks_Bridge  B, C, A -> N -> output block for the operating model (annual and quarterly), then checks and sensitivity
+# Colour convention: blue = hard-coded input; green = reference to the inputs tab; black = formula;
+# orange fill = estimate; yellow fill / red text = forecast placeholder to link; green fill = output rows
 # ----------------------------------------------------------------------------
 HDR = Font(bold=True); TITLE = Font(bold=True, size=12)
-FILL = PatternFill("solid", fgColor="DDEBF7"); EST = PatternFill("solid", fgColor="FCE4D6"); LINK = PatternFill("solid", fgColor="FFF2CC")
+FILL = PatternFill("solid", fgColor="DDEBF7"); SECT = PatternFill("solid", fgColor="BDD7EE"); EST = PatternFill("solid", fgColor="FCE4D6")
+LINK = PatternFill("solid", fgColor="FFF2CC"); OUT = PatternFill("solid", fgColor="E2EFDA")
 F_BLUE = Font(color="0000FF"); F_GREEN = Font(color="008000"); F_BLACK = Font(color="000000"); LINKF = Font(color="C00000", bold=True)
 FMT_M = '#,##0_);(#,##0)'; FMT_BP = '0_);(0)'; FMT_PCT = '0.0%'; FMT_PCT0 = '0%'; FMT_X = '0.00'; FMT_INT = '0'
-UNIT_FMT = {"€M": FMT_M, "$M": FMT_M, "%": FMT_PCT, "x": FMT_X, "bp": FMT_INT, "M": '0.0', "flag": FMT_INT, "month": FMT_INT, "months": FMT_INT}
+UNIT_FMT = {"€M": FMT_M, "$M": FMT_M, "%": FMT_PCT, "x": FMT_X, "bp": FMT_INT, "M": '0.0', "flag": FMT_INT, "month": FMT_INT, "months": FMT_INT, "$/stream": '0.00000'}
 TYPE = {"D": "Actual", "R": "Reported", "E": "Estimate", "L": "LINK TO MODEL"}
-SHEET_IN, SHEET_AN = "Audiobooks_Inputs", "Audiobooks_Analysis"
+SHEET_IN, SHEET_AN = "Audiobooks_Inputs", "Audiobooks_Bridge"
 COLS = ["C", "D", "E", "F"]  # 2024A, 2025A, 2026E, 2027E
+SECTIONS = [
+    ("A. Revenue base", "4, 6", ["prem_rev_2022", "prem_rev_2023", "prem_rev_2024", "prem_rev_2025", "grp_rev_2024", "grp_rev_2025", "grp_rev_2026", "grp_rev_2027",
+                                 "grp_q124", "grp_q224", "grp_q324", "grp_q424", "grp_q125", "grp_q225", "grp_q325", "grp_q425", "grp_q126", "grp_q226", "grp_q326"]),
+    ("B. Bundle saving: MLC contingency series (gross discount, from filings)", "1a, 1b", ["mlc_cum_q224", "mlc_q224_only", "mlc_cum_q324", "mlc_cum_q424", "mlc_cum_q125", "mlc_cum_q225", "mlc_cum_q325", "mlc_cum_q425", "mlc_cum_q126", "mlc_cum_q226", "bundle_rr_2026", "bundle_rr_2027"]),
+    ("C. Bundle saving: cross-check and references", "7a", ["bb_q423_mech", "bb_q425_mech", "bb_q423_rate", "bb_q425_rate", "eurusd_q425", "nmpa_first_year", "nmpa_cum_2026"]),
+    ("D. Direct publisher deals (hand-back of the saving)", "1c", ["share_umpg", "start_umpg", "share_wcm", "start_wcm", "share_kobalt", "start_kobalt", "share_smp", "start_smp", "share_bmg", "start_bmg", "restoration", "mlc_loss_2027"]),
+    ("E. Licensing cost on included hours", "2", ["c_2024", "c_g_2025", "c_g_2026", "c_g_2027", "c_low_mult", "c_high_mult"]),
+    ("F. Licensing cost: market-share triangulation", "7b", ["apa_us_2025", "spot_us_share_lo", "spot_us_share_hi", "nonus_uplift", "eurusd"]),
+    ("G. Paid channel (Audiobooks+, top-ups, a la carte)", "3", ["ab_plus_arr", "ab_plus_payers", "a_rev_2024", "a_rev_2025", "a_rev_2026", "a_rev_2027", "a_cogs_ratio"]),
+    ("H. Attach denominators", "8", ["subs_global", "subs_eligible", "listen_share", "tried_share", "basic_optout", "bull_attach"]),
+    ("I. Premium cost of revenue (residual cross-check)", "7c", ["cogs_ratio_2022", "cogs_ratio_2023", "cogs_ratio_2024", "cogs_ratio_2025", "royalty_inc_2024", "royalty_inc_2025", "royalty_inc_9m25", "royalty_inc_h126", "prem_rev_h125", "prem_rev_h126", "prem_rev_9m24", "prem_rev_9m25"]),
+    ("J. Consensus", "5", ["cons_gm_exp_2026", "cons_gm_exp_2027"]),
+    ("K. Memo (excluded from the bridge)", "5", ["p_2024"]),
+]
 
 def _style(cell, fmt=None):
     v = cell.value
@@ -236,28 +256,37 @@ def _style(cell, fmt=None):
 
 def build_workbook(r):
     wb = Workbook(); wb.properties.creator = "SPOT"; wb.properties.lastModifiedBy = "SPOT"
+    by_key = {row[0]: row for row in INPUTS}
+    placed = set(k for _, _, keys in SECTIONS for k in keys)
+    missing = [row[0] for row in INPUTS if row[0] not in placed]
+    assert not missing, f"inputs not placed in a section: {missing}"
 
     # ---- Inputs tab
     ws = wb.active; ws.title = SHEET_IN
     ws["A1"] = "Audiobooks: inputs"; ws["A1"].font = TITLE
-    ws["A2"] = ("Blue text = hard-coded input. Orange fill = estimate. Yellow fill with red text = forecast placeholder: "
-                "replace with a link to the main model before use. No forecasts beyond FY27.")
-    ws.append([]); ws.append(["Input", "Value", "Unit", "Period", "Type", "Source / note"])
+    ws["A2"] = ("Blue text = hard-coded input. Orange fill = estimate. Yellow fill with red text = forecast placeholder: replace with a link to the main model before use. "
+                "No forecasts beyond FY27. 'Bridge ref' is the section of the Audiobooks_Bridge tab the input feeds.")
+    ws.append([]); ws.append(["Input", "Value", "Unit", "Period", "Type", "Bridge ref", "Source / note"])
     for c in ws[4]: c.font = HDR; c.fill = FILL
-    A = {}
-    for i, (k, label, v, unit, period, src, conf) in enumerate(INPUTS, start=5):
-        ws.append([label, v, unit, period, TYPE[conf], src]); A[k] = f"{SHEET_IN}!$B${i}"
-        cell = ws.cell(row=i, column=2); cell.font = F_BLUE; cell.number_format = UNIT_FMT.get(unit, "General")
-        if conf == "E": cell.fill = EST
-        if conf == "L":
-            cell.fill = LINK; cell.font = LINKF
-            ws.cell(row=i, column=5).fill = LINK; ws.cell(row=i, column=5).font = LINKF
-    ws.append([]); ws.append(["Sources"]); ws.cell(row=ws.max_row, column=1).font = HDR
+    A = {}; i = 4
+    for title, ref, keys in SECTIONS:
+        i += 1; ws.append([title]); 
+        for col in range(1, 8): ws.cell(row=i, column=col).fill = SECT
+        ws.cell(row=i, column=1).font = HDR
+        for k in keys:
+            _, label, v, unit, period, src, conf = by_key[k]
+            i += 1; ws.append([label, v, unit, period, TYPE[conf], ref, src]); A[k] = f"{SHEET_IN}!$B${i}"
+            cell = ws.cell(row=i, column=2); cell.font = F_BLUE; cell.number_format = UNIT_FMT.get(unit, "General")
+            if conf == "E": cell.fill = EST
+            if conf == "L":
+                cell.fill = LINK; cell.font = LINKF; ws.cell(row=i, column=5).fill = LINK; ws.cell(row=i, column=5).font = LINKF
+        i += 1; ws.append([])
+    ws.append(["Sources"]); ws.cell(row=ws.max_row, column=1).font = HDR
     for line in SOURCES: ws.append([line])
-    for col, w in zip("ABCDEF", [78, 12, 8, 12, 16, 110]): ws.column_dimensions[col].width = w
+    for col, w in zip("ABCDEFG", [78, 12, 9, 12, 16, 10, 110]): ws.column_dimensions[col].width = w
     ws.freeze_panes = "A5"
 
-    # ---- Analysis tab
+    # ---- Bridge tab
     an = wb.create_sheet(SHEET_AN)
     state = {"row": 0}
 
@@ -275,55 +304,45 @@ def build_workbook(r):
             for col, v in extra.items():
                 c = an[f"{col}{rr}"]; c.value = v; _style(c, fmt)
         if fill:
-            for col in range(1, 7): an.cell(row=rr, column=col).fill = fill
+            for col in range(1, 9): an.cell(row=rr, column=col).fill = fill
         return rr
 
     def nxt(): return state["row"] + 1
+    def section(title):
+        rr = put(title, bold=True, fill=SECT); return rr
+    def year_header():
+        h = put("", vals=["2024A", "2025A", "2026E", "2027E"], bold=True, fill=FILL)
+        for col in COLS: an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
+        return h
 
-    put("Audiobooks: gross-margin build (€M unless stated)", bold=True); an["A1"].font = TITLE
-    put("2026E and 2027E are driven by placeholder inputs on the inputs tab flagged LINK TO MODEL. Blue = hard-coded; green = reference to inputs tab; black = formula.")
+    put("Audiobooks: bridge from inputs to the gross-margin headwind (€M unless stated)", bold=True); an["A1"].font = TITLE
+    put("Flow: 1 bundle saving (B)  ->  2 licensing cost on included hours (C)  ->  3 paid channel (A)  ->  4 net contribution N = B + A - C  ->  5 output for the operating model  ->  6 quarterly allocation. Sections 7-9 are checks, context and sensitivity. Blue = hard-coded; green = inputs tab; black = formula.")
     put("")
-    hdr = put("", vals=["2024A", "2025A", "2026E", "2027E"], bold=True, fill=FILL)
-    for col in COLS: an[f"{col}{hdr}"].font = HDR; an[f"{col}{hdr}"].alignment = Alignment(horizontal="right")
 
-    # 1. Bundle saving
-    put("1. Bundle mechanical-royalty saving (B)", bold=True)
-    put("a. MLC contingency disclosed in Spotify filings: additional royalties due if Premium were not a bundle, cumulative from 1 Mar 2024 (€M)", bold=True)
+    # ---------------- 1. Bundle saving
+    section("1. Bundle mechanical-royalty saving (B)")
+    put("1a. MLC contingency disclosed in Spotify filings: additional royalties due if Premium were not a bundle, cumulative from 1 Mar 2024 (€M)", bold=True)
     h = put("Filing (period end)", vals=["Cumulative", "Increment", "Months", "€M per month"], bold=True)
     for col in COLS: an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
     series_keys = [("6-K Q2-24 (30 Jun 2024)", "mlc_cum_q224", 4), ("6-K Q3-24 (30 Sep 2024)", "mlc_cum_q324", 3), ("20-F FY24 (31 Dec 2024)", "mlc_cum_q424", 3),
                    ("6-K Q1-25 (31 Mar 2025)", "mlc_cum_q125", 3), ("6-K Q2-25 (30 Jun 2025)", "mlc_cum_q225", 3), ("6-K Q3-25 (30 Sep 2025)", "mlc_cum_q325", 3),
                    ("20-F FY25 (31 Dec 2025)", "mlc_cum_q425", 3), ("6-K Q1-26 (31 Mar 2026)", "mlc_cum_q126", 3), ("6-K Q2-26 (30 Jun 2026): verify, see inputs note", "mlc_cum_q226", 3)]
-    R_series = {}
-    prev_row = None
+    R_series = {}; prev_row = None
     for label, key, months in series_keys:
-        rr = nxt()
-        inc = f"=C{rr}" if prev_row is None else f"=C{rr}-C{prev_row}"
+        rr = nxt(); inc = f"=C{rr}" if prev_row is None else f"=C{rr}-C{prev_row}"
         put(label, vals=[f"={A[key]}", inc, months, f"=D{rr}/E{rr}"], fmt=FMT_M); an[f"F{rr}"].number_format = '0.0'
         R_series[key] = rr; prev_row = rr
-    put("   of which April to June 2024 (so March 2024 alone was about €11M)", vals=[f"={A['mlc_q224_only']}", "", 3, f"=C{nxt()}/E{nxt()}"], fmt=FMT_M); an[f"F{state['row']}"].number_format = '0.0'
+    rr = nxt(); put("   of which April to June 2024 (so March 2024 alone was about €11M)", vals=[f"={A['mlc_q224_only']}", "", 3, f"=C{rr}/E{rr}"], fmt=FMT_M); an[f"F{rr}"].number_format = '0.0'
     R_avg = put("Average quarterly increment, Q2-25 to Q1-26", single=f"=AVERAGE(D{R_series['mlc_cum_q225']}:D{R_series['mlc_cum_q126']})", fmt='0.0')
-    put("Annualised", single=f"=B{R_avg}*4", fmt=FMT_M)
-    put("Reading: the increment ran at €50-56M a quarter from Q4-24 to Q1-26 with no step down after the direct deals, so the figure is gross: Spotify still reports every paid-tier stream through the MLC at the bundle rate and pays the direct-licensed publishers a top-up outside it. The Q2-26 increment of €27M is either an FX translation effect or the first filing to net out direct-deal publishers; the 6-K wording decides which.")
+    put("Annualised (basis for the 2026E-27E placeholders)", single=f"=B{R_avg}*4", fmt=FMT_M)
+    put("Reading: the increment ran at €50-56M a quarter from Q4-24 to Q1-26 with no step down after the direct deals, so the figure is gross: every paid-tier stream is still reported through the MLC at the bundle rate and the direct-licensed publishers receive a top-up outside it. The Q2-26 increment of €27M is either an FX translation effect or the first filing to net out direct-deal publishers; the 6-K wording decides which.")
     put("")
-    put("b. Gross bundle saving by year", bold=True)
-    R_gross = put("Gross saving (2024-25 from filings; 2026E-27E placeholders on the inputs tab)",
+    put("1b. Gross bundle saving by year", bold=True); year_header()
+    R_gross = put("Gross saving (2024-25 from the filings; 2026E-27E placeholders on the inputs tab)",
                   vals=[f"={A['mlc_cum_q424']}", f"={A['mlc_cum_q425']}-{A['mlc_cum_q424']}", f"={A['bundle_rr_2026']}", f"={A['bundle_rr_2027']}"], fmt=FMT_M, bold=True)
-    put("NMPA: first-year loss $230M; cumulative to Jun-26 (with Amazon) nearly $500M", single=f"={A['nmpa_first_year']}", extra={"C": f"={A['nmpa_cum_2026']}"}, fmt=FMT_M)
     put("")
-    put("c. Cross-check: Billboard analysis of Spotify's MLC reports, paid tiers", bold=True)
-    R_bm = put("Mechanical royalties paid to the MLC, $M: Q4-23 (col B), Q4-25 (col C)", single=f"={A['bb_q423_mech']}", extra={"C": f"={A['bb_q425_mech']}"}, fmt='0.0')
-    R_br = put("Blended per-stream rate, $: Q4-23 (col B), Q4-25 (col C)", single=f"={A['bb_q423_rate']}", extra={"C": f"={A['bb_q425_rate']}"}, fmt='0.00000')
-    R_bs = put("Implied paid-tier streams, bn: Q4-23 (col B), Q4-25 (col C)", single=f"=B{R_bm}/B{R_br}/1000", extra={"C": f"=C{R_bm}/C{R_br}/1000"}, fmt='0.0')
-    R_bc = put("Counterfactual Q4-25 payment at the Q4-23 rate, $M", single=f"=C{R_bs}*B{R_br}*1000", fmt='0.0')
-    R_bd = put("Implied quarterly bundle discount, $M", single=f"=B{R_bc}-C{R_bm}", fmt='0.0')
-    R_bf = put("EUR/USD, Q4-25", single=f"={A['eurusd_q425']}", fmt=FMT_X)
-    put("Implied quarterly discount, €M (col B) vs 6-K Q4-25 increment (col C)", single=f"=B{R_bd}/B{R_bf}", extra={"C": f"=D{R_series['mlc_cum_q425']}"}, fmt='0.0')
-    put("Reading: streams in the MLC reports grew 19bn between the two quarters, so direct-licensed publishers have not left the blanket licence. Two independent sources put the gross discount at about €50M a quarter.")
-    put("")
-    put("d. Hand-back to direct-licensed publishers", bold=True)
-    h = put("Publisher (share of US mechanicals in col B)", vals=["Months on direct licence", "", "", ""], bold=True)
-    an[f"C{h}"].alignment = Alignment(horizontal="left")
+    put("1c. Hand-back to direct-licensed publishers", bold=True)
+    h = put("Publisher (share of US mechanicals in col B)", vals=["Months on direct licence", "", "", ""], bold=True); an[f"C{h}"].alignment = Alignment(horizontal="left")
     pub_rows = {}
     for label, sk, st in [("UMPG", "share_umpg", "start_umpg"), ("Warner Chappell", "share_wcm", "start_wcm"), ("Kobalt", "share_kobalt", "start_kobalt"),
                           ("Sony Music Publishing", "share_smp", "start_smp"), ("BMG", "share_bmg", "start_bmg")]:
@@ -331,48 +350,127 @@ def build_workbook(r):
     first, last = min(pub_rows.values()), max(pub_rows.values())
     R_S = put("Sum of shares on direct licences (independents are the remainder, still paid at the bundle rate via the MLC)", single=f"=SUM(B{first}:B{last})", fmt=FMT_PCT0)
     R_rest = put("Restoration of the bundle discount in the direct deals", single=f"={A['restoration']}", fmt=FMT_PCT0)
-    R_hb = put("Hand-back = gross x sum(share x months / 12) x restoration",
-               vals=[f"={c}{R_gross}*SUMPRODUCT($B${first}:$B${last},{c}{first}:{c}{last})/12*$B${R_rest}" for c in COLS], fmt=FMT_M)
-    R_B = put("B  Net bundle saving (2027: if MLC switch = 1, the independents' share goes to zero)",
+    R_hb = put("Hand-back = gross x sum(share x months / 12) x restoration", vals=[f"={c}{R_gross}*SUMPRODUCT($B${first}:$B${last},{c}{first}:{c}{last})/12*$B${R_rest}" for c in COLS], fmt=FMT_M)
+    R_B = put("B  Net bundle saving retained by Spotify (2027: if MLC switch = 1, the independents' share goes to zero)",
               vals=[f"={c}{R_gross}-{c}{R_hb}" for c in COLS[:3]] + [f"=IF({A['mlc_loss_2027']}=1,F{R_gross}*$B${R_S}*(1-$B${R_rest}),F{R_gross}-F{R_hb})"], fmt=FMT_M, bold=True)
     put("")
 
-    # 2. Licensing cost on included hours
-    put("2. Audiobook licensing cost on included hours (C)", bold=True)
-    R_g = put("Growth y/y", vals=["", f"={A['c_g_2025']}", f"={A['c_g_2026']}", f"={A['c_g_2027']}"], fmt=FMT_PCT0)
+    # ---------------- 2. Licensing cost
+    section("2. Audiobook licensing cost on included hours (C)"); year_header()
+    R_g = put("Growth y/y (2025 from reported consumption growth; 2026E-27E placeholders)", vals=["", f"={A['c_g_2025']}", f"={A['c_g_2026']}", f"={A['c_g_2027']}"], fmt=FMT_PCT0)
     rc = nxt()
-    R_C = put("C  Base case", vals=[f"={A['c_2024']}", f"=C{rc}*(1+D{R_g})", f"=D{rc}*(1+E{R_g})", f"=E{rc}*(1+F{R_g})"], fmt=FMT_M, bold=True)
-    R_Cl = put("C  Low case", vals=[f"={c}{R_C}*{A['c_low_mult']}" for c in COLS], fmt=FMT_M)
-    R_Ch = put("C  High case", vals=[f"={c}{R_C}*{A['c_high_mult']}" for c in COLS], fmt=FMT_M)
+    R_C = put("C  Base case (2024 anchored on 'hundreds of millions of dollars a year', Oct-24)", vals=[f"={A['c_2024']}", f"=C{rc}*(1+D{R_g})", f"=D{rc}*(1+E{R_g})", f"=E{rc}*(1+F{R_g})"], fmt=FMT_M, bold=True)
+    put("C  Low case", vals=[f"={c}{R_C}*{A['c_low_mult']}" for c in COLS], fmt=FMT_M)
+    put("C  High case", vals=[f"={c}{R_C}*{A['c_high_mult']}" for c in COLS], fmt=FMT_M)
     put("")
 
-    # 3. Priced channel
-    put("3. Priced channel (Audiobooks+, top-ups, a la carte)", bold=True)
+    # ---------------- 3. Paid channel
+    section("3. Priced channel (Audiobooks+, top-ups, a la carte)"); year_header()
     R_arev = put("Revenue", vals=[f"={A['a_rev_2024']}", f"={A['a_rev_2025']}", f"={A['a_rev_2026']}", f"={A['a_rev_2027']}"], fmt=FMT_M)
     R_ratio = put("Content cost ratio on paid hours", single=f"={A['a_cogs_ratio']}", fmt=FMT_PCT0)
     R_Agp = put("A  Gross profit on paid hours = revenue x (1 - ratio)", vals=[f"={c}{R_arev}*(1-$B${R_ratio})" for c in COLS], fmt=FMT_M, bold=True)
     put("")
 
-    # 4. Bridge
-    put("4. Net contribution to gross profit: N = B + A - C", bold=True)
+    # ---------------- 4. Net contribution
+    section("4. Net contribution to gross profit: N = B + A - C"); year_header()
     R_B2 = put("B  Net bundle saving", vals=[f"={c}{R_B}" for c in COLS], fmt=FMT_M)
     R_A2 = put("A  Gross profit on paid hours", vals=[f"={c}{R_Agp}" for c in COLS], fmt=FMT_M)
-    R_C2 = put("C  Licensing cost on included hours", vals=[f"={c}{R_C}" for c in COLS], fmt=FMT_M)
-    R_N = put("N  Net contribution", vals=[f"={c}{R_B2}+{c}{R_A2}-{c}{R_C2}" for c in COLS], fmt=FMT_M, bold=True)
+    R_C2 = put("C  Licensing cost on included hours", vals=[f"=-{c}{R_C}" for c in COLS], fmt=FMT_M)
+    R_N = put("N  Net contribution", vals=[f"={c}{R_B2}+{c}{R_A2}+{c}{R_C2}" for c in COLS], fmt=FMT_M, bold=True)
     R_grp = put("Group revenue", vals=[f"={A['grp_rev_2024']}", f"={A['grp_rev_2025']}", f"={A['grp_rev_2026']}", f"={A['grp_rev_2027']}"], fmt=FMT_M)
     R_Nbp = put("N, bp of group revenue", vals=[f"={c}{R_N}/{c}{R_grp}*10000" for c in COLS], fmt=FMT_BP)
-    R_dN = put("Change in N y/y, €M (gross-margin headwind)", vals=[""] + [f"={c}{R_N}-{p}{R_N}" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M, bold=True)
-    R_dNbp = put("Change in N y/y, bp of group revenue", vals=[""] + [f"={c}{R_dN}/{c}{R_grp}*10000" for c in COLS[1:]], fmt=FMT_BP, bold=True)
-    R_dB = put("   of which music publishers reclaim the bundle saving (change in B)", vals=[""] + [f"={c}{R_B2}-{p}{R_B2}" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M)
-    R_dC = put("   of which book publishers paid on consumption (change in C, negative)", vals=[""] + [f"=-({c}{R_C2}-{p}{R_C2})" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M)
-    R_dA = put("   of which paid hours (change in A)", vals=[""] + [f"={c}{R_A2}-{p}{R_A2}" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M)
-    R_cons = put("Consensus gross-margin expansion, bp", vals=["", "", f"={A['cons_gm_exp_2026']}", f"={A['cons_gm_exp_2027']}"], fmt=FMT_BP)
-    put("Audiobook headwind as share of consensus expansion", vals=["", "", f"=-E{R_dNbp}/E{R_cons}", f"=-F{R_dNbp}/F{R_cons}"], fmt=FMT_PCT0)
-    put("Memo (excluded from N): Jun-24 US price increase, annualized €M", vals=[f"={A['p_2024']}"], fmt=FMT_M)
+    R_dN = put("Change in N y/y, €M", vals=[""] + [f"={c}{R_N}-{p}{R_N}" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M)
+    R_dNbp = put("Change in N y/y, bp of group revenue", vals=[""] + [f"={c}{R_dN}/{c}{R_grp}*10000" for c in COLS[1:]], fmt=FMT_BP)
+    put("   of which music publishers reclaim the bundle saving (change in B)", vals=[""] + [f"={c}{R_B2}-{p}{R_B2}" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M)
+    put("   of which book publishers paid on consumption (change in C)", vals=[""] + [f"={c}{R_C2}-{p}{R_C2}" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M)
+    put("   of which paid hours (change in A)", vals=[""] + [f"={c}{R_A2}-{p}{R_A2}" for p, c in zip(COLS, COLS[1:])], fmt=FMT_M)
     put("")
 
-    # 5. Attach
-    put("5. Paid attach", bold=True)
+    # ---------------- 5. Output
+    section("5. OUTPUT FOR THE OPERATING MODEL (annual)"); year_header()
+    R_o1 = put("Audiobook net contribution to gross profit, €M  (add this row to gross profit)", vals=[f"={c}{R_N}" for c in COLS], fmt=FMT_M, bold=True, fill=OUT)
+    put("   as bp of group revenue", vals=[f"={c}{R_Nbp}" for c in COLS], fmt=FMT_BP, fill=OUT)
+    put("Y/y change in contribution, €M", vals=[""] + [f"={c}{R_dN}" for c in COLS[1:]], fmt=FMT_M, fill=OUT)
+    R_o4 = put("Y/y change, bp of group revenue  =  audiobook gross-margin headwind (subtract from y/y gross-margin expansion)", vals=[""] + [f"={c}{R_dNbp}" for c in COLS[1:]], fmt=FMT_BP, bold=True, fill=OUT)
+    R_cons = put("Consensus gross-margin expansion, bp", vals=["", "", f"={A['cons_gm_exp_2026']}", f"={A['cons_gm_exp_2027']}"], fmt=FMT_BP)
+    put("Headwind as share of consensus expansion", vals=["", "", f"=-E{R_o4}/E{R_cons}", f"=-F{R_o4}/F{R_cons}"], fmt=FMT_PCT0)
+    put("Memo, excluded from the bridge: June 2024 US price increase, annualised €M (the item management credits to audiobooks)", vals=[f"={A['p_2024']}"], fmt=FMT_M)
+    put("Use: either add the €M row to gross profit (level), or subtract the bp row from the model's y/y gross-margin expansion (change). Do not do both.")
+    put("")
+
+    # ---------------- 6. Quarterly allocation
+    section("6. Quarterly allocation (annual N allocated by revenue share, so N is a constant bp of revenue within each year)")
+    h = put("Quarter", single="Group revenue €M", vals=["Share of year", "N allocated €M", "N bp of revenue", "Y/y change €M"], extra={"G": "Y/y change bp"}, bold=True)
+    for col in "BCDEFG": an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
+    quarters = [("Q1-24", 2024, f"={A['grp_q124']}"), ("Q2-24", 2024, f"={A['grp_q224']}"), ("Q3-24", 2024, f"={A['grp_q324']}"), ("Q4-24", 2024, f"={A['grp_q424']}"),
+                ("Q1-25", 2025, f"={A['grp_q125']}"), ("Q2-25", 2025, f"={A['grp_q225']}"), ("Q3-25", 2025, f"={A['grp_q325']}"), ("Q4-25", 2025, f"={A['grp_q425']}"),
+                ("Q1-26", 2026, f"={A['grp_q126']}"), ("Q2-26", 2026, f"={A['grp_q226']}"), ("Q3-26E", 2026, f"={A['grp_q326']}"), ("Q4-26E", 2026, None),
+                ("Q1-27E", 2027, None), ("Q2-27E", 2027, None), ("Q3-27E", 2027, None), ("Q4-27E", 2027, None)]
+    start_row = nxt(); year_rows = {}
+    for idx, (q, y, rev) in enumerate(quarters):
+        rr = start_row + idx; year_rows.setdefault(y, []).append(rr)
+    ycol = {2024: "C", 2025: "D", 2026: "E", 2027: "F"}
+    q_rows = []
+    for idx, (q, y, rev) in enumerate(quarters):
+        rr = start_row + idx; yr = year_rows[y]; y0, y1 = yr[0], yr[-1]
+        if rev is None and y == 2026:
+            rev = f"={A['grp_rev_2026']}-SUM(B{y0}:B{rr-1})"
+        elif rev is None and y == 2027:
+            r26 = year_rows[2026][idx - quarters.index(("Q1-27E", 2027, None))]
+            rev = f"={A['grp_rev_2027']}*B{r26}/SUM(B{year_rows[2026][0]}:B{year_rows[2026][-1]})"
+        share = f"=B{rr}/SUM(B{y0}:B{y1})"
+        nq = f"=C{rr}*{ycol[y]}${R_N}"
+        nbp = f"=D{rr}/B{rr}*10000"
+        dn = "" if y == 2024 else f"=D{rr}-D{rr-4}"
+        dnbp = "" if y == 2024 else f"=F{rr}/B{rr}*10000"
+        put(q, single=rev, vals=[share, nq, nbp, dn], extra={"G": dnbp} if dnbp else None, fmt=FMT_M)
+        an[f"C{rr}"].number_format = FMT_PCT; an[f"E{rr}"].number_format = FMT_BP; an[f"G{rr}"].number_format = FMT_BP
+        if q.endswith("E"):
+            an[f"B{rr}"].fill = LINK; an[f"B{rr}"].font = LINKF
+        for col in "DEFG": an[f"{col}{rr}"].fill = OUT
+        q_rows.append(rr)
+    put("Tie-out: sum of quarters less annual revenue input (2025 quarters sum to 17,152 vs the 17,186 annual figure; link both to the model)",
+        vals=[f"=SUM(B{year_rows[y][0]}:B{year_rows[y][-1]})-{ycol[y]}{R_grp}" for y in [2024, 2025, 2026, 2027]], fmt=FMT_M)
+    put("Yellow revenue cells are placeholders (Q3-26E guidance; Q4-26E = annual less Q1-Q3; 2027E = annual x 2026 quarterly weights). Replace with links to the model's quarterly revenue.")
+    put("")
+
+    # ---------------- 7. Checks
+    section("7. Checks")
+    put("7a. Bundle saving: Billboard analysis of Spotify's MLC reports, paid tiers (independent of the filings)", bold=True)
+    R_bm = put("Mechanical royalties paid to the MLC, $M: Q4-23 (col B), Q4-25 (col C)", single=f"={A['bb_q423_mech']}", extra={"C": f"={A['bb_q425_mech']}"}, fmt='0.0')
+    R_br = put("Blended per-stream rate, $: Q4-23 (col B), Q4-25 (col C)", single=f"={A['bb_q423_rate']}", extra={"C": f"={A['bb_q425_rate']}"}, fmt='0.00000')
+    R_bs = put("Implied paid-tier streams, bn: Q4-23 (col B), Q4-25 (col C)", single=f"=B{R_bm}/B{R_br}/1000", extra={"C": f"=C{R_bm}/C{R_br}/1000"}, fmt='0.0')
+    R_bc = put("Counterfactual Q4-25 payment at the Q4-23 rate, $M", single=f"=C{R_bs}*B{R_br}*1000", fmt='0.0')
+    R_bd = put("Implied quarterly bundle discount, $M", single=f"=B{R_bc}-C{R_bm}", fmt='0.0')
+    R_bf = put("EUR/USD, Q4-25", single=f"={A['eurusd_q425']}", fmt=FMT_X)
+    put("Implied quarterly discount, €M (col B) vs 6-K Q4-25 increment (col C)", single=f"=B{R_bd}/B{R_bf}", extra={"C": f"=D{R_series['mlc_cum_q425']}"}, fmt='0.0')
+    put("NMPA: first-year publisher loss $M (col B); cumulative to Jun-26 with Amazon, $M (col C)", single=f"={A['nmpa_first_year']}", extra={"C": f"={A['nmpa_cum_2026']}"}, fmt=FMT_M)
+    put("Reading: streams in the MLC reports grew 19bn between the two quarters, so direct-licensed publishers have not left the blanket licence. Two independent sources put the gross discount at about €50M a quarter.")
+    put("")
+    put("7b. Licensing cost: market-share triangulation of C (2025)", bold=True)
+    R_apa = put("US audiobook publisher receipts 2025 ($M)", single=f"={A['apa_us_2025']}", fmt=FMT_M)
+    R_sh = put("Spotify share of US receipts: low (col B), high (col C)", single=f"={A['spot_us_share_lo']}", extra={"C": f"={A['spot_us_share_hi']}"}, fmt=FMT_PCT0)
+    R_nonus = put("Non-US markets, multiple of US cost", single=f"={A['nonus_uplift']}", fmt=FMT_X)
+    R_fx = put("EUR/USD", single=f"={A['eurusd']}", fmt=FMT_X)
+    R_imp = put("Implied global C 2025, €M: low (col B), high (col C)", single=f"=B{R_apa}*B{R_sh}*B{R_nonus}/B{R_fx}", extra={"C": f"=B{R_apa}*C{R_sh}*B{R_nonus}/B{R_fx}"}, fmt=FMT_M)
+    R_base = put("Base case C 2025, €M", single=f"=D{R_C}", fmt=FMT_M)
+    put("Base case vs implied range: vs low (col B), vs high (col C)", single=f"=B{R_base}/B{R_imp}-1", extra={"C": f"=B{R_base}/C{R_imp}-1"}, fmt=FMT_PCT)
+    put("")
+    put("7c. Licensing cost: incremental Premium content-cost ratio (does the P&L show an audiobook step?)", bold=True)
+    h = put("", vals=["Premium revenue change", "Content cost change", "Incremental ratio"], bold=True)
+    for col in COLS[:3]: an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
+    for label, rev_f, cost_f in [
+        ("FY24 vs FY23", f"={A['prem_rev_2024']}-{A['prem_rev_2023']}", f"={A['royalty_inc_2024']}"),
+        ("FY25 vs FY24", f"={A['prem_rev_2025']}-{A['prem_rev_2024']}", f"={A['royalty_inc_2025']}"),
+        ("9M-25 vs 9M-24", f"={A['prem_rev_9m25']}-{A['prem_rev_9m24']}", f"={A['royalty_inc_9m25']}"),
+        ("H1-26 vs H1-25", f"={A['prem_rev_h126']}-{A['prem_rev_h125']}", f"={A['royalty_inc_h126']}"),
+    ]:
+        rr = nxt(); put(label, vals=[rev_f, cost_f, f"=D{rr}/C{rr}"], fmt=FMT_M); an[f"E{rr}"].number_format = FMT_PCT
+    put("Reading: the incremental ratio holds at 48-50% in every period against a ~66% average ratio. It bounds the growth in C rather than measuring it: music royalties, the bundle saving, marketplace offsets and the Partner Program all move inside the same line.")
+    put("")
+
+    # ---------------- 8. Attach
+    section("8. Context: paid attach (evidence on add-on uptake)")
     R_pay = put("Audiobooks+ paying users (M)", single=f"={A['ab_plus_payers']}", fmt='0.0')
     put("ARR per payer ($ per year)", single=f"={A['ab_plus_arr']}/{A['ab_plus_payers']}", fmt=FMT_INT)
     put("Payers / global Premium subscribers", single=f"=$B${R_pay}/{A['subs_global']}", fmt=FMT_PCT)
@@ -384,31 +482,8 @@ def build_workbook(r):
     put("Music Pro attach assumption, bull case", single=f"={A['bull_attach']}", fmt=FMT_PCT)
     put("")
 
-    # 6. Cross-checks
-    put("6. Cross-checks", bold=True)
-    put("a. Market-share triangulation of C (2025)", bold=True)
-    R_apa = put("US audiobook publisher receipts 2025 ($M)", single=f"={A['apa_us_2025']}", fmt=FMT_M)
-    R_sh = put("Spotify share of US receipts: low (col B), high (col C)", single=f"={A['spot_us_share_lo']}", extra={"C": f"={A['spot_us_share_hi']}"}, fmt=FMT_PCT0)
-    R_nonus = put("Non-US markets, multiple of US cost", single=f"={A['nonus_uplift']}", fmt=FMT_X)
-    R_fx = put("EUR/USD", single=f"={A['eurusd']}", fmt=FMT_X)
-    R_imp = put("Implied global C 2025, €M: low (col B), high (col C)", single=f"=B{R_apa}*B{R_sh}*B{R_nonus}/B{R_fx}", extra={"C": f"=B{R_apa}*C{R_sh}*B{R_nonus}/B{R_fx}"}, fmt=FMT_M)
-    R_base = put("Base case C 2025, €M", single=f"=D{R_C}", fmt=FMT_M)
-    put("Base case vs implied range: vs low (col B), vs high (col C)", single=f"=B{R_base}/B{R_imp}-1", extra={"C": f"=B{R_base}/C{R_imp}-1"}, fmt=FMT_PCT)
-    put("")
-    put("b. Incremental Premium content-cost ratio (does the P&L show an audiobook step?)", bold=True)
-    h = put("", vals=["Premium revenue change", "Content cost change", "Incremental ratio"], bold=True)
-    for col in COLS[:3]: an[f"{col}{h}"].font = HDR; an[f"{col}{h}"].alignment = Alignment(horizontal="right")
-    for label, rev_f, cost_f in [
-        ("FY24 vs FY23", f"={A['prem_rev_2024']}-{A['prem_rev_2023']}", f"={A['royalty_inc_2024']}"),
-        ("FY25 vs FY24", f"={A['prem_rev_2025']}-{A['prem_rev_2024']}", f"={A['royalty_inc_2025']}"),
-        ("9M-25 vs 9M-24", f"={A['prem_rev_9m25']}-{A['prem_rev_9m24']}", f"={A['royalty_inc_9m25']}"),
-        ("H1-26 vs H1-25", f"={A['prem_rev_h126']}-{A['prem_rev_h125']}", f"={A['royalty_inc_h126']}"),
-    ]:
-        rr = nxt(); put(label, vals=[rev_f, cost_f, f"=D{rr}/C{rr}"], fmt=FMT_M); an[f"E{rr}"].number_format = FMT_PCT
-    put("Note: the incremental ratio holds at 48-50% in every period against a ~66% average ratio. It bounds the growth in C rather than measuring it: music royalties, the bundle saving, marketplace offsets and the Partner Program all move inside the same line.")
-    put("")
-    # 7. Sensitivity (live)
-    put("7. Sensitivity: 2027E, by audiobook cost growth (rows) and bundle-discount restoration / MLC outcome (columns)", bold=True)
+    # ---------------- 9. Sensitivity (live)
+    section("9. Sensitivity: 2027E, by audiobook cost growth (rows) and bundle-discount restoration / MLC outcome (columns)")
     R_h1 = put("Restoration of bundle discount", vals=[0.5, 0.75, 0.75], fmt=FMT_PCT0)
     R_h2 = put("MLC complaint succeeds in 2027 (1 = yes)", vals=[0, 0, 1], fmt=FMT_INT)
     h = put("Cost growth p.a. 2026-27 (col A)", vals=["Change in N 2027, bp", "Change in N 2027, bp", "Change in N 2027, bp"], bold=True)
@@ -425,9 +500,9 @@ def build_workbook(r):
         put(gr, vals=vals, fmt=FMT_M); an[f"A{rr}"].number_format = FMT_PCT0; an[f"A{rr}"].font = F_BLUE
     put("Restoration does not change the 2027 headwind (B is flat 2026 to 2027 once every direct deal is a full year old); it changes the level of N. An MLC win removes the independents' share of the gross saving.")
 
-    an.column_dimensions["A"].width = 88; an.column_dimensions["B"].width = 14
-    for col in COLS: an.column_dimensions[col].width = 13
-    an.freeze_panes = "C5"
+    an.column_dimensions["A"].width = 92; an.column_dimensions["B"].width = 16
+    for col in "CDEFG": an.column_dimensions[col].width = 15
+    an.freeze_panes = "B4"
     wb.save(os.path.join(DATA, "SPOT_audiobooks_model.xlsx"))
 
 def compute_with(vals):
@@ -532,7 +607,7 @@ def chart_headwind(r):
 def findings(r):
     L = []
     L.append("# Audiobooks economics — findings\n")
-    L.append("Model: `analysis/audiobooks_model.py` → `data/SPOT_audiobooks_model.xlsx` (two tabs, Audiobooks_Inputs and Audiobooks_Analysis, live formulas; forecast placeholders for 2026E–2027E are flagged LINK TO MODEL). Identity: N(t) = B(t) + A_gp(t) − C(t). The June 2024 price increase is deliberately outside N.\n")
+    L.append("Model: `analysis/audiobooks_model.py` → `data/SPOT_audiobooks_model.xlsx` (two tabs, Audiobooks_Inputs and Audiobooks_Bridge, live formulas; forecast placeholders for 2026E–2027E are flagged LINK TO MODEL). Identity: N(t) = B(t) + A_gp(t) − C(t). The June 2024 price increase is deliberately outside N.\n")
     L.append("## 1. The bridge\n")
     L.append("| €M | 2024 | 2025 | 2026E | 2027E |\n|---|---|---|---|---|")
     L.append("| B  bundle saving, net of hand-backs | " + " | ".join(f"{r['B'][y]:.0f}" for y in YEARS) + " |")
