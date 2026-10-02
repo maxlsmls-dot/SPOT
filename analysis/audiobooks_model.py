@@ -19,7 +19,7 @@ from collections import OrderedDict
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
 
@@ -391,61 +391,58 @@ def build_workbook(r):
     se = wb.create_sheet(SH_SE); state["row"] = 0
     BR = f"{SH_BR}!"
     def put_s(*a, **k): return put(*a, sheet=se, **k)
-    put_s("Audiobooks: sensitivity on licensing-cost growth", bold=True); se["A1"].font = TITLE
-    put_s("B, A and group revenue are held at the AB_Bridge values; only C moves. Headwind = y/y change in N as bp of group revenue (negative = margin drag). Blue cells are the scenario values and can be edited.")
+    put_s("Audiobooks: sensitivity to the growth assigned to audiobook licensing cost", bold=True); se["A1"].font = TITLE
+    put_s("Only C moves. B, A and group revenue are held at the AB_Bridge values. The row's growth rate is applied to both 2026E and 2027E; 2025 growth stays at the inputs value. Blue cells can be edited.")
     put_s("")
-    # Table 1: one-way, same growth in 2026E and 2027E
-    put_s("Table 1. Cost growth p.a. applied to both 2026E and 2027E (base case on AB_Inputs: 43% then 30%)", bold=True, fill=SECT)
-    h = put_s("Cost growth p.a.", single="C 2026E", vals=["C 2027E", "N 2026E", "N 2027E", "Headwind 2026E, bp"], extra={"G": "Headwind 2027E, bp", "H": "Share of consensus 2026E"}, bold=True)
-    for col in "BCDEFGH": se[f"{col}{h}"].font = HDR; se[f"{col}{h}"].alignment = Alignment(horizontal="right")
     C25 = f"{BR}$D${R_C}"; N25 = f"{BR}$D${R_N}"
     B26, B27 = f"{BR}$E${R_B}", f"{BR}$F${R_B}"; A26, A27 = f"{BR}$E${R_A}", f"{BR}$F${R_A}"
-    REV26, REV27 = f"{BR}$E${R_grp}", f"{BR}$F${R_grp}"; CONS26 = f"{BR}$E${R_cons}"
+    REV26, REV27 = f"{BR}$E${R_grp}", f"{BR}$F${R_grp}"
+    h = put_s("Licensing-cost growth p.a., 2026E and 2027E", single="C 2026E, €M", vals=["C 2027E, €M", "Contribution 2026E, €M", "Contribution 2027E, €M", "Headwind 2026E, bp"], extra={"G": "Headwind 2027E, bp"}, bold=True, fill=FILL)
+    for col in "BCDEFG": se[f"{col}{h}"].font = HDR; se[f"{col}{h}"].alignment = Alignment(horizontal="right", wrap_text=True)
     for g in [0.20, 0.30, 0.40, 0.43, 0.50, 0.60, 0.70]:
         rr = nxt()
-        c26 = f"={C25}*(1+$A{rr})"; c27 = f"={C25}*(1+$A{rr})^2"
-        n26 = f"={B26}+{A26}-B{rr}"; n27 = f"={B27}+{A27}-C{rr}"
-        hw26 = f"=(D{rr}-{N25})/{REV26}*10000"; hw27 = f"=(E{rr}-D{rr})/{REV27}*10000"
-        put_s(g, single=c26, vals=[c27, n26, n27, hw26], extra={"G": hw27, "H": f"=-F{rr}/{CONS26}"}, fmt=FMT_M)
+        put_s(g, single=f"={C25}*(1+$A{rr})", vals=[f"={C25}*(1+$A{rr})^2", f"={B26}+{A26}-B{rr}", f"={B27}+{A27}-C{rr}", f"=(D{rr}-{N25})/{REV26}*10000"],
+              extra={"G": f"=(E{rr}-D{rr})/{REV27}*10000"}, fmt=FMT_M)
         se[f"A{rr}"].number_format = FMT_PCT0; se[f"A{rr}"].font = F_BLUE
         for col in "FG": se[f"{col}{rr}"].number_format = FMT_BP
-        se[f"H{rr}"].number_format = FMT_PCT0
-        if abs(g - 0.43) < 1e-9: se[f"A{rr}"].value = 0.43; se.cell(row=rr, column=9, value="base 2026E growth").font = Font(italic=True)
+        if abs(g - 0.43) < 1e-9: se.cell(row=rr, column=8, value="base 2026E growth").font = Font(italic=True)
     put_s("")
-    # Table 2: 2024 anchor x 2026E growth -> headwind 2026E (2025 growth held at input; 2025 level moves with the anchor)
-    put_s("Table 2. Headwind 2026E (bp) by 2024 cost anchor (rows, €M) and 2026E cost growth (columns); 2025 growth held at the AB_Inputs value", bold=True, fill=SECT)
-    gcols = [0.20, 0.30, 0.43, 0.50, 0.60]; letters = ["B", "C", "D", "E", "F"]
-    h = put_s("2024 anchor, €M  \\  2026E growth", extra={l: g for l, g in zip(letters, gcols)}, bold=True)
-    for l in letters: se[f"{l}{h}"].number_format = FMT_PCT0; se[f"{l}{h}"].font = Font(bold=True, color="0000FF"); se[f"{l}{h}"].alignment = Alignment(horizontal="right")
-    G25 = A["c_g_2025"]; B25 = f"{BR}$D${R_B}"; A25 = f"{BR}$D${R_A}"
-    for anchor in [150, 190, 250, 300, 350]:
-        rr = nxt()
-        cells = {}
-        for l in letters:
-            c25 = f"$A{rr}*(1+{G25})"
-            cells[l] = f"=(({B26}+{A26}-{c25}*(1+{l}${h}))-({B25}+{A25}-{c25}))/{REV26}*10000"
-        put_s(anchor, extra=cells, fmt=FMT_BP); se[f"A{rr}"].font = F_BLUE; se[f"A{rr}"].number_format = FMT_M
-        if anchor == 190: se.cell(row=rr, column=8, value="base anchor").font = Font(italic=True)
+    put_s("Base case on AB_Bridge (43% in 2026E, 30% in 2027E)", single=f"={BR}$E${R_C}", vals=[f"={BR}$F${R_C}", f"={BR}$E${R_N}", f"={BR}$F${R_N}", f"={BR}$E${R_o4}"], extra={"G": f"={BR}$F${R_o4}"}, fmt=FMT_M, bold=True, fill=OUT)
+    se[f"F{state['row']}"].number_format = FMT_BP; se[f"G{state['row']}"].number_format = FMT_BP
     put_s("")
-    # Table 3: 2026E growth x 2027E growth -> headwind 2027E
-    put_s("Table 3. Headwind 2027E (bp) by 2026E cost growth (rows) and 2027E cost growth (columns)", bold=True, fill=SECT)
-    g27cols = [0.10, 0.20, 0.30, 0.40, 0.50]
-    h = put_s("2026E growth  \\  2027E growth", extra={l: g for l, g in zip(letters, g27cols)}, bold=True)
-    for l in letters: se[f"{l}{h}"].number_format = FMT_PCT0; se[f"{l}{h}"].font = Font(bold=True, color="0000FF"); se[f"{l}{h}"].alignment = Alignment(horizontal="right")
-    for g26 in [0.20, 0.30, 0.43, 0.50, 0.60]:
-        rr = nxt()
-        cells = {}
-        for l in letters:
-            c26 = f"{C25}*(1+$A{rr})"; c27 = f"{c26}*(1+{l}${h})"
-            cells[l] = f"=(({B27}+{A27}-{c27})-({B26}+{A26}-{c26}))/{REV27}*10000"
-        put_s(g26, extra=cells, fmt=FMT_BP); se[f"A{rr}"].font = F_BLUE; se[f"A{rr}"].number_format = FMT_PCT0
-        if abs(g26 - 0.43) < 1e-9: se.cell(row=rr, column=8, value="base 2026E growth; base 2027E growth is 30%").font = Font(italic=True)
-    put_s("")
-    put_s("Reading: the headwind stays negative in every cell except the 10% column of Table 3, where paid revenue growth of about €45M outruns a 10% rise in cost. The size is driven by the cost growth assumption. The 2026E headwind rests on listeners +60% (disclosed) and the 0.7x haircut from listeners to cost (estimate).")
-    se.column_dimensions["A"].width = 34
-    for col in "BCDEFGH": se.column_dimensions[col].width = 16
+    put_s("Reading: the headwind is negative in every row. Its size scales with the growth assigned to licensing cost, which rests on listeners +60% (disclosed) and a 0.7x haircut from listeners to cost (estimate).")
+    se.column_dimensions["A"].width = 44
+    for col in "BCDEFG": se.column_dimensions[col].width = 18
     se.freeze_panes = "B4"
     wb.save(os.path.join(DATA, "SPOT_audiobooks_model.xlsx"))
+
+def inject_cached_values(path):
+    """Write each formula's computed value into the file as its cached value, so viewers that do not
+    recalculate (previews, mobile) show numbers. Formulas stay live; Excel recalculates on open."""
+    import zipfile, re, logging
+    from xml.sax.saxutils import escape
+    try:
+        from pycel import ExcelCompiler
+    except ImportError:
+        print("pycel not installed: cached values not written"); return
+    logging.disable(logging.CRITICAL)
+    wb = load_workbook(path); xl = ExcelCompiler(filename=path)
+    zin = zipfile.ZipFile(path); contents = {n: zin.read(n) for n in zin.namelist()}; order = zin.namelist(); zin.close()
+    for idx, name in enumerate(wb.sheetnames):
+        fn = f"xl/worksheets/sheet{idx + 1}.xml"; xml = contents[fn].decode("utf-8"); ws = wb[name]; n = 0
+        for row in ws.iter_rows():
+            for c in row:
+                if not (isinstance(c.value, str) and c.value.startswith("=")): continue
+                val = xl.evaluate(f"{name}!{c.coordinate}")
+                pat = re.compile(r'<c r="%s"( [^>]*)?><f>(.*?)</f><v ?/>' % c.coordinate)
+                if isinstance(val, bool): rep_ = r'<c r="%s"\1 t="b"><f>\2</f><v>%d</v>' % (c.coordinate, int(val))
+                elif isinstance(val, (int, float)): rep_ = r'<c r="%s"\1><f>\2</f><v>%s</v>' % (c.coordinate, repr(float(val)))
+                elif val is None: continue
+                else: rep_ = r'<c r="%s"\1 t="str"><f>\2</f><v>%s</v>' % (c.coordinate, escape(str(val)))
+                xml, k = pat.subn(rep_, xml); n += k
+        contents[fn] = xml.encode("utf-8")
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as zout:
+        for n_ in order: zout.writestr(n_, contents[n_])
 
 def compute_with(vals):
     global I
@@ -606,6 +603,7 @@ def findings(r):
 def main():
     r = compute()
     build_workbook(r)
+    inject_cached_values(os.path.join(DATA, "SPOT_audiobooks_model.xlsx"))
     chart_bridge(r); chart_headwind(r)
     findings(r)
     print("N:", {y: round(r["N"][y]) for y in YEARS}); print("dN bp:", {y: round(r["dN_bp"][y]) for y in YEARS[1:]})
