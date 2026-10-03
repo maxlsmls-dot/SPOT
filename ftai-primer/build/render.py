@@ -30,7 +30,7 @@ def strip_front_matter(text):
 
 def css_escape(s): return s.replace("\\", "\\\\").replace('"', '\\"')
 
-BACK_MATTER = {"Tensions carried in this Part", "Unknowns carried in this Part", "Sources", "Build notes"}
+BACK_MATTER = {"Tensions carried in this Part", "Unknowns carried in this Part", "Tensions carried in the Spine", "Unknowns carried in the Spine", "Sources", "Build notes"}
 
 def build_toc_html(toc_tokens, depth, skip_back_matter=False):
     rows = []
