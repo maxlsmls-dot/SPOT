@@ -527,3 +527,92 @@ Entries from the USM dossier (D3), verbatim from the reconciliation register, fo
 - **U-D11-03** (D11, cluster K-15) — **U3 — Willis Lease maintenance services and spare-parts revenue lines for FY2025.** The 10-K's revenue table was not returned beyond lease rent, the combined core line and gain on sale. Resolve: read the consolidated statement of income in [S1].
 - **U-D4-10** (D4, cluster K-16) — **U10 — Any CFM/GE statement specifically on the Chromalloy HPT blade PMA**, and any GE "material" programme (e.g. TrueChoice Material) positioning against PMA. The brief's phrase "material solutions" was not matched to a current CFM/GE programme in this session; the historical P&W "Global Material Solutions" CFM56-3 PMA venture was found only via headlines [51][52].
 
+## Sources
+
+1. AJW Group / AviTrader MRO, "Ensuring the airworthiness of USM: regulations, certification, traceability and authenticity", Aug 2025 (PDF). https://www.ajw-group.com/storage/downloads/1761651710_08.25_article_avitrader_mro_-_ensuring_airworthiness_of_usm.pdf
+2. AviTrader, "Ensuring the airworthiness of used serviceable materials", 16 Oct 2025. https://avitrader.com/2025/10/16/ensuring-the-airworthiness-of-used-serviceable-materials-regulations-certification-traceability-and-authenticity-the-bedrock-of-the-usm-environment
+3. Rotabull, "FAA 8130-3 Form Airworthiness Approval Tag [Instructions]", undated. https://rotabull.com/blog/8130-3-form
+4. Delta TechOps, supplier matrix F-840-018-A, Mar 2024. https://dfp.delta.com/wp-content/uploads/2024/03/F-840-018-A-Supplier-matrix-1.pdf
+5. AviTrader, "APOC secures engine lease agreement with Condor", 28 Jul 2025. https://avitrader.com/2025/07/28/apoc-secures-engine-lease-agreement-with-condor
+6. Aviation Business News, "Condor secures APOC Aviation CFM56-5A lease to support A320 fleet", 2025. https://www.aviationbusinessnews.com/industry-news/condor-secures-apoc-aviation-cfm56-5a-lease-to-support-a320-fleet
+7. Safe Fly Aviation (consultancy blog), "CFM56 Engine Market Report 2026", 2026. https://safefly.aero/cfm56-engine-market-report-2026/
+8. Safe Fly Aviation (consultancy blog), "Aircraft Teardown Market Growth: USM Demand, Recycling & Forecast", 2026. https://safefly.aero/?p=15482
+9. Safe Fly Aviation (consultancy blog), life-limited-part pages carrying the CFM56-7B HPT disk price: "Aircraft Engine LLP Management" https://safefly.aero/engine-llp-management-explained/ ; "Life Limited Parts (LLP) in Aviation" https://safefly.aero/blog-life-limited-parts-llp-in-aviation/ (as compiled in D2 §4.4)
+10. IBA, "Engine Values Release September 2025 (2025B)", Sept 2025. https://www.iba.aero/resources/articles/engine-values-2025b-release-september-2025/
+11. IBA, "IBA Engine and Lease Rate Update – H1 2026", 2026. https://www.iba.aero/resources/articles/iba-engine-and-lease-rate-update-h1-2026/
+12. IBA, "It's a 'Lessors' Market' says IBA, as engine lease rates and market values escalate", Apr 2024. https://www.iba.aero/about/news/itandrsquos-a-andldquolessorsandrsquo-marketandrdquo-says-iba-as-engine-lease-rates-and-market-values-escalate/ ; AviTrader, "IBA says it's a 'lessors' market'", 25 Apr 2024. https://avitrader.com/2024/04/25/iba-says-its-a-lessors-market/
+13. ePlaneAI, "CFM56 engine values highlight investor opportunities and risks", date not captured. https://www.eplaneai.com/news/cfm56-engine-values-highlight-investor-opportunities-and-risks
+14. Mark Calver, Cargo Facts Session 3 presentation (PDF), Apr 2023. https://cargofactsevents.com/wp-content/uploads/2023/04/Mark-Calver-Session-3-Presentation.pdf
+15. Aircraft Value News, "PMA continues to undermine full-life maintenance adjustments", date not captured. https://www.aircraftvaluenews.com/pma-continues-to-undermine-full-life-maintenance-adjustments/
+16. Aircraft Value News, "Concept of half to full life fluid as aircraft move past mid-life" (the 1,000–1,500 cycles a year utilisation figure), date not captured. https://www.aircraftvaluenews.com/concept-of-half-to-full-life-fluid-as-aircraft-move-pass-mid-life/
+17. Aircraft Value News, "Engine life limited parts pricing continues to rise: $4m for CFM56-7", Nov 2019. https://www.aircraftvaluenews.com/engine-life-limited-parts-pricing-continues-to-rise-4m-for-cfm56-7
+18. Aircraft Commerce, Issue 87 maintenance article (PDF), 2013. https://www.aircraft-commerce.com/wp-content/uploads/aircraft-commerce-docs/Maintenance/2013/ISSUE87_MTCE_B.pdf
+19. Aircraft Commerce, Issue 120 maintenance sample article (PDF), Oct/Nov 2018 (date of the USM pricing passage not captured). https://www.aircraft-commerce.com/sample_article_folder/120_MTCE_B.pdf
+20. MyAirTrade, engine status resource ("LLPC $m 5.700", June 2025). https://www.myairtrade.com/resources/enginestatus
+21. McKinsey & Company, "What does the future hold for commercial-aviation maintenance?", date not captured (2024–25). https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/what-does-the-future-hold-for-commercial-aviation-maintenance
+22. Cirium, retirement-projections page, date not captured. https://www.cirium.com/?p=43293
+23. Informa Markets / Aviation Week, commercial fleet forecast page 5 (Cirium Fleets Analyzer retirement figures), date not captured. https://informamarkets.turtl.co/story/com-forecast/page/5
+24. IATA Maintenance Cost Conference, "Retirements, part-outs, dismantling", Aerodynamic Advisory (Murby), PDF, 2023. https://www.iata.org/contentassets/3f8981eb437e4e16808639bc9d19d5c7/mcc202_day02_0915-0945_retirements-partouts-dismantling_aerodynamic_murby.pdf
+25. Aviation Week, "Retirement Uptick Will Restock Used Engine Parts", date not captured. https://aviationweek.com/air-transport/retirement-uptick-will-restock-used-engine-parts
+26. Aviation Week, "Teardown Providers Expand Business Amid Continued Demand", date not captured. https://aviationweek.com/mro/marketplace/teardown-providers-expand-business-amid-continued-demand
+27. Aviation Week, "MRO Memo: A Seller's Market For Used Parts", date not captured. https://aviationweek.com/mro/workforce-training/mro-memo-sellers-market-used-parts
+28. Aviation Week, "Magnetic expects CFM56 market challenges, opportunities in 2024", 2024. https://m.aviationweek.com/mro/aircraft-propulsion/magnetic-expects-cfm56-market-challenges-opportunities-2024 ; Magnetic Group, "The current state and future of CFM56 USM engine pricing". https://www.magneticgroup.co/the-current-state-and-future-of-cfm56-usm-engine-pricing/
+29. Aviation Week, "Used Parts Market Shows Signs Of Stabilizing", title only. https://aviationweek.com/shows-events/mro-americas/used-parts-market-shows-signs-stabilizing
+30. Aviation Week, "North America Sees Upturn in USM Market", title only. https://aviationweek.com/mro/supply-chain/north-america-sees-upturn-usm-market
+31. Oliver Wyman, "A tsunami of used aircraft parts", Jul 2020, title only. https://www.oliverwyman.com/our-expertise/insights/2020/jul/a-tsunami-of-used-aircraft-parts.html
+32. Oliver Wyman, "The new MRO supply paradigm", Apr 2026. https://www.oliverwyman.com/our-expertise/insights/2026/apr/aviation-mro-labor-and-material-supply-chain-paradigm.html
+33. ePlaneAI, "APOC Aviation to support USM stock through A320-200 teardown", 2026. https://www.eplaneai.com/zh/news/apoc-aviation-to-support-usm-stock-through-a320-200-teardown
+34. The Business Research Company via a research-aggregator listing, "Air Transport USM Global Market Report", 2026. https://www.gii.tw/report/tbrc1773717-air-transport-usm-global-market-report.html
+35. Market.us, "Air Transport USM Market", 2025–26. https://market.us/report/air-transport-usm-market/
+36. Fortune Business Insights, USM market report; figures as relayed in search results; URL not isolated in the research.
+37. AerSale Corporation, Form 10-K for FY2025, filed 2026. https://www.sec.gov/Archives/edgar/data/1754170/000110465926025574/asle-20251231x10k.htm
+38. AerSale Corporation, FY2025 results press release (Exhibit 99.1), 5 Mar 2026. https://www.sec.gov/Archives/edgar/data/1754170/000110465926024101/asle-20260305xex99d1.htm
+39. AAR Corp., Form 10-K for the fiscal year ended 31 May 2026. https://www.sec.gov/Archives/edgar/data/0000001750/000110465926085459/air-20260531x10k.htm
+40. AAR Corp., Form 10-Q for the quarter ended 31 Aug 2025. https://www.sec.gov/Archives/edgar/data/1750/000110465925092589/air-20250831x10q.htm
+41. Willis Lease Finance Corporation, Form 10-K for FY2025. https://www.sec.gov/Archives/edgar/data/1018164/000101816426000036/wlfc-20251231x10k.htm
+42. AerCap Holdings N.V., Form 20-F for FY2025, filed 2026. https://www.sec.gov/Archives/edgar/data/1378789/000162828026007513/aer-20251231.htm
+43. AerCap Holdings N.V., Form 6-K for the quarter ended 30 Sep 2025. https://www.sec.gov/Archives/edgar/data/1378789/000162828025047012/aer-09302025x6k.htm
+44. AerCap Materials, Factsheet 2023 (PDF). https://www.aercap.com/_assets/_95ac4c65fdc732db11562e8bc8c249f8/aercap/db/607/8027/fact_sheet/Materials_Factsheet+2023.pdf
+45. AerCap Materials, Factsheet 1Q 2026 (PDF). https://www.aercap.com/_assets/_3b87087632d76febf90601f9b1fe7356/aercap/db/607/8027/fact_sheet/AerCap_Materials_Factsheet+1Q+2026.pdf
+46. FTAI Aviation Ltd., Form 10-K for FY2025, filed 27 Feb 2026. https://www.sec.gov/Archives/edgar/data/1590364/000162828026012940/ftai-20251231.htm
+47. FTAI Aviation Ltd., Q4 and FY2024 results release (QuickTurn Europe capacity, "450 modules (150 engines)"), GlobeNewswire, 26 Feb 2025. https://www.globenewswire.com/news-release/2025/02/26/3033379/35538/en/
+48. FTAI Aviation Ltd., "FTAI Acquires 27 Boeing 737-700 Aircraft from WestJet", GlobeNewswire, 28 Sep 2026. https://www.globenewswire.com/news-release/2026/09/28/3369685/35538/en/ftai-acquires-27-boeing-737-700-aircraft-from-westjet.html
+49. FTAI Aviation Ltd., release on the acquisition of Unical Aviation's remaining interest in QuickTurn, GlobeNewswire, 1 Dec 2023 (cited in the orchestrator notes; URL not captured in the research).
+50. PRNewswire, "AAR and FTAI Aviation extend their exclusive Serviceable Engine Products agreement, providing CFM56 engine material to the global aviation aftermarket through 2030", 2025 (title located; body not read). https://www.prnewswire.com/news-releases/aar-and-ftai-aviation-extend-their-exclusive-serviceable-engine-products-agreement-providing-cfm56-engine-material-to-the-global-aviation-aftermarket-through-2030-302412621.html
+51. GA Telesis, "Flight Solutions Group continues USM market growth: purchase of eight PW4000 engines for disassembly", Jan 2025. https://www.gatelesis.com/ga-telesis-flight-solutions-group-continues-usm-market-growth-the-purchase-of-eight-8-pw4000-engines-for-disassembly/
+52. GA Telesis, "GA Telesis strengthens leadership in engine disassembly and USM inventory growth", Nov 2025. https://gatelesis.com/ga-telesis-strengthens-leadership-engine-disassembly-usm-inventory-growth
+53. Aviation Business News, "GA Telesis announces V2500, CFM56-7B, CF6-80C2 and PW4000 engine disassemblies", undated. https://www.aviationbusinessnews.com/mro/ga-telesis-announces-v2500-cfm56-7b-cf6-80c2-and-pw4000-engine-disassemblies/
+54. AviTrader, "GA Telesis and Aero Engine Solutions enter into CFM56-5B and CFM56-7B material agreement", 31 Jan 2018. https://avitrader.com/2018/01/31/ga-telesis-and-aero-engine-solutions-enter-into-cfm56-5b-and-cfm56-7b-material-agreement/
+55. ePlaneAI, "VAS to oversee teardown of three Airbus A380 aircraft", undated. https://www.eplaneai.com/es/news/vas-to-oversee-teardown-of-three-airbus-a380-aircraft
+56. AviTrader, item on Setna iO's A320neo airframe and PW1100G QEC teardown (URL not isolated; appeared as https://avitrader.com/?p=163680 in results).
+57. Asian Aviation, "APOC partners with Willis Lease for 737-800 teardown", 2025. https://asianaviation.com/apoc-partners-with-willis-lease-for-737-800-teardown/
+58. AirlinerGS, "APOC partners with Willis Lease Finance Corporation for 737-800 teardown", 2025. https://airlinergs.com/apoc-partners-with-willis-lease-finance-corporation-for-737-800-teardown/
+59. Aviation Business News, "APOC acquires four 737 airframes for teardown", undated. https://www.aviationbusinessnews.com/mro/apoc-acquires-four-737-airframes-for-teardown
+60. Aviation Business News, "Building capability for the future: APOC Aviation disassembles two CFM56-7B engines", undated. https://www.aviationbusinessnews.com/mro/building-capability-for-the-future-apoc-aviation-disassembles-two-cfm56-7b-engines/
+61. AviTrader, "APOC acquires first CFM56-5B for up-cycling as engine portfolio expands", 7 Oct 2021. https://avitrader.com/2021/10/07/apoc-acquires-first-cfm56-5b-for-up-cycling-as-engine-portfolio-expands/
+62. ISTAT Jetrader, Autumn 2020, p.45 (landing-gear values). https://nxtbook.com/nxtbooks/ISTAT/jetrader_autumn2020/index.php?startid=45
+63. GE Aerospace, TrueEngine presentation (PDF; located, content not read). https://www.geaerospace.com/sites/default/files/trueengine-presentation.pdf
+64. Aviation Week, "CFM56 Overhaul Demand Remains Strong, GE Aerospace Says", 2026 (GE's retirement-rate sequence and its "largest used serviceable material provider" statement, as compiled in D2 and D9). https://aviationweek.com/mro/aircraft-propulsion/cfm56-overhaul-demand-remains-strong-ge-aerospace-says
+65. GE Aerospace Investor Relations, "Recent events: your questions answered", 2026. https://www.geaerospace.com/news/investor-relations/ir-updates/recent-events-your-questions-answered
+66. General Electric Co. (GE Aerospace), Form 10-K for FY2025, filed Feb 2026. https://www.sec.gov/Archives/edgar/data/40545/000004054526000008/ge-20251231.htm
+67. GE Aerospace press releases on TrueChoice agreements (Safair, TAAG, Southwest), 2019–2025, as compiled in D2 §2.3; MRO Global, "Safair expands GE's TrueChoice overhaul agreement for CFM56 engines", undated. https://www.mroglobal-online.com/safair-expands-ges-truechoice-overhaul-agreement-cfm56-engines/
+68. Leeham News, "GE Aerospace FY and Q4 2025 Earnings Thrust Higher Propelled by Services Growth, LEAP Volume and Expanding Margins", 22 Jan 2026. https://leehamnews.com/2026/01/22/ge-aerospace-fy-and-q4-2025-earnings-thrust-higher-propelled-by-services-growth-leap-volume-and-expanding-margins/
+69. Leeham News, Bjorn's Corner, "New aircraft technologies, Part 49: Engine maintenance", 8 Mar 2024. https://leehamnews.com/2024/03/08/bjorn-s-corner-new-aircraft-technologies-part-49-engine-maintenance/
+70. AviTrader, "Global airline industry set for record growth in 2024" (IBA retirement data), 24 Sep 2024. https://avitrader.com/2024/09/24/global-airline-industry-set-for-record-growth-in-2024
+71. Aviation Week, "Pockets Of Demand Disrupt Expected Narrowbody Retirement Surge", date not captured. https://ngtest.aviationweek.com/mro/pockets-demand-disrupt-expected-narrowbody-retirement-surge ; Bain & Company, "Commercial aviation forecast". https://www.bain.com/insights/commercial-aviation-forecast/
+72. Aviation Week, "Parts Price Hikes Help Boost Safran, GE Aftermarket Sales", late 2023. https://ngtest.aviationweek.com/mro/aircraft-propulsion/parts-price-hikes-help-boost-safran-ge-aftermarket-sales
+73. Ishka, "Pratt & Whitney mulls further LLP escalation hike", undated. https://www.ishkaglobal.com/News/Article/6978/Pratt-Whitney-mulls-further-LLP-escalation-hike
+74. AVM Magazine (Aviation Maintenance), "Inside the Engine MRO Supply Chain: Why Repair Delays Are Rising", 2025. https://avm-mag.com/inside-the-engine-mro-supply-chain-why-repair-delays-are-rising-and-whats-driving-them
+75. The Flying Engineer, "A320neo grounded 2026: Pratt & Whitney crisis" (citing Cirium), 2026. https://theflyingengineer.com/a320neo-grounded-2026-pratt-whitney-crisis/
+76. CFM International / Safran / GE Aerospace, "CFM secures certification for LEAP-1B durability upgrades", 18 Jul 2026. https://www.cfmaeroengines.com/press-articles/cfm-secures-certification-for-leap-1b-durability-upgrades
+77. TravelPulse, "FAA Raises Boeing 737 MAX Production Cap" (to 42 a month), Oct 2025. https://www.travelpulse.com/news/airlines-airports/faa-allows-boeing-to-build-42-737-max-planes-per-month
+78. CAPA, "Boeing testing production rate of 47 aircraft per month, cautious of increasing to 52: CEO", May 2026. https://centreforaviation.com/news/boeing-testing-production-rate-of-47-aircraft-per-month-cautious-of-increasing-to-52-ceo-1360867
+79. Air Data News, "Airbus targets around 870 deliveries in 2026 as engine issues slow A320neo ramp-up", 2026. https://www.airdatanews.com/airbus-targets-around-870-deliveries-in-2026-as-engine-issues-slow-a320neo-ramp-up
+80. Bloomberg via AJOT, "Used jets rents surge 44% as airlines pay up to buoy fleets", date not visible. https://www.ajot.com/news/used-jets-rents-surge-44-as-airlines-pay-up-to-buoy-fleets
+81. Acumen Aviation, market insight on the Boeing 737-700, 18 Dec 2025. https://www.acumen.aero/uploads/marketinsight/226420520251218.pdf
+82. Cargo Facts, "In-service 737NG freighter fleet surpasses 100" and "Passenger-to-freighter conversions are taking place on increasingly older aircraft", dates not captured. https://cargofacts.com/allposts/carriers/in-service-737ng-freighter-fleet-surpasses-100/ ; https://cargofacts.com/allposts/passenger-to-freighter-conversions-are-taking-place-on-increasingly-older-aircraft/
+83. India Seatrade News, "IBA warns of oversupply of narrowbody conversions and lease rate fall", 6 Sep 2026. https://indiaseatradenews.com/iba-warns-of-oversupply-of-narrowbody-conversions-and-lease-rate-fall/
+84. CFM International, "The CFM56 engine family", undated, accessed 2026-10-03. https://www.cfmaeroengines.com/engines/cfm56
+85. Aviation Business News, "CFM56 turbofan aircraft engine" (about 24,000 in service, September 2025). https://www.aviationbusinessnews.com/low-cost/cfm56-turbofan-aircraft-engine/
+86. Safran, FY2025 Results & Investor Update presentation, 13 Feb 2026. https://www.safran-group.com/download/media/450393
+87. Aviation Fleet Support, "All CFM56-5B & -7B Core LLP Package 6235 CR", undated listing. https://aviationfleetsupport.com/parts-category/cfm56-5b-7b-core-llp-package-6235-cr/

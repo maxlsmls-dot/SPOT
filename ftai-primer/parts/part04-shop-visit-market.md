@@ -545,3 +545,152 @@ net at the higher rent: ≈ −$1,200,000 to −$1,600,000</div>
 
 The arithmetic is not a recommendation, and the point is structural. Options B, C and D exist only because the engine is modular and because a secondary market in modules, green time and used material exists; without those, Option A would be the only option, and its price would be the manufacturer's price. <span class="cite">[D2 §2.5]</span> The three rows of Part III §24 that this Part answers meet in the table. Low retirements shrink the supply behind B, C and D, since fewer teardowns mean fewer modules, fewer green-time engines and fewer used parts, at exactly the moment the slot shortage of §27 makes A slow and the escalation of §28 makes A expensive. <span class="cite">[D2 §2.5, §5.4]</span> Which option an operator takes depends on inputs this Part has shown to be contested or unknown: the exchange fee, the lessor's reserve rates, the spare-engine rent, and the value of a restored engine against a part-worn one. Part V prices the used parts and the teardown, Part VI the alternative parts, and Part VII the exchange as FTAI sells it; Part II §16 carries the green-time trade.
 
+## Tensions carried in this Part
+
+| Id | The two (or more) figures | Where in this Part |
+|---|---|---|
+| R-006 | CFM56 shop visits a year: 2,300–2,400 in 2026–2028 (GE via Aviation Week, 2026) against about 2,500 peak in 2025–26 (Safran via Aviation Week, c. 2023/24); IBA "+40%" 2024→2025 headline (scope not captured) against Safran's "mid-single-digit" 2025 growth | §26.2, Exhibit 4.3 |
+| R-007 | Peak shape and timing: 2,500 peak in 2025–26 (Safran) against a 2,300–2,400 plateau through 2028 with apex 2027–28 (GE); first-visit peak 2027 (Visual Approach) | §26.2, callout |
+| D2 T6 | Safran "topping 2,000 again in 2024" (including LEAP) against IBA's 40% increase 2024→2025; if one population, 2025 would be about 2,800 | §26.2 |
+| R-004 | Retirement rate: GE 3–4% → 2–3% → 1.5–2% (CFO via Aviation Week, 2026); 2025 about 1.5%, 2026 about 2% (via Leeham, 22 Jan 2026); 1Q 2026 "below 1%" (GE IR page) | §26.3, Exhibit 4.4, worked example 4.1 |
+| R-005 | Aircraft retirements 2024: "fewer than 200" (IBA, Sept 2024) against 587 (Cirium via Informa); scope not visible | §26.3, Exhibit 4.4 |
+| R-001 | Installed base: about 24,000 (Aviation Business News, Sept 2025) against about 23,000 (CFM website, undated); both used in worked example 4.1 | §26.3, worked example 4.1 |
+| R-008 | Implied interval of about ten years (2,300 visits on 24,000 engines) against typical CFM56 intervals (Part I) | §26.3, worked example 4.1 |
+| R-012 | Fleet maturity: 57% no visit and 21% one (GE, Jun 2019); about 70% zero or one (Safran, 2024); about 75% (Safe Fly, consultancy blog, 2026) | §26.4, Exhibit 4.4 |
+| R-037 | FTAI capacity: "up to 300 shop visits per year" (10-K, 2022 language); 1,350 module overhauls (release, 9 Sep 2024); 1,800 modules / 600 engines (release, 26 Feb 2025); 3,000 modules (call coverage, Jul 2026) | §25.4, Exhibit 4.2 |
+| R-036 | 2026 module target: 1,050 (release, 25 Feb 2026) against 1,200 (call coverage, 30 Jul 2026) | §25.4 |
+| R-041 | Lisbon: "planned 113,000 sq ft, 300+ modules" (call coverage, unverified) against "100% owned" and "still ramping" (10-K; call) | §25.4, Exhibit 4.2 |
+| R-042 | FTAI share: about 5% of a $22B market (release, 26 Feb 2025); 25% goal of CFM56 shop visits, denominator not retrieved (call, Jul 2026); about 17% / 43% of a 2,350-visit year at 1,200 / 3,000 modules (derived) | §25.4 |
+| R-019 | Turnaround: 90–120 days full overhaul and about 45 light (trade press, 2025); "sustaining ~90 days" (GE, 27 May 2026); more than 10% better in 4Q 2025 (GE 10-K); 75–90 PR and 120–150 heavy (Safe Fly); slot wait +2–3 months, up to 6 (Bain, 2024) | §27.6, Exhibit 4.6 |
+| R-020 (D2 T8) | Parts constraint: priority-supplier input +40% and TAT +10% (GE 10-K FY2025) against labour and material shortages as "primary disruptors", two-thirds reporting next-generation shop costs 21%+ over expectation (Oliver Wyman, Apr 2026) and thin used-material supply (AVM, 2025) | §27.4, Exhibit 4.5 |
+| R-018 | Escalation: LLP set about 7% a year 2008–25, Ishka about 12% step (year not shown), -7B parts +20–30% (2023) against spares about 10% a year, double-digit 1 Nov 2022, high-single-digit Aug 2023, inflation +3–4 points (Safran) | §28.1, Exhibit 4.7, worked example 4.3 |
+| R-009 | V2500 shop visits 2025: "slightly more than 800" (RTX CFO via Aviation Week, 2026) against about 1,400 forecast (Aviation Week data tool, 2024/25) | §28.6 |
+| R-014 | Cost shares: material 60–70% / labour 20–30% / repairs 10–20% (Air Cargo Week) against LLPs 40–60% of parts / HPT blades and vanes 15–25% / labour 15–20% (Safe Fly) | §29.1, Exhibit 4.10, worked example 4.4 |
+| R-015 | HPT blade set: $1.6M or $3.08M (per-blade price × 80, unverified) against $0.18–0.63M implied by the 15–25% share on the two visit ranges | §29.3 |
+| R-022 | Used-material price: 60–80% of new on average (Aviation Week) against 70–75% of list from a trader (Aircraft Commerce) | §28.4, Exhibit 4.10, worked example 4.4 |
+| R-013 | Shop-visit cost: PR $1.2–1.6M (this Part) and $1.8–2.5M (Part I); heavy with LLPs $2.1–2.8M and ">$3.5M"; full overhaul $3.5–4.2M; light $650–900k (all Safe Fly, consultancy blog) | §27 worked example 4.2, §29.4, §30, Exhibit 4.11 |
+| D2 T4 | Full LLP set "north of $3m" (Leeham, 2017) and "$4M" (Aircraft Value News) against a "heavy visit with LLPs" of $2.1–2.8M all-in (Safe Fly), which cannot include a full set at either price | §30 |
+| R-016 | Full -7B LLP set: $4M (Aircraft Value News, Nov 2019; this Part's figure) against $5.7M (MyAirTrade, June 2025; Part I's figure) | §30, worked example 4.5 |
+| R-017 | LLP cost per cycle: $200 (on $4M) against $285 (on $5.7M) | §30, worked example 4.5 |
+| R-028 | CFM56-7B spare rent: about $100,000 a month (IBA, Apr 2024) against $42,000–48,000 (Safe Fly, 2026, may be green-time) | §27.6, §30, worked example 4.5, Exhibit 4.11 |
+| R-029 | CFM56-7B value: half-life market value $5.7M / $6.4M (IBA, Sept 2025) against green-time $2.8–3.4M and teardown $0.8–1.2M (Safe Fly, 2026); value of a freshly restored engine unknown | §30, worked example 4.5 |
+| R-024 | HEICO PMA approvals a year: 300–500 (one reading of the FY2025 10-K) against 400–550 (another) | §29.2, definition box |
+| R-026 | FTAI–Chromalloy: "a joint venture" (10-K) against "an exclusive perpetual partnership" (investor commentary); Advanced Engine Repair JV identity unknown | §29.2, definition box |
+
+## Unknowns carried in this Part
+
+- **U-D2-01** (D2) — **U1. Catalog escalation 2024, 2025, 2026.** Only the Nov 2022 (double-digit) and Aug 2023 (high-single-digit) increases and Safran's "inflation + 3–4 points" rule were found. Resolve with Aviation Week/Aircraft Commerce coverage of each year's CFM price revision, or GE/Safran earnings call Q&amp;A on "price".
+- **U-D2-02** (D2) — **U2. Shop-visit counts 2020–2023.** Only the 2019 level (~2,000+) and the 2024 forecast ("topping 2,000") were found. Resolve from Safran capital-markets-day decks (the safran-group.com media downloads 397180 / 448184 returned in search but not read) or the GE Aerospace Bernstein presentation of 27 May 2026.
+- **U-D2-03** (D2) — **U3. OEM versus independent share of CFM56 shop visits.** No estimate found. Resolve with Aviation Week/Cirium shop-visit-by-provider data or the Oliver Wyman fleet forecast's provider split.
+- **U-D2-04** (D2) — **U4. CFM56 share of GE CES services revenue.** Not disclosed in the 10-K. GE has historically described the CFM56 as the largest services contributor; a number would need an investor presentation or call transcript (the 22 Jan 2026 webcast transcript URL was returned, not read).
+- **U-D2-05** (D2) — **U5. Capacity of the named airline MROs.** AFI KLM E&amp;M, Delta TechOps, Turkish Technic, GMF AeroAsia, EgyptAir M&amp;E, GA Telesis, Lufthansa Technik and ST Engineering: no CFM56 inductions- per-year or expansion figures returned. Resolve via each company's annual report or trade-press shop profiles.
+- **U-D2-06** (D2) — **U6. Engine-stand shortages and HPT blade / casting / forging lead times.** No numbers found. Resolve via Aviation Week supply-chain coverage, PCC/Howmet commentary, or GE call Q&amp;A.
+- **U-D2-07** (D2) — **U7. Module-exchange pricing.** No source gives the exchange fee or a worked price for a CFM56 HPT or core exchange; Safe Fly's "$150,000–$400,000 removal cost per module" is ambiguous. D5 may find it in FTAI's investor materials or the In Practise interview ("FTAI Aviation: CFM56 repair and module swap", URL returned, not read). Cluster K-01 with U-D3-20 ("U20 — Pricing of a module exchange (exchange fee, LLP-life true-up) from any provider, including FTAI.") and U-D5-03 ("U3 — Exchange turnaround time and exchange pricing.").
+- **U-D2-08** (D2) — **U8. Value of a freshly overhauled full-stack CFM56-7B** versus a green-time unit. Needed to close the worked example. Resolve via IBA/Ascend/mba engine value tables. Cluster K-02.
+- **U-D2-09** (D2) — **U9. IAE "FleetCare".** Not found as a current product; only EngineWise. Resolve on the P&amp;W services site.
+- **U-D2-10** (D2) — **U10. Dates.** Several Aviation Week articles were returned without publication dates (noted "c. 2023/24" or "2025"). The writer should confirm before quoting.
+- **U-D1-10** (D1) — **U10** Years and amounts of each CFM LLP escalation step 2019–2025 (only "Aug 2023, +20–30% on -7B parts" and "~12% LLP escalation" without a year were reached). Cluster K-03 with U-D2-01.
+- **U-D1-07** (D1) — **U7** Labour hours per workscope and shop labour rates (US$/hour) for CFM56 visits. Resolve with an MRO price catalogue or Aircraft Commerce's maintenance budgets.
+- **U-D1-14** (D1) — **U14** Whether a module exchange requires a test-cell run under the CFM56 ESM.
+- **U-D3-15** (D3) — **U15** — GE Aerospace's used-material arm: name, scale and CFM56 role not captured (the only hit was a TrueEngine presentation URL whose content was not read). Cluster K-16 with U-D4-10.
+- **U-D4-10** (D4) — **U10 — Any CFM/GE statement specifically on the Chromalloy HPT blade PMA**, and any GE "material" programme (e.g. TrueChoice Material) positioning against PMA. The brief's phrase "material solutions" was not matched to a current CFM/GE programme in this session; the historical P&amp;W "Global Material Solutions" CFM56-3 PMA venture was found only via headlines.
+- **U-D4-14** (D4) — **U14 — Terms of the FTAI–CFM Jan 2026 materials agreement** (duration, volumes, pricing, whether it restricts FTAI's PMA use). Cluster K-19 with U-D5-18 ("U18 — Terms of the CFM materials agreement mentioned on the Q4 2025 call.").
+- **U-D4-16** (D4) — **U16 — CFM56-7B HPT blade count per set** (80 is a recollection, unverified here) and the OEM list price for a full HPT blade and vane set.
+- **U-D5-05** (D5) — **U5 — Denominator of the 25% share goal** and the year by which it is targeted.
+- **U-D5-08** (D5) — **U8 — GMF AeroAsia and EgyptAir terms** (capacity committed, economics, duration).
+- **U-D6-07** (D6) — **U7 — Security deposit and maintenance deposit balances.** FTAI's balance-sheet "security deposits" and "maintenance deposits" liabilities by year, and the reserve rates in its leases. Resolve: FY2025 10-K balance sheet and revenue-recognition note. (Carried here for the green-time reserve rates Option C needs.)
+- **U-D9-08** (D9) — **U8 — Labour figures (engine MRO technician headcount, shortfall, wage inflation).** Oliver Wyman cites skilled-worker retirements qualitatively. D2 may hold these.
+- **U-D11-16** (D11) — **U16 — GE CFM56 shop-visit count, spare-parts price increases, and any "material solutions" or used-serviceable-material programme wording.** Not returned from the 10-K. Resolve: read the CES segment discussion in the 10-K and the Q4 2025 and Q2 2026 earnings materials.
+
+## Sources
+
+1. Aviation Week, "CFM56 Overhaul Demand Remains Strong, GE Aerospace Says", 2026 (exact date not visible). https://aviationweek.com/mro/aircraft-propulsion/cfm56-overhaul-demand-remains-strong-ge-aerospace-says
+2. GE Aerospace Investor Relations, "Recent events: your questions answered", 2026. https://www.geaerospace.com/news/investor-relations/ir-updates/recent-events-your-questions-answered
+3. Visual Approach Analytics, "CFM56 and V2500 engines to reach peak in first shop visits in 2027", 2025/26. https://app.visualapproach.io/research/cfm56-and-v2500-engines-to-reach-peak-in-first-shop-visits-in-2027
+4. Aviation Week, "Safran Sees Leap Aftermarket Emerging By Mid-Decade", c. 2023/24 (date not visible). https://ngtest.aviationweek.com/mro/aircraft-propulsion/safran-sees-leap-aftermarket-emerging-mid-decade
+5. Aviation Week, "CFM Aftermarket Shifting To Long-term Agreements, Safran Says", c. 2023/24. https://aviationweek.com/mro/aircraft-propulsion/cfm-aftermarket-shifting-long-term-agreements-safran-says
+6. Aviation Week, "Parts Price Hikes Help Boost Safran, GE Aftermarket Sales", late 2023. https://ngtest.aviationweek.com/mro/aircraft-propulsion/parts-price-hikes-help-boost-safran-ge-aftermarket-sales
+7. Aviation Week, "MRO Memo: A Seller's Market For Used Parts", undated. https://aviationweek.com/mro/workforce-training/mro-memo-sellers-market-used-parts
+8. Aviation Week, "Magnetic Expects CFM56 Market Challenges, Opportunities In 2024", 2024. https://m.aviationweek.com/mro/aircraft-propulsion/magnetic-expects-cfm56-market-challenges-opportunities-2024
+9. Aviation Week, "Leap Aftermarket Poised For Growth", undated. https://aviationweek.com/mro/supply-chain/leap-aftermarket-poised-growth
+10. Aviation Week, "Narrowbody Engine Demand Drives MRO Capacity Additions", 2025. https://aviationweek.com/mro/aircraft-propulsion/narrowbody-engine-demand-drives-mro-capacity-additions
+11. Aviation Week, "IBA predicts 40 per cent increase in shop visits from 2024 to 2025", 2024. https://aviationweek.com/mro/iba-predicts-40-cent-increase-shop-visits-2024-2025
+12. Aviation Week, "IAE: No V2500 Retirement Surge Expected Over Next Five Years", 2024/25. https://ngtest.aviationweek.com/mro/aircraft-propulsion/iae-no-v2500-retirement-surge-expected-over-next-five-years
+13. Aviation Week, "Data Tool: The Future Of IAE V2500 Engine", 2024/25. https://ngstage.aviationweek.com/mro/aircraft-propulsion/data-tool-future-iae-v2500-engine
+14. Aviation Week, "Pratt &amp; Whitney Sees High-Single-Digit MRO Growth This Year", 2026 (RTX CFO on V2500 visits). https://aviationweek.com/mro/aircraft-propulsion/pratt-whitney-sees-high-single-digit-mro-growth-year
+15. Aircraft Value News, "Engine Life Limited Parts Pricing Continues to Rise: $4M for CFM56-7", Nov 2019. https://www.aircraftvaluenews.com/engine-life-limited-parts-pricing-continues-to-rise-4m-for-cfm56-7
+16. Aircraft Value News, "Concept of half to full life fluid as aircraft move past mid-life", undated (1,000–1,500 cycles a year). https://www.aircraftvaluenews.com/concept-of-half-to-full-life-fluid-as-aircraft-move-pass-mid-life/
+17. GE Aerospace press release, "Safair signed GE's TrueChoice Overhaul agreement for CFM56 engines", undated. https://www.geaerospace.com/news/press-releases/services/safair-signed-ges-truechoice-overhaul-agreement-cfm56-engines
+18. GE Aerospace press release, "TAAG signed GE's TrueChoice Overhaul agreement for CFM56 engines", undated. https://geaerospace.com/news/press-releases/services/taag-signed-ges-truechoice-overhaul-agreement-cfm56-engines
+19. GE Aerospace press release, "GE expands TrueChoice Flight Hour agreement with Southwest Airlines for CFM56-7B", undated. https://www.geaerospace.com/news/press-releases/services/ge-expands-truechoice-flight-hour-agreement-southwest-airlines-cfm56-7b
+20. GE Aerospace press release, "Aero Norway awards repair management contract to GE Aviation", undated. https://www.geaerospace.com/press-release/services/aero-norway-awards-repair-management-contract-ge-aviation
+21. MRO Global, "Safair expands GE's TrueChoice overhaul agreement for CFM56 engines", undated. https://www.mroglobal-online.com/safair-expands-ges-truechoice-overhaul-agreement-cfm56-engines/
+22. Amwal Al Ghad, "EgyptAir inks GE's TrueChoice agreement for overhaul consulting", undated. https://en.amwalalghad.com/?p=50461
+23. Air Cargo Week, "The true cost of engine maintenance", 2025/26. https://aircargoweek.com/the-true-cost-of-engine-maintenance/
+24. Air Cargo Week / AVM Magazine, "From PW1100G to CFM56: The Engine Maintenance Trends Shaping 2026", 2026. https://aircargoweek.com/from-pw1100g-to-cfm56-the-engine-maintenance-trends-shaping-2026/ ; https://avm-mag.com/from-pw1100g-to-cfm56-the-engine-maintenance-trends-shaping-2026
+25. Air Cargo Week / Locatory, "MRO demand intensifies around legacy engine platforms", Mar 2026. https://aircargoweek.com/?p=103875 ; https://www.locatory.com/march-market-overview-mro-demand-intensifies-around-legacy-engine-platforms/
+26. Leeham News, Bjorn Fehrm, "Bjorn's Corner: Aircraft engine maintenance, Part 1", 3 Mar 2017. https://leehamnews.com/2017/03/03/bjorns-corner-aircraft-engines-maintenance-part-1/
+27. Leeham News, "GE Aerospace FY and Q4 2025 Earnings Thrust Higher Propelled by Services Growth, LEAP Volume and Expanding Margins", 22 Jan 2026. https://leehamnews.com/2026/01/22/ge-aerospace-fy-and-q4-2025-earnings-thrust-higher-propelled-by-services-growth-leap-volume-and-expanding-margins/
+28. Leeham News, "Safran hails 'outstanding' 2025; prepares for Airbus ramp-up", 13 Feb 2026. https://leehamnews.com/2026/02/13/safran-hails-outstanding-2025-prepares-for-airbus-ramp-up/
+29. Leeham News, "Safran raises full-year guidance on record LEAP output and booming engine aftermarket", 24 Oct 2025. https://leehamnews.com/2025/10/24/safran-raises-full-year-guidance-on-record-leap-output-and-booming-engine-aftermarket/
+30. Safe Fly Aviation (consultancy blog), 2026: "Engine Shop Visit Costs Worldwide 2026" https://safefly.aero/?p=15606 ; "CFM56 Engine Market Report 2026" https://safefly.aero/cfm56-engine-market-report-2026/ ; "CFM56-7B Engine Availability Report 2026" https://safefly.aero/?p=15628 ; "What Determines Aircraft Engine Overhaul Costs?" https://safefly.aero/blog-aircraft-engine-overhaul-cost-drivers/ ; "Aircraft Engine LLP Management" https://safefly.aero/engine-llp-management-explained/ ; "Life Limited Parts (LLP) in Aviation" https://safefly.aero/blog-life-limited-parts-llp-in-aviation/
+31. Bain &amp; Company, "Get a step ahead of the engine maintenance capacity crunch", 2024. https://bain.com/globalassets/noindex/2024/bain_brief_get_a_step_ahead_of_the_engine_maintenance_capacity_crunch.pdf
+32. AVM Magazine, "The Engines Capacity Crunch", 2025. https://avm-mag.com/the-engines-capacity-crunch
+33. AVM Magazine / Aviation Business News, "Inside the Engine MRO Supply Chain: Why Repair Delays Are Rising and What's Driving Them", 2025. https://avm-mag.com/inside-the-engine-mro-supply-chain-why-repair-delays-are-rising-and-whats-driving-them ; https://www.aviationbusinessnews.com/mro/mro-interviews-comments-articles/inside-the-engine-mro-supply-chain-why-repair-delays-are-rising-and-whats-driving-them/
+34. Aero Norway, editorial in AVM Magazine, May 2024. https://aeronorway.no/wp-content/uploads/2024/05/Aero-Norway-editorial-AVM-MAY-2024.pdf
+35. Oliver Wyman, "The new MRO supply paradigm", Apr 2026. https://www.oliverwyman.com/our-expertise/insights/2026/apr/aviation-mro-labor-and-material-supply-chain-paradigm.html
+36. ePlaneAI, "Survey highlights shortages and rising costs in aviation maintenance sector", 2026. https://www.eplaneai.com/de/news/survey-highlights-shortages-and-rising-costs-in-aviation-maintenance-sector
+37. AviationPros, "6-Month Analysis: Top Engine Maintenance Trends for MROs to Watch in 2026" (Oliver Wyman figures), 2026. https://www.aviationpros.com/aircraft-maintenance-technology/mros-repair-shops/article/55385642/6-month-analysis-which-2026-engine-trends-and-aviation-industry-forecasts-are-most-important-for-maintenance-organizations
+38. AviationPros, "Engine Stand Utilization Report: How the Engine Maintenance Cycle Impacts Commercial Aviation", undated. https://www.aviationpros.com/aircraft-maintenance-technology/engines-parts/article/55397945/engine-stand-utilization-report-how-the-engine-maintenance-cycle-impacts-commercial-aviation
+39. ePlaneAI, "Forecast for US commercial fleet and MRO growth through 2026" (reporting Aviation Week 2026 Fleet &amp; MRO Forecast figures), 2026. https://www.eplaneai.com/de/news/forecast-for-us-commercial-fleet-and-mro-growth-through-2026
+40. General Electric Co. (GE Aerospace), Form 10-K for FY2025, filed Feb 2026. https://www.sec.gov/Archives/edgar/data/40545/000004054526000008/ge-20251231.htm
+41. GE Aerospace, 1Q 2026 earnings release (8-K exhibit), Apr 2026. https://www.sec.gov/Archives/edgar/data/40545/000004054526000026/ge1q2026earningsrelease.htm
+42. GE Aerospace, Bernstein Strategic Decisions Conference presentation, 27 May 2026. https://www.geaerospace.com/sites/default/files/geaerospace_bernstein_strategic_decisions_conference_presentation_052726.pdf
+43. GE Aviation &amp; GECAS Investor Day presentation, 18 Jun 2019. https://www.ge.com/sites/default/files/GE-Aviation-%26-GECAS-Investor-Day-061819.pdf
+44. Safran, "Safran reports excellent financial performance in 2025 and raises its 2028 ambitions", 13 Feb 2026. https://www.safran-group.com/pressroom/safran-reports-excellent-financial-performance-2025-and-raises-its-2028-ambitions-2026-02-13
+45. Safran, FY2025 Results &amp; Investor Update presentation, 13 Feb 2026. https://www.safran-group.com/download/media/450393
+46. Safran, press release on the new maintenance shop in Querétaro, Mexico, 30 Jun 2026. https://www.safran-group.com/fr/espace-presse/safran-opens-new-maintenance-shop-queretaro-mexico-strengthening-its-mro-hub-americas-2026-06-30/pdf-download
+47. Forecast International, "Safran Revenue Up 15% in 2025, LEAP Deliveries Surge 28%", 13 Feb 2026. https://flightplan.forecastinternational.com/2026/02/13/safran-revenue-up-15-in-2025-leap-deliveries-surge-28/
+48. Quartr, Safran Capital Markets Day 2024 summary. https://quartr.com/events/safran-saf-cmd-2024_33fI7Y8y
+49. StandardAero, Inc., Form 10-K for FY2025, filed 2026. https://www.sec.gov/Archives/edgar/data/2025410/000119312526072618/saro-20251231.htm
+50. StandardAero, Inc., Form 10-Q for the quarter ended 30 Sep 2025. https://www.sec.gov/Archives/edgar/data/2025410/000119312525274305/saro-20250930.htm
+51. StandardAero, Inc., Form 10-Q for the quarter ended 30 Jun 2026. https://www.sec.gov/Archives/edgar/data/0002025410/000202541026000009/saro-20260630.htm
+52. GlobalAir, "StandardAero's Winnipeg expansion adds CF34 and CFM56 engine capacity", Sept 2025. https://www.globalair.com/articles/standardaeros-winnipeg-expansion-adds-cf34-and-cfm56-engine-capacity/12646
+53. StandardAero, CFM56-7B engine services brochure, Oct 2022. https://standardaero.com/wp-content/uploads/2022/10/StandardAero-CFM56-7B-Engine.pdf
+54. FL Technics, Kaunas engine-shop expansion release, 2025. https://fltechnics.com/?p=194689
+55. SR Technics, CFM56-7B capabilities and price catalogue, 3 Jun 2026 (located, not read). https://www.srtechnics.com/media/zgcnmf3o/cfm56-7b-sr-technics-capabilitiesprice-catalogue-03062026.pdf
+56. MTU Aero Engines, "Figures for 2025: MTU stays on course for growth", 24 Feb 2026. https://www.mtu.de/newsroom/press/latest-press-releases/press-release-detail/figures-for-2025-mtu-stays-on-course-for-growth/
+57. Lufthansa Technik, "Lufthansa Technik stable on course for growth" (FY2025 results), early 2026. https://www.lufthansa-technik.com/en/lufthansa-technik-stable-on-course-for-growth-2601a780f4c4031c
+58. RTX / Pratt &amp; Whitney, "IAE AG and FTAI Aviation Sign Strategic V2500 Engine Maintenance Services Agreement", 6 Jun 2024. https://www.rtx.com/prattwhitney/newsroom/news/2024/06/06/iae-ag-and-ftai-aviation-sign-strategic-v2500-engine-maintenance-services-agreem
+59. IBA via AviTrader and AJOT, "It's a lessor's market, says IBA, as engine lease rates and market values escalate", 25 Apr 2024. https://avitrader.com/2024/04/25/iba-says-its-a-lessors-market ; https://www.ajot.com/news/its-a-lessors-market-says-iba-as-engine-lease-rates-and-market-values-escalate
+60. IBA, "Engine Values Release September 2025 (2025B)", Sept 2025. https://www.iba.aero/resources/articles/engine-values-2025b-release-september-2025/
+61. IBA, "IBA Engine and Lease Rate Update – H1 2026", 2026. https://www.iba.aero/resources/articles/iba-engine-and-lease-rate-update-h1-2026/
+62. AviTrader, "Global airline industry set for record growth in 2024" (IBA retirement data), 24 Sep 2024. https://avitrader.com/2024/09/24/global-airline-industry-set-for-record-growth-in-2024
+63. Informa Markets, Commercial Forecast story, page 5 (Cirium Fleets Analyzer retirement figures), 2025. https://informamarkets.turtl.co/story/com-forecast/page/5
+64. Acumen Aviation, market insight on the Boeing 737-700, 18 Dec 2025. https://www.acumen.aero/uploads/marketinsight/226420520251218.pdf
+65. Aviation Business News, "CFM56 turbofan aircraft engine" (about 24,000 in service), Sept 2025. https://www.aviationbusinessnews.com/low-cost/cfm56-turbofan-aircraft-engine/
+66. CFM International, "The CFM56 engine family", undated, accessed 2026-10-03. https://www.cfmaeroengines.com/engines/cfm56
+67. MyAirTrade, engine status resource ("LLPC $m 5.700"), June 2025. https://www.myairtrade.com/resources/enginestatus
+68. Aircraft Commerce, Maintenance &amp; Engineering, Issue 120, Oct/Nov 2018 (full -7B LLP set $3.4M; trader USM pricing 70–75% of list). https://www.aircraft-commerce.com/sample_article_folder/120_MTCE_B.pdf
+69. Aircraft Commerce, CFM56-7B maintenance analysis and budget, Issue 58, 2008 (full set $1.775M). https://www.aircraft-commerce.com/wp-content/uploads/aircraft-commerce-docs1/Aircraft%20guides/CFM56-7B/ISSUE58_CFM56_7B_MTCE.pdf
+70. Ishka, "Pratt &amp; Whitney mulls further LLP escalation hike", undated. https://www.ishkaglobal.com/News/Article/6978/Pratt-Whitney-mulls-further-LLP-escalation-hike
+71. FlightGlobal, "CFM56 overhaulers see light at end of tunnel", date not shown. https://www.flightglobal.com/mro/cfm56-overhaulers-see-light-at-end-of-tunnel/142974.article
+72. AJW Group, ESN 889979 CFM56-7B26 records mini-pack, 2022; StandardAero, ESN 892820 mini-pack, Mar 2025 (life limits). https://www.ajw-group.com/storage/downloads/1644847608_esn_889979_mini_pack_cfm56-7b26.pdf ; https://standardaero.com/wp-content/uploads/2025/03/ESN-892820-Mini-Pack-PDF.pdf
+73. FTAI Aviation Ltd., Form 10-K for FY2025, filed Feb 2026. https://www.sec.gov/Archives/edgar/data/1590364/000162828026012940/ftai-20251231.htm
+74. FTAI Aviation Ltd., Form 10-K for FY2022. https://www.sec.gov/Archives/edgar/data/1590364/000159036423000007/ftai-20221231.htm
+75. FTAI Aviation, "FTAI Aviation Closes the Acquisition of LMCES", GlobeNewswire, 9 Sep 2024. https://www.globenewswire.com/news-release/2024/09/09/2943296/35538/en/FTAI-Aviation-Closes-the-Acquisition-of-LMCES.html
+76. FTAI Aviation, Q4 and full-year 2024 results and QuickTurn Europe agreement, GlobeNewswire, 26 Feb 2025. https://www.globenewswire.com/news-release/2025/02/26/3033379/35538/en/
+77. FTAI Aviation, closing of the QuickTurn Europe joint venture, GlobeNewswire, 5 Jun 2025. https://www.globenewswire.com/news-release/2025/06/05/3094782/0/en/ftai-aviation-ltd-announces-closing-of-quickturn-europe-joint-venture.html
+78. FTAI Aviation, acquisition of Unical Aviation's remaining interest in QuickTurn, GlobeNewswire, 1 Dec 2023 (cited in the FY2025 10-K and the orchestrator notes; URL not captured in the research).
+79. FTAI Aviation, Q2 2025 results, GlobeNewswire, 29 Jul 2025. https://www.globenewswire.com/news-release/2025/07/29/3123626/35538/en/
+80. FTAI Aviation, Q4 and full-year 2025 results, GlobeNewswire, 25 Feb 2026. https://www.globenewswire.com/news-release/2026/02/25/3245051/35538/en/
+81. FTAI Aviation, Q2 2026 results, GlobeNewswire, 29 Jul 2026. https://www.globenewswire.com/news-release/2026/07/29/3335598/35538/en/
+82. FTAI Aviation, "FTAI Aviation Announces Multi-Year Materials Agreement with CFM International to Further Support CFM56 Engines", GlobeNewswire, 22 Jan 2026. https://www.globenewswire.com/news-release/2026/01/22/3223741/35538/en/FTAI-Aviation-Announces-Multi-Year-Materials-Agreement-with-CFM-International-to-Further-Support-CFM56-Engines.html
+83. Call coverage of the FTAI Q2 2026 call, 30 Jul 2026: GuruFocus transcript https://www.gurufocus.com/stock/FTAIN.PFD/transcripts/8991621 ; Quartr summary https://quartr.com/events/ftai-aviation-ltd-ftai-q2-2026_ozdaN73d ; Nasdaq.com and MarketBeat coverage per the orchestrator notes (URLs not captured).
+84. MarketBeat, "FTAI Aviation Q4 earnings call highlights", 26 Feb 2026. https://www.marketbeat.com/instant-alerts/ftai-aviation-q4-earnings-call-highlights-2026-02-26/
+85. Chromalloy, "Chromalloy Secures FAA Approval of CFM56 High Pressure Turbine Blade PMA", Newswire, 30 Oct 2025. https://www.newswire.com/news/chromalloy-secures-faa-approval-of-cfm56-high-pressure-turbine-blade-22665618
+86. HEICO Corporation, Form 10-K for the fiscal year ended 31 Oct 2025, filed Dec 2025. https://www.sec.gov/Archives/edgar/data/46619/000004661925000082/hei-20251031.htm
+87. In Practise, "FTAI, Chromalloy and CFM56 HPT Blade PMA" (expert interview digest), undated. https://inpractise.com/articles/ftai-chromalloy-and-cfm56-hpt-blade-pma
+88. Web page of weak provenance listing a CFM56-7B HPT blade at about €35,000 (condition unclear), undated. https://g00431067.webhosting.atu.ie/?p=1313
+89. Orchestrator notes, /home/user/SPOT/ftai-primer/research/orchestrator-notes.md (equity-method note of the FY2025 10-K; FTAI release arithmetic; call-coverage labelling), 2026-10-03.
+90. Dossier D2, "The CFM56 shop-visit market and the OEM aftermarket model", /home/user/SPOT/ftai-primer/research/dossiers/D2-shop-visit-market.md, 2026-10-03 (derived figures: the slice-capture table, the 17% / 43% scale check, the options bracket).
