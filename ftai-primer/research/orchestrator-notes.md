@@ -173,3 +173,17 @@ Writers: these override the "both readings" instruction only where stated; cite 
   named Nam because it predates the change.
 - R-040 (Rome): FTAI's Rome site is QuickTurn Europe at Rome Fiumicino Airport, Italy (10-K;
   5 Jun 2025 release). "Rome NY" in the chain map was an orchestrator error, now corrected.
+
+## Late addition (2026-10-03): FTAI MRE 2026-1 asset-backed securitization
+- Priced 22 May 2026; the Strategic Capital vehicle's (2025 Partnership's) inaugural ABS. $612M of notes
+  backed by 48 A320ceo and 737NG aircraft on lease to 23 airlines. Two classes: Series A expected
+  Asf (Fitch) / A(sf) (KBRA); Series B expected BBB+sf (Fitch). Expected close 4 Jun 2026. Both
+  classes "significantly oversubscribed" per the release. The release states the first SCI vehicle
+  "currently owns 292 aircraft" (May 2026).
+- Sources: FTAI release "FTAI Aviation Prices Inaugural Asset-Backed Securitization" (22 May 2026;
+  IR node https://ftandi.gcs-web.com/node/12936; carried by Finviz
+  https://finviz.com/news/356600/ftai-aviation-prices-inaugural-asset-backed-securitization and
+  AviTrader 26 May 2026 https://avitrader.com/2026/05/26/ftai-aviation-prices-inaugural-abs-deal/).
+- Bears on: Part II §17 (a real FTAI-vehicle ABS beside the WEST examples), Part VIII §61–§62 (the
+  vehicle's debt layers; the 292-aircraft count vs "300+ aircraft committed"), Part X §82, Spine.
+  Resolves D7 U12 in part (size, classes, ratings, collateral); coupons and LTV still unknown.
