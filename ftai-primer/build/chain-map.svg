@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="760" height="560" font-family="EB Garamond, Garamond, serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2b4c6f"/></marker></defs>
+  <style>
+    .b{fill:#f6f4ef;stroke:#2b4c6f;stroke-width:1.2}
+    .f{fill:#eef3f4;stroke:#1f6f62;stroke-width:1.6}
+    .k{fill:#fdf6ea;stroke:#9c7322;stroke-width:1.2;stroke-dasharray:4 3}
+    .t{font-size:10.5px;fill:#1a1a1a}
+    .h{font-size:12px;font-weight:700;fill:#1a1a1a}
+    .s{font-size:9.5px;fill:#555}
+    .l{stroke:#2b4c6f;stroke-width:1.2;fill:none;marker-end:url(#a)}
+    .tag{font-size:9.5px;fill:#1f6f62;font-weight:700}
+  </style>
+  <rect class="b" x="20" y="20" width="720" height="70" rx="4"/>
+  <text class="h" x="32" y="40">Engine OEMs: CFM International (GE Aerospace and Safran); IAE (Pratt &amp; Whitney, MTU, JAEC)</text>
+  <text class="t" x="32" y="58">New engines sold with airframes. New spare parts at catalogue list price, escalated every year.</text>
+  <text class="t" x="32" y="74">OEM shop networks and long-term service agreements (TrueChoice, EngineWise). Parts I and IV.</text>
+
+  <rect class="b" x="20" y="120" width="340" height="84" rx="4"/>
+  <text class="h" x="32" y="140">Engine owners</text>
+  <text class="t" x="32" y="158">Airlines, aircraft lessors, engine lessors.</text>
+  <text class="t" x="32" y="174">They pay for shop visits and maintenance reserves.</text>
+  <text class="t" x="32" y="190">They buy, sell and lease engines. Parts II and III.</text>
+
+  <rect class="k" x="400" y="120" width="340" height="84" rx="4"/>
+  <text class="h" x="412" y="140">Capital layer</text>
+  <text class="t" x="412" y="158">Securitizations, warehouse lines, third-party vehicles,</text>
+  <text class="t" x="412" y="174">bank debt, preferred shares. FTAI: Aviation Leasing</text>
+  <text class="t" x="412" y="190">and the Strategic Capital vehicles. Parts II, VIII, X.</text>
+
+  <rect class="b" x="20" y="236" width="720" height="100" rx="4"/>
+  <text class="h" x="32" y="256">Shop-visit providers</text>
+  <text class="t" x="32" y="274">OEM shops; independents (MTU, Lufthansa Technik, StandardAero, ST Engineering, GMF, EgyptAir);</text>
+  <text class="t" x="32" y="290">airline shops. A visit buys labour, repairs and parts. LLPs and turbine hardware carry most of the parts bill. Part IV.</text>
+  <rect class="f" x="32" y="302" width="400" height="24" rx="3"/>
+  <text class="tag" x="42" y="318">FTAI Module Factory: exchange of serviceable modules. Part VII.</text>
+
+  <rect class="b" x="20" y="368" width="226" height="92" rx="4"/>
+  <text class="h" x="32" y="388">OEM new parts</text>
+  <text class="t" x="32" y="406">List price plus handling.</text>
+  <text class="t" x="32" y="422">Escalation sets the price</text>
+  <text class="t" x="32" y="438">of every substitute. Part IV.</text>
+
+  <rect class="b" x="267" y="368" width="226" height="92" rx="4"/>
+  <text class="h" x="279" y="388">PMA parts and DER repairs</text>
+  <text class="t" x="279" y="406">HEICO; Chromalloy. Priced as</text>
+  <text class="t" x="279" y="422">a discount to list. Part VI.</text>
+  <rect class="f" x="279" y="430" width="202" height="20" rx="3"/>
+  <text class="tag" x="287" y="444">FTAI–Chromalloy JV (hot section)</text>
+
+  <rect class="b" x="514" y="368" width="226" height="92" rx="4"/>
+  <text class="h" x="526" y="388">Used serviceable material</text>
+  <text class="t" x="526" y="406">From teardowns of retired</text>
+  <text class="t" x="526" y="422">engines. Supply follows</text>
+  <text class="t" x="526" y="438">retirements. Part V.</text>
+
+  <rect class="f" x="20" y="492" width="720" height="52" rx="4"/>
+  <text class="h" x="32" y="512">New sink for CFM56 cores: FTAI Power converts engines into 25 MW generator sets. Part IX.</text>
+  <text class="s" x="32" y="530">Arrows show where engines, parts and payments move. The diagram ranks nothing.</text>
+
+  <path class="l" d="M190,90 L190,120"/>
+  <path class="l" d="M570,90 L570,120"/>
+  <path class="l" d="M190,204 L190,236"/>
+  <path class="l" d="M570,204 L570,236"/>
+  <path class="l" d="M133,368 L133,336"/>
+  <path class="l" d="M380,368 L380,336"/>
+  <path class="l" d="M627,368 L627,336"/>
+  <path class="l" d="M380,460 L380,492"/>
+</svg>
