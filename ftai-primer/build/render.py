@@ -30,11 +30,15 @@ def strip_front_matter(text):
 
 def css_escape(s): return s.replace("\\", "\\\\").replace('"', '\\"')
 
-def build_toc_html(toc_tokens, depth):
+BACK_MATTER = {"Tensions carried in this Part", "Unknowns carried in this Part", "Sources", "Build notes"}
+
+def build_toc_html(toc_tokens, depth, skip_back_matter=False):
     rows = []
     def walk(tokens):
         for t in tokens:
             lvl = t["level"]; name = t["name"]
+            if skip_back_matter and name.strip() in BACK_MATTER:
+                continue
             if lvl == 1:
                 rows.append(f'<li class="toc-part"><a href="#{t["id"]}">{name}</a></li>')
             elif lvl == 2:
@@ -55,7 +59,7 @@ def main():
     first = open(args.md[0], encoding="utf-8").read()
     meta, body = parse_front_matter(first)
     bodies = [body] + [strip_front_matter(open(p, encoding="utf-8").read()) for p in args.md[1:]]
-    body_md = "\n\n<div style=\"break-before: page\"></div>\n\n".join(bodies) if args.master else bodies[0]
+    body_md = "\n\n".join(bodies) if args.master else bodies[0]   # each Part's divider carries its own page break
 
     md = markdown.Markdown(extensions=["tables", "footnotes", "attr_list", "toc", "def_list", "sane_lists", "md_in_html"],
                            extension_configs={"toc": {"toc_depth": "1-3"}})
@@ -65,7 +69,7 @@ def main():
     body_md = re.sub(r'(<div class="part-divider" markdown="1">\s*<div class="pn">[^<]*</div>)\s*<h1>(.*?)</h1>',
                      lambda m: m.group(1) + "\n\n# " + m.group(2) + "\n\n", body_md, flags=re.S)
     body_html = md.convert(body_md)
-    toc_html = build_toc_html(getattr(md, "toc_tokens", []), args.toc_depth) if meta.get("toc", "").lower() in ("true", "yes", "1") else ""
+    toc_html = build_toc_html(getattr(md, "toc_tokens", []), args.toc_depth, skip_back_matter=args.master) if meta.get("toc", "").lower() in ("true", "yes", "1") else ""
 
     title = meta.get("title", "Deep Primer"); subtitle = meta.get("subtitle", "")
     if meta.get("cover", "").lower() in ("true", "yes", "1"):
