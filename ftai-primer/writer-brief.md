@@ -116,3 +116,18 @@ Length is an output. Cover each section to its natural completion. A typical Par
 Return only: the markdown and PDF paths, page count, word count, the validator's last output,
 the list of terms you defined, the list of reconciliation ids you presented, and any binding number
 you could not source. Do not return the Part text.
+
+## Refinements after Part I (binding for Parts II onward)
+- Exemplar: /home/user/SPOT/ftai-primer/parts/part01-cfm56-machine.md. Read its §1 to §4 and §7 for
+  style before writing; you need not read all of it.
+- Citations: cite the underlying source (filing, release, regulator, trade article) by short name and
+  date. Cite a dossier ("D3 §2.4") only when the dossier itself produced the figure (a derived number
+  or a definition it assembled), and then say "derived in the research" in the sentence. A reader
+  should rarely see a dossier id.
+- Definition boxes: box only the terms the registry assigns to your Part as owner or first use. A term
+  an earlier Part boxed gets a short in-prose reminder with a cross-reference, not a new box. A
+  mechanism is not a term; it goes in prose or a callout.
+- Section D of the reconciliation is the unknowns register; carry only the entries whose source
+  dossier is yours or whose cluster touches your Part.
+- Part I ran 63 pages and 22,000 words because it owns 53 terms. Expect your Part to run shorter
+  unless the outline says otherwise; Part VII is the exception.
