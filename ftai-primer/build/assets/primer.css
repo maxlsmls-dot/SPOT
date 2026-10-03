@@ -1,0 +1,119 @@
+/* FTAI deep primer stylesheet.
+   Base: the writer skill's institutional-memo look (EB Garamond 12pt body, ruled section headings,
+   small-caps subheads, running header/footer, page-numbered TOC).
+   Added: the deep-primer components (definition box, worked example, callout, exhibit, equations,
+   cover and part dividers) restyled in the same palette.
+   Pagination traps fixed: tables may break across pages (rows do not); long worked examples may
+   break; numeric cells never use nowrap. */
+
+@font-face { font-family: 'EB Garamond'; src: url('fonts/EBGaramond.ttf'); font-weight: 400 700; font-style: normal; }
+@font-face { font-family: 'EB Garamond'; src: url('fonts/EBGaramond-Italic.ttf'); font-weight: 400 700; font-style: italic; }
+
+:root { --ink:#1a1a1a; --navy:#2b4c6f; --navy2:#33475b; --rule:#c9d4df; --muted:#6a6a6a;
+        --teal:#1f6f62; --amber:#9c7322; --paper:#f6f4ef; --paper2:#eef2f6; }
+
+@page {
+  size: letter;
+  margin: 1in 1in 0.9in 1in;
+  @top-left  { content: string(doc-header); font-family: 'EB Garamond'; font-size: 9pt; color: #6a6a6a; }
+  @top-right { content: string(doc-asof);   font-family: 'EB Garamond'; font-size: 9pt; color: #6a6a6a; }
+  @bottom-center { content: counter(page); font-family: 'EB Garamond'; font-size: 10pt; color: #444; }
+}
+@page :first { @top-left { content: ""; } @top-right { content: ""; } }
+@page cover { @top-left { content: ""; } @top-right { content: ""; } @bottom-center { content: ""; } }
+
+html { font-family: 'EB Garamond', Garamond, 'Times New Roman', serif; font-size: 12pt; line-height: 1.42; color: var(--ink); }
+body { margin: 0; }
+
+h1 { font-size: 22pt; font-weight: 700; margin: 0 0 .15em 0; border-bottom: 2px solid var(--navy); padding-bottom: 6px; }
+h2 { font-size: 15pt; font-weight: 700; color: var(--navy); border-bottom: 1px solid var(--rule); padding-bottom: 3px;
+     margin: 1.5em 0 .6em 0; break-after: avoid; }
+h3 { font-size: 12.5pt; font-weight: 700; color: var(--navy2); font-variant: small-caps; letter-spacing: .3px;
+     margin: 1.1em 0 .3em 0; break-after: avoid; }
+h4 { font-size: 12pt; font-weight: 700; color: #444; margin: .9em 0 .2em 0; break-after: avoid; }
+
+p { text-align: justify; margin: 0 0 .7em 0; }
+em { font-style: italic; }
+a { color: var(--navy); text-decoration: none; }
+ul, ol { margin: 0 0 .7em 0; }
+li { margin: .15em 0; }
+
+.cite { font-size: 9.5pt; color: var(--muted); }
+sup, .footnote-ref { font-size: 8.5pt; }
+.footnotes { font-size: 10pt; color: #444; border-top: 1px solid var(--rule); margin-top: 2em; padding-top: .4em; }
+
+/* Tables: allow a long table to flow across pages; keep each row whole; repeat the header. */
+table { border-collapse: collapse; width: 100%; font-size: 10.5pt; margin: .6em 0 1em 0; break-inside: auto; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { border: 1px solid #b9c4cf; padding: 4px 8px; text-align: left; vertical-align: top; }
+th { background: var(--paper2); font-weight: 700; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+caption, .figcaption { font-size: 9.5pt; color: #555; font-style: italic; margin-top: .25em; text-align: center; }
+
+figure { margin: 1em 0; text-align: center; break-inside: avoid; }
+img { max-width: 100%; }
+svg { max-width: 100%; }
+blockquote { margin: .6em 1.2em; color: #333; font-style: italic; border-left: 2px solid var(--rule); padding-left: .8em; }
+
+/* ---- Title block ---- */
+.title-block { margin-bottom: .4em; }
+.subtitle { color: #555; font-style: italic; font-size: 11pt; margin-top: .2em; }
+
+/* ---- Cover (master only) ---- */
+.cover { page: cover; break-after: page; padding-top: 2.2in; }
+.cover .tag { font-size: 9.5pt; letter-spacing: .25em; text-transform: uppercase; color: var(--amber); font-weight: 700; }
+.cover h1 { font-size: 30pt; border-bottom: 2px solid var(--navy); margin: .3em 0 .4em 0; line-height: 1.1; }
+.cover .sub { font-size: 13pt; color: #444; line-height: 1.4; max-width: 5.6in; font-style: italic; }
+.cover .meta { margin-top: 2.5in; font-size: 10.5pt; color: var(--muted); }
+
+/* ---- Part divider ---- */
+.part-divider { break-before: page; break-after: page; padding-top: 2in; }
+.part-divider .pn { font-size: 9.5pt; letter-spacing: .25em; text-transform: uppercase; color: var(--amber); font-weight: 700; }
+.part-divider h1 { font-size: 26pt; margin: .3em 0 .4em 0; line-height: 1.1; }
+.part-divider p { color: #444; font-size: 12pt; font-style: italic; max-width: 5.6in; }
+.part-divider ul { font-style: normal; color: var(--ink); font-size: 11pt; }
+
+/* ---- Table of contents ---- */
+.toc { break-after: page; }
+.toc h2 { border: none; color: var(--ink); }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { margin: .2em 0; }
+.toc a { color: var(--ink); }
+.toc a::after { content: leader('.') target-counter(attr(href), page); color: #555; }
+.toc .toc-sub { padding-left: 1.4em; font-size: 11pt; color: #444; }
+.toc .toc-part { margin-top: .7em; font-weight: 700; }
+
+/* ---- Definition box: first use of every term ---- */
+.defn { background: #eef3f4; border-left: 3px solid var(--teal); padding: .45em .8em; margin: .8em 0; break-inside: avoid; }
+.defn b, .defn strong.term { color: var(--teal); font-size: 9pt; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: .25em; font-variant: normal; }
+.defn p { margin: 0 0 .35em 0; font-size: 11pt; }
+.defn p:last-child { margin-bottom: 0; }
+
+/* ---- Callout: mechanics only ---- */
+.box { background: var(--paper); border-left: 3px solid var(--amber); padding: .55em .8em; margin: .9em 0; break-inside: avoid; }
+.box .h { font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--amber); margin-bottom: .3em; }
+.box p { font-size: 11pt; }
+.box p:last-child { margin-bottom: 0; }
+
+/* ---- Worked numerical example: may break across pages when long ---- */
+.worked { background: #fcfaf6; border: 1px solid #ddd5c5; border-top: 3px solid var(--navy); padding: .55em .8em; margin: .9em 0; break-inside: auto; }
+.worked .h { font-size: 9pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--navy); margin-bottom: .3em; }
+.worked p, .worked li { font-size: 11pt; }
+.worked table { font-size: 10pt; }
+.worked p:last-child { margin-bottom: 0; }
+
+/* ---- Equations ---- */
+.eq { font-family: 'DejaVu Sans Mono', 'Liberation Mono', monospace; background: #f0ece2; padding: 0 .25em; font-size: 9.6pt; color: var(--ink); }
+.eqblock { font-family: 'DejaVu Sans Mono', 'Liberation Mono', monospace; background: #f0ece2; padding: .45em .6em; font-size: 9.8pt; color: var(--ink); margin: .6em 0; text-align: center; break-inside: avoid; white-space: pre-wrap; }
+
+/* ---- Exhibits ---- */
+.exh { margin: .9em 0; }
+.exh-title { font-size: 9.5pt; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: .04em; margin-bottom: .3em; break-after: avoid; }
+.exh cite, .src { display: block; font-style: normal; font-size: 9pt; color: var(--muted); margin-top: .2em; line-height: 1.35; }
+
+/* ---- Term registry / glossary ---- */
+dl { margin: 0 0 .8em 0; } dt { font-weight: 700; margin-top: .4em; } dd { margin: 0 0 .2em 1.2em; }
+
+/* ---- Pointer line at the end of each Spine section ---- */
+.pointer { font-size: 10.5pt; color: var(--navy); font-style: italic; margin: .4em 0 1.2em 0; }
