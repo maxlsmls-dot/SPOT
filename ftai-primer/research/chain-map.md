@@ -25,7 +25,7 @@ Two reportable segments per the FY2025 10-K, plus a new platform launched 30 Dec
    revenue $875.0M (+78% y/y), Adjusted EBITDA $249.7M (+51%). 296 CFM56 modules refurbished in
    Q2 2026 (+61% y/y); 566 in 1H 2026; 2026 forecast raised to 1,200 modules; stated capacity
    3,000 modules/yr. 2026 segment Adjusted EBITDA guidance $1,050M. Sites: Montreal (ex-Lockheed
-   Martin Commercial Engine Solutions, closing 9 Sep 2024 per GlobeNewswire; D5), Miami (QuickTurn), Rome NY, a planned
+   Martin Commercial Engine Solutions, closing 9 Sep 2024 per GlobeNewswire; D5), Miami (QuickTurn), Rome (Fiumicino, Italy; QuickTurn Europe, 50%), a planned
    113,000 sq ft Lisbon site (300+ modules/yr), plus capacity partnerships with GMF Indonesia and
    EgyptAir. PMA parts via a joint venture with Chromalloy; Chromalloy holds the only FAA-approved
    PMA high-pressure turbine blade for CFM56-5B/7B. V2500: five-year IAE EngineWise agreement

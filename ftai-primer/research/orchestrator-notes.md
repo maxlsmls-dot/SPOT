@@ -143,3 +143,33 @@ search-extraction artefact; treat the 2021 Adjusted EBITDA by segment as NOT ret
 - Q4/FY2024 release (GlobeNewswire 26 Feb 2025): https://www.globenewswire.com/news-release/2025/02/26/3033379/35538/en/
 - Q4/FY2025 release (GlobeNewswire 25 Feb 2026): https://www.globenewswire.com/news-release/2026/02/25/3245051/35538/en/
 - FTAI Power launch (30 Dec 2025): https://www.globenewswire.com/news-release/2025/12/30/3211297/35538/en/
+
+## Resolutions after reconciliation (orchestrator searches, 2026-10-03) — supplement to reconciliation.md §E.2
+Writers: these override the "both readings" instruction only where stated; cite as shown.
+- R-036 (2026 module target): 1,050 was set with the Q4 2025 results (25 Feb 2026 release). On the
+  Q2 2026 call (30 Jul 2026) management raised it to 1,200 (call coverage: GuruFocus, Nasdaq.com,
+  MarketBeat, 30 Jul 2026). Present as "1,050 (Feb 2026 release), raised to 1,200 on the July 2026
+  call (call coverage)". Whether the 29 Jul 2026 release text itself carries 1,200 is unverified.
+- R-049 (2026 Aviation Leasing guidance): the Q2 2026 report (29 Jul 2026) cut 2026 Aviation
+  Leasing Adjusted EBITDA guidance from $575M to $475M "reflecting its continued shift to an
+  asset-light business model" (release text as carried by Barchart; call coverage). The $575M reading
+  of the July release was a mis-read; $575M was the Feb 2026 figure. Guidance path for 2026 total
+  segment Adjusted EBITDA: $1.4B (Dec 2024 / early 2025) → $1.525B = $1.0B AP + $525M Leasing
+  (27 Oct 2025, Q3 2025 release) → $1.625B = $1.05B AP + $575M Leasing (25 Feb 2026) → $1.525B =
+  $1.05B AP + $475M Leasing (29 Jul 2026).
+- R-068 (2025 dividend): $0.30 per share for Q1 2025 and Q2 2025; $0.35 for Q3 2025 (declared
+  27 Oct 2025, payable 19 Nov 2025); $0.40 for Q4 2025 (declared 25 Feb 2026); $0.45 for Q1 2026
+  (declared Apr 2026, release title "Increases Dividend to $0.45"); $0.50 for Q2 2026 (declared
+  29 Jul 2026). Sources: GlobeNewswire release titles and texts.
+- Q3 2025 results (27 Oct 2025 release): net income attributable $114,009K; diluted EPS $1.10;
+  Adjusted EBITDA $297,381K.
+- R-045 (cost of sales FY2025): both figures are in the FY2025 10-K. $1,240,368K is the Aerospace
+  Products segment's cost of sales in the segment expenses table; $1,349,719K is the consolidated
+  cost-of-sales line. Present each with its scope. Segment gross margin on segment revenue
+  (1,936,244 − 1,240,368) / 1,936,244 = 35.9% is a derived figure; label it derived.
+- R-067 (CFO): Nicholas McAleese was appointed Chief Financial Officer and Michael Hazan Chief
+  Accounting Officer on 6 Mar 2026, succeeding Eun (Angela) Nam, who left for a role outside
+  aviation (FTAI release 6 Mar 2026, carried by StreetInsider, Barchart, Finviz). The 2025 proxy
+  named Nam because it predates the change.
+- R-040 (Rome): FTAI's Rome site is QuickTurn Europe at Rome Fiumicino Airport, Italy (10-K;
+  5 Jun 2025 release). "Rome NY" in the chain map was an orchestrator error, now corrected.
