@@ -295,7 +295,9 @@ The statements do not contradict one another; they measure different things. <sp
 1,350 modules at 3 per engine = 450 engines; at 4 = 338
 1,800 modules at 3 per engine = 600 engines (the release's own figure); at 4 = 450
 3,000 modules at 3 per engine = 1,000 engines; at 4 = 750
-utilisation check: 566 modules in 1H 2026, annualised 1,132, against 1,800 (release, Feb 2025) = 63%; against 3,000 (call coverage) = 38%</div>
+utilisation check: 566 modules in 1H 2026, annualised = 1,132
+  1,132 ÷ 1,800 (release, Feb 2025) = 63%
+  1,132 ÷ 3,000 (call coverage) = 38%</div>
 <p>So, under FTAI's own convention, the 2022 statement about one building would be about 900 module-equivalents, below the 1,350 the company claimed for two buildings in 2024; the figures are consistent with growth, not in conflict. The utilisation check shows that output in the first half of 2026 ran well below either stated capacity, which is what a company adding sites that are "still ramping" would report; it is not a measure of how full any one shop was. Limits of the example: a shop visit is not three module overhauls (an exchange touches one module; an overhaul opens all of them), so the first line is a scale check only; the 3,000 figure is call coverage; and whether partner shops' output counts toward FTAI's reported modules is unknown. <span class="cite">[D5 §2.4, T2, U10; reconciliation R-035, R-037; Quartr, Q2 2026 summary]</span></p></div>
 
 Two further dimensions of capacity are quoted or implied. Test capacity, as §46.2 noted, is quoted as more than 500 and then more than 600 engine tests a year; the number of test cells and the staffing by site were not retrieved. <span class="cite">[GlobeNewswire, 9 Sep 2024 and 26 Feb 2025; D5 U9]</span> And the Mod-1 generator set of FTAI Power draws on the same module production: the 3,000-module statement is described as supporting both the share goal and 100 Mod-1 units a year, and one dossier computes that 100 units would consume about 100 engines, roughly 300 module-equivalents, a year under the three-per-engine convention. <span class="cite">[GuruFocus, Q2 2026 call; D8 §2.10]</span> The allocation rule between aftermarket customers and FTAI Power was not disclosed. <span class="cite">[D5 §5]</span>
@@ -323,8 +325,10 @@ if every one of those visits consumed a full engine's modules:
   at 3 per engine: 1,725–1,800 modules a year
   at 4 per engine: 2,300–2,400 modules a year
 if each visit consumed 1.5 modules (assumed): 863–900 modules a year
-against capacity of 3,000 (call coverage): 58–60% utilised at 3 per engine; 77–80% at 4; 29–30% at 1.5
-against the 2026 targets: 1,050 ÷ 1,725 = 61% of the 3-per-engine requirement; 1,200 ÷ 1,725 = 70%</div>
+against capacity of 3,000 (call coverage):
+  58–60% utilised at 3 per engine; 77–80% at 4; 29–30% at 1.5
+against the 3-per-engine requirement of 1,725:
+  1,050 ÷ 1,725 = 61%; 1,200 ÷ 1,725 = 70%</div>
 <p>So "25% of shop visits" could require anywhere from about 860 to about 2,400 modules a year depending on how many modules a visit consumes, a figure FTAI does not disclose; at FTAI's own three-per-engine convention and a full set per visit it is 1,725 to 1,800, which the stated 3,000-module capacity exceeds and the 2026 targets fall short of. The target year for the 25% is unknown, and the visit count itself is a plateau that forecasters have peaking in 2027 and 2028 and fading afterwards (Part III §23; Part IV §26). Limits of the example: the 1.5-modules-per-event figure is an assumption from another dossier; an exchange of one module may or may not be counted by FTAI as a share of a "visit"; the 3,000 and 1,200 figures are call coverage; and the visit count carries its own tension (R-006). <span class="cite">[D2 §3.3; D5 U5; D7 §5.2; reconciliation R-006, R-035, R-042]</span></p></div>
 
 ## 50. Facilities and partners: Montréal, Miami, Rome, Lisbon, Orange, Bristol, Indonesia, Egypt
@@ -460,7 +464,8 @@ The agreement sits oddly beside the PMA lever only at first sight. The two addre
 Bristol, $75,000 against $1.8–2.5M: 3.0% to 4.2% of the visit
 blog figure, $2.0M against $1.2–1.6M: 125% to 167% of the visit
 blog figure, $2.0M against $1.8–2.5M: 80% to 111% of the visit
-HPT blades and vanes in dollars at 15–25%: $0.18–0.40M on the lower range; $0.27–0.63M on the upper</div>
+HPT blades and vanes at 15–25% of the visit:
+  $0.18–0.40M on the lower range; $0.27–0.63M on the upper</div>
 <p>So the one saving FTAI has quantified is a few percent of a restoration's cost on either range, and the figure third parties attribute to the PMA venture is the size of the whole restoration or larger on either range, and several times the consultancy's estimate of what high-pressure-turbine blades and vanes cost in a visit. The primer records that the two figures sit at different source levels (a management statement against investor blogs) and that neither the price of a Chromalloy blade nor its discount to the OEM's was retrieved, and stops. Limits of the example: both cost ranges are contested consultancy figures; the HPT share is from the same consultancy; the blog saving may count parts beyond the blade and may describe a full engine rather than one module; and FTAI's own saving per module is unknown (D5 U11). <span class="cite">[reconciliation R-013, R-015, R-027; E.1 rules 4 and 33]</span></p></div>
 
 ## 53. Segment financials: revenue, cost of sales, Adjusted EBITDA, inventory
@@ -532,8 +537,10 @@ The margin moved from 35% in the fourth quarter of 2025 to about 29 to 30% in th
 <div class="worked"><div class="h">Worked example 7.8 — Derived gross margin on each cost-of-sales figure, and what each measures</div>
 <p>Inputs: segment revenue of $1,936.2M and segment cost of sales of $1,240.4M for 2025 (sourced: FY2025 10-K, segment scope per the orchestrator's reading); consolidated revenues of $2,507.4M and consolidated cost of sales of $1,349.7M (sourced: FY2025 10-K); 1H 2026 segment revenue of $1,618.8M (derived) and cost of sales of $1,160.1M (sourced: Q2 2026 10-Q, scope unconfirmed); segment Adjusted EBITDA of $671.3M for 2025 (sourced).</p>
 <div class="eqblock">segment gross margin, 2025 = (1,936.2 − 1,240.4) ÷ 1,936.2 = 35.9% (derived)
-segment gross margin, 1H 2026 = (1,618.8 − 1,160.1) ÷ 1,618.8 = 28.3% (derived; scope unconfirmed)
-consolidated gross margin, 2025 = (2,507.4 − 1,349.7) ÷ 2,507.4 = 46.2% (derived; mixes leasing rent, which has no cost of sales, with product sales)
+segment gross margin, 1H 2026 = (1,618.8 − 1,160.1) ÷ 1,618.8 = 28.3%
+  (derived; scope unconfirmed)
+consolidated gross margin, 2025 = (2,507.4 − 1,349.7) ÷ 2,507.4 = 46.2%
+  (derived; mixes leasing rent, which has no cost of sales, with product sales)
 segment Adjusted EBITDA margin, 2025 = 671.3 ÷ 1,936.2 = 34.7%
 gap between gross margin and Adjusted EBITDA margin, 2025 = 35.9% − 34.7% = 1.2 points</div>
 <p>So on the segment figures the gross margin and the Adjusted EBITDA margin for 2025 are within about one point of each other, which is consistent with a segment whose costs below cost of sales are small and whose Adjusted EBITDA adds back items (the equity-method share, any depreciation inside the segment) that are not in cost of sales; the filings do not give the segment's operating expenses, so the 1.2 points cannot be decomposed here. The consolidated margin is not a product margin: lease income of $235.2M and maintenance revenue of $218.5M have no cost-of-sales entry, which lifts the consolidated figure above the segment's. Limits of the example: the 1H 2026 cost-of-sales scope is unconfirmed; the 2025 segment scope rests on the orchestrator's reading of the segment expenses table; and gross margin here includes the fair value of returned cores in revenue (§47.2). <span class="cite">[D5 §2.8, T5; D10 §2.4, §4.2; orchestrator notes; reconciliation R-045]</span></p></div>
@@ -675,10 +682,12 @@ where F is the exchange fee, C_core the value the operator gives up in the unser
 <div class="worked"><div class="h">Worked example 7.9 — One core-module exchange against a performance restoration: the downtime saving, the break-even premium, and FTAI's side of the same transaction</div>
 <p>Step 1, the downtime saved. Without a slot wait, T_A − T_B = 90 − 45 = 45 days (sourced inputs); with the trade-press upper turnaround of 120 days, 75 days. With Bain's slot wait of 60 to 90 days added to the restoration but not to the exchange (assumed: an exchange from inventory does not queue for a slot in the same way; FTAI's own lead time was not retrieved), the saving is 105 to 135 days on a 90-day turnaround and 135 to 165 days on a 120-day one.</p>
 <div class="eqblock">saving in days, no slot wait: 45 (90-day turnaround) to 75 (120-day turnaround)
-saving in days, with 60–90 day slot wait: 105–135 (90-day turnaround) to 135–165 (120-day turnaround)</div>
+saving in days, with a 60–90 day slot wait:
+  105–135 (90-day turnaround) to 135–165 (120-day turnaround)</div>
 <p>Step 2, the downtime saving in dollars, at each rent. At IBA's rent of about $100,000 a month, taken as $3,300 a day (sourced, appraiser, 2024); at the consultancy's $42,000–48,000 a month, taken as $1,400–1,600 a day (sourced, consultancy blog, 2026, possibly a green-time rent). The two are not averaged.</p>
 <div class="eqblock">no slot wait, IBA rent: 45 × 3,300 = $149,000; 75 × 3,300 = $248,000
-no slot wait, Safe Fly rent: 45 × 1,400–1,600 = $63,000–72,000; 75 × 1,400–1,600 = $105,000–120,000
+no slot wait, Safe Fly rent:
+  45 × 1,400–1,600 = $63,000–72,000; 75 × 1,400–1,600 = $105,000–120,000
 with slot wait, IBA rent: 105 × 3,300 = $347,000; 165 × 3,300 = $545,000
 with slot wait, Safe Fly rent: 105 × 1,400 = $147,000; 165 × 1,600 = $264,000</div>
 <p>So the downtime saving of one exchange, measured as spare-engine rent avoided, is between about $63,000 and about $545,000 depending on which rent, which turnaround and whether a slot wait is counted. That range is the maximum exchange premium (F + C_core − S) at which the exchange is cheaper all-in on the rent measure alone.</p>
@@ -749,7 +758,8 @@ Management's statements on margin are three. The segment ran "$195 million at a 
 against Q2 2026 actual of $249.7M: +15.7% a quarter
 2026 guidance on 2025 actual: 1,050 ÷ 671.3 = +56%
 2027 guidance on 2026 guidance: 1,400 ÷ 1,050 = +33%
-revenue needed for $288.9M a quarter at the Q2 2026 margin of 28.5%: 288.9 ÷ 0.285 = $1,014M a quarter
+revenue needed for $288.9M a quarter at the Q2 2026 margin of 28.5%:
+  288.9 ÷ 0.285 = $1,014M a quarter
 revenue needed at 35% (the Q4 2025 margin): 288.9 ÷ 0.35 = $825M a quarter
 revenue needed at 40% (the aspiration): 288.9 ÷ 0.40 = $722M a quarter</div>
 <p>So the reaffirmed guidance requires second-half quarters about 16% above the second quarter's Adjusted EBITDA; at the second quarter's margin that is about $1.0B of quarterly segment revenue, and at the margins management has reported or aspired to it is $0.72B to $0.83B against $0.875B realised in the second quarter. The lines show the arithmetic relationship between revenue and margin that the guidance implies; they do not say which combination the company expects, and the company has not said. Limits of the example: the 2027 figure has no quarterly path; the margin lines mix a derived half-year figure, a stated quarter and an aspiration; and the guidance covers engines, parts and the related-party line as well as modules. <span class="cite">[FTAI releases, 25 Feb 2026 and 29 Jul 2026; D5 §2.8, §4.1, §4.2; MarketBeat, 26 Feb 2026]</span></p></div>
