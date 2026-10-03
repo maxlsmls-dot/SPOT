@@ -440,6 +440,32 @@ An engine is only worth its paperwork. The documents that matter for module exch
   module exchange, what matters is that the incoming module's records show which repairs were done under which
   approvals, because a lessor's return conditions (D6) may exclude non-OEM repairs.
 
+### 2.10 Contrasts: the V2500 and the LEAP (short; D9 covers demand)
+
+**V2500.** The IAE V2500-A5 is the A320ceo family's alternative engine. It is also a two-shaft modular turbofan
+(Aircraft Commerce published a side-by-side maintenance-cost comparison of the -5B, -7B and V2500-A5 as early as
+2003 [52]); its module list was not retrieved in this session (Unknown U13). Scale: about 5,286 V2500s were in
+service in 2023 (5,260 -A5, 26 -A1) against ~23,000 CFM56s of all variants [1][47], so the V2500 pool is roughly
+a quarter the size of the CFM56 pool and a smaller fraction of the A320ceo-only pool. Shop-visit economics from
+the one source reached: a heavy visit at $2–3M "depending on the life limited part (LLP) profile required" and a
+full LLP set at $1.7M list (LTAI via Aircraft Commerce, 2010) [38]; both figures are 15 years old and should not
+be compared with the 2025 CFM56 figures above. Aviation Week projected >7,800 V2500 overhaul visits and 3,142
+LLP-related visits over the ten years from 2023 [47]. MTU Maintenance performed 38% of all V2500 shop visits in
+2024 [45]. The OEM, IAE, sells its own aftermarket programme, EngineWise; FTAI holds a five-year IAE EngineWise
+agreement covering 100+ performance-restoration visits (chain map; D5).
+
+**LEAP.** The LEAP-1A (A320neo) and LEAP-1B (737 MAX) are the CFM56's replacements. Their durability sets the
+CFM56's remaining working life because an airline that cannot keep a LEAP-powered aircraft flying keeps its
+CFM56-powered one in service instead. The evidence reached: operators report "a wave of early LEAP-1A/1B shop
+visits", with removals between 2,000 and 6,000 cycles and "a planning base of 4,000" (Visual Approach) [49],
+against a mature CFM56's 10,000–15,000-cycle performance-restoration interval [7]. CFM's response is a
+high-pressure-turbine "durability kit": certified by FAA and EASA for the LEAP-1A, "designed to more than
+double time on wing, especially in hot and harsh environments", "now incorporated into all deliveries and shop
+visits", with the LEAP-1B kit targeted for certification in the first half of 2026 [50]. By May 2026 GE Aerospace
+stated that LEAPs "being shipped now will match the durability of the venerable CFM56" (Leeham) [48]. Both the
+problem and the claimed fix are recorded; whether delivered LEAPs reach CFM56-level time on wing is a question
+for D9's demand analysis, not this dossier.
+
 ---
 
 ## 3. Market structure and players (brief; D2 and D11 go deeper)
@@ -639,7 +665,7 @@ https://www.sec.gov/Archives/edgar/data/1590364/000159036423000007/ftai-20221231
 ## 9. Sources
 
 1. CFM International, "The CFM56 engine family", https://www.cfmaeroengines.com/engines/cfm56 (undated; accessed 2026-10-03).
-2. (reserved)
+2. (number not used)
 3. Aircraft Commerce, Maintenance & Engineering, Issue 34, 2004 (LLP policy, stub life), https://aircraft-commerce.com/wp-content/uploads/aircraft-commerce-docs/Maintenance/2004/ISSUE%2034-MTCE.pdf
 4. AJW Group, ESN 889979 CFM56-7B26 mini-pack (LLP status), 2022, https://www.ajw-group.com/storage/downloads/1644847608_esn_889979_mini_pack_cfm56-7b26.pdf
 5. StandardAero, ESN 892820 mini-pack, Mar 2025, https://standardaero.com/wp-content/uploads/2025/03/ESN-892820-Mini-Pack-PDF.pdf

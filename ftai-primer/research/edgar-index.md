@@ -19,7 +19,8 @@ allowed_domains ["sec.gov"] and a specific query return the figures from these d
 | Earnings release Q4/FY2025 (8-K ex. 99.1) | 2025-12-31 | https://www.sec.gov/Archives/edgar/data/1590364/000162828026011685/ftai123125earningsrelease.htm |
 | Earnings release Q3 2025 (8-K ex. 99.1) | 2025-09-30 | https://www.sec.gov/Archives/edgar/data/1590364/000159036425000038/ftai93025earningsrelease.htm |
 | Internalization 8-K and exhibits | 2024-05-28 | https://www.sec.gov/Archives/edgar/data/1590364/000114036124027545/ny20030051x1_8k.htm (ex10-1, ex99-1 same folder) |
-| Q2 2026 10-Q | quarter ended 2026-06-30 | not yet located; search "ftai-20260630" on sec.gov |
+| 10-Q Q2 2026 | quarter ended 2026-06-30 | https://www.sec.gov/Archives/edgar/data/0001590364/000162828026051412/ftai-20260630.htm |
+| Earnings release Q2 2026 (8-K ex. 99.1) | 2026-06-30 | https://www.sec.gov/Archives/edgar/data/1590364/000162828026050622/ftai6302026earningsrelease.htm |
 
 Press releases (GlobeNewswire, company IR feed):
 - Q2 2026 results, 2026-07-29: https://www.globenewswire.com/news-release/2026/07/29/3335598/35538/en/FTAI-Aviation-Ltd-Reports-Second-Quarter-2026-Results-Increases-Dividend-to-0-50-per-Ordinary-Share.html
