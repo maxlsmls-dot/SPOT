@@ -10,7 +10,7 @@ toc: true
 
 ### Translation-table rows answered
 
-Parts IV to IX answer the rows of the Part III translation table directly, by describing a market or a business that a driver stresses. Part X answers them indirectly. A company's capital structure, its cash flow and its guidance are where the drivers show up as money that must be raised, spent or promised. The inventory build described in §81, and the debt that funds it in §82, are the balance-sheet form of the requirement that the low-retirement fleet creates for serviceable CFM56 material (Part III §24, row: low retirements). The guidance history in §84 is management's dated statement of how much of the shop-visit plateau it expects to capture, in dollars of Adjusted EBITDA and in modules (Part III §24, row: shop-visit demand plateau). The margin aspirations inside that guidance, and the CFM materials agreement noted in the timeline, are the company-level response to catalogue escalation (Part III §24, row: OEM parts escalation). The shift of Aviation Leasing to an asset-light model, and the cut to its 2026 guidance that accompanied it, are the corporate form of the lessor-extension row (Part III §24, row: lease extensions and availability). And the 2027 guidance for FTAI Power is the company's dated statement about the CFM56 cores that the durability problems of the new engines kept flying rather than retiring (Part III §24, row: GTF and LEAP durability). None of these rows is answered here with a market mechanism; each is answered with a dated corporate fact, and the Parts named above carry the mechanism.
+Parts IV to IX answer the rows of the Part III translation table directly, by describing a market or a business that a driver stresses. Part X answers them indirectly. A company's capital structure, its cash flow and its guidance are where the drivers show up as money that must be raised, spent or promised. The inventory build described in §81, and the debt that funds it in §82, are the balance-sheet form of the requirement that the low-retirement fleet creates for serviceable CFM56 material (Part III §24, row: low retirements). The guidance history in §84 is management's dated statement of how much of the shop-visit plateau it expects to capture, in dollars of Adjusted EBITDA (the company's profit measure, earnings before interest, taxes, depreciation and amortization as the company adjusts it, defined in §80) and in modules (Part III §24, row: shop-visit demand plateau). The margin aspirations inside that guidance, and the CFM materials agreement noted in the timeline, are the company-level response to catalogue escalation by the engine's original equipment manufacturer (OEM) (Part III §24, row: OEM parts escalation). The shift of Aviation Leasing to an asset-light model, and the cut to its 2026 guidance that accompanied it, are the corporate form of the lessor-extension row (Part III §24, row: lease extensions and availability). And the 2027 guidance for FTAI Power is the company's dated statement about the CFM56 cores that the durability problems of the new engines (Pratt & Whitney's GTF geared turbofan and CFM's LEAP, Part III §20) kept flying rather than retiring (Part III §24, row: GTF and LEAP durability). None of these rows is answered here with a market mechanism; each is answered with a dated corporate fact, and the Parts named above carry the mechanism.
 
 ## 75. History: a dated timeline
 
@@ -25,7 +25,7 @@ The research assembled the dates below from the FY2021, FY2022 and FY2025 annual
 | Date | Event | Figure or term | Source and level |
 |---|---|---|---|
 | 15 May 2015 | Fortress Transportation and Infrastructure Investors LLC lists on the NYSE as "FTAI", externally managed by Fortress's FIG LLC | | FY2021 10-K; FTAI Infrastructure 10-K FY2024 (filings) |
-| Dec 2016 | $15.0M invested in the "Advanced Engine Repair JV" (25%); a further $13.5M in Aug 2019; whether this is the Chromalloy PMA venture is unknown | Carrying value $22,429K at 31 Dec 2025 | FY2025 10-K equity-method note, via orchestrator notes (filing) |
+| Dec 2016 | $15.0M invested in the "Advanced Engine Repair JV" (25%); a further $13.5M in Aug 2019; whether this is the Chromalloy venture for PMA (Parts Manufacturer Approval, Part VI §37) parts is unknown | Carrying value $22,429K at 31 Dec 2025 | FY2025 10-K equity-method note, via orchestrator notes (filing) |
 | 8 Dec 2017 | FTAI Aviation Ltd. formed in the Cayman Islands, the future parent | | FY2022 10-K (filing) |
 | 2018 | FTAI–Chromalloy "exclusive perpetual partnership" on CFM56 PMA parts, as investor blogs date it; the 10-K says only "a joint venture" | Not dated in any filing retrieved | Komodo Capital and Kairos Research blogs via D4; FY2025 10-K (investor blog; filing) |
 | 13 Dec 2021 | FTAI Infrastructure formed as an LLC to hold the infrastructure businesses | | FTAI Infrastructure 10-K FY2024 (filing) |
@@ -50,7 +50,7 @@ The research assembled the dates below from the FY2021, FY2022 and FY2025 annual
 | 5 Jun 2025 | QuickTurn Europe joint venture closes, Rome Fiumicino, Italy | $10.5M for 50%; 200,000 sq ft | GlobeNewswire 5 Jun 2025 (release) |
 | 17 Jun 2025 | Audit Committee engages KPMG LLP as auditor for FY2025, after Ernst & Young LLP (2016–2025) | | FY2025 10-K, via orchestrator notes (filing) |
 | 27 Oct 2025 | 2025 SPV equity fundraising closes at its upsized hard cap; Q3 2025 results; dividend raised | $2.0B equity (target $1.5B); dividend $0.35 | GlobeNewswire 27 Oct 2025, two releases (release) |
-| 30 Dec 2025 | FTAI Power launched: the Mod-1 25 MW generator set on a CFM56 core (Part IX) | | GlobeNewswire 30 Dec 2025; FY2025 10-K (release; filing) |
+| 30 Dec 2025 | FTAI Power launched: the Mod-1 25 megawatt (MW) generator set on a CFM56 core (Part IX) | | GlobeNewswire 30 Dec 2025; FY2025 10-K (release; filing) |
 | 22 Jan 2026 | Multi-year materials agreement with CFM International (Part VII §52) | Terms undisclosed | GlobeNewswire 22 Jan 2026 (release) |
 | 25 Feb 2026 | FY2025 results; 2026 guidance $1.625B; dividend raised | Q4 Adjusted EBITDA $277.2M; dividend $0.40 | GlobeNewswire and 8-K Ex. 99.1, 25 Feb 2026 (release) |
 | 27 Feb 2026 | FY2025 10-K filed; auditor's report dated the same day | | FY2025 10-K (filing) |
@@ -101,7 +101,7 @@ The first nine months of 2026 brought a materials agreement with CFM Internation
 
 For its first nine years as a listed company FTAI had no employees of its own. That arrangement, and the price of ending it, shape how the company's expense lines read before and after mid-2024.
 
-<div class="defn"><b>External management: manager, management agreement, management fee, incentive allocation and Master GP</b><p>External management is a structure in which a listed company has no staff of its own. A separate firm, the manager, supplies the executives, the employees and the investment process under a management agreement, and is paid a management fee, typically a percentage of the company's equity or assets. At FTAI the manager was FIG LLC, a subsidiary of Fortress Investment Group. A performance payment, the incentive allocation, went to a Fortress affiliate that the filings call the Master GP under a separate Services and Profit Sharing Agreement; it was a share of distributable returns above a hurdle. The entity name "Fortress Worldwide Transportation and Infrastructure Master GP LLC" comes from the orchestrator's chain map and was not re-verified. <span class="cite">[FTAI 10-Q Q3 2024; FTAI 8-K, 28 May 2024; D10 §2.1]</span></p></div>
+<div class="defn"><b>External management: manager, management agreement, management fee, incentive allocation and Master GP</b><p>External management is a structure in which a listed company has no staff of its own. A separate firm, the manager, supplies the executives, the employees and the investment process under a management agreement, and is paid a management fee, typically a percentage of the company's equity or assets. At FTAI the manager was FIG LLC, a subsidiary of Fortress Investment Group. A performance payment, the incentive allocation, went to a Fortress affiliate that the filings call the Master GP (GP, general partner) under a separate Services and Profit Sharing Agreement; it was a share of distributable returns above a hurdle. The entity name "Fortress Worldwide Transportation and Infrastructure Master GP LLC" comes from the orchestrator's chain map and was not re-verified. <span class="cite">[FTAI 10-Q Q3 2024; FTAI 8-K, 28 May 2024; D10 §2.1]</span></p></div>
 
 <div class="defn"><b>Fortress, FIG LLC and FTAI Infrastructure (FIP)</b><p>Fortress Investment Group is the alternative asset manager that sponsored FTAI's 2015 listing. FIG LLC, its subsidiary, was FTAI's external manager until 28 May 2024 and is called the "Former Manager" in the filings since. FTAI Infrastructure Inc., Nasdaq ticker FIP, is the company that received FTAI's infrastructure businesses on 1 August 2022; it appears in this primer only as history. <span class="cite">[FTAI 10-Q Q3 2024; FTAI Infrastructure 10-K FY2024]</span></p></div>
 
@@ -297,38 +297,58 @@ This section sets out what the research retrieved of FTAI's consolidated income 
 
 ### 79.1 The annual statement, 2021 to 2025, and the half-years
 
-<div class="exh"><div class="exh-title">Exhibit 10.8 — Consolidated income statement items as retrieved ($ thousands)</div>
+<div class="exh"><div class="exh-title">Exhibit 10.8 — Consolidated income statement items as retrieved, 2021 to 2025 ($ thousands)</div>
 
-| Line | 2021 | 2022 | 2023 | 2024 | 2025 | 1H 2025 | 1H 2026 | Source |
-|---|---|---|---|---|---|---|---|---|
-| Total revenues | 213,289 (derived sum of segments; 70,800 caution) | 311,101 (derived sum of segments) | 1,170,896 | 1,734,901 | 2,507,409 | not retrieved | not retrieved | 10-K FY2022; 10-K FY2025 |
-| Aerospace products revenue | "70,800" (segment; caution) | 85,113 (segment) | 454,970 | 1,079,821 | 1,600,456 | not retrieved | 1,214,800 (segment products line, 10-Q Q2 2026 via D5) | 10-K FY2022; 10-K FY2025; 10-Q Q2 2026 |
-| MRE Contract revenue | not applicable | not applicable | 0 | 0 | 335,788 | 170,200 (to the 2025 Partnership) | 404,000 (to the 2025 Partnership) | 10-K FY2025; 10-Q Q2 2026 |
-| Lease income | 173,864 (R-053) | 179,314 | not retrieved | 234,411 or 255,338 (two readings) | 235,210 | 130,879 | 67,657 | 10-K FY2022 via D6; 10-K FY2025; 10-Qs via D6 |
-| Maintenance revenue | not retrieved | not retrieved | not retrieved | not retrieved | 218,499 | not retrieved | Q1 2026 only: 30,599 | 10-K FY2025; 10-Q Q1 2026 |
-| Asset sales revenue | not retrieved | not retrieved | not retrieved | not retrieved | 106,945 | not retrieved | not retrieved | 10-K FY2025 |
-| Other revenue (residual) | | | | | 10,511 (derived; D10 T-3) | | | Arithmetic |
-| Cost of sales | not retrieved | not retrieved | 502,132 | 825,884 | 1,349,719 | not retrieved | 1,160,100 (scope unconfirmed, D5 T5) | 10-K FY2025; 10-Q Q2 2026 via D5 |
-| Cost of sales ÷ revenue (derived) | | | 42.9% | 47.6% | 53.8% | | | Arithmetic |
-| Revenue less cost of sales (derived) | | | 668,764 | 909,017 | 1,157,690 | | | Arithmetic |
-| Operating expenses | not retrieved | not retrieved | not retrieved | not retrieved | 152,541 | not retrieved | not retrieved | 10-K FY2025 via orchestrator notes |
-| General and administrative | not retrieved | not retrieved | not retrieved | not retrieved | 9,478 | not retrieved | not retrieved | Same |
-| Depreciation and amortization | not retrieved | not retrieved | not retrieved | not retrieved | 225,797 | not retrieved | not retrieved | Same |
-| Interest expense | not retrieved | not retrieved | not retrieved | not retrieved | 247,751 | not retrieved | not retrieved | Same |
-| Income tax; equity-method earnings; other | not retrieved | not retrieved | not retrieved | not retrieved | not retrieved | not retrieved | not retrieved | D10 U-1 |
-| Net income (loss) attributable to shareholders | (128,992), incl. discontinued ops | (220,374), incl. discontinued ops | not retrieved | not retrieved | not retrieved (Q3 114,009; Q4 111,852) | not retrieved | not retrieved (Q1 net income 137,899, attribution not captured; Q2 attributable 117,585) | 10-K FY2022; releases 27 Oct 2025, 25 Feb 2026, 29 Jul 2026; 10-Q Q1 2026 |
-| Adjusted EBITDA, consolidated | not retrieved | 127,656 (derived sum of segments) | 597,282 | 862,050 | 1,190,922 | not retrieved | not retrieved (Q2 291,444) | 10-K FY2022; 10-K FY2025; release 29 Jul 2026 |
-| Net cash from operating activities | not retrieved | not retrieved | 128,982 | (187,956) | (310,745) | not retrieved | not retrieved | 10-K FY2025 |
+| Line | 2021 | 2022 | 2023 | 2024 | 2025 | Source |
+|---|---|---|---|---|---|---|
+| Total revenues | 213,289 (derived sum of segments; 70,800 caution) | 311,101 (derived sum of segments) | 1,170,896 | 1,734,901 | 2,507,409 | 10-K FY2022; 10-K FY2025 |
+| Aerospace products revenue | "70,800" (segment; caution) | 85,113 (segment) | 454,970 | 1,079,821 | 1,600,456 | 10-K FY2022; 10-K FY2025 |
+| MRE (Maintenance, Repair and Exchange) Contract revenue | not applicable | not applicable | 0 | 0 | 335,788 | 10-K FY2025 |
+| Lease income | 173,864 (R-053) | 179,314 | not retrieved | 234,411 or 255,338 (two readings) | 235,210 | 10-K FY2022 via D6; 10-K FY2025 |
+| Maintenance revenue | not retrieved | not retrieved | not retrieved | not retrieved | 218,499 | 10-K FY2025 |
+| Asset sales revenue | not retrieved | not retrieved | not retrieved | not retrieved | 106,945 | 10-K FY2025 |
+| Other revenue (residual) | | | | | 10,511 (derived; D10 T-3) | Arithmetic |
+| Cost of sales | not retrieved | not retrieved | 502,132 | 825,884 | 1,349,719 | 10-K FY2025 |
+| Cost of sales ÷ revenue (derived) | | | 42.9% | 47.6% | 53.8% | Arithmetic |
+| Revenue less cost of sales (derived) | | | 668,764 | 909,017 | 1,157,690 | Arithmetic |
+| Operating expenses | not retrieved | not retrieved | not retrieved | not retrieved | 152,541 | 10-K FY2025 via orchestrator notes |
+| General and administrative | not retrieved | not retrieved | not retrieved | not retrieved | 9,478 | Same |
+| Depreciation and amortization | not retrieved | not retrieved | not retrieved | not retrieved | 225,797 | Same |
+| Interest expense | not retrieved | not retrieved | not retrieved | not retrieved | 247,751 | Same |
+| Income tax; equity-method earnings; other lines | not retrieved | not retrieved | not retrieved | not retrieved | not retrieved | D10 U-1 |
+| Net income (loss) attributable to shareholders | (128,992), incl. discontinued operations | (220,374), incl. discontinued operations | not retrieved | not retrieved | not retrieved (Q3 114,009; Q4 111,852) | 10-K FY2022; releases 27 Oct 2025 and 25 Feb 2026 |
+| Adjusted EBITDA, consolidated | not retrieved | 127,656 (derived sum of segments) | 597,282 | 862,050 | 1,190,922 | 10-K FY2022; 10-K FY2025 |
+| Net cash from operating activities | not retrieved | not retrieved | 128,982 | (187,956) | (310,745) | 10-K FY2025 |
 
-<cite>Source: FTAI Aviation Ltd., Form 10-K for FY2025 (consolidated statement of operations and segment table; https://www.sec.gov/Archives/edgar/data/1590364/000162828026012940/ftai-20251231.htm); Form 10-K for FY2022; Form 10-Q for Q1 2026; Form 10-Q for Q2 2026 (via D5 and the orchestrator notes); earnings releases of 27 Oct 2025, 25 Feb 2026 and 29 Jul 2026; D6 §2.6 for lease income by half-year. "Not retrieved" means the research did not return the cell; it does not mean the filing lacks it. Reconciliation R-045, R-052, R-053; E.2 "Consolidated P&L 2025". Accessed 2026-10-03.</cite></div>
+<cite>Source: FTAI Aviation Ltd., Form 10-K for FY2025 (consolidated statement of operations and segment table; https://www.sec.gov/Archives/edgar/data/1590364/000162828026012940/ftai-20251231.htm); Form 10-K for FY2022 (via D6 and the orchestrator notes); earnings releases of 27 Oct 2025 and 25 Feb 2026. "Not retrieved" means the research did not return the cell; it does not mean the filing lacks it. Reconciliation R-045, R-052, R-053; E.2 "Consolidated P&L 2025". Accessed 2026-10-03.</cite></div>
 
-The table reads best column by column. For 2023 to 2025 the research has total revenue, cost of sales, segment revenue and segment Adjusted EBITDA for every year, and the full expense stack for 2025 only. Revenue rose 48.2% in 2024 and 44.5% in 2025. <span class="cite">[FTAI 10-K FY2025]</span> Cost of sales rose faster than revenue in both years, from 42.9% of revenue in 2023 to 47.6% in 2024 and 53.8% in 2025, so the margin between revenue and cost of sales narrowed as the mix moved towards product sales. <span class="cite">[FTAI 10-K FY2025; arithmetic]</span> That ratio is not a gross margin in the usual sense, because FTAI's cost-of-sales line has historically also carried the carrying value of aircraft and engines sold by the Leasing segment, whose proceeds sit in asset sales revenue. <span class="cite">[D10 §2.4; registry C-23]</span>
+<div class="exh"><div class="exh-title">Exhibit 10.9 — Half-year items as retrieved, 1H 2025 against 1H 2026 ($ thousands unless stated)</div>
+
+| Line | 1H 2025 | 1H 2026 | Source |
+|---|---|---|---|
+| Total revenues; cost of sales (consolidated); net income attributable; Adjusted EBITDA (1H totals) | not retrieved | not retrieved | D10 U-1; the Q2 2026 and Q2 2025 releases carry them |
+| Aerospace Products segment products revenue | not retrieved | 1,214,800 | 10-Q Q2 2026 via D5 |
+| MRE Contract revenue with the 2025 Partnership | 170,200 | 404,000 | 10-Q Q2 2026 via orchestrator notes |
+| Aerospace Products segment revenue (derived) | not computable | about 1,618,800 | Arithmetic in D5 §4.1 |
+| Aerospace Products segment Adjusted EBITDA (derived) | not computable | about 472,300 (Q1 222,600 + Q2 249,700) | Releases 29 Apr 2026 and 29 Jul 2026; arithmetic |
+| Cost of sales, scope unconfirmed (segment or consolidated) | not retrieved | 1,160,100 (D5 T5) | 10-Q Q2 2026 via D5 |
+| Lease income | 130,879 | 67,657 | 10-Qs via D6 (Q1 68,440 + Q2 62,439; Q1 39,892 + Q2 27,765) |
+| Maintenance revenue | not retrieved | Q1 2026 only: 30,599 | 10-Q Q1 2026 |
+| Net income, quarterly | not retrieved | Q1 net income 137,899 (attribution not captured); Q2 attributable 117,585 | 10-Q Q1 2026; release 29 Jul 2026 |
+| Adjusted EBITDA, quarterly | not retrieved | Q1 not retrieved; Q2 291,444 | Release 29 Jul 2026 |
+| Servicing fees from the 2025 Partnership | not retrieved | 12,849 (Q1 5,861 derived; Q2 6,988) | 10-Qs via D7 |
+| Profit eliminations on MRE sales to the Partnership | not retrieved | 16,597 (Q1 10,000; Q2 6,597) | 10-Qs via D7 |
+| Russia insurance recoveries | 54,300 was the nine-month 2025 figure; the 1H share not retrieved | 44,600 in Q1 2026 | 10-Q Q3 2025; 10-Q Q1 2026 via D6 |
+
+<cite>Source: FTAI Aviation Ltd., Form 10-Q for Q1 2026 and Form 10-Q for Q2 2026 (via D5, D6, D7 and the orchestrator notes); earnings releases of 29 Apr 2026 and 29 Jul 2026; Forms 10-Q for Q1, Q2 and Q3 2025 (via D6 and D7). The 1H consolidated totals were not returned (D10 U-1). Accessed 2026-10-03.</cite></div>
+
+The annual table reads best column by column, and the half-year table that follows it holds what was retrieved for 2025 and 2026. For 2023 to 2025 the research has total revenue, cost of sales, segment revenue and segment Adjusted EBITDA for every year, and the full expense stack for 2025 only. Revenue rose 48.2% in 2024 and 44.5% in 2025. <span class="cite">[FTAI 10-K FY2025]</span> Cost of sales rose faster than revenue in both years, from 42.9% of revenue in 2023 to 47.6% in 2024 and 53.8% in 2025, so the margin between revenue and cost of sales narrowed as the mix moved towards product sales. <span class="cite">[FTAI 10-K FY2025; arithmetic]</span> That ratio is not a gross margin in the usual sense, because FTAI's cost-of-sales line has historically also carried the carrying value of aircraft and engines sold by the Leasing segment, whose proceeds sit in asset sales revenue. <span class="cite">[D10 §2.4; registry C-23]</span>
 
 For the half-years the research is thinner. Lease income fell from $130.9M in 1H 2025 to $67.7M in 1H 2026, a 48% drop that the Q1 2026 quarterly report attributes mainly to the sale of the Seed Assets to the 2025 Partnership. <span class="cite">[FTAI 10-Q Q1 2026, via D6; D6 §2.6]</span> MRE Contract revenue to the Partnership rose from $170.2M to $404.0M over the same two half-years. <span class="cite">[FTAI 10-Q Q2 2026, via orchestrator notes]</span> The consolidated 1H totals for revenue, cost of sales, net income and Adjusted EBITDA were not returned; the Q2 2026 and Q2 2025 earnings releases carry them. <span class="cite">[D10 U-1]</span>
 
 ### 79.2 The revenue lines of 2025 and what each is
 
-<div class="exh"><div class="exh-title">Exhibit 10.9 — FY2025 revenue by income-statement line, with the description of each</div>
+<div class="exh"><div class="exh-title">Exhibit 10.10 — FY2025 revenue by income-statement line, with the description of each</div>
 
 | Line | FY2025 ($ thousands) | Share of total (derived) | What the line is | Source |
 |---|---:|---:|---|---|
@@ -349,7 +369,7 @@ Two definitions of the MRE Contract revenue line sit side by side in the quarter
 
 The annual report reports two segments, Aerospace Products and Aviation Leasing, with a Corporate and Other column. Segment revenue is not the same thing as an income-statement line: the Aerospace Products segment's revenue of $1,936.2M for 2025 equals the "Aerospace products revenue" line of $1,600.5M plus the MRE Contract revenue line of $335.8M, as the segment geographic table's total confirms. <span class="cite">[FTAI 10-K FY2025; reconciliation B-1]</span> The explicit segment-note sentence mapping the MRE Contract line to the Aerospace Products segment was not retrieved; the equality of the totals is the evidence for the mapping. <span class="cite">[D10 T-4; reconciliation R-043]</span>
 
-<div class="exh"><div class="exh-title">Exhibit 10.10 — Segment revenue and Adjusted EBITDA, 2023 to 2025 ($ thousands)</div>
+<div class="exh"><div class="exh-title">Exhibit 10.11 — Segment revenue and Adjusted EBITDA, 2023 to 2025 ($ thousands)</div>
 
 | Line | 2023 | 2024 | 2025 | Source |
 |---|---:|---:|---:|---|
@@ -380,9 +400,9 @@ difference between the two cost lines: 1,349,719 − 1,240,368 = 109,351</div>
 
 ### 79.4 The quarters retrieved
 
-<div class="exh"><div class="exh-title">Exhibit 10.11 — Quarterly results retrieved, Q2 2025 to Q2 2026</div>
+<div class="exh"><div class="exh-title">Exhibit 10.12 — Quarterly results retrieved, Q2 2025 to Q2 2026</div>
 
-| Quarter | Net income attributable to shareholders | Basic EPS | Diluted EPS | Adjusted EBITDA, consolidated | Aerospace Products revenue; segment Adjusted EBITDA | Other lines retrieved | Source |
+| Quarter | Net income attributable to shareholders | Basic earnings per share (EPS) | Diluted EPS | Adjusted EBITDA, consolidated | Aerospace Products revenue; segment Adjusted EBITDA | Other lines retrieved | Source |
 |---|---|---|---|---|---|---|---|
 | Q2 2025 | not retrieved | | | not retrieved | about $491.6M; about $165.4M (both derived from the Q2 2026 release's +78% and +51%) | Lease income $62,439K; MRE to the Partnership $69.6M | Release 29 Jul 2026 (derivation in D5); 10-Qs via D6 and orchestrator notes |
 | Q3 2025 | $114,009K | | $1.10 | $297,381K | not retrieved | Two Aerospace Products customers at 16% and 11% of revenue; dividend raised to $0.35 | Release 27 Oct 2025; 10-Q Q3 2025 |
@@ -404,13 +424,13 @@ FTAI reports its results, sets its guidance and describes its segments in a meas
 
 Four things about the measure are established in the filings retrieved. First, it is reported both consolidated and by segment, and the segment figures are the ones guidance is expressed in (§84). <span class="cite">[FTAI 10-K FY2025; FTAI release, 29 Jul 2026]</span> Second, it includes the company's share of the Adjusted EBITDA of its equity-method investees, so the 2025 Partnership's earnings reach FTAI's Adjusted EBITDA in proportion to its 19% (or 20%) stake even though the Partnership's revenue does not reach FTAI's revenue. <span class="cite">[D10 §2.5; D7 §2.6; reconciliation R-048]</span> Third, in the Aviation Leasing segment the measure adds back depreciation and includes gains on the sale of leasing equipment, so a year in which the segment sells many aircraft carries the gains inside its Adjusted EBITDA; the FY2025 gain on sales to the 2025 Partnership was $46.4M, against a nine-month sum of quarterly gains of $50.1M, a tension Part VIII §63 carries. <span class="cite">[FTAI 10-K FY2025; D6 §2.6; D7 §4.2; reconciliation R-054]</span> Fourth, the measure is stated before preferred dividends, so it is before the roughly $6.2M a year of Series D dividends and before the Series B and Series C dividends while those were outstanding (§82). <span class="cite">[D10 §2.5]</span>
 
-A fifth point sits beside those four and is recorded as the filing states it. The annual report describes the aircraft sales to the 2025 Partnership as accounted for under ASC 610-20 and as "non-recurring in nature and not considered part of the Company's ordinary activities", while the launch release describes a programme of "$3.0+ billion of capital annually" and the Q2 2026 quarterly report says the company's primary investment activity will run through the Strategic Capital Initiative going forward. <span class="cite">[FTAI 10-K FY2025; GlobeNewswire, 30 Dec 2024; FTAI 10-Q Q2 2026; reconciliation R-057]</span> The strategy language and the accounting language describe the same sales differently, and Part VIII §64 sets them side by side.
+A fifth point sits beside those four and is recorded as the filing states it. The annual report describes the aircraft sales to the 2025 Partnership as accounted for under ASC 610-20 (the Accounting Standards Codification topic for gains on sales of non-financial assets) and as "non-recurring in nature and not considered part of the Company's ordinary activities", while the launch release describes a programme of "$3.0+ billion of capital annually" and the Q2 2026 quarterly report says the company's primary investment activity will run through the Strategic Capital Initiative going forward. <span class="cite">[FTAI 10-K FY2025; GlobeNewswire, 30 Dec 2024; FTAI 10-Q Q2 2026; reconciliation R-057]</span> The strategy language and the accounting language describe the same sales differently, and Part VIII §64 sets them side by side.
 
 ### 80.2 Segment and total: two bases
 
 The registry records a conflict between the segment measure and the consolidated one, and between FTAI's measure and the peers'. <span class="cite">[registry C-24]</span> The segment measure, as the D6 dossier describes it for Aviation Leasing, "adds back depreciation and includes gains and the equity-method pick-up". The consolidated measure, as the D10 dossier describes it, is the company-defined total after the removal of items treated as non-recurring or non-cash and the add-back of the pro-rata share from unconsolidated investments and of preferred dividends. The two segments' Adjusted EBITDA do not sum to the consolidated figure; the difference is the Corporate and Other column, which carries the costs of the parent and whatever adjustments are not allocated to a segment.
 
-<div class="exh"><div class="exh-title">Exhibit 10.12 — Adjusted EBITDA by segment, the total, and the derived Corporate and Other residual ($ thousands)</div>
+<div class="exh"><div class="exh-title">Exhibit 10.13 — Adjusted EBITDA by segment, the total, and the derived Corporate and Other residual ($ thousands)</div>
 
 | Period | Aerospace Products | Aviation Leasing | Sum of segments (derived) | Total Adjusted EBITDA (reported) | Corporate and Other (derived residual) | Source |
 |---|---:|---:|---:|---:|---:|---|
@@ -433,17 +453,17 @@ Adjusted EBITDA less D&A less interest = 1,190,922 − 225,797 − 247,751 = 717
 
 ### 80.3 Comparability with other companies
 
-Part XI §88 compares FTAI's segment Adjusted EBITDA margin with the measures the peers report, and it begins by saying that no two of those measures are on the same basis. StandardAero reports "Segment Adjusted EBITDA", its own defined measure; HEICO reports segment operating income after depreciation; MTU and Lufthansa Technik report adjusted EBIT; GE Aerospace reports segment profit; AerSale reports gross profit. <span class="cite">[D11 §2.3, §2.5]</span> An EBITDA margin exceeds an EBIT margin by the share of revenue that depreciation and amortization represents, which at FTAI was $225.8M on $2,507.4M of revenue in 2025, or 9.0 points. <span class="cite">[FTAI 10-K FY2025; arithmetic]</span> That is the size of the gap a reader opens by setting FTAI's 34.7% Aerospace Products margin beside an EBIT-based peer margin without adjustment, and it is why this Part states the basis every time it quotes the measure.
+Part XI §88 compares FTAI's segment Adjusted EBITDA margin with the measures the peers report, and it begins by saying that no two of those measures are on the same basis. StandardAero reports "Segment Adjusted EBITDA", its own defined measure; HEICO reports segment operating income after depreciation; MTU and Lufthansa Technik report adjusted EBIT (earnings before interest and taxes); GE Aerospace reports segment profit; AerSale reports gross profit. <span class="cite">[D11 §2.3, §2.5]</span> An EBITDA margin exceeds an EBIT margin by the share of revenue that depreciation and amortization represents, which at FTAI was $225.8M on $2,507.4M of revenue in 2025, or 9.0 points. <span class="cite">[FTAI 10-K FY2025; arithmetic]</span> That is the size of the gap a reader opens by setting FTAI's 34.7% Aerospace Products margin beside an EBIT-based peer margin without adjustment, and it is why this Part states the basis every time it quotes the measure.
 
 ## 81. Cash flow and the inventory build
 
 FTAI reported net income in 2024 and 2025 and consumed cash in its operations in both years. The reason is a feature of the cash flow statement that is worth setting out from first principles.
 
-<div class="defn"><b>Operating versus investing cash flow: inventory against leasing equipment</b><p>Under US GAAP the cash a company spends buying assets it intends to sell is an operating outflow, because those assets are inventory and sit in working capital. The cash it spends buying assets it intends to lease is an investing outflow, because those assets are leasing equipment, capitalised and depreciated over time. A company that buys engines, modules and parts to refurbish and sell therefore shows its purchases as operating outflows, and its operating cash flow will be negative while its inventory is growing faster than its sales even if it reports a profit. FTAI's net cash from operating activities was +$129.0M in 2023, −$188.0M in 2024 and −$310.7M in 2025. <span class="cite">[FTAI 10-K FY2025; D10 §2.6]</span></p></div>
+<div class="defn"><b>Operating versus investing cash flow: inventory against leasing equipment</b><p>Under US GAAP (generally accepted accounting principles) the cash a company spends buying assets it intends to sell is an operating outflow, because those assets are inventory and sit in working capital. The cash it spends buying assets it intends to lease is an investing outflow, because those assets are leasing equipment, capitalised and depreciated over time. A company that buys engines, modules and parts to refurbish and sell therefore shows its purchases as operating outflows, and its operating cash flow will be negative while its inventory is growing faster than its sales even if it reports a profit. FTAI's net cash from operating activities was +$129.0M in 2023, −$188.0M in 2024 and −$310.7M in 2025. <span class="cite">[FTAI 10-K FY2025; D10 §2.6]</span></p></div>
 
 ### 81.1 The figures retrieved
 
-<div class="exh"><div class="exh-title">Exhibit 10.13 — Cash flow, inventory and the leasing-equipment balance as retrieved ($ thousands)</div>
+<div class="exh"><div class="exh-title">Exhibit 10.14 — Cash flow, inventory and the leasing-equipment balance as retrieved ($ thousands)</div>
 
 | Item | 2023 | 2024 | 2025 | Later | Source |
 |---|---:|---:|---:|---|---|
@@ -464,7 +484,7 @@ FTAI reported net income in 2024 and 2025 and consumed cash in its operations in
 
 The working-capital detail that would split the operating outflow into its parts, principally the change in inventory, in receivables and in deferred revenue, was not retrieved, and neither were the investing lines. <span class="cite">[D10 U-2; cluster K-18]</span> So the statement that the inventory build drives the negative operating cash flow is a statement of mechanism, supported by the one inventory balance retrieved, $1,364.3M at 31 March 2026, rather than a statement read from the cash flow statement's own lines. <span class="cite">[FTAI 10-Q Q1 2026, via D5]</span> The inventory balances at 31 December 2025 and 30 June 2026, and the segment's capital expenditure, were not retrieved. <span class="cite">[D5 U12]</span>
 
-The investing side moved the other way. Leasing equipment at cost fell from $2,963.5M at the end of 2024 to $2,057.6M at the end of 2025, and net of depreciation from $2,373.7M to $1,545.8M, as aircraft were sold into the 2025 Partnership. <span class="cite">[FTAI 10-K FY2025, via D6]</span> The proceeds of those sales are investing inflows, so in 2025 the company was releasing cash from leasing equipment through investing activities while absorbing cash into inventory through operating activities. Part VIII §60 describes the asset-light shift that this pattern reflects.
+The investing side moved the other way. Leasing equipment at cost fell from $2,963.5M at the end of 2024 to $2,057.6M at the end of 2025, and net of depreciation from $2,373.7M to $1,545.8M, as aircraft were sold into the 2025 Partnership. <span class="cite">[FTAI 10-K FY2025, via D6]</span> The proceeds of those sales are investing inflows, so in 2025 the company was releasing cash from leasing equipment through investing activities while absorbing cash into inventory through operating activities. Part VIII §60 describes the asset-light shift that this pattern reflects. The releases call the shift "asset-light"; the company's limited-partner interest in the 2025 Partnership was nonetheless carried at $281.7M at 31 December 2025 and $365.5M at 30 June 2026, and the D7 dossier put it at about $380M at full commitment, so the term describes owning fewer leased aircraft directly rather than holding no leasing capital. <span class="cite">[FTAI 10-K FY2025; FTAI 10-Q Q2 2026, via D7; reconciliation R-058]</span>
 
 <div class="worked"><div class="h">Worked example 10.4 — How much inventory the company holds relative to its cost of sales, two ways, and why the dates matter</div>
 <p>Inputs: inventory, net $1,364.3M at 31 Mar 2026 (sourced: 10-Q Q1 2026 via D5); consolidated cost of sales $1,349.7M for FY2025 (sourced: 10-K FY2025); cost of sales $1,160.1M for 1H 2026, scope (segment or consolidated) unconfirmed (sourced: 10-Q Q2 2026 via D5, with D5's T5 caveat).</p>
@@ -483,7 +503,7 @@ FTAI finances itself with five series of senior unsecured notes, an undrawn bank
 
 <div class="defn"><b>Senior unsecured notes; bullet; callable</b><p>Senior unsecured notes are bonds that rank ahead of equity and subordinated debt in a liquidation but are not backed by specific collateral. They pay a fixed coupon, normally twice a year, and repay their entire principal on the maturity date (a bullet repayment). They are typically callable, meaning the issuer may repay them early after a non-call period at a premium that declines over time. FTAI has five series, with coupons from 5.50% to 7.875% and maturities from 2028 to 2033. <span class="cite">[FTAI 10-K FY2025; FTAI 10-Q Q1 2026; D10 §2.7]</span></p></div>
 
-<div class="exh"><div class="exh-title">Exhibit 10.14 — The five note series and the revolver, as reported</div>
+<div class="exh"><div class="exh-title">Exhibit 10.15 — The five note series and the revolver, as reported</div>
 
 | Instrument | Coupon | Maturity | Balance reported ($ thousands) | As of | Issue date; original principal | Source |
 |---|---|---|---:|---|---|---|
@@ -494,7 +514,7 @@ FTAI finances itself with five series of senior unsecured notes, an undrawn bank
 | Senior Notes due 2033 | 5.875% | 15 Apr 2033 | 497,784 | 31 Dec 2025 | not retrieved | 10-K FY2025 |
 | Sum of the five balances (mixed dates) | | | 3,537,185 | mixed | | Arithmetic; D10 T-1 |
 | Long-term debt, net (balance sheet) | | | 3,451,087 | 31 Mar 2026 | | 10-Q Q1 2026 |
-| Revolving Credit Facility | Base Rate + 1.75% or Adjusted Term SOFR + 2.75% | 22 May 2027 | 0 drawn | 31 Dec 2025 | Commitment size not retrieved | 10-K FY2025 |
+| Revolving Credit Facility | Base Rate + 1.75% or Adjusted Term SOFR (Secured Overnight Financing Rate) + 2.75% | 22 May 2027 | 0 drawn | 31 Dec 2025 | Commitment size not retrieved | 10-K FY2025 |
 | Term loans; asset-level debt consolidated from vehicles | | | not retrieved | | | D10 U-3 |
 | Total debt and total equity at 31 Dec 2025 | | | not retrieved | | | D10 U-3 |
 | Credit ratings (Moody's, S&P, Fitch) | | | not retrieved; not searched | | | D10 U-7 |
@@ -506,7 +526,7 @@ The balances carry a signature. The 2028, 2030 and 2033 series sit just above or
 The one tension in the debt figures is arithmetic. The five note balances as returned sum to $3,537,185K, three of them at 31 December 2025 and two at 31 March 2026, while the balance sheet at 31 March 2026 reports long-term debt, net of $3,451,087K. <span class="cite">[FTAI 10-K FY2025; FTAI 10-Q Q1 2026; D10 T-1]</span> The $86.1M gap could be unamortised issuance costs and discounts netted against the principal, a change in balances between the two dates, or a series partly retired; the search did not say which, and the Q1 2026 debt note would. Both figures are carried, each with its date and its scope.
 
 <div class="worked"><div class="h">Worked example 10.5 — Annual coupon on the notes, if the reported balances are principal</div>
-<p>Inputs: the five balances and coupons in Exhibit 10.14 (sourced: 10-K FY2025 and 10-Q Q1 2026, mixed dates); the assumption that each balance is principal (assumed; D10 U-3). Reported interest expense for FY2025, $247,751K (sourced: 10-K FY2025 via orchestrator notes).</p>
+<p>Inputs: the five balances and coupons in Exhibit 10.15 (sourced: 10-K FY2025 and 10-Q Q1 2026, mixed dates); the assumption that each balance is principal (assumed; D10 U-3). Reported interest expense for FY2025, $247,751K (sourced: 10-K FY2025 via orchestrator notes).</p>
 <div class="eqblock">1,000,995 × 5.50% = 55,055
 497,470 × 7.875% = 39,176
 717,752 × 7.00% = 50,243
@@ -519,7 +539,7 @@ reported FY2025 interest expense less the illustrative coupon = 247,751 − 230,
 
 ### 82.2 The revolver
 
-<div class="defn"><b>Revolving credit facility and SOFR</b><p>A revolving credit facility, or revolver, is a bank line the company may draw and repay repeatedly up to a committed amount. It pays a floating interest rate on drawn balances and a commitment fee on the undrawn portion. FTAI's prices drawings at the banks' base rate plus 1.75% or at Adjusted Term SOFR plus 2.75%, where SOFR is the Secured Overnight Financing Rate, the US dollar benchmark that replaced LIBOR. The facility was undrawn at 31 December 2025 and matures on 22 May 2027; its commitment size was not retrieved. <span class="cite">[FTAI 10-K FY2025; D10 §2.7, U-3]</span></p></div>
+<div class="defn"><b>Revolving credit facility and SOFR</b><p>A revolving credit facility, or revolver, is a bank line the company may draw and repay repeatedly up to a committed amount. It pays a floating interest rate on drawn balances and a commitment fee on the undrawn portion. FTAI's prices drawings at the banks' base rate plus 1.75% or at Adjusted Term SOFR plus 2.75%, where SOFR is the Secured Overnight Financing Rate, the US dollar benchmark that replaced LIBOR, the London Interbank Offered Rate. The facility was undrawn at 31 December 2025 and matures on 22 May 2027; its commitment size was not retrieved. <span class="cite">[FTAI 10-K FY2025; D10 §2.7, U-3]</span></p></div>
 
 Two maturities fall inside the guidance horizon of §84. The revolver matures on 22 May 2027, and the 5.50% notes, about $1.0B, on 1 May 2028. <span class="cite">[FTAI 10-K FY2025]</span> The terms on which either is renewed or refinanced will depend in part on the company's credit ratings, which the research did not retrieve, and on the company's leverage covenants, which it also did not retrieve. <span class="cite">[D10 U-7]</span> This Part records both as unknown and does not characterise them.
 
@@ -543,7 +563,7 @@ FY2025 Adjusted EBITDA ÷ FY2025 interest expense = 1,190,922 ÷ 247,751 = 4.8x
 
 <div class="defn"><b>Fixed-to-floating and fixed-rate reset preferred</b><p>Two coupon designs appear. A fixed-to-floating preferred pays a fixed coupon until its first call date and then a floating rate, a reference rate plus a fixed spread, reset each quarter (Series A 8.25%, redeemed October 2024; Series B 8.00%, outstanding). A fixed-rate reset preferred pays a fixed coupon until its first reset date and then a new fixed coupon for the next five years equal to the five-year US Treasury yield plus a fixed spread (Series C 8.25%, full redemption announced 15 May 2026; Series D 9.50%, outstanding). <span class="cite">[FTAI 10-K FY2025; GlobeNewswire, 15 May 2026, title; D10 §2.8]</span></p></div>
 
-<div class="exh"><div class="exh-title">Exhibit 10.15 — The four preferred series</div>
+<div class="exh"><div class="exh-title">Exhibit 10.16 — The four preferred series</div>
 
 | Series | Design | Coupon | Shares; liquidation amount | Status | Quarterly dividend per share | Ticker | Source |
 |---|---|---|---|---|---|---|---|
@@ -567,7 +587,7 @@ Two titles from 2026 bear on the balance sheet and were not opened. On 22 May 20
 
 ### 83.1 Dividends per share by quarter
 
-<div class="exh"><div class="exh-title">Exhibit 10.16 — Ordinary dividend per share by quarter, as retrieved, 2022 to Q2 2026</div>
+<div class="exh"><div class="exh-title">Exhibit 10.17 — Ordinary dividend per share by quarter, as retrieved, 2022 to Q2 2026</div>
 
 | Quarter the dividend relates to | Declared | Rate per share | Source and level |
 |---|---|---|---|
@@ -592,7 +612,7 @@ The research recorded a contradiction on the 2025 path and resolved it. The D10 
 
 <div class="defn"><b>Basic and diluted earnings per share; RSUs and PSUs</b><p>Basic earnings per share divides net income attributable to ordinary shareholders by the weighted-average number of ordinary shares outstanding in the period. Diluted earnings per share adds the shares that would be issued if outstanding restricted stock units (RSUs, which vest with time) and performance stock units (PSUs, which vest on performance conditions) were settled. Dividing reported net income by reported EPS therefore gives the weighted share count, basic and diluted: about 102 to 104 million at FTAI in 2025 and 2026. <span class="cite">[FTAI releases, 25 Feb 2026 and 29 Jul 2026; D10 §2.10]</span></p></div>
 
-<div class="exh"><div class="exh-title">Exhibit 10.17 — Share count history as retrieved and as implied</div>
+<div class="exh"><div class="exh-title">Exhibit 10.18 — Share count history as retrieved and as implied</div>
 
 | Date or period | Shares (millions) | Basis | Source |
 |---|---:|---|---|
@@ -610,7 +630,7 @@ The research recorded a contradiction on the 2025 path and resolved it. The D10 
 The share count has been close to flat since the internalization: about 102 to 103 million basic shares in every period retrieved, with diluted shares one to two million higher for unvested RSUs and PSUs. <span class="cite">[D10 §2.10]</span> The company has issued no equity for cash in the period the research covers, as far as the material retrieved shows; the FY2025 equity note would confirm that and give the annual weighted counts. <span class="cite">[D10 U-8]</span>
 
 <div class="worked"><div class="h">Worked example 10.7 — The cash cost of the ordinary dividend at each rate, on the implied share count</div>
-<p>Inputs: about 102.6 million shares (derived from the 2026 proxy, Exhibit 10.17); quarterly rates of $0.30, $0.35, $0.40, $0.45 and $0.50 (sourced: release titles, Exhibit 10.16).</p>
+<p>Inputs: about 102.6 million shares (derived from the 2026 proxy, Exhibit 10.18); quarterly rates of $0.30, $0.35, $0.40, $0.45 and $0.50 (sourced: release titles, Exhibit 10.17).</p>
 <div class="eqblock">at $0.30: 0.30 × 4 × 102.6M = $123.1M a year
 at $0.50: 0.50 × 4 × 102.6M = $205.2M a year
 declared for 2025: 1.35 × 102.6M = $138.5M
@@ -625,7 +645,7 @@ On 15 September 2026 the company announced a $500M share repurchase program. <sp
 
 <div class="defn"><b>Guidance</b><p>Guidance is management's published forward target for a financial measure. FTAI gives it in Adjusted EBITDA from its business segments, by segment and in total, excluding Corporate and Other, and in modules produced by Aerospace Products. It has set 2025 guidance (30 Dec 2024), raised 2026 guidance twice and then cut one segment (Oct 2025 to Jul 2026), and set 2027 guidance (29 Jul 2026). Part VII §57 carries the segment detail for Aerospace Products; this section carries the dated history of every figure. <span class="cite">[GlobeNewswire, 30 Dec 2024, 27 Oct 2025, 25 Feb 2026 and 29 Jul 2026; D10 §4.8]</span></p></div>
 
-<div class="exh"><div class="exh-title">Exhibit 10.18 — Guidance as set, changed and delivered, December 2024 to July 2026</div>
+<div class="exh"><div class="exh-title">Exhibit 10.19 — Guidance as set, changed and delivered, December 2024 to July 2026</div>
 
 | Date set | For | Total guided | Segment split | What happened | Source and level |
 |---|---|---|---|---|---|
@@ -635,7 +655,7 @@ On 15 September 2026 the company announced a $500M share repurchase program. <sp
 | 27 Oct 2025 (Q3 2025 release, per the orchestrator notes; the step was undated in the Q1 2026 10-Q text D6 read) | 2026 segment Adjusted EBITDA | $1.525B | Aerospace Products about $1.0B; Aviation Leasing $525M | Raised | Release 27 Oct 2025; 10-Q Q1 2026 (release; filing); R-050 |
 | 25 Feb 2026 | 2026 segment Adjusted EBITDA | $1.625B | Aerospace Products $1.05B; Aviation Leasing $575M | Leasing cut in July | Release 25 Feb 2026 (release) |
 | 25 Feb 2026 | 2026 modules | 1,050 (+39% on 757) | | Raised to 1,200 on the 30 Jul 2026 call per call coverage (GuruFocus, Nasdaq.com, MarketBeat); whether the 29 Jul 2026 release text carries 1,200 is unverified | Release and call, Feb 2026; call coverage, Jul 2026 (R-036) |
-| 26 Feb 2026 call | 2026 Aerospace Products margin | "approach 40%" from the mid-30s | Levers named: the PMA HPT blade, more used material, the CFM materials agreement | Aspiration, not a guided figure | MarketBeat call summary (call coverage) |
+| 26 Feb 2026 call | 2026 Aerospace Products margin | "approach 40%" from the mid-30s | Levers named: the PMA high-pressure turbine (HPT) blade, more used material, the CFM materials agreement | Aspiration, not a guided figure | MarketBeat call summary (call coverage) |
 | 29 Jul 2026 | 2026 segment Adjusted EBITDA | $1.525B | Aerospace Products $1.05B reaffirmed; Aviation Leasing cut from $575M to $475M "reflecting its continued shift to an asset-light business model" | One earlier search reading of the same 8-K exhibit returned $575M; the orchestrator's later check found that a mis-read and dated $575M to February | Release 29 Jul 2026 (release); R-049 |
 | 29 Jul 2026 | 2027 business-segment Adjusted EBITDA | $2.3B | Aerospace Products $1.4B; FTAI Power $450M; Aviation Leasing $450M | One call summary (GuruFocus) gives Power as "$450 million to $750 million"; the release text confirms $450M (R-062) | Release 29 Jul 2026 (release); call coverage |
 | Any date | 2026 consolidated figure; 2026 FTAI Power figure; any SCI-specific line | not retrieved | | | D10 U-14; D7 U9 |
@@ -658,7 +678,7 @@ This section carries the disclosures that an annual report groups under Items 1A
 
 <div class="defn"><b>Risk factors (Item 1A); auditor; securities class action; lead plaintiff</b><p>Item 1A of a Form 10-K is the company's own list of the risks it considers material, each with a heading and an explanatory paragraph. The auditor is the independent registered public accounting firm that opines on the financial statements and, for a company of FTAI's size, on internal control over financial reporting. A securities class action is a lawsuit brought on behalf of all investors who bought a company's shares in a stated class period, alleging that disclosures were false or misleading. The lead plaintiff is the investor the court appoints to direct it; the deadline for lead-plaintiff motions in FTAI's case was 18 March 2025. <span class="cite">[D10 §5, U-15, U-16; D5 §2.9; law-firm notices via D5]</span></p></div>
 
-<div class="exh"><div class="exh-title">Exhibit 10.19 — Risk factors confirmed from the filings, and the list not retrieved</div>
+<div class="exh"><div class="exh-title">Exhibit 10.20 — Risk factors confirmed from the filings, and the list not retrieved</div>
 
 | Risk as confirmed | What the filing says, in a sentence | Source |
 |---|---|---|
@@ -667,7 +687,7 @@ This section carries the disclosures that an annual report groups under Items 1A
 | Strategic Capital vehicles | The vehicles are related parties that buy aircraft from FTAI, pay it servicing fees and buy engines and modules from it under MRE contracts; the 10-K's own risk wording was not returned, and the D7 dossier recorded the exposure (Part VIII §63) | 10-K FY2025 via D7 |
 | Customer concentration | Two Aerospace Products customers were 16% and 11% of revenue in Q3 2025 | 10-Q Q3 2025 |
 | MRE stand-ready obligations | The company describes "stand-ready obligations to provide replacement CFM56-5B and CFM56-7B engines to customers as they become unserviceable", which requires it to hold a pool of serviceable engines against the obligation | 10-Q Q3 2025 |
-| Full Item 1A list | Headings not retrieved. The research expected, and could not confirm, risk factors on dependence on CFM, GE and other OEMs for new parts and repairs; regulatory approvals (FAA, EASA, PMA); key personnel; and litigation | D10 U-15 |
+| Full Item 1A list | Headings not retrieved. The research expected, and could not confirm, risk factors on dependence on CFM, GE and other OEMs for new parts and repairs; regulatory approvals from the US Federal Aviation Administration (FAA) and the European Union Aviation Safety Agency (EASA), including PMA; key personnel; and litigation | D10 U-15 |
 
 <cite>Source: FTAI Aviation Ltd., Form 10-K for FY2025 (risk-factor sentences as returned by search); Form 10-K for FY2022; Forms 10-Q for Q3 2025 and Q1 2026; D6 §2.6 for Russia; D7 for the vehicles. Item 1A in full was not retrieved (D10 U-15). Accessed 2026-10-03.</cite></div>
 
@@ -683,11 +703,11 @@ The sequence is dated by the filings. Muddy Waters Research published its report
 
 The wording of the conclusion differs by document, and the reconciliation pass asked that the versions be kept apart. The February 8-K exhibit, as D5 read it: "After a thorough and comprehensive review with the support of independent legal and forensic accounting advisors, the Audit Committee determined that the allegations made against the Company are without merit. The Company expects to file its Form 10-K timely." <span class="cite">[FTAI 8-K Ex. 99.1, Feb 2025, via D5]</span> The same exhibit, as D10 read it: the committee "completed its review, conducted by independent legal and forensic accounting advisors ... and determined that the allegations made against the Company are without merit". <span class="cite">[FTAI 8-K Ex. 99.1, Feb 2025, via D10]</span> The Q3 2025 quarterly report: "the internal investigation concluded that the allegations of misconduct were all without merit". <span class="cite">[FTAI 10-Q Q3 2025]</span> The FY2025 annual report, as the orchestrator notes transcribe it: an Audit Committee internal investigation, with outside counsel and forensic accountants, into the January 2025 short-seller reports concluded the allegations of misconduct were "all without merit". <span class="cite">[FTAI 10-K FY2025, via orchestrator notes]</span> The 8-K speaks of a review and of allegations; the later filings speak of an internal investigation and of allegations of misconduct; and the annual report speaks of reports in the plural. This Part does not fuse them. <span class="cite">[reconciliation R-063; E.1 rule 22]</span>
 
-The allegations themselves are carried as two secondary summaries, because the report was not read. As the amended complaint states them, per law-firm case pages: one-time engine sales reported as MRO revenue; whole engine sales presented as module sales; and depreciation of engines not on lease lowering reported cost of goods sold. <span class="cite">[ktmc.com and rgrdlaw.com case pages, via orchestrator notes]</span> As the press summarised the report in January 2025: one-time engine sales recorded as MRO revenue in Aerospace Products; the majority of the segment's Adjusted EBITDA estimated to come from gains on sales; and "misrepresentation of sales, inflation of ... margins ..., channel stuffing, and a few other accounting red flags". <span class="cite">[Benzinga, 15 Jan 2025; Crossroads Capital letter via Hedge Fund Alpha; D5 §2.9; reconciliation R-064]</span> Part VII §54 sets the allegations beside the segment's disclosures. No restatement was found or referenced in anything retrieved, and the FY2025 annual report presents MRE Contract revenue as a line separate from Aerospace products revenue, a change the research could not link to the review. <span class="cite">[D5 §2.9]</span>
+The allegations themselves are carried as two secondary summaries, because the report was not read. As the amended complaint states them, per law-firm case pages: one-time engine sales reported as MRO (maintenance, repair and overhaul) revenue; whole engine sales presented as module sales; and depreciation of engines not on lease lowering reported cost of goods sold. <span class="cite">[ktmc.com and rgrdlaw.com case pages, via orchestrator notes]</span> As the press summarised the report in January 2025: one-time engine sales recorded as MRO revenue in Aerospace Products; the majority of the segment's Adjusted EBITDA estimated to come from gains on sales; and "misrepresentation of sales, inflation of ... margins ..., channel stuffing, and a few other accounting red flags". <span class="cite">[Benzinga, 15 Jan 2025; Crossroads Capital letter via Hedge Fund Alpha; D5 §2.9; reconciliation R-064]</span> Part VII §54 sets the allegations beside the segment's disclosures. No restatement was found or referenced in anything retrieved, and the FY2025 annual report presents MRE Contract revenue as a line separate from Aerospace products revenue, a change the research could not link to the review. <span class="cite">[D5 §2.9]</span>
 
 ### 85.4 The securities class action
 
-<div class="exh"><div class="exh-title">Exhibit 10.20 — The review, the litigation, the auditor, the people and the properties, in one table</div>
+<div class="exh"><div class="exh-title">Exhibit 10.21 — The review, the litigation, the auditor, the people and the properties, in one table</div>
 
 | Item | Detail | Source and level |
 |---|---|---|
@@ -700,7 +720,7 @@ The allegations themselves are carried as two secondary summaries, because the r
 | Procedural status | Defendants' motion to dismiss the amended complaint filed 20 Nov 2025; fully briefed and pending at the research date; no settlement or dismissal found | Law-firm case pages via orchestrator notes |
 | The company's own description of the case | The 10-K text returned by search did not describe the litigation; Item 3 was not retrieved | D10 U-16; orchestrator notes |
 | Derivative suits | Not retrieved | D10 U-16 |
-| SEC correspondence | A file dated 27 Nov 2024 exists on EDGAR; subject not retrieved; a January 2025 EDGAR document also exists | D5 U15; D10 U-16 |
+| SEC correspondence | A file dated 27 Nov 2024 exists on EDGAR, the SEC's electronic filing system; subject not retrieved; a January 2025 EDGAR document also exists | D5 U15; D10 U-16 |
 | Auditor | Ernst & Young LLP, 2016–2025; KPMG LLP engaged for FY2025 effective 17 Jun 2025; report dated 27 Feb 2026; which firm signed not confirmed | 10-K FY2025 via orchestrator notes (filing); R-066 |
 | Internal control conclusion; material weakness | Not retrieved | D10 U-16 |
 | Employees | 985 full-time employees and independent contractors at 31 Dec 2025, a mixed definition; 494 full-time employees in Canada, about 71% of them covered by collective bargaining agreements (about 351, derived) | 10-K FY2025 via orchestrator notes (filing) |
@@ -727,38 +747,39 @@ On properties, the annual report's business description says the company conduct
 | R-026 | FTAI–Chromalloy relationship: "a joint venture" (10-K) against an "exclusive perpetual partnership" formed 2018 (investor blogs); the Advanced Engine Repair JV (25%, Dec 2016 and Aug 2019, $22,429K) of unknown identity | §75.1, Exhibit 10.1, Exhibit 10.4 |
 | R-039 | Montréal acquisition dated 2023 (chain map and D10 originally) against 9 Sep 2024, $170.0M (release) | §75.3, Exhibit 10.1 |
 | R-040 | Rome site: "Rome NY" (chain map, unsourced) against Rome Fiumicino, Italy (10-K; release 5 Jun 2025) | §85.5 |
-| R-043 | Whether MRE Contract revenue sits inside the Aerospace Products segment: totals agree ($1,936,244K = $1,600,456K + $335,788K) but the explicit segment-note mapping was not retrieved | §79.3, Exhibit 10.10 |
-| R-044 | MRE Contract revenue defined as "stand-ready obligations" (Q3 2025 10-Q) against "the transaction price for sales of ... engines and related modules to the SPVs" (Q2 2026 10-Q) | §79.2, Exhibit 10.9 |
+| R-043 | Whether MRE Contract revenue sits inside the Aerospace Products segment: totals agree ($1,936,244K = $1,600,456K + $335,788K) but the explicit segment-note mapping was not retrieved | §79.3, Exhibit 10.11 |
+| R-044 | MRE Contract revenue defined as "stand-ready obligations" (Q3 2025 10-Q) against "the transaction price for sales of ... engines and related modules to the SPVs" (Q2 2026 10-Q) | §79.2, Exhibit 10.10 |
 | R-045 | FY2025 cost of sales $1,349,719K (consolidated line) against $1,240,368K (Aerospace Products segment table); derived 35.9% labelled | §79.3, worked example 10.2 |
 | R-048 | Stake in the 2025 Partnership 19% (FY2025 10-K; 2026 10-Qs) against 20% (Q3 2025 10-Q) | §78.1, Exhibit 10.4; §80.1 |
-| R-049 | 2026 Aviation Leasing guidance $575M (25 Feb 2026) against $475M (29 Jul 2026); an earlier $575M reading of the July release found to be a mis-read | §84, Exhibit 10.18 |
-| R-050 | The $1.4B to $1.525B step: undated in one 10-Q reading; 27 Oct 2025 per the notes | §84, Exhibit 10.18 |
-| R-051 | Q2 2026 Aviation Leasing Adjusted EBITDA $88.2M (call coverage) against no Leasing line returned from the release; residual −$46.5M unconfirmed | §79.4, Exhibit 10.11; §80.2, Exhibit 10.12 |
-| R-052 | FY2024 lease income $234,411K against $255,338K, two readings of the FY2025 10-K | §79.1, Exhibit 10.8; §79.3, Exhibit 10.10 |
+| R-049 | 2026 Aviation Leasing guidance $575M (25 Feb 2026) against $475M (29 Jul 2026); an earlier $575M reading of the July release found to be a mis-read | §84, Exhibit 10.19 |
+| R-050 | The $1.4B to $1.525B step: undated in one 10-Q reading; 27 Oct 2025 per the notes | §84, Exhibit 10.19 |
+| R-051 | Q2 2026 Aviation Leasing Adjusted EBITDA $88.2M (call coverage) against no Leasing line returned from the release; residual −$46.5M unconfirmed | §79.4, Exhibit 10.12; §80.2, Exhibit 10.13 |
+| R-052 | FY2024 lease income $234,411K against $255,338K, two readings of the FY2025 10-K | §79.1, Exhibit 10.8; §79.3, Exhibit 10.11 |
 | R-053 | FY2021 lease income $173,864K against FY2021 Aviation Leasing segment revenue $128,328K, both from the FY2022 10-K | §77.1, Exhibit 10.3; Exhibit 10.8 |
 | R-054 | Gains on sale to the 2025 Partnership: $50.1M (nine-month sum of quarters) against $46.4M (FY2025) | §80.1 |
 | R-055 | "$5.5 billion of warehouse financing" (release) against $2.5B + $2.0B = $4.5B disclosed, $5.5B only with the $1.0B accordion | §82.5 |
 | R-057 | Sales to the Partnership "non-recurring" under ASC 610-20 (10-K) against "$3.0+ billion of capital annually" and primary investment activity through SCI (release; 10-Q) | §80.1 |
+| R-058 | "Asset-light" (releases; the Jul 2026 guidance cut) against a 19% LP interest carried at $281.7M (31 Dec 2025) and $365.5M (30 Jun 2026), about $380M at full commitment | §81.1 |
 | R-059 | OneIM: ">$4 billion" of deployment for the inaugural vehicle; commitment size and role undisclosed | §75.4, Exhibit 10.1 |
-| R-060 | Russia: $120.0M net write-off (2022) against $210.7M insured value and $98.9M recovered | §75.2; §85.1, Exhibit 10.19 |
+| R-060 | Russia: $120.0M net write-off (2022) against $210.7M insured value and $98.9M recovered | §75.2; §85.1, Exhibit 10.20 |
 | R-061 | J&F Power Systems: FTAI's "joint venture" (release; 10-Q) against Jereh's "subsidiary" (exchange disclosure as reported) | §78.1, Exhibit 10.4 |
-| R-062 | 2027 FTAI Power Adjusted EBITDA $450M (release text; Quartr, MarketBeat) against "$450–750M" (GuruFocus) | §84, Exhibit 10.18 |
-| R-063 | Review wording: "review ... independent advisors ... allegations ... without merit" (8-K, two readings) against "internal investigation ... allegations of misconduct ... all without merit" (10-Q, 10-K); conclusion date Feb 2025, trade coverage 19–20 Feb | §85.3, Exhibit 10.20 |
+| R-062 | 2027 FTAI Power Adjusted EBITDA $450M (release text; Quartr, MarketBeat) against "$450–750M" (GuruFocus) | §84, Exhibit 10.19 |
+| R-063 | Review wording: "review ... independent advisors ... allegations ... without merit" (8-K, two readings) against "internal investigation ... allegations of misconduct ... all without merit" (10-Q, 10-K); conclusion date Feb 2025, trade coverage 19–20 Feb | §85.3, Exhibit 10.21 |
 | R-064 | Allegations as the amended complaint states them (law-firm pages) against the press summaries; the report not read | §85.3 |
 | R-065 | Headcount 985 employees and contractors / 494 Canadian employees (10-K) against a misattributed 7,800 (StandardAero) | §85.5 |
-| R-066 | Auditor: Ernst & Young LLP 2016–2025 and KPMG LLP from 17 Jun 2025 for FY2025; which firm signed the FY2025 report not stated | §85.2, Exhibit 10.20 |
+| R-066 | Auditor: Ernst & Young LLP 2016–2025 and KPMG LLP from 17 Jun 2025 for FY2025; which firm signed the FY2025 report not stated | §85.2, Exhibit 10.21 |
 | R-067 | CFO: Nicholas McAleese (Q2 2026 call) against Eun (Angela) Nam (2026 proxy, 2025 pay); resolved by the 6 Mar 2026 release | §78.2, Exhibit 10.5 |
-| R-068 | 2025 dividend: "$0.30 through 2025" (D10 inference, unconfirmed) against $0.30, $0.30, $0.35, $0.40 by quarter (release titles) | §83.1, Exhibit 10.16 |
-| D10 T-1 | Five note balances summing to $3,537,185K (mixed dates) against long-term debt, net of $3,451,087K at 31 Mar 2026 | §82.1, Exhibit 10.14 |
+| R-068 | 2025 dividend: "$0.30 through 2025" (D10 inference, unconfirmed) against $0.30, $0.30, $0.35, $0.40 by quarter (release titles) | §83.1, Exhibit 10.17 |
+| D10 T-1 | Five note balances summing to $3,537,185K (mixed dates) against long-term debt, net of $3,451,087K at 31 Mar 2026 | §82.1, Exhibit 10.15 |
 | D10 T-2 | Internalization: "$150.0 million to the Former Manager" against $300.0M total, plus unquantified accrued and reimbursable amounts | §76.2, Exhibit 10.2 |
-| D10 T-3 | Five revenue lines summing to $2,496,898K against total revenues of $2,507,409K; $10,511K residual | §79.2, Exhibit 10.9 |
+| D10 T-3 | Five revenue lines summing to $2,496,898K against total revenues of $2,507,409K; $10,511K residual | §79.2, Exhibit 10.10 |
 | D10 T-5 | COO: Stacy Kuperus (proxy) against David Moreno's earlier title; Moreno now President per call coverage | §78.2, Exhibit 10.5 |
-| D10 T-7 | Series B 8.00% outstanding while both 8.25% series were redeemed; floating rate not retrieved | §82.4, Exhibit 10.15 |
-| R-036 | 2026 modules 1,050 (release, Feb 2026) against 1,200 (call coverage, Jul 2026) | §84, Exhibit 10.18 |
+| D10 T-7 | Series B 8.00% outstanding while both 8.25% series were redeemed; floating rate not retrieved | §82.4, Exhibit 10.16 |
+| R-036 | 2026 modules 1,050 (release, Feb 2026) against 1,200 (call coverage, Jul 2026) | §84, Exhibit 10.19 |
 
 ## Unknowns carried in this Part
 
-- **U-D10-01** (D10): **U-1 — Full income statement 2021–2025 and 1H 2025 / 1H 2026.** Operating expense lines, depreciation and amortization, interest expense, tax, net income attributable to shareholders by year; annual Adjusted EBITDA, its definition and reconciliation items; segment revenue and Adjusted EBITDA by year; 1H totals. Resolve with the FY2025 10-K Item 8 and Item 7 segment tables [S1], the Q4/FY2025 release [S3], the Q2 2026 release [S4] and the Q2 2025 release [S25]. Also the FY2021 10-K [S15] and FY2022 annual report (EDGAR index) for 2021–2022. Partly closed by the orchestrator notes (the segment table for 2023–2025 and the FY2025 expense lines, carried in Exhibits 10.8 and 10.10).
+- **U-D10-01** (D10): **U-1 — Full income statement 2021–2025 and 1H 2025 / 1H 2026.** Operating expense lines, depreciation and amortization, interest expense, tax, net income attributable to shareholders by year; annual Adjusted EBITDA, its definition and reconciliation items; segment revenue and Adjusted EBITDA by year; 1H totals. Resolve with the FY2025 10-K Item 8 and Item 7 segment tables [S1], the Q4/FY2025 release [S3], the Q2 2026 release [S4] and the Q2 2025 release [S25]. Also the FY2021 10-K [S15] and FY2022 annual report (EDGAR index) for 2021–2022. Partly closed by the orchestrator notes (the segment table for 2023–2025 and the FY2025 expense lines, carried in Exhibits 10.8 and 10.11).
 - **U-D10-02** (D10): **U-2 — Cash flow detail.** Acquisition of leasing equipment, acquisition of property, plant and equipment, proceeds from asset sales, working-capital changes (inventory), and whether the company defines free cash flow. Resolve with the cash flow statement in [S1] and [S2].
 - **U-D10-03** (D10): **U-3 — Debt detail.** Issue dates and original principal of each note series; principal vs carrying amount; call schedules; covenants; revolver commitment size; any term loans or asset-level debt consolidated from SCI vehicles; total debt and equity at 31 Dec 2025. Resolve with the debt note in [S1] and [S2] and the note-offering 8-Ks.
 - **U-D10-04** (D10): **U-4 — Preferred detail.** Series B share count, floating spread and reset date; Series C share count, reset terms, redemption date and amount [S20]; Series D issue date and first reset; preferred tickers. Resolve with the equity note in [S1], Exhibit 4.15 to the FY2023 10-K (description of securities) [S25], and the 15 May 2026 release.
@@ -771,13 +792,13 @@ On properties, the annual report's business description says the company conduct
 - **U-D10-11** (D10): **U-11 — Early asset mix and the shift to aviation.** Figures for Jefferson Terminal, Repauno, Transtar and Long Ridge; dates and prices of QuickTurn, the Chromalloy JV and the Lockheed Martin Commercial Engine Solutions acquisition. Resolve with the FY2021 10-K [S15], the FY2022 annual report and the relevant 8-Ks. Partly closed by the orchestrator notes: LMCES $170.0M, 9 Sep 2024; QuickTurn 4 Jan 2023 and 1 Dec 2023 ($30.3M).
 - **U-D10-12** (D10): **U-12 — Reasons for the Cayman redomiciliation and the NYSE-to-Nasdaq move.** Resolve with the 2022 DEFM14A [S17] and the listing-transfer 8-K.
 - **U-D10-13** (D10): **U-13 — Subsidiaries, JV ownership percentages and equity-method carrying values; the role of FTAI Finance Holdco Ltd.** Resolve with Exhibit 21.1 [S27] and the investments note in [S1]. Partly closed by the orchestrator notes (Exhibit 10.4).
-- **U-D10-14** (D10): **U-14 — 2025 guidance as set on 30 Dec 2024 and the Feb 2026 2026 guidance in full (including FTAI Power and consolidated).** Resolve with [S24] and [S3]. Partly closed: the 2025 guidance is supplied by D7 (Exhibit 10.18).
+- **U-D10-14** (D10): **U-14 — 2025 guidance as set on 30 Dec 2024 and the Feb 2026 2026 guidance in full (including FTAI Power and consolidated).** Resolve with [S24] and [S3]. Partly closed: the 2025 guidance is supplied by D7 (Exhibit 10.19).
 - **U-D10-15** (D10): **U-15 — Risk factors in full.** Supplier dependence on CFM/GE and other OEMs for new parts and repairs, regulatory approvals (FAA/EASA, PMA), SCI vehicle risks, key personnel, litigation; annual customer concentration and customer names. Only Russia, leverage, SCI, customer concentration (Q3 2025) and MRE stand-ready obligations were confirmed. Resolve with Item 1A of [S1].
-- **U-D10-16** (D10): **U-16 — Legal proceedings, auditor and internal control.** Status of the securities class actions filed after the Jan 2025 report and any derivative suits; the auditor's name (recollection, unverified: Ernst & Young LLP); whether any material weakness was disclosed; the content of the Jan 2025 EDGAR correspondence [S12 folder] and the later 2025 8-K [S25]. Resolve with Item 3, Item 9A and the auditor's report in [S1]. Partly closed by the orchestrator notes (Exhibit 10.20).
+- **U-D10-16** (D10): **U-16 — Legal proceedings, auditor and internal control.** Status of the securities class actions filed after the Jan 2025 report and any derivative suits; the auditor's name (recollection, unverified: Ernst & Young LLP); whether any material weakness was disclosed; the content of the Jan 2025 EDGAR correspondence [S12 folder] and the later 2025 8-K [S25]. Resolve with Item 3, Item 9A and the auditor's report in [S1]. Partly closed by the orchestrator notes (Exhibit 10.21).
 - **U-D10-17** (D10): **U-17 — Employees and locations.** Headcount at 31 Dec 2025, by geography; properties list (New York headquarters, Montreal, Miami, Rome NY, Lisbon). Resolve with Item 1 "Human Capital" and Item 2 of [S1]. Partly closed: 985 and 494 (orchestrator notes); "Rome NY" corrected to Rome Fiumicino, Italy (R-040).
 - **U-D10-18** (D10): **U-18 — Whether FTAI Power is a third reportable segment in the 2026 10-Qs.** Resolve with [S2] segment note.
-- **U-D5-16** (D5): **U16 — Securities litigation status** (court, docket, motion to dismiss outcome, any settlement). Cluster K-11 with U-D10-16; partly closed as in Exhibit 10.20.
-- **U-D5-19** (D5): **U19 — FY2023 segment revenue and Adjusted EBITDA**, and the FY2022 baseline (the segment began ramping in 2022–2023 per the 10-Q language [S10 summary]). Cluster K-17 with U-D10-01; partly closed in Exhibit 10.10 and Exhibit 10.3.
+- **U-D5-16** (D5): **U16 — Securities litigation status** (court, docket, motion to dismiss outcome, any settlement). Cluster K-11 with U-D10-16; partly closed as in Exhibit 10.21.
+- **U-D5-19** (D5): **U19 — FY2023 segment revenue and Adjusted EBITDA**, and the FY2022 baseline (the segment began ramping in 2022–2023 per the 10-Q language [S10 summary]). Cluster K-17 with U-D10-01; partly closed in Exhibit 10.11 and Exhibit 10.3.
 - **U-D5-12** (D5): **U12 — Inventory at 31 Dec 2025 and 30 Jun 2026; segment capex; the cost of building module inventory.** Cluster K-18 with U-D10-02.
 - **U-D6-02** (D6): **U2 — Annual segment lines 2023–2025.** Lease income, maintenance revenue, asset sales revenue and cost, gain on sale of leasing equipment, equity-method pick-up, and segment Adjusted EBITDA for FY2023, FY2024, FY2025 and each 2025 quarter. Resolve: segment note and MD&A of the FY2025 10-K ([S1]) and the Q4/FY2025 release ([S6]). (The 18th search aimed at this and was refused on budget.) Cluster K-17.
 - **U-D6-11** (D6): **U11 — Equity-method investment** in the Leasing segment: counterparty, ownership, assets, income by year. Resolve: FY2025 10-K "Investments" note. Cluster K-07 with U-D10-13.
@@ -831,7 +852,7 @@ On properties, the annual report's business description says the company conduct
 42. GlobeNewswire, "FTAI Aviation Prices Inaugural Asset-Backed Securitization", 22 May 2026 (title only). https://www.globenewswire.com/news-release/2026/05/22/3299993/35538/en/FTAI-Aviation-Prices-Inaugural-Asset-Backed-Securitization.html
 43. GlobeNewswire, "FTAI Aviation Announces $500 Million Share Repurchase Program", 15 September 2026 (title only). https://www.globenewswire.com/news-release/2026/09/15/3362653/35538/en/ftai-aviation-announces-500-million-share-repurchase-program.html
 44. GlobeNewswire, FTAI Aviation release on the CFM International materials agreement, 22 January 2026 (cited via D4 and D8; URL not recorded in the research).
-45. FTAI Aviation / J&F Power Systems release on the $1.465B initial purchase order, 22 July 2026 (IR node https://ftandi.gcs-web.com/node/13041, blocked in the research session); Jereh Group Shenzhen exchange disclosure as reported by FilingReader, 22 July 2026 (via D8).
+45. FTAI Aviation / J&F Power Systems release on the $1.465B initial purchase order, 22 July 2026 (investor-relations page https://ftandi.gcs-web.com/node/13041, blocked in the research session); Jereh Group Shenzhen exchange disclosure as reported by FilingReader, 22 July 2026 (via D8).
 46. RTX / Pratt & Whitney newsroom, "IAE AG and FTAI Aviation Sign Strategic V2500 Engine Maintenance Services Agreement", 6 June 2024. https://www.rtx.com/prattwhitney/newsroom/news/2024/06/06/iae-ag-and-ftai-aviation-sign-strategic-v2500-engine-maintenance-services-agreem
 47. Benzinga, "What's Going On With FTAI Aviation Stock Today", 15 January 2025. https://benzinga.com/25/01/43103333/whats-going-on-with-ftai-aviation-stock-today
 48. Hedge Fund Alpha, Crossroads Capital letter on FTAI (summarising the short report's allegations), 2025. https://hedgefundalpha.com/strategies/crossroads-capital-long-ftai-aviation-ftai/
