@@ -33,3 +33,15 @@ Priority order; each is a single sec.gov-restricted query unless noted.
 8. D11 U16: GE Aerospace CFM56 shop-visit and spare-parts pricing statements (2026 calls).
 Found en route: FY2022 10-K URL above; Q2 2026 earnings release
 https://www.sec.gov/Archives/edgar/data/1590364/000162828026050622/ftai6302026earningsrelease.htm
+
+### D5 gaps (Aerospace Products, the deepest Part; highest priority)
+9. D5 T1: the 29 Jul 2026 Q2 release text on the 2026 module target (1,050 vs 1,200) — one
+   globenewswire-restricted search for "1,200 modules".
+10. D5 U4: module counts for 2022, 2023, 2024 (Q4 2025 release or call: "757 modules in 2025 vs X in
+    2024"); Q1 and Q3 2025 counts.
+11. D5 U7/U8: Montréal (LMCES) price; QuickTurn Miami date and price (2021 8-K); what "Orange" is;
+    Lisbon size, capacity and opening; GMF AeroAsia and EgyptAir terms (Q2 2026 release/call).
+12. D5 U2: 10-K revenue note — any split of Aerospace products revenue (engines vs modules vs parts).
+13. D5 U16: securities class action status (court, motion to dismiss) 2025-2026.
+14. D5 T5: whether consolidated cost of sales includes Leasing asset-sale costs (10-K segment note).
+Correction already applied to chain-map.md: Montréal closing 9 Sep 2024 (not 2023).
