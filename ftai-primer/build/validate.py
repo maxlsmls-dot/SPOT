@@ -17,7 +17,8 @@ def main():
     blank = []
     for i, p in enumerate(r.pages, 1):
         t = (p.extract_text() or "").strip()
-        if len(t) < a.min_chars and i not in (1,):  # cover/title page may be short
+        is_divider = re.search(r"PART [IVX]+|THE SPINE|SPINE", t, flags=re.I) is not None and len(t) < 600
+        if len(t) < a.min_chars and i not in (1,) and not is_divider:  # cover, title and divider pages may be short
             blank.append((i, len(t)))
     if blank: problems.append(f"near-blank pages (page, chars): {blank}")
     words = 0

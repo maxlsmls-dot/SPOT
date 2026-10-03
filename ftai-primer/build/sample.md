@@ -6,6 +6,8 @@ subtitle: Smoke test of every component in the house stylesheet.
 toc: true
 ---
 
+<div class="part-divider"><div class="pn">Part I</div><h1>The CFM56 as a machine</h1><p>Divider text.</p></div>
+
 ## 1. A numbered section
 
 Opening paragraph. One idea per sentence. A term appears, so it gets a box first.

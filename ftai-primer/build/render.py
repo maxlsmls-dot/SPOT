@@ -61,6 +61,9 @@ def main():
                            extension_configs={"toc": {"toc_depth": "1-3"}})
     # Let markdown (tables, lists, emphasis) work inside the component blocks.
     body_md = re.sub(r'<div class="(exh|worked|defn|box|part-divider)">', r'<div class="\1" markdown="1">', body_md)
+    # Part-divider titles: turn the raw <h1> into a markdown heading so the TOC indexes it.
+    body_md = re.sub(r'(<div class="part-divider" markdown="1">\s*<div class="pn">[^<]*</div>)\s*<h1>(.*?)</h1>',
+                     lambda m: m.group(1) + "\n\n# " + m.group(2) + "\n\n", body_md, flags=re.S)
     body_html = md.convert(body_md)
     toc_html = build_toc_html(getattr(md, "toc_tokens", []), args.toc_depth) if meta.get("toc", "").lower() in ("true", "yes", "1") else ""
 
