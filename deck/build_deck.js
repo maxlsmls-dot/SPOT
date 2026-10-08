@@ -673,23 +673,42 @@ pres.addSection({ title: "Thesis 1a" });
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
   s.addText("Thesis 1a: Margin Floor (3/4)", { placeholder: "title" });
-  s.addText("The heavy second-visit wave peaks in 2027. Late-life, lighter work follows and lifts margins.", { placeholder: "subtitle" });
+  s.addText("Heavy second visits peak in 2027 while late-life, lighter visits keep rising, and they cross.", { placeholder: "subtitle" });
 
-  sectionHeader(s, "CFM56 Shop Visits by Visit Number", 0.35, 1.7, 4.75, "Cohort header");
-  const cy = ["2025", "2026", "2027", "2028", "2029", "2030"];
-  s.addChart(pres.charts.BAR, [
-    { name: "First visits", labels: cy, values: [976, 912, 845, 763, 676, 598] },
-    { name: "Second visits (heaviest)", labels: cy, values: [842, 891, 914, 908, 874, 832] },
-    { name: "Third+ visits (late life)", labels: cy, values: [532, 597, 641, 679, 700, 720] },
-  ], chartFrame({
-    x: 0.35, y: 2.3, w: 4.75, h: 3.15, barDir: "col", barGrouping: "stacked", barGapWidthPct: 40,
-    chartColors: [PLAT_LT, NAVY, PLAT], valAxisMinVal: 0, valAxisMaxVal: 2700, showValue: false,
-    showLegend: true, legendPos: "b", legendFontSize: 10, legendFontFace: "+mn-lt", legendColor: INK,
-    objectName: "Cohort chart",
-  }));
-  s.addText("2nd-visit peak", {
-    x: 1.87, y: 2.2, w: 1.3, h: 0.28, margin: 0, align: "center", fontSize: 11, bold: true, italic: true, color: C.text2,
+  sectionHeader(s, "Heavy vs. Late-Life Shop Visits", 0.35, 1.7, 4.75, "Cohort header");
+  const cy = ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032"];
+  s.addChart([
+    { type: pres.charts.LINE, data: [
+        { name: "Second visits (heaviest)", labels: cy, values: [842, 891, 914, 908, 874, 832, null, null] },
+        { name: "Third+ visits (late life, lighter)", labels: cy, values: [532, 597, 641, 679, 700, 720, null, null] },
+      ], options: { chartColors: [NAVY, PLAT], lineSize: 3.5, lineDataSymbol: "circle", lineDataSymbolSize: 7 } },
+    { type: pres.charts.LINE, data: [
+        { name: "Second trend", labels: cy, values: [null, null, null, null, null, 832, 790, 748] },
+        { name: "Third+ trend", labels: cy, values: [null, null, null, null, null, 720, 740, 760] },
+      ], options: { chartColors: [NAVY, PLAT], lineSize: 2.5, lineDash: "dash", lineDataSymbol: "none" } },
+  ], {
+    x: 0.35, y: 2.3, w: 4.75, h: 3.1, showLegend: false,
+    valAxisHidden: true, valAxisMinVal: 450, valAxisMaxVal: 1000, valGridLine: { style: "none" },
+    catAxisLabelColor: INK, catAxisLabelFontFace: "+mn-lt", catAxisLabelFontSize: 11, catGridLine: { style: "none" },
+    catAxisLineColor: "BFBFBF", objectName: "Cohort chart",
+  });
+  // Direct labels and annotations
+  s.addText("Heavy 2nd visits peak", {
+    x: 0.95, y: 2.3, w: 2.5, h: 0.28, margin: 0, align: "center", fontSize: 12, bold: true, color: C.text2,
     isTextBox: true, objectName: "Peak label",
+  });
+  s.addText("Late-life, lighter visits keep rising", {
+    x: 0.95, y: 4.72, w: 3.3, h: 0.28, margin: 0, align: "left", fontSize: 11, bold: true, color: C.accent2,
+    isTextBox: true, objectName: "Late-life label",
+  });
+  s.addShape(pres.shapes.OVAL, { x: 4.6, y: 3.44, w: 0.18, h: 0.18, fill: { color: NAVY }, line: { color: "FFFFFF", width: 1.5 }, objectName: "Crossover dot" });
+  s.addText([{ text: "Light work", options: { breakLine: true } }, { text: "overtakes ~2032" }], {
+    shape: pres.shapes.ROUNDED_RECTANGLE, rectRadius: 0.08, x: 3.55, y: 3.85, w: 1.5, h: 0.62, fill: { color: NAVY }, line: { color: NAVY },
+    align: "center", valign: "middle", fontSize: 11, bold: true, color: C.background1, margin: 0, objectName: "Crossover callout",
+  });
+  s.addText("Model through 2030; dashed = trend", {
+    x: 0.35, y: 5.42, w: 4.75, h: 0.3, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2,
+    isTextBox: true, objectName: "Cohort caption",
   });
 
   sectionHeader(s, "Margin vs. Light-Scope Mix", 5.35, 1.7, 4.3, "Mix header");
@@ -709,7 +728,7 @@ pres.addSection({ title: "Thesis 1a" });
   takeaway(s, "When light work returns, every 10 pts of mix adds ~1.5–2 pts of margin, above today's ~30%.");
   source(s, "GPS model (CFM56 Data tab: cohort roll-forward, central case); FTAI earnings call (light vs. heavy job economics)");
   s.addNotes("Cohort roll-forward (central): first visits fall 976 → 598 (2025–2030) as the last 737NG / A320ceo deliveries pass their first run; " +
-    "second visits, typically the heaviest, peak at 914 in 2027; third-and-later visits rise 532 → 720. Late-life engines increasingly get green-time-only " +
+    "second visits, typically the heaviest, peak at 914 in 2027; third-and-later visits rise 532 → 720. Dashed lines extend the 2029–30 slopes (-42/yr and +20/yr), which cross around 2032. Late-life engines increasingly get green-time-only " +
     "restorations (model assumes 100% / 90% / 70% of due engines get a full visit at <20 / 20–25 / 25+ years). " +
     "Mix curve uses management's example: light job ~$6M revenue / ~$2.5M profit, heavy ~$12M / ~$3.0M; blended margin by share of jobs. " +
     "Caveat: the model's broader-work share still rises from 48% to 52% through 2030, so the light-scope return is a late-cycle (2030+) effect.");
