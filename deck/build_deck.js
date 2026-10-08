@@ -311,25 +311,24 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
 
   // Right: valuation implies the market doesn't trust the earnings
   sectionHeader(s, "…So the Market Won't Pay Up", 5.75, 1.7, 3.9, "Multiple header");
+  const mcats = ["Market Today", "Our SOTP"];
   s.addChart(pres.charts.BAR, [
-    { name: "EV / EBITDA", labels: ["FY26E", "FY27E", "FY28E"], values: [15.9, 9.8, 6.8] },
+    { name: "Market", labels: mcats, values: [9.2, null] },
+    { name: "SOTP", labels: mcats, values: [null, 14.0] },
   ], chartFrame({
-    x: 5.75, y: 2.3, w: 3.9, h: 3.0, barDir: "col", chartColors: [NAVY],
-    valAxisMinVal: 0, valAxisMaxVal: 19, dataLabelFormatCode: '0.0"x"', dataLabelPosition: "outEnd",
-    objectName: "Multiple chart",
+    x: 5.75, y: 2.3, w: 3.9, h: 3.0, barDir: "col", barGrouping: "stacked", barGapWidthPct: 60, chartColors: ["B5AEA9", NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 16.5, dataLabelFormatCode: '0.0"x";;;', dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF",
+    dataLabelFontSize: 15, objectName: "Multiple chart",
   }));
-  s.addShape(pres.shapes.RECTANGLE, {
-    x: 8.36, y: 3.7, w: 1.12, h: 1.62, fill: { type: "none" }, line: { color: C.accent2, width: 2, dashType: "dash" },
-    objectName: "FY28 highlight",
-  });
-  s.addText("EV / Adj. EBITDA (Jefferies estimates)", {
-    x: 5.75, y: 5.58, w: 3.9, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, color: C.accent2,
+  s.addText("EV / FY27E Adj. EBITDA (GPS model)", {
+    x: 5.75, y: 5.4, w: 3.9, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, color: C.accent2,
     isTextBox: true, objectName: "Multiple caption",
   });
 
   takeaway(s, "The market reads the margin reset as the short thesis unwinding, and prices FTAI as if it's still over-earning.");
-  source(s, "Muddy Waters Research (Jan. 2025), Jefferies (8/2/26), FTAI filings, GPS analysis");
-  s.addNotes("EV of $20.56B at $167.03 (10/2/26) over Jefferies Adj. EBITDA of $1,289M (FY26E), $2,099M (FY27E) and $3,023M (FY28E).");
+  source(s, "Muddy Waters Research (Jan. 2025), FTAI filings, GPS model");
+  s.addNotes("Market: EV of $20.56B at $167.03 (10/2/26) over GPS FY27E Adj. EBITDA of $2,239M = 9.2x (9.8x on Jefferies FY27E of $2,099M; ~16x on FY26E). " +
+    "Our SOTP: $31.3B implied EV over the same $2,239M = 14.0x blended (Aerospace 16x, Power 12x, Leasing + SCI 9x).");
 }
 
 // ---------- Slide 5: The Opportunity (3/3) — Power is free ----------
