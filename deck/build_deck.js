@@ -591,7 +591,7 @@ pres.addSection({ title: "Thesis 1a" });
 // 1a (1/3): the bear case is nearly exhausted
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
-  s.addText("Thesis 1a: Margin Floor (1/3)", { placeholder: "title" });
+  s.addText("Thesis 1a: Margin Floor (1/4)", { placeholder: "title" });
   s.addText("Even if the bears are right, too little cheap inventory is left to push margins lower.", { placeholder: "subtitle" });
 
   sectionHeader(s, "Cheap Stock Left in AP", 0.35, 1.7, 3.9, "Donut header");
@@ -630,7 +630,7 @@ pres.addSection({ title: "Thesis 1a" });
 // 1a (2/3): price catch-up and EBITDA per module
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
-  s.addText("Thesis 1a: Margin Floor (2/3)", { placeholder: "title" });
+  s.addText("Thesis 1a: Margin Floor (2/4)", { placeholder: "title" });
   s.addText("FTAI held price to win share while OEM list prices rose ~7% a year. It can now catch up.", { placeholder: "subtitle" });
 
   sectionHeader(s, "Price Index (2025 = 100)", 0.35, 1.7, 4.6, "Price header");
@@ -669,10 +669,56 @@ pres.addSection({ title: "Thesis 1a" });
     "EBITDA per module: $887K FY25, $876K FY26E trough, $913K FY27E, $969K FY28E, $1,027K FY29E, $1,084K FY30E, $1,139K FY31E (+30% vs. FY26E).");
 }
 
+// 1a (3/4): cohort build — light-scope work returns late in the cycle
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
+  s.addText("Thesis 1a: Margin Floor (3/4)", { placeholder: "title" });
+  s.addText("The heavy second-visit wave peaks in 2027. Late-life, lighter work follows and lifts margins.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "CFM56 Shop Visits by Visit Number", 0.35, 1.7, 4.75, "Cohort header");
+  const cy = ["2025", "2026", "2027", "2028", "2029", "2030"];
+  s.addChart(pres.charts.BAR, [
+    { name: "First visits", labels: cy, values: [976, 912, 845, 763, 676, 598] },
+    { name: "Second visits (heaviest)", labels: cy, values: [842, 891, 914, 908, 874, 832] },
+    { name: "Third+ visits (late life)", labels: cy, values: [532, 597, 641, 679, 700, 720] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 4.75, h: 3.15, barDir: "col", barGrouping: "stacked", barGapWidthPct: 40,
+    chartColors: [PLAT_LT, NAVY, PLAT], valAxisMinVal: 0, valAxisMaxVal: 2700, showValue: false,
+    showLegend: true, legendPos: "b", legendFontSize: 10, legendFontFace: "+mn-lt", legendColor: INK,
+    objectName: "Cohort chart",
+  }));
+  s.addText("2nd-visit peak", {
+    x: 1.87, y: 2.2, w: 1.3, h: 0.28, margin: 0, align: "center", fontSize: 11, bold: true, italic: true, color: C.text2,
+    isTextBox: true, objectName: "Peak label",
+  });
+
+  sectionHeader(s, "Margin vs. Light-Scope Mix", 5.35, 1.7, 4.3, "Mix header");
+  const lx = ["30%", "40%", "50%", "60%", "70%", "80%"];
+  s.addChart(pres.charts.LINE, [
+    { name: "Blended margin", labels: lx, values: [0.279, 0.292, 0.306, 0.321, 0.340, 0.361] },
+  ], chartFrame({
+    x: 5.35, y: 2.3, w: 4.3, h: 3.0, chartColors: [NAVY], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 7,
+    valAxisMinVal: 0.24, valAxisMaxVal: 0.39, dataLabelFormatCode: "0%", dataLabelPosition: "t", dataLabelFontSize: 11,
+    objectName: "Mix margin chart",
+  }));
+  s.addText("Light-scope share of jobs (management's job economics)", {
+    x: 5.35, y: 5.35, w: 4.3, h: 0.45, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2,
+    isTextBox: true, objectName: "Mix caption",
+  });
+
+  takeaway(s, "When light work returns, every 10 pts of mix adds ~1.5–2 pts of margin, above today's ~30%.");
+  source(s, "GPS model (CFM56 Data tab: cohort roll-forward, central case); FTAI earnings call (light vs. heavy job economics)");
+  s.addNotes("Cohort roll-forward (central): first visits fall 976 → 598 (2025–2030) as the last 737NG / A320ceo deliveries pass their first run; " +
+    "second visits, typically the heaviest, peak at 914 in 2027; third-and-later visits rise 532 → 720. Late-life engines increasingly get green-time-only " +
+    "restorations (model assumes 100% / 90% / 70% of due engines get a full visit at <20 / 20–25 / 25+ years). " +
+    "Mix curve uses management's example: light job ~$6M revenue / ~$2.5M profit, heavy ~$12M / ~$3.0M; blended margin by share of jobs. " +
+    "Caveat: the model's broader-work share still rises from 48% to 52% through 2030, so the light-scope return is a late-cycle (2030+) effect.");
+}
+
 // 1a (3/3): PMA parts
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
-  s.addText("Thesis 1a: Margin Floor (3/3)", { placeholder: "title" });
+  s.addText("Thesis 1a: Margin Floor (4/4)", { placeholder: "title" });
   s.addText("Cheaper PMA parts add a new margin lever, and our base case uses it sparingly.", { placeholder: "subtitle" });
 
   sectionHeader(s, "PMA Ramp in Our Model", 0.35, 1.7, 4.6, "PMA ramp header");
