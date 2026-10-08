@@ -1099,27 +1099,33 @@ pres.addSection({ title: "Thesis 1b" });
   s.addText("Thesis 1b: The LEAP Option (2/2)", { placeholder: "title" });
   s.addText("LEAP isn't in our target. Matching FTAI's CFM56 share takes your return past 100%.", { placeholder: "subtitle" });
 
-  s.addText([
-    { text: "“It will happen. The reason why it will happen is because they have set their CFM line up to have a measurable amount of shared services in that line.”", options: { bold: true, breakLine: true } },
-    { text: "— Former executive, engine MRO shop", options: { italic: true, fontSize: 12 } },
-  ], {
-    x: 0.9, y: 1.75, w: 8.2, h: 1.1, fill: { color: PLAT_XLT }, align: "center", valign: "middle", fontSize: 15, color: INK,
-    margin: [12, 12, 4, 4], isTextBox: true, objectName: "LEAP quote",
+  // Quote banner with attribution set below, TATT style
+  s.addText("“It will happen. The reason why it will happen is because they have set their CFM line up to have a measurable amount of shared services in that line.”", {
+    x: 0.9, y: 1.78, w: 8.2, h: 0.95, fill: { color: PLAT_XLT }, align: "left", valign: "middle", fontSize: 16, bold: true, color: INK,
+    margin: [14, 14, 4, 4], isTextBox: true, objectName: "LEAP quote",
+  });
+  s.addText("— Former executive, engine MRO shop", {
+    x: 4.6, y: 2.78, w: 4.5, h: 0.3, margin: 0, align: "right", fontSize: 14, bold: true, italic: true, color: INK,
+    isTextBox: true, objectName: "LEAP quote attribution",
   });
 
-  const shares = ["0%", "5%", "10%", "15%", "20%", "25%"];
+  // Your return vs. LEAP share: platinum bars, 20% (FTAI's CFM56 share) in navy
+  const shares = ["0% (base)", "5%", "10%", "15%", "20% (CFM56)", "25%"];
   s.addChart(pres.charts.BAR, [
-    { name: "Your return", labels: shares, values: [0.66, 0.74, 0.83, 0.92, 1.01, 1.09] },
+    { name: "Your return", labels: shares, values: [0.66, 0.74, 0.83, 0.92, null, 1.09] },
+    { name: "Matches CFM56 share", labels: shares, values: [null, null, null, null, 1.01, null] },
   ], chartFrame({
-    x: 1.1, y: 3.0, w: 7.8, h: 2.55, barDir: "col", barGapWidthPct: 45, chartColors: [NAVY],
-    valAxisMinVal: 0, valAxisMaxVal: 1.25, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 13,
-    catAxisLabelColor: NAVY, catAxisLabelFontSize: 13, objectName: "LEAP return chart",
+    x: 1.05, y: 3.2, w: 8.4, h: 2.35, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 55,
+    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
+    dataLabelFontSize: 14, catAxisLabelColor: NAVY, catAxisLabelFontSize: 13, objectName: "LEAP return chart",
   }));
-  s.addText("Your return", { x: -0.05, y: 4.1, w: 1.4, h: 0.35, margin: 0, align: "center", valign: "middle", fontSize: 12, bold: true, color: INK, rotate: 270, isTextBox: true, objectName: "Y label" });
-  s.addText("FTAI share of off-contract LEAP shop visits", { x: 1.1, y: 5.55, w: 7.8, h: 0.28, margin: 0, align: "center", fontSize: 12, bold: true, color: INK, isTextBox: true, objectName: "X label" });
-  s.addText("Base case", { x: 1.25, y: 4.75, w: 1.1, h: 0.25, margin: 0, align: "center", fontSize: 11, italic: true, bold: true, color: C.background1, isTextBox: true, objectName: "Base label" });
-  s.addShape(pres.shapes.RECTANGLE, { x: 6.45, y: 3.22, w: 1.15, h: 2.4, fill: { type: "none" }, line: { color: C.accent2, width: 1.5, dashType: "dash" }, objectName: "CFM56 share box" });
-  s.addText("= CFM56 share", { x: 6.3, y: 2.9, w: 1.45, h: 0.26, margin: 0, align: "center", fontSize: 11, italic: true, bold: true, color: C.accent2, isTextBox: true, objectName: "CFM56 share label" });
+  s.addText("Your return", {
+    x: 0.0, y: 4.05, w: 1.5, h: 0.35, margin: 0, align: "center", valign: "middle", fontSize: 12, bold: true, color: INK, rotate: 270,
+    isTextBox: true, objectName: "Y label",
+  });
+  s.addText("FTAI share of off-contract LEAP shop visits", {
+    x: 1.05, y: 5.58, w: 8.4, h: 0.28, margin: 0, align: "center", fontSize: 12, bold: true, color: INK, isTextBox: true, objectName: "X label",
+  });
 
   takeaway(s, "Every 5 pts of off-contract LEAP share adds ~9 pts to your return on top of our base case.");
   source(s, "GPS analysis: 2,000 LEAP visits/yr, 50% off contract, 3 modules/visit, FY27E EBITDA/module, 16x, discounted 4 yrs at 9.5%");
