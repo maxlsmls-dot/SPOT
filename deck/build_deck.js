@@ -1321,7 +1321,7 @@ pres.addSection({ title: "Valuation" });
 
   const beliefs = [
     ["Margins: ~30% is the floor, and PMA parts, OEM-linked pricing and returning light work rebuild them."],
-    ["Share: FTAI's speed and new capacity take it to 20% of CFM56 module work."],
+    ["Share: FTAI reaches 20% of CFM56 work by FY30, at half the ~4 pts a year it has already been growing."],
     ["Power: FTAI delivers the order it has already signed."],
   ];
   beliefs.forEach(([t], i) => {
@@ -1340,18 +1340,18 @@ pres.addSection({ title: "Valuation" });
     x: 0.35, y: 3.62, w: 9.3, h: 0.42, margin: 0, align: "center", fontSize: 20, bold: true, color: INK, isTextBox: true, objectName: "Pick one",
   });
 
-  const th = ["Margins only", "Share only", "Power only"];
+  const th = ["Margins + share only", "Power only"];
   s.addChart(pres.charts.BAR, [
-    { name: "Return", labels: th, values: [0.12, 0.22, 0.36] },
+    { name: "Return", labels: th, values: [0.33, 0.36] },
   ], chartFrame({
-    x: 2.55, y: 4.05, w: 4.9, h: 2.25, barDir: "col", barGapWidthPct: 60, chartColors: [NAVY],
+    x: 2.55, y: 4.05, w: 4.9, h: 2.25, barDir: "col", barGapWidthPct: 110, chartColors: [NAVY],
     valAxisMinVal: 0, valAxisMaxVal: 0.45, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 15,
     catAxisLabelFontSize: 13, objectName: "Pick one chart",
   }));
   s.addText("Your return if only one comes true", {
     x: 2.55, y: 6.3, w: 4.9, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Pick one caption",
   });
-  s.addText("Each bar holds the other two at our bear case, with no Power", {
+  s.addText("Each bar holds the other side at our bear case", {
     x: 0.35, y: 4.65, w: 2.0, h: 1.05, line: { color: INK, width: 1, dashType: "dash" }, align: "center", valign: "middle",
     fontSize: 12, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Left assumption box",
   });
@@ -1360,9 +1360,10 @@ pres.addSection({ title: "Valuation" });
     fontSize: 13, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Right assumption box",
   });
 
-  source(s, "GPS model: SOTP (FY27E EBITDA, base multiples) with each thesis switched on alone vs. bear-case margins and share and no Power");
+  source(s, "GPS model: SOTP (FY27E EBITDA, base multiples), aviation theses vs. Power switched on separately; share history per GPS analysis");
   s.addNotes("Bars = base-case SOTP with one thesis on and the others off (bear-case margins/share rows, Power units = 0), at base multiples, vs. $167.03: " +
-    "margins only $187 (+12%), share only $203 (+22%), Power (signed order) only $227 (+36%). All three = $277 (+66%). " +
+    "margins + share only (no Power) $222 (+33%); Power (signed order) only, with bear-case margins and share, $227 (+36%). All three = $277 (+66%). " +
+    "Share path: ~4% (2024) → ~8% (2025) → ~12% (2026E), i.e. ~4 pts a year; the model reaches 20% by FY30, ~2 pts a year. " +
     "With all three off, the SOTP is $172, about today's price: the market is pricing the bear case.");
 }
 
