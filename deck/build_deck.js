@@ -1134,6 +1134,187 @@ pres.addSection({ title: "Thesis 1b" });
     "discounted four years at the 9.5% WACC. Each point of share ≈ $2.93/share. 20% share (FTAI's FY28E+ CFM56 share) ≈ $548M EBITDA and +$59/share → 101% return.");
 }
 
+// ---------- Thesis 2: Power (4 slides) ----------
+pres.addSection({ title: "Thesis 2" });
+
+// T2 (1/4): demand outruns the grid
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 2" });
+  s.addText("Thesis 2: Power (1/4)", { placeholder: "title" });
+  s.addText("AI spending is exploding, and our model shows the grid falling short from 2029.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Big Four Hyperscaler Capex ($B)", 0.35, 1.7, 4.6, "Capex header");
+  const cy = ["2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Reported", labels: cy, values: [69, 95, 128, 151, 147, 228, 376, null] },
+    { name: "Guided", labels: cy, values: [null, null, null, null, null, null, null, 733] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 4.6, h: 3.5, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 35,
+    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 820, catAxisLabelFontSize: 10,
+    dataLabelFormatCode: "#,##0", dataLabelPosition: "outEnd", dataLabelFontSize: 11, objectName: "Capex chart",
+  }));
+
+  sectionHeader(s, "U.S. Power Reserve Shortfall (GW)", 5.35, 1.7, 4.3, "Shortfall header");
+  const sy = ["2026", "2027", "2028", "2029", "2030", "2031"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Shortfall", labels: sy, values: [0, 0, 0, 8.4, 27.2, 47.2] },
+  ], chartFrame({
+    x: 5.35, y: 2.3, w: 4.3, h: 3.2, barDir: "col", barGapWidthPct: 35, chartColors: [NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 54, dataLabelFormatCode: "0.0;;0", dataLabelPosition: "outEnd", dataLabelFontSize: 12,
+    objectName: "Shortfall chart",
+  }));
+  s.addText("Capacity below required reserve margin, NERC regions (GPS model)", {
+    x: 5.35, y: 5.5, w: 4.3, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Shortfall caption",
+  });
+
+  takeaway(s, "Hyperscalers will spend ~$730B this year, but there won't be enough power to run it.");
+  source(s, "Company filings and 2026 guidance (Amazon, Alphabet, Meta, Microsoft); NERC; GPS model (Power outlook, Regional model tabs)");
+  s.addNotes("Big Four cash capex: $69B (2019) → $376B (2025); 2026 guidance midpoints sum to ~$733B. Reserve shortfall = required capacity (NERC demand × reserve margin) minus anticipated capacity " +
+    "and contracted additions, summed across NERC regions: 8.4 GW in 2029 (PJM), 27.2 GW in 2030 (PJM, MISO), 47.2 GW in 2031. US data center energy demand rises from ~298 TWh (2026) to ~649 TWh (2030).");
+}
+
+// T2 (2/4): new supply arrives too late — the bridge
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 2" });
+  s.addText("Thesis 2: Power (2/4)", { placeholder: "title" });
+  s.addText("Most new power hyperscalers have contracted isn't fully online until 2029 or later.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "New Capacity by Online Date (GW)", 0.35, 1.7, 5.0, "COD header");
+  const yrs = ["≤2026", "2027", "2028", "2029", "2030", "2031", "2032+"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Before 2029", labels: yrs, values: [1.8, 5.7, 3.3, null, null, null, null] },
+    { name: "2029 or later", labels: yrs, values: [null, null, null, 3.1, 2.2, 6.2, 3.0] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 5.0, h: 3.2, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 35,
+    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 7.5, catAxisLabelFontSize: 11,
+    dataLabelFormatCode: "0.0", dataLabelPosition: "outEnd", dataLabelFontSize: 12, objectName: "COD chart",
+  }));
+  s.addText([{ text: "57%", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "2029 or later", options: { fontSize: 10, bold: true } }], {
+    shape: pres.shapes.OVAL, x: 2.95, y: 2.3, w: 1.1, h: 1.1, fill: { color: NAVY }, line: { color: NAVY },
+    align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Late share callout",
+  });
+  s.addText("25 GW of new and restarted capacity across 45 tracked hyperscaler power deals", {
+    x: 0.35, y: 5.5, w: 5.0, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "COD caption",
+  });
+
+  // The bridge
+  sectionHeader(s, "The Bridge", 5.7, 1.7, 3.95, "Bridge header");
+  const steps = [
+    ["Today", "GPUs bought, data center shells built", PLAT_LT, C.text2],
+    ["2026–2029", "FTAI's mobile turbines power the site", NAVY, C.background1],
+    ["2029+", "Grid connections and new plants arrive", PLAT_LT, C.text2],
+  ];
+  steps.forEach(([when, what, fill, col], i) => {
+    const y = 2.35 + i * 1.08;
+    s.addText([{ text: when, options: { fontSize: 15, bold: true, breakLine: true } }, { text: what, options: { fontSize: 12 } }], {
+      x: 5.7, y, w: 3.95, h: 0.85, fill: { color: fill }, color: col, align: "center", valign: "middle", margin: 6,
+      isTextBox: true, objectName: `Bridge step ${i + 1}`,
+    });
+    if (i < 2) s.addShape(pres.shapes.DOWN_ARROW, { x: 7.47, y: y + 0.87, w: 0.4, h: 0.2, fill: { color: PLAT }, line: { type: "none" }, objectName: `Bridge arrow ${i + 1}` });
+  });
+
+  takeaway(s, "Data centers built today need power now. Transitory units like FTAI's fill the gap.");
+  source(s, "GPS model (Power agreements tab: 45 hyperscaler deals, new/restart MW by full COD); company announcements");
+  s.addNotes("Power agreements tab: 45 included hyperscaler deals with ~25.3 GW of new or restarted capacity. By full commercial operation date: ≤2026 1.8 GW, 2027 5.7 GW, 2028 3.3 GW, " +
+    "2029 3.1 GW, 2030 2.2 GW, 2031 6.2 GW, 2032+ 3.0 GW. 57% is fully online in 2029 or later (38% by first COD). Existing-plant offtake deals (no new MW) are excluded.");
+}
+
+// T2 (3/4): waiting is expensive, supply is scarce — pricing power
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 2" });
+  s.addText("Thesis 2: Power (3/4)", { placeholder: "title" });
+  s.addText("Power is a small slice of a data center's cost, and new turbines are sold out. FTAI has pricing power.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Cost to Build 100 MW ($M)", 0.35, 1.7, 4.3, "Cost header");
+  const bars = [["Data center facility", 1200, "B5AEA9"], ["FTAI turbines (4 units)", 100, NAVY]];
+  const bx = 2.45, bscale = 1.5 / 1200;
+  bars.forEach(([lab, v, col], i) => {
+    const y = 2.45 + i * 0.85;
+    s.addText(lab, { x: 0.35, y, w: bx - 0.45, h: 0.6, margin: 0, align: "right", valign: "middle", fontSize: 12, color: INK, isTextBox: true, objectName: `Build cost label ${i + 1}` });
+    s.addShape(pres.shapes.RECTANGLE, { x: bx, y, w: v * bscale, h: 0.6, fill: { color: col }, line: { type: "none" }, objectName: `Build cost bar ${i + 1}` });
+    s.addText(`$${v.toLocaleString("en-US")}M`, { x: bx + v * bscale + 0.08, y, w: 0.9, h: 0.6, margin: 0, align: "left", valign: "middle", fontSize: 13, bold: true, color: C.text2, isTextBox: true, objectName: `Build cost value ${i + 1}` });
+  });
+  s.addText([{ text: "~8%", options: { fontSize: 26, bold: true, color: C.text2, breakLine: true } }, { text: "Power is a rounding error next to the stranded build cost, before counting the GPUs inside.", options: { fontSize: 12, color: INK } }], {
+    x: 0.35, y: 4.3, w: 4.3, h: 1.45, fill: { color: PLAT_XLT }, align: "center", valign: "middle", margin: 10, isTextBox: true, objectName: "Cost takeaway",
+  });
+
+  sectionHeader(s, "When New Turbines Can Arrive", 5.0, 1.7, 4.65, "Lead time header");
+  const tl0 = 6.75, tlw = 2.85, y0 = 2026, yN = 2031, tscale = tlw / (yN - y0);
+  ["2026", "2028", "2030"].forEach((yr) => {
+    const x = tl0 + (Number(yr) - y0) * tscale;
+    s.addShape(pres.shapes.LINE, { x, y: 2.3, w: 0, h: 2.75, line: { color: "E3E0DC", width: 0.75 }, objectName: `Year grid ${yr}` });
+    s.addText(yr, { x: x - 0.3, y: 5.05, w: 0.6, h: 0.25, margin: 0, align: "center", fontSize: 10, color: C.accent2, isTextBox: true, objectName: `Year tick ${yr}` });
+  });
+  const lanes = [
+    ["FTAI Mod-1", 2026.8, 2028.0, NAVY],
+    ["New aero orders", 2028.0, 2030.9, "B5AEA9"],
+    ["New large turbines", 2029.0, 2031.0, "B5AEA9"],
+  ];
+  lanes.forEach(([lab, a, b, col], i) => {
+    const y = 2.5 + i * 0.85;
+    s.addText(lab, { x: 5.0, y, w: 1.65, h: 0.55, margin: 0, align: "right", valign: "middle", fontSize: 12, bold: i === 0, color: i === 0 ? C.text2 : INK, isTextBox: true, objectName: `Lane ${i + 1} label` });
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: tl0 + (a - y0) * tscale, y: y + 0.08, w: (b - a) * tscale, h: 0.4, rectRadius: 0.08, fill: { color: col }, line: { type: "none" }, objectName: `Lane ${i + 1} bar` });
+  });
+  s.addText("Delivery windows; large-turbine order books full to 2029", {
+    x: 5.0, y: 5.4, w: 4.65, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Lead time caption",
+  });
+
+  takeaway(s, "Idle data centers cost far more than power. FTAI delivers years before the competition.");
+  source(s, "GPS model (facility cost $12M/MW; FTAI ~$1M/MW, 25 MW units); CNBC (Jun-26); Tom's Hardware (Oct-25); FTAI earnings calls");
+  s.addNotes("Build cost: GPS model assumes ~$12M per MW of data center facility spend, so 100 MW ≈ $1.2B before GPUs; FTAI's contract implies ~$1M per MW, so four 25 MW Mod-1 units ≈ $100M (~8%). " +
+    "Lead times: GE Vernova's large gas turbine order book is full until 2029 with orders out to 2031 (CNBC, Jun-26); new aeroderivative orders are being slotted for 2028–2030 (Tom's Hardware, Oct-25). " +
+    "FTAI guided first Mod-1 deliveries to Q4'26, later saying it is prudent to expect deliveries in 2027.");
+}
+
+// T2 (4/4): the signal — FTAI's deal survived; the Power ramp
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 2" });
+  s.addText("Thesis 2: Power (4/4)", { placeholder: "title" });
+  s.addText("A hyperscaler cancelled a rival's later-dated order but kept FTAI's. That's a vote of confidence.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Same Buyer, Different Outcome", 0.35, 1.7, 4.6, "Signal header");
+  const cards = [
+    ["Competitor", "Similar aeroderivative product", "Later delivery date", "Cancelled", PLAT_LT, C.text2],
+    ["FTAI", "Mod-1, 25 MW units", "Deliveries from 2027", "Intact: $1.465B", NAVY, C.background1],
+  ];
+  cards.forEach(([who, prod, when, result, fill, col], i) => {
+    const x = 0.35 + i * 2.38;
+    s.addText([
+      { text: who, options: { fontSize: 17, bold: true, breakLine: true } },
+      { text: prod, options: { fontSize: 11, breakLine: true } },
+      { text: when, options: { fontSize: 11 } },
+    ], { x, y: 2.35, w: 2.22, h: 1.55, fill: { color: fill }, color: col, align: "center", valign: "middle", margin: 6, isTextBox: true, objectName: `${who} card` });
+    s.addShape(pres.shapes.DOWN_ARROW, { x: x + 0.91, y: 3.95, w: 0.4, h: 0.32, fill: { color: PLAT }, line: { type: "none" }, objectName: `${who} arrow` });
+    s.addText(result, {
+      x, y: 4.32, w: 2.22, h: 0.62, fill: { color: i ? NAVY : "FFFFFF" }, line: { color: NAVY, width: 1.5 }, align: "center", valign: "middle",
+      fontSize: 15, bold: true, color: i ? C.background1 : C.text2, margin: 0, isTextBox: true, objectName: `${who} result`,
+    });
+  });
+  s.addText("The market still values Power at ~zero.", {
+    x: 0.35, y: 5.15, w: 4.6, h: 0.5, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 13, italic: true, bold: true,
+    color: C.text2, isTextBox: true, objectName: "Market value note",
+  });
+
+  sectionHeader(s, "FTAI Power Adj. EBITDA ($M)", 5.35, 1.7, 4.3, "Power EBITDA header");
+  const py = ["FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Power EBITDA", labels: py, values: [20, 450, 900, 1100, 1200, 1300] },
+  ], chartFrame({
+    x: 5.35, y: 2.3, w: 4.3, h: 3.15, barDir: "col", barGapWidthPct: 35, chartColors: [NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 1500, catAxisLabelFontSize: 10, dataLabelFormatCode: "#,##0", dataLabelPosition: "outEnd",
+    dataLabelFontSize: 12, objectName: "Power EBITDA chart",
+  }));
+  s.addText("Our FY27E sits at the low end of the $450–750M guide", {
+    x: 5.35, y: 5.45, w: 4.3, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Power EBITDA caption",
+  });
+
+  takeaway(s, "Delivering just the low end of guidance is worth ~$52 a share the market isn't paying for.");
+  source(s, "GPS diligence; FTAI earnings calls and filings; GPS model (RPM tab: units × 25 MW × $1M/MW × 40% margin)");
+  s.addNotes("Competitor cancellation is from GPS diligence: a competitor offering a similar aeroderivative product had its hyperscaler deal cancelled, with a later delivery date than FTAI's. " +
+    "Name and source to be added before presenting. FTAI's $1.465B order through the J&F JV remains in place. " +
+    "Power EBITDA: units delivered 2 (FY26E), 45, 90, 110, 120, 130 × 25 MW × $1M/MW × 40% margin. Low-end FY27E guide $450M × 12x = ~$52/share in the SOTP.");
+}
+
 (async () => {
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
