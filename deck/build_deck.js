@@ -332,6 +332,96 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   s.addNotes("EV of $20.56B at $167.03 (10/2/26) over Jefferies Adj. EBITDA of $1,289M (FY26E), $2,099M (FY27E) and $3,023M (FY28E).");
 }
 
+// ---------- Slide 5: The Opportunity (3/3) — Power is free ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "The Opportunity" });
+  s.addText("The Opportunity (3/3)", { placeholder: "title" });
+  s.addText("The market assigns no value to Power: the stock trades below the core business alone.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "FY27E Sum of the Parts ($ / Share)", 0.35, 1.7, 5.75, "SOTP header");
+  const cats = ["Current Price", "Core ex-Power", "Power", "SOTP"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Base", labels: cats, values: [0, 0, 224.75, 0] },
+    { name: "Value", labels: cats, values: [167.03, 224.75, 0, 276.65] },
+    { name: "Power", labels: cats, values: [0, 0, 51.9, 0] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 5.75, h: 3.5, barDir: "col", barGrouping: "stacked", barGapWidthPct: 35,
+    chartColors: ["FFFFFF", NAVY, PLAT], valAxisMinVal: 0, valAxisMaxVal: 330,
+    dataLabelFormatCode: '"$"0;;;', dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF", dataLabelFontSize: 15,
+    objectName: "SOTP chart",
+  }));
+  s.addText([{ text: "26%", options: { fontSize: 20, bold: true, breakLine: true } }, { text: "below core", options: { fontSize: 11, bold: true } }], {
+    shape: pres.shapes.OVAL, x: 0.6, y: 2.35, w: 1.15, h: 1.15, fill: { color: NAVY }, line: { color: NAVY },
+    align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Discount callout",
+  });
+  s.addText("Free call option", {
+    x: 3.25, y: 2.5, w: 1.45, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, bold: true,
+    color: C.accent2, isTextBox: true, objectName: "Power label",
+  });
+
+  // Right: Power at a glance
+  sectionHeader(s, "FTAI Power at a Glance", 6.45, 1.7, 3.2, "Power stats header");
+  const stats = [
+    ["$1.465B", "First hyperscaler order, via the J&F JV"],
+    ["$450–750M", "FY27 Power EBITDA guide"],
+    ["25 MW", "Per unit, built from CFM56 cores"],
+  ];
+  stats.forEach(([big, lab], i) => {
+    const y = 2.35 + i * 1.18;
+    s.addText(big, {
+      x: 6.45, y, w: 3.2, h: 0.58, margin: 0, align: "center", valign: "bottom", fontSize: 30, bold: true,
+      color: C.text2, isTextBox: true, objectName: `Power stat ${i + 1}`,
+    });
+    s.addText(lab, {
+      x: 6.45, y: y + 0.6, w: 3.2, h: 0.35, margin: 0, align: "center", valign: "top", fontSize: 13,
+      color: C.accent2, isTextBox: true, objectName: `Power stat ${i + 1} label`,
+    });
+  });
+
+  takeaway(s, "Even with Power at zero, FTAI is cheap. Power is a free call option on top.");
+  source(s, "FTAI filings and earnings calls, GPS SOTP (FY27E EBITDA × segment multiples)");
+  s.addNotes("SOTP on FY27E EBITDA: Aerospace Products $1,541M at 16x ($237/sh), Power $450M at 12x ($52/sh, low end of guide), " +
+    "Aviation Leasing + SCI $455M at 9x ($39/sh), less corporate (-$28/sh), net debt (-$23/sh) and preferred (-$1/sh) = $277/sh. " +
+    "Ex-Power = $225/sh vs. $167.03 current (10/2/26), a 26% discount.");
+}
+
+// ---------- Slide 6: Business Overview ----------
+pres.addSection({ title: "Business Overview" });
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Business Overview" });
+  s.addText("Business Overview", { placeholder: "title" });
+  s.addText("FTAI keeps the world's best-selling jet engine flying, and turns old ones into power.", { placeholder: "subtitle" });
+
+  const cols = [
+    ["cfm56.png", "Aerospace Products", "Restores and swaps CFM56 engine modules, so airlines get engines back in days, not months.", "757 → 1,200", "Modules, 2025 → 2026E"],
+    ["power.png", "FTAI Power", "Converts CFM56 cores into 25 MW mobile gas turbines that power data centers.", "$450–750M", "FY27 EBITDA guide"],
+    ["aircraft.png", "Leasing + SCI", "Leases jets and engines. The SCI partnership buys mid-life jets and sends all engine work to FTAI.", "316", "SCI aircraft, YE26E"],
+  ];
+  const colW = 2.9, gap = 0.3, x0 = 0.35;
+  cols.forEach(([img, name, desc, big, lab], i) => {
+    const x = x0 + i * (colW + gap);
+    s.addImage({ path: path.join(__dirname, "img", img), x: x + 0.15, y: 1.75, w: 2.6, h: 1.47, objectName: `${name} illustration` });
+    s.addText(name, {
+      x, y: 3.32, w: colW, h: 0.4, margin: 0, align: "center", fontSize: 18, bold: true, color: C.text2,
+      isTextBox: true, objectName: `${name} name`,
+    });
+    s.addText(desc, {
+      x, y: 3.75, w: colW, h: 1.0, margin: 0, align: "center", valign: "top", fontSize: 13, color: INK,
+      isTextBox: true, objectName: `${name} description`,
+    });
+    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 12, color: C.accent2 } }], {
+      x: x + 0.2, y: 4.85, w: colW - 0.4, h: 0.95, fill: { color: PLAT_XLT }, align: "center", valign: "middle",
+      margin: 0, isTextBox: true, objectName: `${name} stat`,
+    });
+    if (i > 0) {
+      s.addShape(pres.shapes.LINE, { x: x - gap / 2, y: 1.85, w: 0, h: 3.9, line: { color: PLAT_LT, width: 1 }, objectName: `Column divider ${i}` });
+    }
+  });
+
+  takeaway(s, "One engine, three ways to earn: fix it, power with it, and own the planes it flies on.");
+  source(s, "FTAI filings and earnings calls, GPS model. Illustrations are schematic.");
+}
+
 (async () => {
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
