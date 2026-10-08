@@ -340,23 +340,24 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "The Opportunity" });
   s.addText("The Opportunity (3/3)", { placeholder: "title" });
-  s.addText("The market assigns no value to Power: the stock trades below the core business alone.", { placeholder: "subtitle" });
+  s.addText("Turbine makers are sold out for years, yet the market assigns no value to FTAI's Power.", { placeholder: "subtitle" });
 
-  sectionHeader(s, "FTAI Power Adj. EBITDA ($M)", 0.35, 1.7, 5.75, "Power ramp header");
-  const pry = ["FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
+  sectionHeader(s, "Gas Turbine Backlogs (GW)", 0.35, 1.7, 5.75, "Backlog header");
+  const tb = ["GE Vernova", "Siemens Energy", "Mitsubishi"];
   s.addChart(pres.charts.BAR, [
-    { name: "Power EBITDA", labels: pry, values: [20, 450, 900, 1100, 1200, 1300] },
+    { name: "Firm backlog", labels: tb, values: [53, 69, 35] },
+    { name: "Slot reservations", labels: tb, values: [63, null, null] },
   ], chartFrame({
-    x: 0.35, y: 2.3, w: 5.75, h: 3.2, barDir: "col", barGapWidthPct: 40, chartColors: [NAVY],
-    valAxisMinVal: 0, valAxisMaxVal: 1500, catAxisLabelFontSize: 11, dataLabelFormatCode: "#,##0", dataLabelPosition: "outEnd",
-    dataLabelFontSize: 12, objectName: "Power ramp chart",
+    x: 0.35, y: 2.3, w: 5.75, h: 2.85, barDir: "col", barGrouping: "stacked", barGapWidthPct: 55, chartColors: [NAVY, "B5AEA9"],
+    valAxisMinVal: 0, valAxisMaxVal: 135, catAxisLabelFontSize: 12, dataLabelFormatCode: "0;;;", dataLabelPosition: "ctr",
+    dataLabelColor: "FFFFFF", dataLabelFontSize: 13, objectName: "Turbine backlog chart",
   }));
-  s.addText([{ text: "~$0", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "market value", options: { fontSize: 10, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 0.6, y: 2.35, w: 1.15, h: 1.15, fill: { color: PLAT_LT }, line: { color: NAVY, width: 2 },
-    align: "center", valign: "middle", color: C.text2, margin: 0, objectName: "Market value callout",
+  s.addText("116 total", { x: 0.75, y: 2.3, w: 1.6, h: 0.28, margin: 0, align: "center", fontSize: 12, bold: true, color: C.text2, isTextBox: true, objectName: "GEV total label" });
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Firm backlog   " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "Slot reservations" }], {
+    x: 0.35, y: 5.17, w: 5.75, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Backlog legend",
   });
-  s.addText("Our model; the core business alone is worth $225/share vs. $167 today", {
-    x: 0.35, y: 5.5, w: 5.75, h: 0.3, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Power ramp caption",
+  s.addText("Booking out to 2031 (GEV) · lead times 3+ years (Siemens) · new orders deliver 2028–30 (MHI)", {
+    x: 0.35, y: 5.45, w: 5.75, h: 0.4, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Backlog caption",
   });
 
   // Right: Power at a glance
@@ -379,7 +380,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   });
 
   takeaway(s, "Even with Power at zero, FTAI is cheap. Power is a free call option on top.");
-  source(s, "FTAI filings and earnings calls; GPS model (RPM tab Power build; FY27E SOTP)");
+  source(s, "GE Vernova Q2'26, Siemens Energy Q3 FY26 and MHI Q1 FY26 results (via Utility Dive); FTAI filings and calls");
   s.addNotes("SOTP on FY27E EBITDA: Aerospace Products $1,541M at 16x ($237/sh), Power $450M at 12x ($52/sh, low end of guide), " +
     "Aviation Leasing + SCI $455M at 9x ($39/sh), less corporate (-$28/sh), net debt (-$23/sh) and preferred (-$1/sh) = $277/sh. " +
     "Ex-Power = $225/sh vs. $167.03 current (10/2/26), a 26% discount.");
@@ -1367,36 +1368,42 @@ pres.addSection({ title: "Valuation" });
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Valuation" });
   s.addText("Valuation: Sum of the Parts", { placeholder: "title" });
-  s.addText("Every segment at a sober multiple gets to $277, before any new Power contract.", { placeholder: "subtitle" });
+  s.addText("At $167 the market prices our bear case. Each thesis builds from there to $277.", { placeholder: "subtitle" });
 
-  sectionHeader(s, "FY27E Sum of the Parts ($ / Share)", 0.35, 1.7, 6.25, "Waterfall header");
-  const wc = ["Aerospace", "Power", "Leasing", "– Corporate", "– Net debt", "SOTP", "Today"];
+  sectionHeader(s, "From Today to Our Base Case ($ / Share)", 0.35, 1.7, 6.25, "Waterfall header");
+  const wc = ["Today", "To bear case", "Margins", "Share", "Power", "Base case"];
   s.addChart(pres.charts.BAR, [
-    { name: "Base", labels: wc, values: [0, 236.9, 288.8, 300.4, 276.7, 0, 0] },
-    { name: "Adds", labels: wc, values: [236.9, 51.9, 39.4, 0, 0, 0, 0] },
-    { name: "Less", labels: wc, values: [0, 0, 0, 27.8, 23.8, 0, 0] },
-    { name: "Totals", labels: wc, values: [0, 0, 0, 0, 0, 276.7, 0] },
-    { name: "Today", labels: wc, values: [0, 0, 0, 0, 0, 0, 167.0] },
+    { name: "Base", labels: wc, values: [0, 167.0, 171.9, 188.9, 221.6, 0] },
+    { name: "Today", labels: wc, values: [167.0, 0, 0, 0, 0, 0] },
+    { name: "Theses", labels: wc, values: [0, 4.8, 17.0, 32.7, 55.1, 0] },
+    { name: "Base case", labels: wc, values: [0, 0, 0, 0, 0, 276.6] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 6.25, h: 3.25, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30,
-    chartColors: ["FFFFFF", NAVY, PLAT, NAVY, PLAT], valAxisMinVal: 0, valAxisMaxVal: 345, catAxisLabelFontSize: 10,
-    dataLabelFormatCode: '"$"0;;;', dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF", dataLabelFontSize: 11, objectName: "SOTP waterfall",
+    chartColors: ["FFFFFF", PLAT, NAVY, NAVY], valAxisMinVal: 0, valAxisMaxVal: 300, catAxisLabelFontSize: 11,
+    showValue: false, objectName: "Thesis waterfall",
   }));
-  s.addText("Aerospace 16x · Power 12x · Leasing + SCI 9x FY27E EBITDA", {
-    x: 0.35, y: 5.55, w: 6.25, h: 0.28, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Multiples caption",
+  // Value labels above each bar (plot: $0 at y≈5.0", ~0.00878"/$; bar centers ~1" apart from x≈0.97")
+  [["$167", 0.97, 167.0], ["+$5", 1.97, 171.9], ["+$17", 2.97, 188.9], ["+$33", 3.97, 221.6], ["+$55", 4.97, 276.7], ["$277", 5.97, 276.6]].forEach(([t, cx, top], i) => {
+    s.addText(t, {
+      x: cx - 0.45, y: 5.0 - top * 0.00878 - 0.3, w: 0.9, h: 0.26, margin: 0, align: "center", valign: "bottom", fontSize: 13, bold: true,
+      color: i === 0 ? INK : C.text2, isTextBox: true, objectName: `Waterfall label ${i + 1}`,
+    });
+  });
+  s.addText("FY27E SOTP; each thesis switched from our bear case to base (Shapley average)", {
+    x: 0.35, y: 5.55, w: 6.25, h: 0.28, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Waterfall caption",
   });
 
   sectionHeader(s, "What It Means", 6.9, 1.7, 2.75, "Means header");
-  [["+66%", "upside to our $277 target"], ["$225", "core business alone, 35% above today"], ["$52", "for Power, on just the signed order"]].forEach(([big, lab], i) => {
+  [["+66%", "upside to our $277 base case"], ["$50", "from the aviation theses: margins and share"], ["$55", "from Power, on just the signed order"]].forEach(([big, lab], i) => {
     s.addText([{ text: big, options: { fontSize: 28, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 12, color: INK } }], {
       x: 6.9, y: 2.3 + i * 1.1, w: 2.75, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Means stat ${i + 1}`,
     });
   });
 
-  takeaway(s, "Strip out Power and the core is still worth $225. Power is the free call option on top.");
-  source(s, "GPS model (DCF tab SOTP: FY27E segment EBITDA, YE27E net debt, 104.0M diluted shares); price $167.03 (10/2/26)");
-  s.addNotes("SOTP per share: Aerospace $1,541M × 16x = $237; Power $450M × 12x = $52; Leasing + SCI $455M × 9x = $39; corporate ($207M at the blended 14.0x) = −$28; " +
-    "net debt and preferred = −$24; total $277 vs. $167.03 (+66%). Excluding Power: $225 (+35%).");
+  takeaway(s, "Get the aviation theses right and you make 33%. Power on just the signed order takes it to 66%.");
+  source(s, "GPS model (SOTP: Aerospace 16x, Power 12x, Leasing + SCI 9x FY27E EBITDA); thesis attribution re-runs; price $167.03 (10/2/26)");
+  s.addNotes("Waterfall: today $167.03; bear case (bear margins and share, no Power) SOTP $171.86 (+$4.83); Shapley contributions on the SOTP: margins +$17.04, share +$32.66, Power +$55.08 = $276.65 (+66%). " +
+    "Base-case SOTP build: Aerospace $1,541M × 16x = $237; Power $450M × 12x = $52; Leasing + SCI $455M × 9x = $39; corporate −$28; net debt and preferred −$24.");
 }
 
 (async () => {
