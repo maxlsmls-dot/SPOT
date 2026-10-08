@@ -1313,60 +1313,57 @@ pres.addSection({ title: "Thesis 2" });
     "Returns: SOTP ex-Power $224.75 + Power EBITDA × 12 / 104.0M shares, vs. $167.03: no Power 35%, signed order 66% (base case), +1 contract 86%, +2 contracts 107%.");
 }
 
-// ---------- Valuation: SOTP scenarios ----------
+// ---------- Valuation: What You Need to Believe (TATT architecture) ----------
 pres.addSection({ title: "Valuation" });
 {
-  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Valuation" });
-  s.addText("Valuation: Sum of the Parts", { placeholder: "title" });
-  s.addText("Base case of $277 (+66%), with 2.7x more upside than downside.", { placeholder: "subtitle" });
+  const s = pres.addSlide({ masterName: "GPS Content", sectionTitle: "Valuation" });
+  s.addText("Valuation: What You Need to Believe", { placeholder: "title" });
 
-  // SOTP table ($ / share), FY27E EBITDA × multiple
-  const hdr = (t, fill, col) => ({ text: t, options: { bold: true, fontSize: 13, color: col, fill: { color: fill }, align: "center", valign: "middle" } });
-  const cell = (v, sub, opts = {}) => ({
-    text: [{ text: v, options: { bold: true, fontSize: 13, breakLine: !!sub } }].concat(sub ? [{ text: sub, options: { fontSize: 9, color: PLAT } }] : []),
-    options: Object.assign({ align: "center", valign: "middle", color: INK }, opts),
-  });
-  const lab = (t, opts = {}) => ({ text: t, options: Object.assign({ align: "left", valign: "middle", fontSize: 12, color: INK, bold: true }, opts) });
-  const rows = [
-    [lab(""), hdr("Bear", PLAT_LT, NAVY), hdr("Base", NAVY, "FFFFFF"), hdr("Bull", PLAT_LT, NAVY)],
-    [lab("Aerospace Products"), cell("$135", "12x · $1,168M"), cell("$237", "16x · $1,541M"), cell("$289", "18x · $1,669M")],
-    [lab("FTAI Power"), cell("$9", "8x · $113M"), cell("$52", "12x · $450M"), cell("$74", "14x · $550M")],
-    [lab("Leasing + SCI"), cell("$31", "8x · $400M"), cell("$39", "9x · $455M"), cell("$44", "10x · $455M")],
-    [lab("Corporate"), cell("($21)"), cell("($28)"), cell("($31)")],
-    [lab("Net debt + preferred"), cell("($26)"), cell("($24)"), cell("($23)")],
-    [lab("Price per share", { fontSize: 13 }), cell("$126", null, { fill: { color: PLAT_XLT } }), cell("$277", null, { fill: { color: PLAT_XLT } }), cell("$352", null, { fill: { color: PLAT_XLT } })],
-    [lab("vs. $167 today", { fontSize: 12, bold: false, italic: true }), cell("–24%", null, { color: PLAT }), cell("+66%", null, { color: NAVY }), cell("+111%", null, { color: NAVY })],
+  const beliefs = [
+    ["Margins: ~30% is the floor, and PMA parts, OEM-linked pricing and returning light work rebuild them."],
+    ["Share: FTAI's speed and new capacity take it to 20% of CFM56 module work."],
+    ["Power: FTAI delivers the order it has already signed."],
   ];
-  s.addTable(rows, {
-    x: 0.35, y: 1.75, w: 5.5, colW: [1.9, 1.2, 1.2, 1.2], rowH: [0.38, 0.52, 0.52, 0.52, 0.4, 0.4, 0.45, 0.4],
-    border: { type: "solid", pt: 0.5, color: "E3E0DC" }, fontSize: 12, margin: 0.04, objectName: "SOTP table",
+  beliefs.forEach(([t], i) => {
+    const y = 1.2 + i * 0.78;
+    s.addText(String(i + 1), {
+      shape: pres.shapes.OVAL, x: 1.15, y: y + 0.08, w: 0.5, h: 0.5, fill: { color: NAVY }, line: { color: NAVY },
+      align: "center", valign: "middle", fontSize: 18, bold: true, color: C.background1, margin: 0, objectName: `Belief ${i + 1} number`,
+    });
+    s.addText(t, {
+      x: 1.85, y, w: 7.2, h: 0.66, margin: 0, align: "left", valign: "middle", fontSize: 16, bold: true, color: C.text2,
+      isTextBox: true, objectName: `Belief ${i + 1}`,
+    });
   });
 
-  // Price per share by scenario vs. today
-  sectionHeader(s, "Price per Share by Scenario", 6.15, 1.7, 3.5, "Scenario chart header");
-  const sc = ["Bear", "Base", "Bull"];
+  s.addText("Or… just pick one:", {
+    x: 0.35, y: 3.62, w: 9.3, h: 0.42, margin: 0, align: "center", fontSize: 20, bold: true, color: INK, isTextBox: true, objectName: "Pick one",
+  });
+
+  const th = ["Margins only", "Share only", "Power only"];
   s.addChart(pres.charts.BAR, [
-    { name: "Bear", labels: sc, values: [126, null, null] },
-    { name: "Base / Bull", labels: sc, values: [null, 277, 352] },
+    { name: "Return", labels: th, values: [0.12, 0.22, 0.36] },
   ], chartFrame({
-    x: 6.15, y: 2.3, w: 3.5, h: 2.75, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 45,
-    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 400, catAxisLabelFontSize: 12,
-    dataLabelFormatCode: '"$"0', dataLabelPosition: "outEnd", dataLabelFontSize: 13, objectName: "Scenario chart",
+    x: 2.55, y: 4.05, w: 4.9, h: 2.25, barDir: "col", barGapWidthPct: 60, chartColors: [NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 0.45, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 15,
+    catAxisLabelFontSize: 13, objectName: "Pick one chart",
   }));
-  s.addText([{ text: "2.7x", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "reward / risk", options: { fontSize: 10, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 6.25, y: 2.3, w: 1.15, h: 1.15, fill: { color: NAVY }, line: { color: NAVY },
-    align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Reward risk callout",
+  s.addText("Your return if only one comes true", {
+    x: 2.55, y: 6.3, w: 4.9, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Pick one caption",
   });
-  s.addText("FY27E EBITDA × multiple; today's price $167", {
-    x: 6.15, y: 5.1, w: 3.5, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Scenario caption",
+  s.addText("Each bar holds the other two at our bear case, with no Power", {
+    x: 0.35, y: 4.65, w: 2.0, h: 1.05, line: { color: INK, width: 1, dashType: "dash" }, align: "center", valign: "middle",
+    fontSize: 12, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Left assumption box",
+  });
+  s.addText([{ text: "All three:", options: { breakLine: true } }, { text: "+66%", options: { fontSize: 20 } }], {
+    x: 7.65, y: 4.65, w: 2.0, h: 1.05, line: { color: INK, width: 1, dashType: "dash" }, align: "center", valign: "middle",
+    fontSize: 13, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Right assumption box",
   });
 
-  takeaway(s, "Even with bear-case EBITDA and compressed multiples, downside is 24%. The base case offers 66%.");
-  source(s, "GPS model (Bear/Base/Bull cases, FY27E segment EBITDA, YE27E net debt); bear and bull multiples are GPS assumptions");
-  s.addNotes("SOTP on FY27E Adj. EBITDA from each model case (DCF!C3 toggle). Base multiples from the model: Aerospace 16x, Power 12x, Leasing + SCI 9x; corporate costs at the blended segment multiple. " +
-    "Bear: model Bear EBITDA (Aerospace $1,168M, Power $113M, Leasing $400M) at de-rated 12x / 8x / 8x = $126 (-24%). Bull: model Bull EBITDA ($1,669M / $550M / $455M) at 18x / 14x / 10x = $352 (+111%). " +
-    "Reward/risk = 66% / 24% = 2.7x. Holding base multiples in the bear case gives $173, so the bear case also assumes the market keeps punishing the multiple. " +
-    "Note: the title slide still shows the blended DCF target ($308, 84%, 3.4x).");
+  source(s, "GPS model: SOTP (FY27E EBITDA, base multiples) with each thesis switched on alone vs. bear-case margins and share and no Power");
+  s.addNotes("Bars = base-case SOTP with one thesis on and the others off (bear-case margins/share rows, Power units = 0), at base multiples, vs. $167.03: " +
+    "margins only $187 (+12%), share only $203 (+22%), Power (signed order) only $227 (+36%). All three = $277 (+66%). " +
+    "With all three off, the SOTP is $172, about today's price: the market is pricing the bear case.");
 }
 
 (async () => {
