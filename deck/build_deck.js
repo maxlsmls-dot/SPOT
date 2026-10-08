@@ -39,24 +39,47 @@ pres.defineSlideMaster({
   objects: [],
 });
 
+const contentFrame = () => [
+  { line: { x: 0.35, y: 0.95, w: 9.3, h: 0, line: { color: NAVY, width: 1.25 } } },
+  { image: { path: LOGO, x: 8.88, y: 6.72, w: 0.68, h: 0.62 } },
+  {
+    placeholder: {
+      options: {
+        name: "title", type: "title", x: 0.35, y: 0.2, w: 7.8, h: 0.7,
+        fontSize: 32, bold: true, color: C.text2, valign: "middle", align: "left", margin: 0,
+      },
+      text: "",
+    },
+  },
+];
+const slideNum = () => ({ x: 8.35, y: 6.92, w: 0.45, h: 0.3, fontSize: 11, bold: true, color: "1A1A1A", align: "right" });
+
 pres.defineSlideMaster({
   title: "GPS Content",
   background: { color: "FFFFFF" },
   margin: [0.4, 0.4, 0.6, 0.4],
+  objects: contentFrame(),
+  slideNumber: slideNum(),
+});
+
+// Content slide with a one-line navy subtitle under the rule (TATT "Opportunity (n/3)" frame)
+pres.defineSlideMaster({
+  title: "GPS Content Subtitle",
+  background: { color: "FFFFFF" },
+  margin: [0.4, 0.4, 0.6, 0.4],
   objects: [
-    { line: { x: 0.35, y: 0.95, w: 9.3, h: 0, line: { color: NAVY, width: 1.25 } } },
-    { image: { path: LOGO, x: 8.88, y: 6.72, w: 0.68, h: 0.62 } },
+    ...contentFrame(),
     {
       placeholder: {
         options: {
-          name: "title", type: "title", x: 0.35, y: 0.2, w: 7.8, h: 0.7,
-          fontSize: 32, bold: true, color: C.text2, valign: "middle", align: "left", margin: 0,
+          name: "subtitle", type: "body", x: 0.35, y: 1.02, w: 9.3, h: 0.62,
+          fontSize: 17, bold: true, color: C.text2, valign: "top", align: "left", margin: 0,
         },
         text: "",
       },
     },
   ],
-  slideNumber: { x: 8.35, y: 6.92, w: 0.45, h: 0.3, fontSize: 11, bold: true, color: "1A1A1A", align: "right" },
+  slideNumber: slideNum(),
 });
 
 // ---------- Slide 1: Title ----------
@@ -176,6 +199,137 @@ pres.addSection({ title: "The Opportunity" });
   s.addText([{ text: "Source: ", options: { bold: true } }, { text: "Company filings, earnings calls, GPS estimates" }], {
     x: 0.35, y: 6.95, w: 6, h: 0.3, margin: 0, fontSize: 11, color: "1A1A1A", isTextBox: true, objectName: "Source",
   });
+}
+
+
+// ---------- Shared chart / slide helpers ----------
+const INK = "1A1A1A";
+const chartFrame = (extra) => Object.assign({
+  catAxisLabelColor: INK, catAxisLabelFontFace: "+mn-lt", catAxisLabelFontSize: 12,
+  catAxisLineShow: true, catAxisLineColor: "BFBFBF",
+  valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" },
+  showValue: true, dataLabelColor: INK, dataLabelFontFace: "+mn-lt", dataLabelFontSize: 13,
+  dataLabelFontBold: true, showLegend: false, barGapWidthPct: 45,
+}, extra);
+
+const sectionHeader = (s, text, x, y, w, name) => {
+  s.addText(text, {
+    x, y, w, h: 0.4, margin: 0, align: "center", valign: "bottom", fontSize: 16, bold: true,
+    color: INK, isTextBox: true, objectName: name,
+  });
+  s.addShape(pres.shapes.LINE, { x, y: y + 0.46, w, h: 0, line: { color: INK, width: 1 }, objectName: name + " rule" });
+};
+
+const takeaway = (s, text) => s.addText(text, {
+  x: 0.35, y: 6.02, w: 9.3, h: 0.62, fill: { color: NAVY }, align: "center", valign: "middle",
+  fontSize: 17, bold: true, color: C.background1, margin: [8, 8, 2, 2], isTextBox: true, objectName: "Takeaway",
+});
+
+const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true } }, { text }], {
+  x: 0.35, y: 6.95, w: 7.8, h: 0.3, margin: 0, fontSize: 11, color: INK, isTextBox: true, objectName: "Source",
+});
+
+// ---------- Slide 3: The Opportunity (1/3) — margin compression ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "The Opportunity" });
+  s.addText("The Opportunity (1/3)", { placeholder: "title" });
+  s.addText("In one quarter, Aerospace margins fell ~470 bps, and management guided ~30% for two years.", { placeholder: "subtitle" });
+
+  // Left: quarterly margin history + guide
+  sectionHeader(s, "Aerospace Products Adj. EBITDA Margin", 0.35, 1.7, 5.75, "Margin chart header");
+  const cats = ["Q1'25", "Q2'25", "Q3'25", "Q4'25", "Q1'26", "Q2'26", "FY26E", "FY27E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Reported", labels: cats, values: [0.359, 0.336, 0.348, 0.346, 0.299, 0.285, null, null] },
+    { name: "Mgmt. guide", labels: cats, values: [null, null, null, null, null, null, 0.30, 0.30] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 5.75, h: 3.5, barDir: "col", barGrouping: "stacked",
+    chartColors: [NAVY, "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 0.54,
+    dataLabelFormatCode: "0.0%", dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF", dataLabelFontSize: 11, barGapWidthPct: 30,
+    objectName: "Margin chart",
+  }));
+  s.addText("Mgmt. guide", {
+    x: 4.6, y: 3.05, w: 1.45, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, bold: true,
+    color: C.accent2, isTextBox: true, objectName: "Guide label",
+  });
+  s.addText([{ text: "–470", options: { fontSize: 20, bold: true, breakLine: true } }, { text: "bps q/q", options: { fontSize: 11, bold: true } }], {
+    shape: pres.shapes.OVAL, x: 2.85, y: 2.3, w: 1.2, h: 1.2, fill: { color: NAVY }, line: { color: NAVY },
+    align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Compression callout",
+  });
+
+  // Right: management's mix explanation
+  sectionHeader(s, "Management: “It's Mix”", 6.45, 1.7, 3.2, "Mix chart header");
+  s.addChart(pres.charts.BAR, [
+    { name: "Margin", labels: ["Light", "Heavy", "Blended"], values: [0.417, 0.25, 0.306] },
+  ], chartFrame({
+    x: 6.45, y: 2.3, w: 3.2, h: 2.4, barDir: "col", chartColors: ["B5AEA9", NAVY, "5A5350"],
+    valAxisMinVal: 0, valAxisMaxVal: 0.5, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
+    objectName: "Mix chart",
+  }));
+  s.addText([
+    { text: "Light: ", options: { bold: true } }, { text: "$6M sale, $2.5M profit", options: { breakLine: true } },
+    { text: "Heavy: ", options: { bold: true } }, { text: "$12M sale, $3.0M profit" },
+  ], {
+    x: 6.45, y: 4.78, w: 3.2, h: 0.62, margin: 0, fontSize: 12, color: INK, valign: "top",
+    isTextBox: true, objectName: "Mix detail",
+  });
+  s.addText("Lower margin, more dollars per job", {
+    x: 6.45, y: 5.45, w: 3.2, h: 0.35, margin: 0, fontSize: 13, italic: true, bold: true, color: C.text2,
+    isTextBox: true, objectName: "Mix kicker",
+  });
+
+  takeaway(s, "The drop is real. Is ~30% the floor, or just a waypoint?");
+  source(s, "FTAI filings and earnings calls, GPS model");
+  s.addNotes("Reported quarterly Aerospace Products Adj. EBITDA margins from the RPM tab. Q4'25 34.6% to Q1'26 29.9% = -470 bps. " +
+    "Mix example is management's: a 6,000-cycle engine sold for ~$6M earns ~$2.5M; a 10,000-cycle engine sold for ~$12M earns ~$3M; one of each blends to ~30%.");
+}
+
+// ---------- Slide 4: The Opportunity (2/3) — the fraud overhang ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "The Opportunity" });
+  s.addText("The Opportunity (2/3)", { placeholder: "title" });
+  s.addText("A 2025 short report gave the market a darker explanation, and it stuck.", { placeholder: "subtitle" });
+
+  // Left: the short thesis as a flow
+  sectionHeader(s, "The Short Thesis (Jan. 2025)", 0.35, 1.7, 5.0, "Short thesis header");
+  const steps = [
+    ["Leasing engines sit on the books at depreciated value", PLAT_LT, C.text2],
+    ["They are moved into Aerospace Products as inventory", PLAT_LT, C.text2],
+    ["Sold at market prices, the low cost basis inflates AP margins", NAVY, C.background1],
+  ];
+  steps.forEach(([t, fill, col], i) => {
+    const y = 2.35 + i * 1.18;
+    s.addText(t, {
+      x: 0.6, y, w: 4.5, h: 0.8, fill: { color: fill }, align: "center", valign: "middle",
+      fontSize: 15, bold: true, color: col, margin: [10, 10, 2, 2], isTextBox: true, objectName: `Short step ${i + 1}`,
+    });
+    if (i < steps.length - 1) {
+      s.addShape(pres.shapes.DOWN_ARROW, {
+        x: 2.62, y: y + 0.83, w: 0.46, h: 0.32, fill: { color: PLAT }, line: { type: "none" }, objectName: `Short arrow ${i + 1}`,
+      });
+    }
+  });
+
+  // Right: valuation implies the market doesn't trust the earnings
+  sectionHeader(s, "…So the Market Won't Pay Up", 5.75, 1.7, 3.9, "Multiple header");
+  s.addChart(pres.charts.BAR, [
+    { name: "EV / EBITDA", labels: ["FY26E", "FY27E", "FY28E"], values: [15.9, 9.8, 6.8] },
+  ], chartFrame({
+    x: 5.75, y: 2.3, w: 3.9, h: 3.0, barDir: "col", chartColors: [NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 19, dataLabelFormatCode: '0.0"x"', dataLabelPosition: "outEnd",
+    objectName: "Multiple chart",
+  }));
+  s.addShape(pres.shapes.RECTANGLE, {
+    x: 8.36, y: 3.7, w: 1.12, h: 1.62, fill: { type: "none" }, line: { color: C.accent2, width: 2, dashType: "dash" },
+    objectName: "FY28 highlight",
+  });
+  s.addText("EV / Adj. EBITDA (Jefferies estimates)", {
+    x: 5.75, y: 5.58, w: 3.9, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, color: C.accent2,
+    isTextBox: true, objectName: "Multiple caption",
+  });
+
+  takeaway(s, "The market reads the margin reset as the short thesis unwinding, and prices FTAI as if it's still over-earning.");
+  source(s, "Muddy Waters Research (Jan. 2025), Jefferies (8/2/26), FTAI filings, GPS analysis");
+  s.addNotes("EV of $20.56B at $167.03 (10/2/26) over Jefferies Adj. EBITDA of $1,289M (FY26E), $2,099M (FY27E) and $3,023M (FY28E).");
 }
 
 (async () => {
