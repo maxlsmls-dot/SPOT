@@ -342,22 +342,27 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   s.addText("The Opportunity (3/3)", { placeholder: "title" });
   s.addText("Turbine makers are sold out for years, yet the market assigns no value to FTAI's Power.", { placeholder: "subtitle" });
 
-  sectionHeader(s, "Gas Turbine Backlogs (GW)", 0.35, 1.7, 5.75, "Backlog header");
-  const tb = ["GE Vernova", "Siemens Energy", "Mitsubishi"];
+  sectionHeader(s, "Combined Gas Turbine Backlog (GW)", 0.35, 1.7, 5.75, "Backlog header");
+  const by = ["Mid-2025", "Mid-2026"];
   s.addChart(pres.charts.BAR, [
-    { name: "Firm backlog", labels: tb, values: [53, 69, 35] },
-    { name: "Slot reservations", labels: tb, values: [63, null, null] },
+    { name: "GE Vernova", labels: by, values: [55, 116] },
+    { name: "Siemens Energy", labels: by, values: [37, 69] },
+    { name: "Mitsubishi", labels: by, values: [23, 35] },
   ], chartFrame({
-    x: 0.35, y: 2.3, w: 5.75, h: 2.85, barDir: "col", barGrouping: "stacked", barGapWidthPct: 55, chartColors: [NAVY, "B5AEA9"],
-    valAxisMinVal: 0, valAxisMaxVal: 135, catAxisLabelFontSize: 12, dataLabelFormatCode: "0;;;", dataLabelPosition: "ctr",
-    dataLabelColor: "FFFFFF", dataLabelFontSize: 13, objectName: "Turbine backlog chart",
+    x: 0.35, y: 2.3, w: 5.75, h: 2.9, barDir: "col", barGrouping: "stacked", barGapWidthPct: 110,
+    chartColors: [NAVY, "3B4C82", "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 250, catAxisLabelFontSize: 13,
+    dataLabelFormatCode: "0", dataLabelPosition: "ctr", dataLabelColor: "FFFFFF", dataLabelFontSize: 12, objectName: "Combined backlog chart",
   }));
-  s.addText("116 total", { x: 0.75, y: 2.3, w: 1.6, h: 0.28, margin: 0, align: "center", fontSize: 12, bold: true, color: C.text2, isTextBox: true, objectName: "GEV total label" });
-  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Firm backlog   " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "Slot reservations" }], {
-    x: 0.35, y: 5.17, w: 5.75, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Backlog legend",
+  // Totals above bars and a connecting arrow
+  s.addText("115 GW", { x: 1.2, y: 3.3, w: 1.3, h: 0.32, margin: 0, align: "center", fontSize: 16, bold: true, color: C.text2, isTextBox: true, objectName: "Total 2025" });
+  s.addText("220 GW", { x: 4.1, y: 2.25, w: 1.3, h: 0.32, margin: 0, align: "center", fontSize: 16, bold: true, color: C.text2, isTextBox: true, objectName: "Total 2026" });
+  s.addShape(pres.shapes.LINE, { x: 2.55, y: 2.6, w: 1.5, h: 0.85, flipV: true, line: { color: NAVY, width: 2.5, endArrowType: "triangle" }, objectName: "Backlog arrow" });
+  s.addText("~1.9x", { x: 2.25, y: 2.55, w: 1.0, h: 0.34, margin: 0, align: "center", fontSize: 18, bold: true, color: C.text2, isTextBox: true, objectName: "Growth label" });
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "GE Vernova  " }, { text: "■ ", options: { color: "3B4C82" } }, { text: "Siemens Energy  " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "Mitsubishi" }], {
+    x: 0.35, y: 5.2, w: 5.75, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Backlog legend",
   });
-  s.addText("Booking out to 2031 (GEV) · lead times 3+ years (Siemens) · new orders deliver 2028–30 (MHI)", {
-    x: 0.35, y: 5.45, w: 5.75, h: 0.4, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Backlog caption",
+  s.addText("GE Vernova booking out to 2031; Siemens lead times 3+ years", {
+    x: 0.35, y: 5.48, w: 5.75, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Backlog caption",
   });
 
   // Right: Power at a glance
@@ -380,10 +385,9 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   });
 
   takeaway(s, "Even with Power at zero, FTAI is cheap. Power is a free call option on top.");
-  source(s, "GE Vernova Q2'26, Siemens Energy Q3 FY26 and MHI Q1 FY26 results (via Utility Dive); FTAI filings and calls");
-  s.addNotes("SOTP on FY27E EBITDA: Aerospace Products $1,541M at 16x ($237/sh), Power $450M at 12x ($52/sh, low end of guide), " +
-    "Aviation Leasing + SCI $455M at 9x ($39/sh), less corporate (-$28/sh), net debt (-$23/sh) and preferred (-$1/sh) = $277/sh. " +
-    "Ex-Power = $225/sh vs. $167.03 current (10/2/26), a 26% discount.");
+  source(s, "GE Vernova, Siemens Energy and MHI results, mid-2025 vs. mid-2026 (via Utility Dive, Industrial Info); FTAI filings");
+  s.addNotes("Combined backlog: GE Vernova gas backlog + slot reservations 55 GW (Q2'25) → 116 GW (Q2'26; ≥125 GW guided for YE26); Siemens Energy firm gas turbine backlog 37 GW (Q3 FY25) → 69 GW (Q3 FY26); " +
+    "Mitsubishi large-frame backlog 23 GW → 35 GW. Definitions differ (GEV includes reservations; Siemens firm only; MHI large-frame only), so treat the total as indicative. End-2024 GW figures were not disclosed. ");
 }
 
 // ---------- Slide 6: Returns Summary (modeled on SPOT "Pitch Summary – Thesis 2") ----------
