@@ -1226,7 +1226,7 @@ pres.addSection({ title: "Thesis 2" });
   s.addText("Power is a small slice of a data center's cost, and new turbines are sold out. FTAI has pricing power.", { placeholder: "subtitle" });
 
   sectionHeader(s, "Cost to Build 100 MW ($M)", 0.35, 1.7, 4.3, "Cost header");
-  const bars = [["Data center facility", 1200, "B5AEA9"], ["FTAI turbines (4 units)", 100, NAVY]];
+  const bars = [["Data center facility", 1200, "B5AEA9"], ["FTAI turbines (6 units)", 150, NAVY]];
   const bx = 2.45, bscale = 1.5 / 1200;
   bars.forEach(([lab, v, col], i) => {
     const y = 2.45 + i * 0.85;
@@ -1234,7 +1234,7 @@ pres.addSection({ title: "Thesis 2" });
     s.addShape(pres.shapes.RECTANGLE, { x: bx, y, w: v * bscale, h: 0.6, fill: { color: col }, line: { type: "none" }, objectName: `Build cost bar ${i + 1}` });
     s.addText(`$${v.toLocaleString("en-US")}M`, { x: bx + v * bscale + 0.08, y, w: 0.9, h: 0.6, margin: 0, align: "left", valign: "middle", fontSize: 13, bold: true, color: C.text2, isTextBox: true, objectName: `Build cost value ${i + 1}` });
   });
-  s.addText([{ text: "~8%", options: { fontSize: 26, bold: true, color: C.text2, breakLine: true } }, { text: "Power is a rounding error next to the stranded build cost, before counting the GPUs inside.", options: { fontSize: 12, color: INK } }], {
+  s.addText([{ text: "~13%", options: { fontSize: 26, bold: true, color: C.text2, breakLine: true } }, { text: "of the build cost, with 50% spare units for reliability, before counting the GPUs inside.", options: { fontSize: 12, color: INK } }], {
     x: 0.35, y: 4.3, w: 4.3, h: 1.45, fill: { color: PLAT_XLT }, align: "center", valign: "middle", margin: 10, isTextBox: true, objectName: "Cost takeaway",
   });
 
@@ -1260,8 +1260,8 @@ pres.addSection({ title: "Thesis 2" });
   });
 
   takeaway(s, "Idle data centers cost far more than power. FTAI delivers years before the competition.");
-  source(s, "GPS model (facility cost $12M/MW; FTAI ~$1M/MW, 25 MW units); CNBC (Jun-26); Tom's Hardware (Oct-25); FTAI earnings calls");
-  s.addNotes("Build cost: GPS model assumes ~$12M per MW of data center facility spend, so 100 MW ≈ $1.2B before GPUs; FTAI's contract implies ~$1M per MW, so four 25 MW Mod-1 units ≈ $100M (~8%). " +
+  source(s, "GPS model ($12M/MW facility; ~$1M/MW, 25 MW units, 50% redundancy); CNBC (Jun-26); Tom's Hardware (Oct-25); FTAI calls");
+  s.addNotes("Build cost: GPS model assumes ~$12M per MW of data center facility spend, so 100 MW ≈ $1.2B before GPUs; FTAI's contract implies ~$1M per MW; 100 MW of load needs ~150 MW of turbines with the model's 50% redundancy allowance, so six 25 MW Mod-1 units ≈ $150M (~13%). Hot-weather derating could add a unit. " +
     "Lead times: GE Vernova's large gas turbine order book is full until 2029 with orders out to 2031 (CNBC, Jun-26); new aeroderivative orders are being slotted for 2028–2030 (Tom's Hardware, Oct-25). " +
     "FTAI guided first Mod-1 deliveries to Q4'26, later saying it is prudent to expect deliveries in 2027.");
 }
