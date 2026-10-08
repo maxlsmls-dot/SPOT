@@ -391,7 +391,7 @@ pres.addSection({ title: "Returns" });
   const s = pres.addSlide({ masterName: "GPS Content", sectionTitle: "Returns" });
   s.addText("Returns Summary", { placeholder: "title" });
 
-  s.addText("Three under-priced drivers take a –41% bear baseline to +84% upside.", {
+  s.addText("At $167, the market prices the bear case. Our three theses add $110 of upside.", {
     x: 0.35, y: 1.12, w: 9.3, h: 0.56, fill: { color: NAVY }, align: "center", valign: "middle",
     fontSize: 17, bold: true, color: C.background1, margin: 0, isTextBox: true, objectName: "Headline banner",
   });
@@ -400,11 +400,11 @@ pres.addSection({ title: "Returns" });
     fontSize: 16, color: C.background1, margin: 0, isTextBox: true, objectName: "Sub banner",
   });
 
-  // $/share contributions: Shapley average over all orderings (largest-remainder rounding so the bridge sums to $308)
+  // $/share contributions to the base-case FY27E SOTP: Shapley average over all orderings, starting from the bear case
   const rows = [
-    ["Thesis 1a) Margins Have Bottomed", "PMA parts, OEM-linked pricing and technician productivity lift Aerospace margins from ~30% to ~32.5% by FY31.", "+$36", "+21% upside"],
-    ["Thesis 1b) Volume Grows With Share", "New capacity, OEMs moving to LEAP and faster turnaround lift FTAI's CFM56 module share from ~12% to 20% by FY30.", "+$57", "+34% upside"],
-    ["Thesis 2) Power Is a Call Option", "Mod-1 deliveries ramp from 45 units in FY27 to 110 by FY29 at ~40% EBITDA margins.", "+$116", "+70% upside"],
+    ["Thesis 1a) Margins Have Bottomed", "PMA parts, OEM-linked pricing and technician productivity lift Aerospace margins from ~30% to ~32.5% by FY31.", "+$17", "+10% upside"],
+    ["Thesis 1b) Volume Grows With Share", "New capacity, OEMs moving to LEAP and faster turnaround lift FTAI's CFM56 module share from ~12% to 20% by FY30.", "+$33", "+20% upside"],
+    ["Thesis 2) Power Is a Call Option", "Mod-1 deliveries ramp from 45 units in FY27 to 110 by FY29 at ~40% EBITDA margins.", "+$55", "+33% upside"],
   ];
   const by0 = 2.38, bh = 0.94, bgap = 0.12;
   rows.forEach(([head, body, big, small], i) => {
@@ -428,25 +428,25 @@ pres.addSection({ title: "Returns" });
     x: 6.62, y: by0, w: 0.46, h: 3 * bh + 2 * bgap, fill: { color: PLAT_LT }, line: { type: "none" }, objectName: "Chevron",
   });
 
-  s.addText("Bear baseline (Bear-case margins and share, no Power): $99 per share, 41% below today's $167.", {
+  s.addText("Bear case (bear margins and share, no Power) is worth $172 on our SOTP, just above today's $167.", {
     x: 0.35, y: 5.6, w: 9.3, h: 0.3, margin: 0, align: "center", fontSize: 12, color: C.accent2,
     isTextBox: true, objectName: "Baseline note",
   });
   s.addText([
-    { text: "Base case: $99 + $36 margins + $57 volume + $116 Power = " },
-    { text: "$308 target", options: { bold: true } },
-    { text: " (+84%)" },
+    { text: "$167 today + $5 to bear value + $17 margins + $33 volume + $55 Power = " },
+    { text: "$277 SOTP", options: { bold: true } },
+    { text: " (+66%)" },
   ], {
     x: 0.35, y: 5.98, w: 9.3, h: 0.56, fill: { color: PLAT_XLT }, line: { color: NAVY, width: 1.25 },
-    align: "center", valign: "middle", fontSize: 14, color: INK, margin: 0, isTextBox: true, objectName: "Base case bridge",
+    align: "center", valign: "middle", fontSize: 13, color: INK, margin: 0, isTextBox: true, objectName: "Base case bridge",
   });
-  source(s, "GPS model: thesis drivers switched Bear vs. Base (Power off = 0 units), Shapley average; blended DCF");
+  source(s, "GPS model: base-case FY27E SOTP; thesis drivers switched Bear vs. Base (Power off = 0 units), Shapley average");
   s.addNotes(
-    "Attribution re-runs the full model (blended DCF: 50% perpetuity, 50% exit multiple) for all 8 on/off combinations. " +
-    "Margins = OEM escalator, pass-through, Aerospace margin ex-PMA and PMA penetration rows. Volume = FTAI share of MRO and SCI aircraft rows. " +
-    "Power = Mod-1 units delivered (off = 0, i.e. what the market prices today). Exact values: baseline $99.16, margins +$36.02, " +
-    "volume +$56.49, Power +$116.36, total $308.03 (dollars and % upside rounded by largest remainder so each bridge sums). Power's DCF contribution is larger than its $52 SOTP value on the Opportunity (3/3) slide " +
-    "because the DCF captures the ramp to $1.3B of FY31 EBITDA and terminal value, while the SOTP applies 12x to FY27E $450M only."
+    "Return math uses the base-case FY27E sum of the parts ($276.65/share): Aerospace 16x, Power 12x, Leasing + SCI 9x, less corporate, net debt and preferred. " +
+    "Attribution re-runs the full model for all 8 on/off combinations of the three theses. Margins = OEM escalator, pass-through, Aerospace margin ex-PMA and PMA rows. " +
+    "Volume = FTAI share of MRO and SCI aircraft rows. Power = Mod-1 units delivered (off = 0, i.e. what the market prices today). " +
+    "Bear case with no Power = $171.86 vs. $167.03 today (+$4.83). Shapley contributions: margins +$17.04, volume +$32.66, Power +$55.08 " +
+    "(the $51.90 SOTP value plus ~$3 of FY27 Power cash that lowers net debt). Total $276.64."
   );
 }
 
