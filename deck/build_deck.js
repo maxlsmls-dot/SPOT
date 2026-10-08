@@ -782,6 +782,230 @@ pres.addSection({ title: "Thesis 1a" });
     "Chromalloy JV program: 3 of 5 parts approved (LPT stage 1 vane 2021, HPT stage 1 vane Oct 2024, HPT stage 1 blade Oct 2025), covering ~80% of targeted savings; 2 in FAA review.");
 }
 
+// ---------- Thesis 1b: Share Gains (5 slides) ----------
+pres.addSection({ title: "Thesis 1b" });
+
+// 1b (1/5): why FTAI can take share — TATT "How TATT Fits In" architecture
+{
+  const s = pres.addSlide({ masterName: "GPS Content", sectionTitle: "Thesis 1b" });
+  s.addText("Thesis 1b: Share Gains (1/5)", { placeholder: "title" });
+  const rows = [
+    "OEM shops are moving their capacity to LEAP, leaving CFM56 work behind.",
+    "Independent MROs are clogged: CFM56 overhauls now take 90–120 days.",
+    "FTAI's module swap returns an engine in 5–25 days, not months.",
+    "New sites in Jakarta, Cairo and Lisbon lift capacity to 3,000 modules.",
+  ];
+  const boxX = 1.75, boxW = 7.25, boxH = 0.78, circ = 0.86;
+  rows.forEach((t, i) => {
+    const y = 1.2 + i * 1.0;
+    s.addText(t, {
+      x: boxX, y, w: boxW, h: boxH, fill: { color: PLAT_LT }, align: "center", valign: "middle",
+      fontSize: 15, bold: true, color: C.text2, margin: [44, 10, 2, 2], isTextBox: true, objectName: `Reason ${i + 1}`,
+    });
+    s.addText(String(i + 1), {
+      shape: pres.shapes.OVAL, x: boxX - circ / 2 - 0.05, y: y + boxH / 2 - circ / 2, w: circ, h: circ,
+      fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 }, align: "center", valign: "middle",
+      fontSize: 24, bold: true, color: C.text2, margin: 0, objectName: `Reason ${i + 1} number`,
+    });
+  });
+  s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
+    x: 1.3, y: 5.15, w: 7.7, h: 0.4, fill: { color: PLAT_LT }, line: { type: "none" }, flipV: true, objectName: "Funnel",
+  });
+  s.addText("FTAI's share of CFM56 module work rises from ~12% to 20% by FY30, with every SCI aircraft as a contracted floor.", {
+    x: 1.3, y: 5.68, w: 7.7, h: 0.85, fill: { color: NAVY }, align: "center", valign: "middle",
+    fontSize: 16, bold: true, color: C.background1, margin: [10, 10, 2, 2], isTextBox: true, objectName: "Conclusion",
+  });
+  source(s, "GE Aerospace earnings calls (2026), Aviation Business News (2025), FTAI Q2'24 call and Q2'26 supplement, GPS model");
+}
+
+// 1b (2/5): then vs. now — MROs clogged, OEMs moving to LEAP
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
+  s.addText("Thesis 1b: Share Gains (2/5)", { placeholder: "title" });
+  s.addText("Independent shops are clogged just as OEMs pivot to LEAP. CFM56 work needs a new home.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Independent Shops Are Clogged…", 0.35, 1.7, 4.4, "MRO header");
+  s.addChart(pres.charts.BAR, [
+    { name: "Pre-COVID", labels: ["Pre-COVID", "Today"], values: [60, null] },
+    { name: "Today (low)", labels: ["Pre-COVID", "Today"], values: [null, 90] },
+    { name: "Today (range)", labels: ["Pre-COVID", "Today"], values: [null, 30] },
+  ], chartFrame({
+    x: 0.6, y: 2.45, w: 2.5, h: 2.75, barDir: "col", barGrouping: "stacked", barGapWidthPct: 45,
+    chartColors: ["B5AEA9", NAVY, "3B4C82"], valAxisMinVal: 0, valAxisMaxVal: 140, showValue: false, objectName: "Overhaul days chart",
+  }));
+  s.addText("~60", { x: 0.75, y: 3.5, w: 1.0, h: 0.35, margin: 0, align: "center", fontSize: 16, bold: true, color: INK, isTextBox: true, objectName: "Pre-COVID days" });
+  s.addText("90–120", { x: 1.9, y: 2.35, w: 1.1, h: 0.35, margin: 0, align: "center", fontSize: 16, bold: true, color: C.text2, isTextBox: true, objectName: "Today days" });
+  s.addText("CFM56 overhaul, days", { x: 0.6, y: 5.22, w: 2.5, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Days caption" });
+  s.addText([{ text: "+2–6", options: { fontSize: 26, bold: true, color: C.text2, breakLine: true } }, { text: "months just to get a shop slot", options: { fontSize: 12, color: INK } }], {
+    x: 3.15, y: 3.0, w: 1.6, h: 1.4, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: "Slot wait stat",
+  });
+
+  sectionHeader(s, "…While OEMs Move to LEAP", 5.25, 1.7, 4.4, "OEM header");
+  s.addChart(pres.charts.BAR, [
+    { name: "LEAP installed base", labels: ["2024", "2030E"], values: [1, 3] },
+  ], chartFrame({
+    x: 5.4, y: 2.45, w: 2.3, h: 2.75, barDir: "col", barGapWidthPct: 45, chartColors: [NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 3.6, dataLabelFormatCode: '0"x"', dataLabelPosition: "outEnd", dataLabelFontSize: 16, objectName: "LEAP base chart",
+  }));
+  s.addText("LEAP installed base", { x: 5.4, y: 5.22, w: 2.3, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "LEAP caption" });
+  [["+50%", "LEAP shop visits, y/y (GE, 2026)"], ["~2x", "GE's LEAP repair capacity, from ~$500M of spend"]].forEach(([big, lab], i) => {
+    s.addText([{ text: big, options: { fontSize: 24, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 11, color: INK } }], {
+      x: 7.8, y: 2.55 + i * 1.35, w: 1.85, h: 1.2, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `LEAP stat ${i + 1}`,
+    });
+  });
+
+  takeaway(s, "OEM slots go to LEAP as independent shops clog. CFM56 owners need a faster option.");
+  source(s, "Aviation Business News (2025); Bain (2024); GE Aerospace Q1/Q2'26 earnings calls");
+  s.addNotes("CFM56 full overhaul ~60 days pre-pandemic vs. 90–120 days now (Aviation Business News, 2025; secondary source). Slot waits up 2–6 months (Bain, 2024; 2025 market summaries). " +
+    "GE: LEAP shop visits up >50% in Q1 and Q2 2026; LEAP installed base to roughly triple 2024–2030; ~$500M of >$1B MRO investment to LEAP, roughly doubling internal LEAP capacity. " +
+    "Former MRO executive: 'the variability in capital investment required to capture the LEAP is extremely low versus what it took them to capture the CFM.'");
+}
+
+// 1b (3/5): turnaround time walk-through
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
+  s.addText("Thesis 1b: Share Gains (3/5)", { placeholder: "title" });
+  s.addText("A shop visit grounds an engine for months. FTAI's module swap gets it flying in weeks.", { placeholder: "subtitle" });
+
+  // Day-scaled timelines: 180 days = full width
+  const tx = 2.35, tw = 7.0, scale = tw / 180;
+  s.addText("Days off wing", { x: tx, y: 1.75, w: tw, h: 0.3, margin: 0, align: "left", fontSize: 12, italic: true, color: C.accent2, isTextBox: true, objectName: "Timeline label" });
+  [0, 30, 60, 90, 120, 150, 180].forEach((d) => {
+    s.addShape(pres.shapes.LINE, { x: tx + d * scale, y: 2.1, w: 0, h: 3.0, line: { color: "E3E0DC", width: 0.75 }, objectName: `Grid ${d}` });
+    s.addText(String(d), { x: tx + d * scale - 0.3, y: 5.1, w: 0.6, h: 0.25, margin: 0, align: "center", fontSize: 10, color: C.accent2, isTextBox: true, objectName: `Tick ${d}` });
+  });
+  // Traditional shop visit: 120–180 days
+  s.addText([{ text: "Typical shop visit", options: { bold: true, breakLine: true } }, { text: "120–180 days", options: { fontSize: 12 } }], {
+    x: 0.35, y: 2.3, w: 1.9, h: 0.75, margin: 0, align: "right", valign: "middle", fontSize: 14, color: INK, isTextBox: true, objectName: "Shop visit label",
+  });
+  const steps = [["Wait for slot", 40], ["Strip", 28], ["Wait for parts", 40], ["Repair", 32], ["Test", 10]];
+  let cx = tx;
+  steps.forEach(([name, d], i) => {
+    const w = d * scale;
+    s.addText(name, {
+      shape: pres.shapes.CHEVRON, x: cx, y: 2.35, w: w + 0.12, h: 0.65, fill: { color: i % 2 ? "B5AEA9" : PLAT_LT }, line: { type: "none" },
+      align: "center", valign: "middle", fontSize: 9, bold: true, color: C.text2, margin: 0, objectName: `Shop step ${i + 1}`,
+    });
+    cx += w;
+  });
+  s.addShape(pres.shapes.RECTANGLE, { x: cx, y: 2.45, w: 30 * scale, h: 0.45, fill: { type: "none" }, line: { color: "B5AEA9", width: 1.25, dashType: "dash" }, objectName: "Shop visit range" });
+  // FTAI module swap: 5–25 days
+  s.addText([{ text: "FTAI module swap", options: { bold: true, breakLine: true } }, { text: "5–25 days", options: { fontSize: 12 } }], {
+    x: 0.35, y: 3.65, w: 1.9, h: 0.75, margin: 0, align: "right", valign: "middle", fontSize: 14, color: C.text2, isTextBox: true, objectName: "Swap label",
+  });
+  s.addShape(pres.shapes.CHEVRON, { x: tx, y: 3.7, w: 25 * scale + 0.12, h: 0.65, fill: { color: NAVY }, line: { type: "none" }, objectName: "Swap bar" });
+  s.addText("Swap a restored module from FTAI's pool, test, fly", {
+    x: tx + 25 * scale + 0.25, y: 3.7, w: 4.2, h: 0.65, margin: 0, align: "left", valign: "middle", fontSize: 13, bold: true, color: C.text2,
+    isTextBox: true, objectName: "Swap description",
+  });
+  s.addText([{ text: "~7x", options: { fontSize: 26, bold: true, breakLine: true } }, { text: "faster", options: { fontSize: 12, bold: true } }], {
+    shape: pres.shapes.OVAL, x: 7.85, y: 3.75, w: 1.45, h: 1.25, fill: { color: NAVY }, line: { color: NAVY },
+    align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Speed callout",
+  });
+  s.addText("Why it works: FTAI keeps a pool of restored modules on the shelf, so the airline never waits for parts.", {
+    x: 0.35, y: 5.45, w: 9.3, h: 0.4, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 13, italic: true, color: INK,
+    isTextBox: true, objectName: "Why it works",
+  });
+
+  takeaway(s, "Every day an engine is off wing costs the airline a jet. FTAI sells that time back.");
+  source(s, "FTAI Q2'24 earnings call (120–180 vs. 5–25 days, via third-party analysis); shop-visit step lengths illustrative");
+  s.addNotes("FTAI (Q2'24 call, as reported by third parties): average CFM56 engine turnaround ~120–180 days vs. 5–25 days for a module swap. Midpoints 150 vs. ~20 days = ~7x. " +
+    "Step lengths within the shop visit are illustrative; slot waits of 2–6 months and HPT blade shortages drive most of the delay. " +
+    "Caveat: the fastest swaps apply where the core does not need to be opened; roughly half of shop visits require core disassembly.");
+}
+
+// 1b (4/5): new capacity
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
+  s.addText("Thesis 1b: Share Gains (4/5)", { placeholder: "title" });
+  s.addText("FTAI built capacity ahead of demand. New sites leave room to keep taking share.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Output vs. Capacity (Modules)", 0.35, 1.7, 4.6, "Capacity header");
+  const cc = ["2025", "2026E", "2027E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Output", labels: cc, values: [757, 1200, 1700] },
+    { name: "Unused capacity", labels: cc, values: [null, 1800, 1300] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 4.6, h: 3.2, barDir: "col", barGrouping: "stacked", barGapWidthPct: 45, chartColors: [NAVY, "B5AEA9"],
+    valAxisMinVal: 0, valAxisMaxVal: 3300, dataLabelFormatCode: "#,##0;;;", dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF",
+    dataLabelFontSize: 13, objectName: "Capacity chart",
+  }));
+  s.addText("3,000 capacity", { x: 2.0, y: 2.3, w: 2.9, h: 0.3, margin: 0, align: "center", fontSize: 12, bold: true, italic: true, color: C.accent2, isTextBox: true, objectName: "Capacity label" });
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Output   " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "Unused capacity" }], {
+    x: 0.35, y: 5.52, w: 4.6, h: 0.28, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Capacity legend",
+  });
+
+  sectionHeader(s, "The Network", 5.35, 1.7, 4.3, "Network header");
+  const sites = [
+    ["Montreal", "Flagship, up to 900", false], ["Miami", "~475 in 2026E", false], ["Rome", "Ramping", false],
+    ["Lisbon", "Heading to 300+", true], ["Jakarta", "Heavy work, 300–450 (E)", true], ["Cairo", "Light work, 150–180 (E)", true],
+  ];
+  sites.forEach(([name, cap, isNew], i) => {
+    const col = i % 2, row = Math.floor(i / 2);
+    const x = 5.35 + col * 2.2, y = 2.3 + row * 1.08;
+    s.addText([{ text: name, options: { fontSize: 15, bold: true, breakLine: true } }, { text: cap, options: { fontSize: 11 } }], {
+      x, y, w: 2.1, h: 0.95, fill: { color: isNew ? NAVY : PLAT_LT }, color: isNew ? C.background1 : C.text2,
+      align: "center", valign: "middle", margin: 4, isTextBox: true, objectName: `Site ${name}`,
+    });
+  });
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "New sites   " }, { text: "■ ", options: { color: "DCD8D3" } }, { text: "Existing (modules / yr)" }], {
+    x: 5.35, y: 5.52, w: 4.3, h: 0.28, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Network legend",
+  });
+
+  takeaway(s, "With 3,000 modules of capacity against 1,700 planned, FTAI can absorb share gains.");
+  source(s, "FTAI Q1/Q2'26 earnings supplements; GMF and EgyptAir reports; GPS estimates (E)");
+  s.addNotes("Network output 757 modules in 2025, 1,200 guided for 2026 (Montreal 450, Miami 475, Europe 275) and 1,700 targeted for 2027 including GMF and EgyptAir. " +
+    "Network capacity raised from 2,000 to 3,000 modules in 2026. Montreal capacity up to 900 (377 output in 2025). Jakarta 300–450 and Cairo 150–180 are GPS estimates; partners are ~7–18% of 2027 output.");
+}
+
+// 1b (5/5): share gains and the volume math
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
+  s.addText("Thesis 1b: Share Gains (5/5)", { placeholder: "title" });
+  s.addText("Share gains plus the SCI floor take FTAI to ~1,700 modules in FY27, in line with its target.", { placeholder: "subtitle" });
+
+  // Volume math tiles (FY27E)
+  const tiles = [["2,386", "CFM56 shop visits"], ["× 3", "modules each"], ["× 16.8%", "FTAI share"], ["+ 482", "SCI modules"], ["= 1,687", "FY27E modules"]];
+  const tw = 1.72, tg = 0.17;
+  tiles.forEach(([big, lab], i) => {
+    const x = 0.35 + i * (tw + tg), last = i === tiles.length - 1;
+    s.addText([{ text: big, options: { fontSize: 20, bold: true, breakLine: true } }, { text: lab, options: { fontSize: 11 } }], {
+      x, y: 1.75, w: tw, h: 0.95, fill: { color: last ? NAVY : PLAT_LT }, color: last ? C.background1 : C.text2,
+      align: "center", valign: "middle", margin: 2, isTextBox: true, objectName: `Volume tile ${i + 1}`,
+    });
+  });
+
+  sectionHeader(s, "FTAI Share of CFM56 Module Work", 0.35, 2.85, 4.6, "Share header");
+  const sy = ["2024", "2025", "2026E", "2027E", "2028E", "2029E", "2030E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Reported", labels: sy, values: [0.04, 0.08, null, null, null, null, null] },
+    { name: "GPS model", labels: sy, values: [null, null, 0.124, 0.168, 0.19, 0.195, 0.20] },
+  ], chartFrame({
+    x: 0.35, y: 3.4, w: 4.6, h: 2.45, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 35,
+    chartColors: [NAVY, "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 0.25, catAxisLabelFontSize: 10,
+    dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 11, objectName: "Share chart",
+  }));
+
+  sectionHeader(s, "FTAI Modules Produced", 5.35, 2.85, 4.3, "Modules header");
+  const my = ["2025", "2026E", "2027E", "2028E", "2029E", "2030E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Third-party", labels: my, values: [675, 866, 1206, 1321, 1298, 1272] },
+    { name: "SCI (contracted)", labels: my, values: [82, 328, 482, 660, 780, 840] },
+  ], chartFrame({
+    x: 5.35, y: 3.4, w: 4.3, h: 2.2, barDir: "col", barGrouping: "stacked", barGapWidthPct: 35, chartColors: [NAVY, "B5AEA9"],
+    valAxisMinVal: 0, valAxisMaxVal: 2300, showValue: false, catAxisLabelFontSize: 10, objectName: "Modules chart",
+  }));
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Third-party   " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "SCI floor" }], {
+    x: 5.35, y: 5.6, w: 4.3, h: 0.25, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Modules legend",
+  });
+
+  takeaway(s, "Even if share stalls, SCI's contracted fleet keeps adding volume: a floor under the thesis.");
+  source(s, "GPS model (RPM tab); 2024–25 share per GPS analysis; FTAI 2027 target of 1,700 modules (Q2'26 supplement)");
+  s.addNotes("Volume math (FY27E, GPS model): 2,386 CFM56 shop visits × 3 modules = 7,159 modules of demand × 16.8% FTAI share = 1,206 third-party modules, " +
+    "plus 482 SCI modules (450 aircraft × 2 engines × 20% shop-visit rate × 3 modules, approx.) = 1,687, vs. FTAI's 1,700 target. " +
+    "Share path 12.4% FY26E → 20% by FY30E. 2025 split approximates SCI at 82 modules and the remainder third-party.");
+}
+
 (async () => {
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
