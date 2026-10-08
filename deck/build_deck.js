@@ -1367,6 +1367,58 @@ pres.addSection({ title: "Valuation" });
     "With all three off, the SOTP is $172, about today's price: the market is pricing the bear case.");
 }
 
+// ---------- Valuation: R/R skew and sanity check (TATT slide 18 architecture) ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Valuation" });
+  s.addText("Valuation: Reward vs. Risk", { placeholder: "title" });
+  s.addText("3.4x reward/risk skew, with a bear case that assumes nothing goes right.", { placeholder: "subtitle" });
+
+  // R/R table
+  s.addText("R/R", { x: 0.5, y: 2.0, w: 4.0, h: 0.42, margin: 0, align: "left", valign: "bottom", fontSize: 18, bold: true, color: INK, isTextBox: true, objectName: "RR header" });
+  s.addShape(pres.shapes.LINE, { x: 0.5, y: 2.45, w: 4.0, h: 0, line: { color: INK, width: 1.5 }, objectName: "RR header rule" });
+  const rr = [["Reward", "132%", PLAT_XLT, NAVY], ["Risk", "–39%", PLAT_LT, PLAT]];
+  rr.forEach(([k, v, fill, col], i) => {
+    const y = 2.5 + i * 0.5;
+    s.addText(k, { x: 0.5, y, w: 2.3, h: 0.46, margin: [4, 0, 0, 0], align: "left", valign: "middle", fontSize: 17, color: INK, isTextBox: true, objectName: `RR ${k} label` });
+    s.addText(v, { x: 2.8, y, w: 1.7, h: 0.46, fill: { color: fill }, margin: [0, 6, 0, 0], align: "right", valign: "middle", fontSize: 17, bold: true, color: col, isTextBox: true, objectName: `RR ${k} value` });
+  });
+  s.addText([{ text: "R/R Skew", options: { bold: true } }], {
+    x: 0.5, y: 3.52, w: 4.0, h: 0.5, line: { color: INK, width: 1.5 }, margin: [6, 6, 0, 0], align: "left", valign: "middle", fontSize: 17, color: INK,
+    isTextBox: true, objectName: "RR skew box",
+  });
+  s.addText("3.4", { x: 2.8, y: 3.52, w: 1.65, h: 0.5, margin: 0, align: "right", valign: "middle", fontSize: 17, bold: true, color: INK, isTextBox: true, objectName: "RR skew value" });
+
+  // Bull and bear assumption boxes with dashed connectors
+  const bull = ["Margins rebuild to ~33.5%", "25% CFM56 share by FY31", "Power: $550M FY27E EBITDA"];
+  const bear = ["Margins stuck at 28.5%, no PMA", "Share capped at 15%", "Power: half the JV, 30% margins"];
+  const box = (items, mark, y, lineCol, name) => s.addText(
+    items.map((t, i) => ({ text: `${mark}  ${t}`, options: { breakLine: i < items.length - 1 } })),
+    { x: 5.25, y, w: 4.4, h: 1.3, line: { color: lineCol, width: 2 }, align: "left", valign: "middle", fontSize: 14, bold: true, color: INK,
+      margin: [10, 6, 4, 4], paraSpaceAfter: 3, isTextBox: true, objectName: name });
+  box(bull, "✓", 1.8, NAVY, "Bull assumptions");
+  box(bear, "×", 3.3, PLAT, "Bear assumptions");
+  s.addShape(pres.shapes.LINE, { x: 4.5, y: 2.45, w: 0.75, h: 0.28, flipV: true, line: { color: NAVY, width: 1.25, dashType: "dash" }, objectName: "Bull connector" });
+  s.addShape(pres.shapes.LINE, { x: 4.5, y: 3.23, w: 0.75, h: 0.72, line: { color: PLAT, width: 1.25, dashType: "dash" }, objectName: "Bear connector" });
+
+  // Sanity check
+  sectionHeader(s, "Review: Sanity Check", 2.0, 4.65, 6.0, "Sanity header");
+  s.addText([
+    { text: "Margins: ", options: { bold: true, bullet: true } }, { text: "FTAI ran ~35% as recently as FY25", options: { breakLine: true } },
+    { text: "Share: ", options: { bold: true, bullet: true } }, { text: "FTAI has added ~4 pts a year since 2024", options: { breakLine: true } },
+    { text: "Power: ", options: { bold: true, bullet: true } }, { text: "signed order covers the $450M low end" },
+  ], {
+    x: 2.3, y: 5.2, w: 5.6, h: 1.1, margin: 0, align: "left", valign: "top", fontSize: 15, color: INK, paraSpaceAfter: 3,
+    isTextBox: true, objectName: "Sanity bullets",
+  });
+
+  source(s, "GPS model (DCF tab R/R: bull vs. bear blended DCF; Assumptions tab bull/bear rows); FTAI filings and earnings calls");
+  s.addNotes("Reward = bull-case blended DCF upside (+131.9%); risk = bear-case blended DCF downside (−38.6%); skew 3.4x (GPS model, DCF tab). " +
+    "Bull rows: Aerospace margin ex-PMA rising to 33.5% by FY31, FTAI share to 25% by FY31, higher shop visits, Power units ahead of base ($550M FY27E EBITDA). " +
+    "Bear rows: margin ex-PMA flat at 28.5%, no PMA, OEM pass-through 30%, share capped at 15%, SCI fleet capped at 400 aircraft, faster retirements, " +
+    "Power at 50% JV share and 30% margins ($113M FY27E EBITDA). Sanity check: FY25 Aerospace margin 34.7%; share ~4% → ~8% → ~12% (2024–26E); " +
+    "the $1.465B J&F order underpins the $450M low end of FY27 Power guidance.");
+}
+
 (async () => {
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
