@@ -822,7 +822,7 @@ pres.addSection({ title: "Thesis 1b" });
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
   s.addText("Thesis 1b: Share Gains (2/5)", { placeholder: "title" });
-  s.addText("Independent shops are clogged just as OEMs pivot to LEAP. CFM56 work needs a new home.", { placeholder: "subtitle" });
+  s.addText("Independent shops are clogged, and OEMs are pouring new capacity into LEAP, not CFM56.", { placeholder: "subtitle" });
 
   sectionHeader(s, "Independent Shops Are Clogged…", 0.35, 1.7, 4.4, "MRO header");
   s.addChart(pres.charts.BAR, [
@@ -830,34 +830,50 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "Today (low)", labels: ["Pre-COVID", "Today"], values: [null, 90] },
     { name: "Today (range)", labels: ["Pre-COVID", "Today"], values: [null, 30] },
   ], chartFrame({
-    x: 0.6, y: 2.45, w: 2.5, h: 2.75, barDir: "col", barGrouping: "stacked", barGapWidthPct: 45,
+    x: 0.6, y: 2.45, w: 2.5, h: 2.05, barDir: "col", barGrouping: "stacked", barGapWidthPct: 45,
     chartColors: ["B5AEA9", NAVY, "3B4C82"], valAxisMinVal: 0, valAxisMaxVal: 140, showValue: false, objectName: "Overhaul days chart",
   }));
-  s.addText("~60", { x: 0.75, y: 3.5, w: 1.0, h: 0.35, margin: 0, align: "center", fontSize: 16, bold: true, color: INK, isTextBox: true, objectName: "Pre-COVID days" });
-  s.addText("90–120", { x: 1.9, y: 2.35, w: 1.1, h: 0.35, margin: 0, align: "center", fontSize: 16, bold: true, color: C.text2, isTextBox: true, objectName: "Today days" });
-  s.addText("CFM56 overhaul, days", { x: 0.6, y: 5.22, w: 2.5, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Days caption" });
-  s.addText([{ text: "+2–6", options: { fontSize: 26, bold: true, color: C.text2, breakLine: true } }, { text: "months just to get a shop slot", options: { fontSize: 12, color: INK } }], {
-    x: 3.15, y: 3.0, w: 1.6, h: 1.4, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: "Slot wait stat",
+  s.addText("~60", { x: 0.75, y: 3.2, w: 1.0, h: 0.3, margin: 0, align: "center", fontSize: 15, bold: true, color: INK, isTextBox: true, objectName: "Pre-COVID days" });
+  s.addText("90–120", { x: 1.9, y: 2.3, w: 1.1, h: 0.3, margin: 0, align: "center", fontSize: 15, bold: true, color: C.text2, isTextBox: true, objectName: "Today days" });
+  s.addText("CFM56 overhaul, days", { x: 0.6, y: 4.52, w: 2.5, h: 0.26, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Days caption" });
+  s.addText([{ text: "+2–6", options: { fontSize: 24, bold: true, color: C.text2, breakLine: true } }, { text: "months just to get a shop slot", options: { fontSize: 11, color: INK } }], {
+    x: 3.15, y: 2.75, w: 1.6, h: 1.3, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: "Slot wait stat",
   });
 
-  sectionHeader(s, "…While OEMs Move to LEAP", 5.25, 1.7, 4.4, "OEM header");
+  sectionHeader(s, "…While OEMs Pivot to LEAP", 5.25, 1.7, 4.4, "OEM header");
+  const ly = ["2025", "2030E"];
   s.addChart(pres.charts.BAR, [
-    { name: "LEAP installed base", labels: ["2024", "2030E"], values: [1, 3] },
+    { name: "CFM56", labels: ly, values: [0.68, 0.49] },
+    { name: "LEAP", labels: ly, values: [0.32, 0.51] },
   ], chartFrame({
-    x: 5.4, y: 2.45, w: 2.3, h: 2.75, barDir: "col", barGapWidthPct: 45, chartColors: [NAVY],
-    valAxisMinVal: 0, valAxisMaxVal: 3.6, dataLabelFormatCode: '0"x"', dataLabelPosition: "outEnd", dataLabelFontSize: 16, objectName: "LEAP base chart",
+    x: 5.35, y: 2.45, w: 2.45, h: 2.05, barDir: "col", barGrouping: "percentStacked", barGapWidthPct: 40,
+    chartColors: ["B5AEA9", NAVY], valAxisHidden: true, dataLabelFormatCode: "0%", dataLabelPosition: "ctr", dataLabelColor: "FFFFFF",
+    dataLabelFontSize: 13, objectName: "Shop visit mix chart",
   }));
-  s.addText("LEAP installed base", { x: 5.4, y: 5.22, w: 2.3, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "LEAP caption" });
-  [["+50%", "LEAP shop visits, y/y (GE, 2026)"], ["~2x", "GE's LEAP repair capacity, from ~$500M of spend"]].forEach(([big, lab], i) => {
-    s.addText([{ text: big, options: { fontSize: 24, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 11, color: INK } }], {
-      x: 7.8, y: 2.55 + i * 1.35, w: 1.85, h: 1.2, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `LEAP stat ${i + 1}`,
+  s.addText([{ text: "■ ", options: { color: "B5AEA9" } }, { text: "CFM56  " }, { text: "■ ", options: { color: NAVY } }, { text: "LEAP" }], {
+    x: 5.35, y: 4.52, w: 2.45, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Mix legend",
+  });
+  [["~1/2", "of GE's $1B+ MRO spend goes to LEAP"], ["+50%", "LEAP shop visits, y/y (GE, 2026)"]].forEach(([big, lab], i) => {
+    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 11, color: INK } }], {
+      x: 7.85, y: 2.45 + i * 1.1, w: 1.8, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `LEAP stat ${i + 1}`,
     });
   });
 
-  takeaway(s, "OEM slots go to LEAP as independent shops clog. CFM56 owners need a faster option.");
-  source(s, "Aviation Business News (2025); Bain (2024); GE Aerospace Q1/Q2'26 earnings calls");
+  // Expert quote banner (TATT style)
+  s.addText([
+    { text: "“The variability in capital investment required to capture the LEAP is extremely low versus what it took them to capture the CFM.”", options: { bold: true, breakLine: true } },
+    { text: "— Former executive, engine MRO shop", options: { italic: true, fontSize: 12 } },
+  ], {
+    x: 0.35, y: 4.95, w: 9.3, h: 0.95, fill: { color: PLAT_XLT }, align: "center", valign: "middle", fontSize: 14, color: INK,
+    margin: [12, 12, 4, 4], isTextBox: true, objectName: "Expert quote",
+  });
+
+  takeaway(s, "OEM slots shift to LEAP as independent shops clog. CFM56 owners need a faster option.");
+  source(s, "Aviation Business News (2025); Bain (2024); GE Q4'25–Q2'26 calls; CFM LEAP forecast; GPS model; GPS expert call");
   s.addNotes("CFM56 full overhaul ~60 days pre-pandemic vs. 90–120 days now (Aviation Business News, 2025; secondary source). Slot waits up 2–6 months (Bain, 2024; 2025 market summaries). " +
     "GE: LEAP shop visits up >50% in Q1 and Q2 2026; LEAP installed base to roughly triple 2024–2030; ~$500M of >$1B MRO investment to LEAP, roughly doubling internal LEAP capacity. " +
+    "Shop-visit mix: CFM56 2,350 (2025) and 2,150 (2030E) from GPS model; LEAP ~1,100 (2025) and ~2,200 (2030E) per CFM forecast that LEAP visits exceed CFM56 by 2030. " +
+    "No source found showing OEMs cutting CFM56 capacity outright; the shift is in where new OEM capacity goes. " +
     "Former MRO executive: 'the variability in capital investment required to capture the LEAP is extremely low versus what it took them to capture the CFM.'");
 }
 
@@ -869,49 +885,68 @@ pres.addSection({ title: "Thesis 1b" });
 
   // Day-scaled timelines: 180 days = full width
   const tx = 2.35, tw = 7.0, scale = tw / 180;
-  s.addText("Days off wing", { x: tx, y: 1.75, w: tw, h: 0.3, margin: 0, align: "left", fontSize: 12, italic: true, color: C.accent2, isTextBox: true, objectName: "Timeline label" });
+  s.addText("Days off wing", { x: tx, y: 1.68, w: tw, h: 0.26, margin: 0, align: "left", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Timeline label" });
   [0, 30, 60, 90, 120, 150, 180].forEach((d) => {
-    s.addShape(pres.shapes.LINE, { x: tx + d * scale, y: 2.1, w: 0, h: 3.0, line: { color: "E3E0DC", width: 0.75 }, objectName: `Grid ${d}` });
-    s.addText(String(d), { x: tx + d * scale - 0.3, y: 5.1, w: 0.6, h: 0.25, margin: 0, align: "center", fontSize: 10, color: C.accent2, isTextBox: true, objectName: `Tick ${d}` });
+    s.addShape(pres.shapes.LINE, { x: tx + d * scale, y: 1.95, w: 0, h: 1.65, line: { color: "E3E0DC", width: 0.75 }, objectName: `Grid ${d}` });
+    s.addText(String(d), { x: tx + d * scale - 0.3, y: 3.6, w: 0.6, h: 0.22, margin: 0, align: "center", fontSize: 10, color: C.accent2, isTextBox: true, objectName: `Tick ${d}` });
   });
-  // Traditional shop visit: 120–180 days
   s.addText([{ text: "Typical shop visit", options: { bold: true, breakLine: true } }, { text: "120–180 days", options: { fontSize: 12 } }], {
-    x: 0.35, y: 2.3, w: 1.9, h: 0.75, margin: 0, align: "right", valign: "middle", fontSize: 14, color: INK, isTextBox: true, objectName: "Shop visit label",
+    x: 0.35, y: 2.0, w: 1.9, h: 0.6, margin: 0, align: "right", valign: "middle", fontSize: 14, color: INK, isTextBox: true, objectName: "Shop visit label",
   });
   const steps = [["Wait for slot", 40], ["Strip", 28], ["Wait for parts", 40], ["Repair", 32], ["Test", 10]];
   let cx = tx;
   steps.forEach(([name, d], i) => {
     const w = d * scale;
     s.addText(name, {
-      shape: pres.shapes.CHEVRON, x: cx, y: 2.35, w: w + 0.12, h: 0.65, fill: { color: i % 2 ? "B5AEA9" : PLAT_LT }, line: { type: "none" },
+      shape: pres.shapes.CHEVRON, x: cx, y: 2.03, w: w + 0.12, h: 0.55, fill: { color: i % 2 ? "B5AEA9" : PLAT_LT }, line: { type: "none" },
       align: "center", valign: "middle", fontSize: 9, bold: true, color: C.text2, margin: 0, objectName: `Shop step ${i + 1}`,
     });
     cx += w;
   });
-  s.addShape(pres.shapes.RECTANGLE, { x: cx, y: 2.45, w: 30 * scale, h: 0.45, fill: { type: "none" }, line: { color: "B5AEA9", width: 1.25, dashType: "dash" }, objectName: "Shop visit range" });
-  // FTAI module swap: 5–25 days
+  s.addShape(pres.shapes.RECTANGLE, { x: cx, y: 2.11, w: 30 * scale, h: 0.39, fill: { type: "none" }, line: { color: "B5AEA9", width: 1.25, dashType: "dash" }, objectName: "Shop visit range" });
   s.addText([{ text: "FTAI module swap", options: { bold: true, breakLine: true } }, { text: "5–25 days", options: { fontSize: 12 } }], {
-    x: 0.35, y: 3.65, w: 1.9, h: 0.75, margin: 0, align: "right", valign: "middle", fontSize: 14, color: C.text2, isTextBox: true, objectName: "Swap label",
+    x: 0.25, y: 2.8, w: 2.0, h: 0.6, margin: 0, align: "right", valign: "middle", fontSize: 13, color: C.text2, isTextBox: true, objectName: "Swap label",
   });
-  s.addShape(pres.shapes.CHEVRON, { x: tx, y: 3.7, w: 25 * scale + 0.12, h: 0.65, fill: { color: NAVY }, line: { type: "none" }, objectName: "Swap bar" });
+  s.addShape(pres.shapes.CHEVRON, { x: tx, y: 2.83, w: 25 * scale + 0.12, h: 0.55, fill: { color: NAVY }, line: { type: "none" }, objectName: "Swap bar" });
   s.addText("Swap a restored module from FTAI's pool, test, fly", {
-    x: tx + 25 * scale + 0.25, y: 3.7, w: 4.2, h: 0.65, margin: 0, align: "left", valign: "middle", fontSize: 13, bold: true, color: C.text2,
+    x: tx + 25 * scale + 0.25, y: 2.83, w: 3.6, h: 0.55, margin: 0, align: "left", valign: "middle", fontSize: 12, bold: true, color: C.text2,
     isTextBox: true, objectName: "Swap description",
   });
-  s.addText([{ text: "~7x", options: { fontSize: 26, bold: true, breakLine: true } }, { text: "faster", options: { fontSize: 12, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 7.85, y: 3.75, w: 1.45, h: 1.25, fill: { color: NAVY }, line: { color: NAVY },
+  s.addText([{ text: "~7x", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "faster", options: { fontSize: 11, bold: true } }], {
+    shape: pres.shapes.OVAL, x: 8.3, y: 2.65, w: 1.15, h: 0.95, fill: { color: NAVY }, line: { color: NAVY },
     align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Speed callout",
   });
-  s.addText("Why it works: FTAI keeps a pool of restored modules on the shelf, so the airline never waits for parts.", {
-    x: 0.35, y: 5.45, w: 9.3, h: 0.4, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 13, italic: true, color: INK,
-    isTextBox: true, objectName: "Why it works",
+
+  // Cost of downtime: spare-engine lease while grounded
+  sectionHeader(s, "Lease Cost While Grounded", 0.35, 3.92, 4.55, "Cost header");
+  // Two-bar comparison drawn to scale ($K); 493 → 2.2"
+  const bx = 2.3, bmax = 1.9, bscale = bmax / 493;
+  [["Shop visit, ~150 days", 493, NAVY], ["FTAI swap, ~20 days", 66, "B5AEA9"]].forEach(([lab, v, col], i) => {
+    const y = 4.55 + i * 0.52;
+    s.addText(lab, { x: 0.35, y, w: bx - 0.45, h: 0.38, margin: 0, align: "right", valign: "middle", fontSize: 11, color: INK, isTextBox: true, objectName: `Cost label ${i + 1}` });
+    s.addShape(pres.shapes.RECTANGLE, { x: bx, y, w: v * bscale, h: 0.38, fill: { color: col }, line: { type: "none" }, objectName: `Cost bar ${i + 1}` });
+    s.addText(`$${v}K`, { x: bx + v * bscale + 0.08, y, w: 0.8, h: 0.38, margin: 0, align: "left", valign: "middle", fontSize: 13, bold: true, color: C.text2, isTextBox: true, objectName: `Cost value ${i + 1}` });
+  });
+  s.addText("~$430K saved per visit (IBA lease rate, ~$100K/mo)", {
+    x: 0.35, y: 5.62, w: 4.55, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Cost caption",
+  });
+
+  // Expert quote
+  s.addText([
+    { text: "“FTAI's advantage is basically turnaround time and cheaper sourcing.”", options: { bold: true, fontSize: 16, breakLine: true } },
+    { text: "— Industry expert, GPS expert call", options: { italic: true, fontSize: 12 } },
+  ], {
+    x: 5.15, y: 4.0, w: 4.5, h: 1.9, fill: { color: PLAT_XLT }, align: "center", valign: "middle", color: INK,
+    margin: [14, 14, 6, 6], paraSpaceAfter: 6, isTextBox: true, objectName: "Turnaround expert quote",
   });
 
   takeaway(s, "Every day an engine is off wing costs the airline a jet. FTAI sells that time back.");
-  source(s, "FTAI Q2'24 earnings call (120–180 vs. 5–25 days, via third-party analysis); shop-visit step lengths illustrative");
+  source(s, "FTAI Q2'24 call via third-party analysis; IBA (2024) lease rates; GPS expert call; step lengths illustrative");
   s.addNotes("FTAI (Q2'24 call, as reported by third parties): average CFM56 engine turnaround ~120–180 days vs. 5–25 days for a module swap. Midpoints 150 vs. ~20 days = ~7x. " +
     "Step lengths within the shop visit are illustrative; slot waits of 2–6 months and HPT blade shortages drive most of the delay. " +
-    "Caveat: the fastest swaps apply where the core does not need to be opened; roughly half of shop visits require core disassembly.");
+    "Caveat: the fastest swaps apply where the core does not need to be opened; roughly half of shop visits require core disassembly. " +
+    "Cost chart: IBA puts CFM56-7B spare-engine lease rates at ~$100K/month in 2024 (up from ~$75K in 2019), ~$3.3K/day. 150 days = ~$493K vs. 20 days = ~$66K. " +
+    "Lease cost only; lost flying revenue on a grounded jet (often $10K+ per day) would widen the gap.");
 }
 
 // 1b (4/5): new capacity
