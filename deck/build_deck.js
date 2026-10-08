@@ -1200,27 +1200,17 @@ pres.addSection({ title: "Thesis 2" });
   // The bridge
   sectionHeader(s, "The Bridge", 5.7, 1.7, 3.95, "Bridge header");
   const steps = [
-    ["Today", "GPUs and shells ready", PLAT_LT, C.text2],
-    ["2026–29", "FTAI turbines power the site", NAVY, C.background1],
-    ["2029+", "Grid and new plants arrive", PLAT_LT, C.text2],
+    ["Today", "GPUs bought, data center shells built", PLAT_LT, C.text2],
+    ["2026–2029", "FTAI's mobile turbines power the site", NAVY, C.background1],
+    ["2029+", "Grid connections and new plants arrive", PLAT_LT, C.text2],
   ];
   steps.forEach(([when, what, fill, col], i) => {
-    const y = 2.3 + i * 0.66;
-    s.addText([{ text: when + "  ", options: { fontSize: 14, bold: true } }, { text: what, options: { fontSize: 11 } }], {
-      x: 5.7, y, w: 3.95, h: 0.52, fill: { color: fill }, color: col, align: "center", valign: "middle", margin: 6,
+    const y = 2.35 + i * 1.12;
+    s.addText([{ text: when, options: { fontSize: 16, bold: true, breakLine: true } }, { text: what, options: { fontSize: 12 } }], {
+      x: 5.7, y, w: 3.95, h: 0.88, fill: { color: fill }, color: col, align: "center", valign: "middle", margin: 6,
       isTextBox: true, objectName: `Bridge step ${i + 1}`,
     });
-    if (i < 2) s.addShape(pres.shapes.DOWN_ARROW, { x: 7.52, y: y + 0.53, w: 0.3, h: 0.12, fill: { color: PLAT }, line: { type: "none" }, objectName: `Bridge arrow ${i + 1}` });
-  });
-  // Terminal value risk, addressed head-on
-  s.addText([
-    { text: "But does the bridge end? (TV risk)", options: { bold: true, fontSize: 13, color: C.text2, breakLine: true } },
-    { text: "Gap still widens: 47 GW short in 2031", options: { bullet: { indent: 12 }, fontSize: 11, breakLine: true } },
-    { text: "Units can stay as backup and peaking power", options: { bullet: { indent: 12 }, fontSize: 11, breakLine: true } },
-    { text: "Valued at 12x, below Aerospace's 16x", options: { bullet: { indent: 12 }, fontSize: 11 } },
-  ], {
-    x: 5.7, y: 4.35, w: 3.95, h: 1.5, line: { color: NAVY, width: 1.25, dashType: "dash" }, align: "left", valign: "middle",
-    color: INK, margin: [8, 6, 3, 3], paraSpaceAfter: 2, isTextBox: true, objectName: "TV risk box",
+    if (i < 2) s.addShape(pres.shapes.DOWN_ARROW, { x: 7.47, y: y + 0.9, w: 0.4, h: 0.2, fill: { color: PLAT }, line: { type: "none" }, objectName: `Bridge arrow ${i + 1}` });
   });
 
   takeaway(s, "Data centers built today need power now. Transitory units like FTAI's fill the gap.");
