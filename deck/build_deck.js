@@ -385,6 +385,71 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
     "Ex-Power = $225/sh vs. $167.03 current (10/2/26), a 26% discount.");
 }
 
+// ---------- Slide 6: Returns Summary (modeled on SPOT "Pitch Summary – Thesis 2") ----------
+pres.addSection({ title: "Returns" });
+{
+  const s = pres.addSlide({ masterName: "GPS Content", sectionTitle: "Returns" });
+  s.addText("Returns Summary", { placeholder: "title" });
+
+  s.addText("Three under-priced drivers take a –41% bear baseline to +84% upside.", {
+    x: 0.35, y: 1.12, w: 9.3, h: 0.56, fill: { color: NAVY }, align: "center", valign: "middle",
+    fontSize: 17, bold: true, color: C.background1, margin: 0, isTextBox: true, objectName: "Headline banner",
+  });
+  s.addText("What Each Thesis Adds to the Target Price", {
+    x: 0.35, y: 1.78, w: 9.3, h: 0.42, fill: { color: NAVY }, align: "center", valign: "middle",
+    fontSize: 16, color: C.background1, margin: 0, isTextBox: true, objectName: "Sub banner",
+  });
+
+  // $/share contributions: Shapley average over all orderings (largest-remainder rounding so the bridge sums to $308)
+  const rows = [
+    ["Thesis 1a) Margins Have Bottomed", "PMA parts, OEM-linked pricing and technician productivity lift Aerospace margins from ~30% to ~32.5% by FY31.", "+$36", "+21% upside"],
+    ["Thesis 1b) Volume Grows With Share", "New capacity, OEMs moving to LEAP and faster turnaround lift FTAI's CFM56 module share from ~12% to 20% by FY30.", "+$57", "+34% upside"],
+    ["Thesis 2) Power Is a Call Option", "Mod-1 deliveries ramp from 45 units in FY27 to 110 by FY29 at ~40% EBITDA margins.", "+$116", "+70% upside"],
+  ];
+  const by0 = 2.38, bh = 0.94, bgap = 0.12;
+  rows.forEach(([head, body, big, small], i) => {
+    const y = by0 + i * (bh + bgap);
+    s.addText([
+      { text: head, options: { bold: true, fontSize: 15, color: C.text2, breakLine: true } },
+      { text: body, options: { fontSize: 12, color: INK } },
+    ], {
+      x: 0.35, y, w: 6.15, h: bh, align: "center", valign: "middle", margin: [8, 8, 3, 3],
+      line: { color: INK, width: 1, dashType: "dash" }, isTextBox: true, objectName: `Thesis ${i + 1} box`,
+    });
+    s.addText([
+      { text: "Contribution:", options: { fontSize: 13, bold: true, color: INK, breakLine: true } },
+      { text: big, options: { fontSize: 24, bold: true, color: C.text2, breakLine: true } },
+      { text: small, options: { fontSize: 12, color: C.accent2 } },
+    ], {
+      x: 7.2, y, w: 2.45, h: bh, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Thesis ${i + 1} contribution`,
+    });
+  });
+  s.addShape(pres.shapes.CHEVRON, {
+    x: 6.62, y: by0, w: 0.46, h: 3 * bh + 2 * bgap, fill: { color: PLAT_LT }, line: { type: "none" }, objectName: "Chevron",
+  });
+
+  s.addText("Bear baseline (Bear-case margins and share, no Power): $99 per share, 41% below today's $167.", {
+    x: 0.35, y: 5.6, w: 9.3, h: 0.3, margin: 0, align: "center", fontSize: 12, color: C.accent2,
+    isTextBox: true, objectName: "Baseline note",
+  });
+  s.addText([
+    { text: "Base case: $99 + $36 margins + $57 volume + $116 Power = " },
+    { text: "$308 target", options: { bold: true } },
+    { text: " (+84%)" },
+  ], {
+    x: 0.35, y: 5.98, w: 9.3, h: 0.56, fill: { color: PLAT_XLT }, line: { color: NAVY, width: 1.25 },
+    align: "center", valign: "middle", fontSize: 14, color: INK, margin: 0, isTextBox: true, objectName: "Base case bridge",
+  });
+  source(s, "GPS model: thesis drivers switched Bear vs. Base (Power off = 0 units), Shapley average; blended DCF");
+  s.addNotes(
+    "Attribution re-runs the full model (blended DCF: 50% perpetuity, 50% exit multiple) for all 8 on/off combinations. " +
+    "Margins = OEM escalator, pass-through, Aerospace margin ex-PMA and PMA penetration rows. Volume = FTAI share of MRO and SCI aircraft rows. " +
+    "Power = Mod-1 units delivered (off = 0, i.e. what the market prices today). Exact values: baseline $99.16, margins +$36.02, " +
+    "volume +$56.49, Power +$116.36, total $308.03 (dollars and % upside rounded by largest remainder so each bridge sums). Power's DCF contribution is larger than its $52 SOTP value on the Opportunity (3/3) slide " +
+    "because the DCF captures the ramp to $1.3B of FY31 EBITDA and terminal value, while the SOTP applies 12x to FY27E $450M only."
+  );
+}
+
 // ---------- Slide 6: Business Overview ----------
 pres.addSection({ title: "Business Overview" });
 {
