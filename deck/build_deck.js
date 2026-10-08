@@ -45,7 +45,7 @@ const contentFrame = () => [
   {
     placeholder: {
       options: {
-        name: "title", type: "title", x: 0.35, y: 0.2, w: 7.8, h: 0.7,
+        name: "title", type: "title", x: 0.35, y: 0.2, w: 9.3, h: 0.7,
         fontSize: 32, bold: true, color: C.text2, valign: "middle", align: "left", margin: 0,
       },
       text: "",
@@ -583,6 +583,138 @@ pres.addSection({ title: "Business Overview" });
   s.addNotes("Module Factory example (FTAI): three unserviceable engines worth $2.0M, $2.5M and $2.0M each still hold modules with life left " +
     "(cycles shown per Fan / Core / LPT). FTAI splits them into nine modules, adds $3.5M of MRO work, and reassembles two serviceable engines " +
     "($8.5M at 7k/7k/7k and $6.0M at 4k/4k/4k) plus one run-out core ($1.5M): $16.0M out vs. $10.0M in, $6.0M of value created.");
+}
+
+// ---------- Thesis 1a: Margins Have Bottomed (3 slides) ----------
+pres.addSection({ title: "Thesis 1a" });
+
+// 1a (1/3): the bear case is nearly exhausted
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
+  s.addText("Thesis 1a: Margin Floor (1/3)", { placeholder: "title" });
+  s.addText("Even if the bears are right, too little cheap inventory is left to push margins lower.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Cheap Stock Left in AP", 0.35, 1.7, 3.9, "Donut header");
+  s.addChart(pres.charts.DOUGHNUT, [
+    { name: "AP inventory", labels: ["Depreciated leasing stock", "Everything else"], values: [8, 92] },
+  ], {
+    x: 0.6, y: 2.3, w: 3.4, h: 3.1, holeSize: 68, chartColors: [NAVY, PLAT_LT], showLegend: false,
+    showValue: false, showPercent: false, showLabel: false, dataBorder: { pt: 1, color: "FFFFFF" }, objectName: "Inventory donut",
+  });
+  s.addText([{ text: "<8%", options: { fontSize: 34, bold: true, color: C.text2, breakLine: true } }, { text: "left to unwind", options: { fontSize: 13, color: C.accent2 } }], {
+    x: 1.3, y: 3.35, w: 2.0, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: "Donut center",
+  });
+
+  sectionHeader(s, "Margin: Trough, Then Rebuild", 4.55, 1.7, 5.1, "Margin path header");
+  const mc = ["FY25", "Q1'26", "Q2'26", "FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Reported", labels: mc, values: [0.347, 0.299, 0.285, null, null, null, null, null, null] },
+    { name: "GPS model", labels: mc, values: [null, null, null, 0.301, 0.299, 0.307, 0.314, 0.320, 0.325] },
+  ], chartFrame({
+    x: 4.55, y: 2.3, w: 5.1, h: 3.5, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 30,
+    chartColors: [NAVY, "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 0.4, catAxisLabelFontSize: 10,
+    dataLabelFormatCode: "0.0%", dataLabelPosition: "outEnd", dataLabelFontSize: 10,
+    objectName: "Margin path chart",
+  }));
+  s.addText("Our model", {
+    x: 7.4, y: 2.3, w: 1.6, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, bold: true, color: C.accent2,
+    isTextBox: true, objectName: "Model label",
+  });
+
+  takeaway(s, "With little cheap stock left, ~30% is the floor, and margins rebuild from here.");
+  source(s, "FTAI filings, GPS analysis and model (Aerospace Adj. EBITDA margin incl. PMA)");
+  s.addNotes("Depreciated leasing inventory remaining in Aerospace Products is under 8% (GPS analysis), so even on the short report's logic there is little left to compress margins. " +
+    "Margin path: FY25 34.7%, Q1'26 29.9%, Q2'26 28.5% reported; GPS model 30.1% FY26E, 29.9% FY27E, then 30.7% / 31.4% / 32.0% / 32.5% FY28E–FY31E.");
+}
+
+// 1a (2/3): price catch-up and EBITDA per module
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
+  s.addText("Thesis 1a: Margin Floor (2/3)", { placeholder: "title" });
+  s.addText("FTAI held price to win share while OEM list prices rose ~7% a year. It can now catch up.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Price Index (2025 = 100)", 0.35, 1.7, 4.6, "Price header");
+  const yrs = ["2025", "2026", "2027", "2028", "2029", "2030", "2031"];
+  s.addChart(pres.charts.LINE, [
+    { name: "OEM list price", labels: yrs, values: [100, 107.0, 114.0, 121.9, 130.5, 139.6, 149.4] },
+    { name: "FTAI price", labels: yrs, values: [100, 100.0, 103.3, 106.9, 110.6, 114.5, 118.5] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 4.6, h: 3.1, chartColors: [NAVY, "B5AEA9"], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 7,
+    valAxisMinVal: 90, valAxisMaxVal: 160, showValue: false, objectName: "Price index chart",
+  }));
+  s.addText("OEM list (+7%/yr)", {
+    x: 2.95, y: 2.35, w: 1.9, h: 0.3, margin: 0, align: "right", fontSize: 12, bold: true, color: C.text2, isTextBox: true, objectName: "OEM line label",
+  });
+  s.addText("FTAI (half of OEM)", {
+    x: 2.95, y: 3.65, w: 1.9, h: 0.3, margin: 0, align: "right", fontSize: 12, bold: true, color: C.accent2, isTextBox: true, objectName: "FTAI line label",
+  });
+  s.addText("The gap is pricing room", {
+    x: 0.35, y: 5.45, w: 4.6, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, color: C.accent2, isTextBox: true, objectName: "Price caption",
+  });
+
+  sectionHeader(s, "EBITDA per Module ($K)", 5.35, 1.7, 4.3, "EPM header");
+  const fy = ["FY25", "FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Trough", labels: fy, values: [null, 876, null, null, null, null, null] },
+    { name: "EBITDA / module", labels: fy, values: [887, null, 913, 969, 1027, 1084, 1139] },
+  ], chartFrame({
+    x: 5.35, y: 2.3, w: 4.3, h: 3.5, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30, chartColors: ["B5AEA9", NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 1300, catAxisLabelFontSize: 10, dataLabelFormatCode: "#,##0;;;", dataLabelPosition: "inEnd",
+    dataLabelColor: "FFFFFF", dataLabelFontSize: 10, objectName: "EBITDA per module chart",
+  }));
+
+  takeaway(s, "Passing through just half of OEM increases, plus PMA, lifts EBITDA per module ~30% by FY31.");
+  source(s, "GPS model (RPM tab: CFM escalator 7%/yr, FTAI pass-through 50% from 2027; EBITDA per module incl. PMA)");
+  s.addNotes("OEM index compounds the CFM escalator (7% in 2026, 6.5% in 2027, 7% thereafter). FTAI index applies the model's pass-through: 0% in 2026, then 50% of the escalator. " +
+    "EBITDA per module: $887K FY25, $876K FY26E trough, $913K FY27E, $969K FY28E, $1,027K FY29E, $1,084K FY30E, $1,139K FY31E (+30% vs. FY26E).");
+}
+
+// 1a (3/3): PMA parts
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1a" });
+  s.addText("Thesis 1a: Margin Floor (3/3)", { placeholder: "title" });
+  s.addText("Cheaper PMA parts add a new margin lever, and our base case uses it sparingly.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "PMA Ramp in Our Model", 0.35, 1.7, 4.6, "PMA ramp header");
+  const py = ["FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
+  s.addText("Adoption (% of modules)", {
+    x: 0.35, y: 2.28, w: 4.6, h: 0.25, margin: 0, align: "left", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Adoption label",
+  });
+  s.addChart(pres.charts.LINE, [
+    { name: "PMA adoption", labels: py, values: [0.9, 3, 5, 7, 9] },
+  ], chartFrame({
+    x: 0.35, y: 2.45, w: 4.6, h: 1.05, chartColors: ["B5AEA9"], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 8,
+    catAxisHidden: true, catAxisLineShow: false, valAxisMinVal: 0, valAxisMaxVal: 13, dataLabelFormatCode: "0.0", dataLabelPosition: "t",
+    dataLabelColor: PLAT, dataLabelFontSize: 11, objectName: "PMA adoption chart",
+  }));
+  s.addText("EBITDA uplift ($M)", {
+    x: 0.35, y: 3.5, w: 4.6, h: 0.25, margin: 0, align: "left", fontSize: 11, italic: true, color: C.text2, isTextBox: true, objectName: "Uplift label",
+  });
+  s.addChart(pres.charts.BAR, [
+    { name: "PMA EBITDA uplift", labels: py, values: [6, 24, 42, 59, 77] },
+  ], chartFrame({
+    x: 0.35, y: 3.7, w: 4.6, h: 2.1, barDir: "col", chartColors: [NAVY], barGapWidthPct: 45, valAxisMinVal: 0, valAxisMaxVal: 92,
+    dataLabelFormatCode: '"$"0"M"', dataLabelPosition: "outEnd", dataLabelFontSize: 11, objectName: "PMA uplift chart",
+  }));
+
+  sectionHeader(s, "Upside If Adoption Runs Faster", 5.35, 1.7, 4.3, "Sensitivity header");
+  const ad = ["0%", "10%", "20%", "30%", "40%", "50%"];
+  s.addChart(pres.charts.LINE, [
+    { name: "AP EBITDA ($M)", labels: ad, values: [1132, 1225, 1318, 1411, 1504, 1597] },
+  ], chartFrame({
+    x: 5.35, y: 2.3, w: 4.3, h: 3.0, chartColors: [NAVY], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 7,
+    valAxisMinVal: 1000, valAxisMaxVal: 1700, dataLabelFormatCode: '"$"#,##0', dataLabelPosition: "t", dataLabelFontSize: 11,
+    objectName: "PMA sensitivity chart",
+  }));
+  s.addText("FY26E Aerospace EBITDA ($M) at 1,200 modules vs. PMA adoption (Jefferies)", {
+    x: 5.35, y: 5.35, w: 4.3, h: 0.45, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Sensitivity caption",
+  });
+
+  takeaway(s, "3 of 5 Chromalloy parts are approved, and every 5 pts of adoption adds ~$43M of EBITDA.");
+  source(s, "GPS model (RPM tab: PMA penetration × $0.4M uplift per module); Jefferies estimates; FAA PMA data");
+  s.addNotes("Our model: PMA penetration 0.9% FY27E rising to 9% FY31E at $0.4M EBITDA uplift per PMA module = $6M to $77M. " +
+    "Jefferies estimates ~$0.8M uplift per PMA module and ~$43M of 2026E Aerospace EBITDA per 5 pts of adoption, so our case is conservative on both rate and uplift. " +
+    "Chromalloy JV program: 3 of 5 parts approved (LPT stage 1 vane 2021, HPT stage 1 vane Oct 2024, HPT stage 1 blade Oct 2025), covering ~80% of targeted savings; 2 in FAA review.");
 }
 
 (async () => {
