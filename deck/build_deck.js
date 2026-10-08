@@ -309,27 +309,32 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
     }
   });
 
-  // Right: valuation implies the market doesn't trust the earnings
-  sectionHeader(s, "…So the Market Won't Pay Up", 5.75, 1.7, 3.9, "Multiple header");
-  const mcats = ["Market Today", "Our SOTP"];
-  s.addChart(pres.charts.BAR, [
-    { name: "Market", labels: mcats, values: [9.2, null] },
-    { name: "SOTP", labels: mcats, values: [null, 14.0] },
-  ], chartFrame({
-    x: 5.75, y: 2.3, w: 3.9, h: 3.0, barDir: "col", barGrouping: "stacked", barGapWidthPct: 60, chartColors: ["B5AEA9", NAVY],
-    valAxisMinVal: 0, valAxisMaxVal: 16.5, dataLabelFormatCode: '0.0"x";;;', dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF",
-    dataLabelFontSize: 15, objectName: "Multiple chart",
-  }));
-  s.addText("EV / FY27E Adj. EBITDA (GPS model)", {
-    x: 5.75, y: 5.4, w: 3.9, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, color: C.accent2,
-    isTextBox: true, objectName: "Multiple caption",
+  // Right: two readings of the same margin drop
+  sectionHeader(s, "Two Readings of the Drop", 5.75, 1.7, 3.9, "Readings header");
+  const readings = [
+    ["Management", "Heavier-scope work, new shops still ramping, and prices held below OEM to win share.", "Temporary: margins recover", PLAT_LT, C.text2, C.text2],
+    ["The Bears", "The cheap, depreciated leasing engines that flattered margins are running out.", "Structural: margins keep falling", NAVY, C.background1, C.background1],
+  ];
+  readings.forEach(([who, why, verdict, fill, col, vcol], i) => {
+    const y = 2.35 + i * 1.72;
+    s.addText([
+      { text: who, options: { fontSize: 15, bold: true, breakLine: true } },
+      { text: why, options: { fontSize: 12, breakLine: true } },
+      { text: "→ " + verdict, options: { fontSize: 13, bold: true, italic: true } },
+    ], {
+      x: 5.75, y, w: 3.9, h: 1.45, fill: { color: fill }, color: col, align: "center", valign: "middle",
+      margin: [10, 10, 4, 4], paraSpaceAfter: 4, isTextBox: true, objectName: `${who} reading`,
+    });
+  });
+  s.addText("vs.", {
+    x: 7.35, y: 3.8, w: 0.7, h: 0.27, margin: 0, align: "center", valign: "middle", fontSize: 14, bold: true, italic: true,
+    color: C.accent2, isTextBox: true, objectName: "Readings vs",
   });
 
   takeaway(s, "The market reads the margin reset as the short thesis unwinding, and prices FTAI as if it's still over-earning.");
-  source(s, "Muddy Waters Research (Jan. 2025), FTAI filings, GPS model");
-  s.addNotes("Market: EV of $20.56B at $167.03 (10/2/26) over GPS FY27E Adj. EBITDA of $2,239M = 9.2x (9.8x on Jefferies FY27E of $2,099M; ~16x on FY26E). " +
-    "Our SOTP: $31.3B implied EV over the same $2,239M = 14.0x blended (Aerospace 16x, Power 12x, Leasing + SCI 9x).");
-}
+  source(s, "Muddy Waters Research (Jan. 2025), FTAI filings and earnings calls, GPS analysis");
+  s.addNotes("Both readings explain the same 1Q26 drop. Management cites heavier-scope work, new facilities and technician productivity still ramping, and pricing held below OEM escalators to take share. " +
+    "The bear reading, following the short report, is that depreciated leasing inventory moved into Aerospace Products had been propping up margins and is running out.");}
 
 // ---------- Slide 5: The Opportunity (3/3) — Power is free ----------
 {
