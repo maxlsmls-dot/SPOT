@@ -1041,6 +1041,93 @@ pres.addSection({ title: "Thesis 1b" });
     "Share path 12.4% FY26E → 20% by FY30E. 2025 split approximates SCI at 82 modules and the remainder third-party.");
 }
 
+// ---------- Thesis 1b: The LEAP Option (2 slides) ----------
+// LEAP (1/2): TATT "APU Licenses" timeline architecture
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
+  s.addText("Thesis 1b: The LEAP Option (1/2)", { placeholder: "title" });
+  s.addText("LEAP engines need more maintenance, and OEM contracts start rolling off after 2030.", { placeholder: "subtitle" });
+
+  // Timeline arrow
+  s.addShape(pres.shapes.RIGHT_ARROW, { x: 0.35, y: 1.95, w: 9.3, h: 0.5, fill: { color: NAVY }, line: { type: "none" }, objectName: "Timeline arrow" });
+  const stops = [
+    ["Today", "~50% of LEAPs on OEM deals", "vs. ~15% of CFM56s"],
+    ["2030", "~2,000 LEAP visits a year", "OEM coverage peaks near 70%"],
+    ["2030+", "Contracts roll off", "Work opens to independents"],
+  ];
+  stops.forEach(([when, head, sub], i) => {
+    const x = 0.75 + i * 3.1;
+    s.addText(when, {
+      x, y: 1.78, w: 2.3, h: 0.84, fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 }, align: "center", valign: "middle",
+      fontSize: 22, bold: true, color: C.text2, margin: 0, isTextBox: true, objectName: `Stop ${i + 1}`,
+    });
+    s.addText([{ text: head, options: { bold: true, fontSize: 14, color: C.text2, breakLine: true } }, { text: sub, options: { fontSize: 12, color: INK } }], {
+      x: x - 0.25, y: 2.72, w: 2.8, h: 0.7, align: "center", valign: "top", margin: 0, isTextBox: true, objectName: `Stop ${i + 1} detail`,
+    });
+  });
+
+  // Three cards: why LEAP matters to FTAI
+  const cards = [
+    ["2.5x", "sooner", "More shop visits", "First LEAP visits at ~4,000 cycles vs. the 10,000+ originally planned."],
+    ["$2–4.5M", "per visit", "Costlier visits", "LEAP overhauls cost far more than the same work on a CFM56."],
+    ["Same", "tooling", "FTAI can pivot fast", "A CFM56/LEAP test cell is coming to Rome, and CFM56 tools and techs carry over."],
+  ];
+  cards.forEach(([big, unit, head, body], i) => {
+    const x = 0.35 + i * 3.17;
+    s.addShape(pres.shapes.RECTANGLE, { x, y: 3.6, w: 2.96, h: 2.25, fill: { color: PLAT_XLT }, line: { type: "none" }, objectName: `Card ${i + 1}` });
+    s.addText([{ text: big, options: { fontSize: big.length > 5 ? 14 : 20, bold: true, breakLine: true } }, { text: unit, options: { fontSize: 10 } }], {
+      shape: pres.shapes.OVAL, x: x + 0.1, y: 3.72, w: 1.25, h: 1.25, fill: { color: i === 2 ? NAVY : "FFFFFF" },
+      line: { color: NAVY, width: 2 }, color: i === 2 ? C.background1 : C.text2, align: "center", valign: "middle", margin: 0,
+      objectName: `Card ${i + 1} stat`,
+    });
+    s.addText(head, { x: x + 1.42, y: 3.85, w: 1.5, h: 0.95, margin: 0, align: "left", valign: "middle", fontSize: 15, bold: true, color: C.text2, isTextBox: true, objectName: `Card ${i + 1} head` });
+    s.addText(body, { x: x + 0.15, y: 5.0, w: 2.66, h: 0.8, margin: 0, align: "left", valign: "top", fontSize: 12, color: INK, isTextBox: true, objectName: `Card ${i + 1} body` });
+  });
+
+  takeaway(s, "As OEM contracts roll off, LEAP becomes FTAI's next CFM56, with costlier, more frequent visits.");
+  source(s, "Safran via Aviation Week; Visual Approach; The Air Current; Safe Fly Aviation; FTAI Q2'26 call; GPS expert call");
+  s.addNotes("LTSA coverage: Safran estimates ~50% of ~5,500 in-service LEAPs are on long-term agreements vs. ~15% of CFM56s, peaking near 70% in 2030 before shifting back to time-and-materials (Aviation Week). " +
+    "LEAP overhauls ~2,000 a year by 2030, roughly matching CFM56 (Aviation Week). First LEAP shop visits clustering at 2,000–6,000 cycles with ~4,000 as a planning base, vs. 10,000+ originally expected (Visual Approach). " +
+    "LEAP-1A/1B shop visit $2.0–4.5M+ before LLPs (Safe Fly, unsourced benchmark); The Air Current: the overhaul far eclipses the cost of the same work on a CFM56. " +
+    "FTAI: CFM56/LEAP test cell planned at Rome as its entry into next-generation engine maintenance (Q2'26 call coverage). No public LEAP repair licence found; confirm before presenting. " +
+    "Former MRO executive: the machines and capital equipment for LEAP are 'very near that for CFM'.");
+}
+
+// LEAP (2/2): TATT "APU Summary" architecture — your return vs. LEAP share
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
+  s.addText("Thesis 1b: The LEAP Option (2/2)", { placeholder: "title" });
+  s.addText("LEAP isn't in our target. Matching FTAI's CFM56 share takes your return past 100%.", { placeholder: "subtitle" });
+
+  s.addText([
+    { text: "“It will happen. The reason why it will happen is because they have set their CFM line up to have a measurable amount of shared services in that line.”", options: { bold: true, breakLine: true } },
+    { text: "— Former executive, engine MRO shop", options: { italic: true, fontSize: 12 } },
+  ], {
+    x: 0.9, y: 1.75, w: 8.2, h: 1.1, fill: { color: PLAT_XLT }, align: "center", valign: "middle", fontSize: 15, color: INK,
+    margin: [12, 12, 4, 4], isTextBox: true, objectName: "LEAP quote",
+  });
+
+  const shares = ["0%", "5%", "10%", "15%", "20%", "25%"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Your return", labels: shares, values: [0.66, 0.74, 0.83, 0.92, 1.01, 1.09] },
+  ], chartFrame({
+    x: 1.1, y: 3.0, w: 7.8, h: 2.55, barDir: "col", barGapWidthPct: 45, chartColors: [NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 1.25, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 13,
+    catAxisLabelColor: NAVY, catAxisLabelFontSize: 13, objectName: "LEAP return chart",
+  }));
+  s.addText("Your return", { x: -0.05, y: 4.1, w: 1.4, h: 0.35, margin: 0, align: "center", valign: "middle", fontSize: 12, bold: true, color: INK, rotate: 270, isTextBox: true, objectName: "Y label" });
+  s.addText("FTAI share of off-contract LEAP shop visits", { x: 1.1, y: 5.55, w: 7.8, h: 0.28, margin: 0, align: "center", fontSize: 12, bold: true, color: INK, isTextBox: true, objectName: "X label" });
+  s.addText("Base case", { x: 1.25, y: 4.75, w: 1.1, h: 0.25, margin: 0, align: "center", fontSize: 11, italic: true, bold: true, color: C.background1, isTextBox: true, objectName: "Base label" });
+  s.addShape(pres.shapes.RECTANGLE, { x: 6.45, y: 3.22, w: 1.15, h: 2.4, fill: { type: "none" }, line: { color: C.accent2, width: 1.5, dashType: "dash" }, objectName: "CFM56 share box" });
+  s.addText("= CFM56 share", { x: 6.3, y: 2.9, w: 1.45, h: 0.26, margin: 0, align: "center", fontSize: 11, italic: true, bold: true, color: C.accent2, isTextBox: true, objectName: "CFM56 share label" });
+
+  takeaway(s, "Every 5 pts of off-contract LEAP share adds ~9 pts to your return on top of our base case.");
+  source(s, "GPS analysis: 2,000 LEAP visits/yr, 50% off contract, 3 modules/visit, FY27E EBITDA/module, 16x, discounted 4 yrs at 9.5%");
+  s.addNotes("Return = (base-case SOTP $276.65 + LEAP value per share) / $167.03 − 1. LEAP value: 2,000 LEAP shop visits a year (Aviation Week, ~2030) × 50% off OEM contracts " +
+    "(coverage falling back from the ~70% 2030 peak) × FTAI share × 3 modules per visit × $0.913M EBITDA per module (FY27E CFM56 level; LEAP visits cost more, so conservative) × 16x Aerospace multiple, " +
+    "discounted four years at the 9.5% WACC. Each point of share ≈ $2.93/share. 20% share (FTAI's FY28E+ CFM56 share) ≈ $548M EBITDA and +$59/share → 101% return.");
+}
+
 (async () => {
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
