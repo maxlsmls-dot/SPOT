@@ -389,7 +389,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
 pres.addSection({ title: "Business Overview" });
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Business Overview" });
-  s.addText("Business Overview", { placeholder: "title" });
+  s.addText("Business Overview (1/2)", { placeholder: "title" });
   s.addText("FTAI keeps the world's best-selling jet engine flying, and turns old ones into power.", { placeholder: "subtitle" });
 
   const cols = [
@@ -420,6 +420,100 @@ pres.addSection({ title: "Business Overview" });
 
   takeaway(s, "One engine, three ways to earn: fix it, power with it, and own the planes it flies on.");
   source(s, "FTAI filings and earnings calls, GPS model. Illustrations are schematic.");
+}
+
+// ---------- Slide 7: Business Overview (2/2) — the module exchange ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Business Overview" });
+  s.addText("Business Overview (2/2)", { placeholder: "title" });
+  s.addText("FTAI swaps worn modules for restored ones from its own pool, so airlines skip the shop queue.", { placeholder: "subtitle" });
+
+  // Left: the exchange loop
+  sectionHeader(s, "How an Exchange Works", 0.35, 1.7, 4.3, "Loop header");
+  const cx = 2.5, cy = 3.97, rx = 1.5, ry = 1.22;
+  s.addShape(pres.shapes.OVAL, {
+    x: cx - rx, y: cy - ry, w: 2 * rx, h: 2 * ry, fill: { type: "none" }, line: { color: "B5AEA9", width: 3 }, objectName: "Loop ring",
+  });
+  [45, 135, 225, 315].forEach((deg, i) => {
+    const t = (deg * Math.PI) / 180, a = 0.24;
+    s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
+      x: cx + rx * Math.sin(t) - a / 2, y: cy - ry * Math.cos(t) - a / 2, w: a, h: a, rotate: deg + 90,
+      fill: { color: PLAT }, line: { type: "none" }, objectName: `Loop arrow ${i + 1}`,
+    });
+  });
+  s.addText([{ text: "Module", options: { breakLine: true } }, { text: "pool" }], {
+    shape: pres.shapes.OVAL, x: cx - 0.55, y: cy - 0.55, w: 1.1, h: 1.1, fill: { color: NAVY }, line: { color: NAVY },
+    align: "center", valign: "middle", fontSize: 13, bold: true, color: C.background1, margin: 0, objectName: "Module pool",
+  });
+  const nodes = [
+    [0, "Engine needs a shop visit"],
+    [90, "FTAI swaps in a restored module"],
+    [180, "Engine back in service in days"],
+    [270, "Worn module restored for the pool"],
+  ];
+  const nw = 1.32, nh = 0.8;
+  nodes.forEach(([deg, t], i) => {
+    const a = (deg * Math.PI) / 180;
+    const nx = cx + rx * Math.sin(a) - nw / 2, ny = cy - ry * Math.cos(a) - nh / 2;
+    s.addText(t, {
+      x: nx, y: ny, w: nw, h: nh, fill: { color: PLAT_LT }, align: "center", valign: "middle",
+      fontSize: 12, bold: true, color: C.text2, margin: [6, 4, 2, 2], isTextBox: true, objectName: `Loop step ${i + 1}`,
+    });
+    s.addText(String(i + 1), {
+      shape: pres.shapes.OVAL, x: nx - 0.2, y: ny - 0.2, w: 0.34, h: 0.34, fill: { color: NAVY }, line: { color: "FFFFFF", width: 1.5 },
+      align: "center", valign: "middle", fontSize: 12, bold: true, color: C.background1, margin: 0, objectName: `Loop step ${i + 1} number`,
+    });
+  });
+
+  // Right: Module Factory before / after grids
+  sectionHeader(s, "Why It Pays: The Module Factory", 4.95, 1.7, 4.7, "Factory header");
+  const before = [["$2.0M", [7, 0, 4]], ["$2.5M", [4, 7, 0]], ["$2.0M", [0, 4, 7]]];
+  const after = [["$8.5M", [7, 7, 7]], ["$6.0M", [4, 4, 4]], ["$1.5M", [0, 0, 0]]];
+  const sq = 0.4, sg = 0.06, rowY0 = 2.62, rowH = 0.78, px = 0.76;
+  const cell = (x, y, k, name) => {
+    const style = k === 7 ? { fill: NAVY, col: "FFFFFF", line: NAVY } : k === 4 ? { fill: "B5AEA9", col: NAVY, line: "B5AEA9" } : { fill: "FFFFFF", col: PLAT, line: "B5AEA9" };
+    s.addText(`${k}k`, {
+      x, y, w: sq, h: sq, fill: { color: style.fill }, line: { color: style.line, width: 1.25 }, align: "center", valign: "middle",
+      fontSize: 11, bold: true, color: style.col, margin: 0, objectName: name,
+    });
+  };
+  const grid = (x0, rows, label, tag) => {
+    s.addText(label, {
+      x: x0, y: 2.2, w: 2.08, h: 0.3, margin: 0, align: "center", fontSize: 13, bold: true, italic: true, color: C.accent2,
+      isTextBox: true, objectName: `${tag} label`,
+    });
+    rows.forEach(([price, ks], i) => {
+      const y = rowY0 + i * rowH;
+      s.addText(price, {
+        x: x0, y, w: px - 0.04, h: sq, margin: 0, align: "left", valign: "middle", fontSize: 14, bold: true, color: C.text2,
+        isTextBox: true, objectName: `${tag} engine ${i + 1} value`,
+      });
+      ks.forEach((k, j) => cell(x0 + px + j * (sq + sg), y, k, `${tag} engine ${i + 1} module ${j + 1}`));
+    });
+    ["Fan", "Core", "LPT"].forEach((m, j) => s.addText(m, {
+      x: x0 + px + j * (sq + sg) - 0.05, y: rowY0 + 3 * rowH - 0.32, w: sq + 0.1, h: 0.25, margin: 0, align: "center",
+      fontSize: 10, color: C.accent2, isTextBox: true, objectName: `${tag} ${m} caption`,
+    }));
+  };
+  grid(4.95, before, "3 worn engines in", "Before");
+  grid(7.57, after, "Engines out", "After");
+  s.addShape(pres.shapes.RIGHT_ARROW, {
+    x: 7.1, y: 3.4, w: 0.4, h: 0.36, fill: { color: PLAT }, line: { type: "none" }, objectName: "Factory arrow",
+  });
+  s.addText([{ text: "$6.5M", options: { fontSize: 18, bold: true, breakLine: true } }, { text: "engines + $3.5M of work", options: { fontSize: 11 } }], {
+    x: 4.95, y: 5.08, w: 2.08, h: 0.72, fill: { color: PLAT_LT }, align: "center", valign: "middle", color: C.text2, margin: 0,
+    isTextBox: true, objectName: "Before total",
+  });
+  s.addText([{ text: "$16.0M", options: { fontSize: 18, bold: true, breakLine: true } }, { text: "+$6.0M of value created", options: { fontSize: 11 } }], {
+    x: 7.57, y: 5.08, w: 2.08, h: 0.72, fill: { color: NAVY }, align: "center", valign: "middle", color: C.background1, margin: 0,
+    isTextBox: true, objectName: "After total",
+  });
+
+  takeaway(s, "FTAI sells speed to airlines and harvests cycles from engines no one else can use.");
+  source(s, "FTAI investor materials (Module Factory example), GPS analysis");
+  s.addNotes("Module Factory example (FTAI): three unserviceable engines worth $2.0M, $2.5M and $2.0M each still hold modules with life left " +
+    "(cycles shown per Fan / Core / LPT). FTAI splits them into nine modules, adds $3.5M of MRO work, and reassembles two serviceable engines " +
+    "($8.5M at 7k/7k/7k and $6.0M at 4k/4k/4k) plus one run-out core ($1.5M): $16.0M out vs. $10.0M in, $6.0M of value created.");
 }
 
 (async () => {
