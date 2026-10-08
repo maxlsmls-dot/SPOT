@@ -342,25 +342,21 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   s.addText("The Opportunity (3/3)", { placeholder: "title" });
   s.addText("The market assigns no value to Power: the stock trades below the core business alone.", { placeholder: "subtitle" });
 
-  sectionHeader(s, "FY27E Sum of the Parts ($ / Share)", 0.35, 1.7, 5.75, "SOTP header");
-  const cats = ["Current Price", "Core ex-Power", "Power", "SOTP"];
+  sectionHeader(s, "FTAI Power Adj. EBITDA ($M)", 0.35, 1.7, 5.75, "Power ramp header");
+  const pry = ["FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
   s.addChart(pres.charts.BAR, [
-    { name: "Base", labels: cats, values: [0, 0, 224.75, 0] },
-    { name: "Value", labels: cats, values: [167.03, 224.75, 0, 276.65] },
-    { name: "Power", labels: cats, values: [0, 0, 51.9, 0] },
+    { name: "Power EBITDA", labels: pry, values: [20, 450, 900, 1100, 1200, 1300] },
   ], chartFrame({
-    x: 0.35, y: 2.3, w: 5.75, h: 3.5, barDir: "col", barGrouping: "stacked", barGapWidthPct: 35,
-    chartColors: ["FFFFFF", NAVY, PLAT], valAxisMinVal: 0, valAxisMaxVal: 330,
-    dataLabelFormatCode: '"$"0;;;', dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF", dataLabelFontSize: 15,
-    objectName: "SOTP chart",
+    x: 0.35, y: 2.3, w: 5.75, h: 3.2, barDir: "col", barGapWidthPct: 40, chartColors: [NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 1500, catAxisLabelFontSize: 11, dataLabelFormatCode: "#,##0", dataLabelPosition: "outEnd",
+    dataLabelFontSize: 12, objectName: "Power ramp chart",
   }));
-  s.addText([{ text: "26%", options: { fontSize: 20, bold: true, breakLine: true } }, { text: "below core", options: { fontSize: 11, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 0.6, y: 2.35, w: 1.15, h: 1.15, fill: { color: NAVY }, line: { color: NAVY },
-    align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Discount callout",
+  s.addText([{ text: "~$0", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "market value", options: { fontSize: 10, bold: true } }], {
+    shape: pres.shapes.OVAL, x: 0.6, y: 2.35, w: 1.15, h: 1.15, fill: { color: PLAT_LT }, line: { color: NAVY, width: 2 },
+    align: "center", valign: "middle", color: C.text2, margin: 0, objectName: "Market value callout",
   });
-  s.addText("Free call option", {
-    x: 3.25, y: 2.5, w: 1.45, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, bold: true,
-    color: C.accent2, isTextBox: true, objectName: "Power label",
+  s.addText("Our model; the core business alone is worth $225/share vs. $167 today", {
+    x: 0.35, y: 5.5, w: 5.75, h: 0.3, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Power ramp caption",
   });
 
   // Right: Power at a glance
@@ -383,7 +379,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   });
 
   takeaway(s, "Even with Power at zero, FTAI is cheap. Power is a free call option on top.");
-  source(s, "FTAI filings and earnings calls, GPS SOTP (FY27E EBITDA × segment multiples)");
+  source(s, "FTAI filings and earnings calls; GPS model (RPM tab Power build; FY27E SOTP)");
   s.addNotes("SOTP on FY27E EBITDA: Aerospace Products $1,541M at 16x ($237/sh), Power $450M at 12x ($52/sh, low end of guide), " +
     "Aviation Leasing + SCI $455M at 9x ($39/sh), less corporate (-$28/sh), net debt (-$23/sh) and preferred (-$1/sh) = $277/sh. " +
     "Ex-Power = $225/sh vs. $167.03 current (10/2/26), a 26% discount.");
@@ -1367,56 +1363,40 @@ pres.addSection({ title: "Valuation" });
     "With all three off, the SOTP is $172, about today's price: the market is pricing the bear case.");
 }
 
-// ---------- Valuation: R/R skew and sanity check (TATT slide 18 architecture) ----------
+// ---------- Valuation: SOTP waterfall ----------
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Valuation" });
-  s.addText("Valuation: Reward vs. Risk", { placeholder: "title" });
-  s.addText("3.4x reward/risk skew, with a bear case that assumes nothing goes right.", { placeholder: "subtitle" });
+  s.addText("Valuation: Sum of the Parts", { placeholder: "title" });
+  s.addText("Every segment at a sober multiple gets to $277, before any new Power contract.", { placeholder: "subtitle" });
 
-  // R/R table
-  s.addText("R/R", { x: 0.5, y: 2.0, w: 4.0, h: 0.42, margin: 0, align: "left", valign: "bottom", fontSize: 18, bold: true, color: INK, isTextBox: true, objectName: "RR header" });
-  s.addShape(pres.shapes.LINE, { x: 0.5, y: 2.45, w: 4.0, h: 0, line: { color: INK, width: 1.5 }, objectName: "RR header rule" });
-  const rr = [["Reward", "132%", PLAT_XLT, NAVY], ["Risk", "–39%", PLAT_LT, PLAT]];
-  rr.forEach(([k, v, fill, col], i) => {
-    const y = 2.5 + i * 0.5;
-    s.addText(k, { x: 0.5, y, w: 2.3, h: 0.46, margin: [4, 0, 0, 0], align: "left", valign: "middle", fontSize: 17, color: INK, isTextBox: true, objectName: `RR ${k} label` });
-    s.addText(v, { x: 2.8, y, w: 1.7, h: 0.46, fill: { color: fill }, margin: [0, 6, 0, 0], align: "right", valign: "middle", fontSize: 17, bold: true, color: col, isTextBox: true, objectName: `RR ${k} value` });
-  });
-  s.addText([{ text: "R/R Skew", options: { bold: true } }], {
-    x: 0.5, y: 3.52, w: 4.0, h: 0.5, line: { color: INK, width: 1.5 }, margin: [6, 6, 0, 0], align: "left", valign: "middle", fontSize: 17, color: INK,
-    isTextBox: true, objectName: "RR skew box",
-  });
-  s.addText("3.4", { x: 2.8, y: 3.52, w: 1.65, h: 0.5, margin: 0, align: "right", valign: "middle", fontSize: 17, bold: true, color: INK, isTextBox: true, objectName: "RR skew value" });
-
-  // Bull and bear assumption boxes with dashed connectors
-  const bull = ["Margins rebuild to ~33.5%", "25% CFM56 share by FY31", "Power: $550M FY27E EBITDA"];
-  const bear = ["Margins stuck at 28.5%, no PMA", "Share capped at 15%", "Power: half the JV, 30% margins"];
-  const box = (items, mark, y, lineCol, name) => s.addText(
-    items.map((t, i) => ({ text: `${mark}  ${t}`, options: { breakLine: i < items.length - 1 } })),
-    { x: 5.25, y, w: 4.4, h: 1.3, line: { color: lineCol, width: 2 }, align: "left", valign: "middle", fontSize: 14, bold: true, color: INK,
-      margin: [10, 6, 4, 4], paraSpaceAfter: 3, isTextBox: true, objectName: name });
-  box(bull, "✓", 1.8, NAVY, "Bull assumptions");
-  box(bear, "×", 3.3, PLAT, "Bear assumptions");
-  s.addShape(pres.shapes.LINE, { x: 4.5, y: 2.45, w: 0.75, h: 0.28, flipV: true, line: { color: NAVY, width: 1.25, dashType: "dash" }, objectName: "Bull connector" });
-  s.addShape(pres.shapes.LINE, { x: 4.5, y: 3.23, w: 0.75, h: 0.72, line: { color: PLAT, width: 1.25, dashType: "dash" }, objectName: "Bear connector" });
-
-  // Sanity check
-  sectionHeader(s, "Review: Sanity Check", 2.0, 4.65, 6.0, "Sanity header");
-  s.addText([
-    { text: "Margins: ", options: { bold: true, bullet: true } }, { text: "FTAI ran ~35% as recently as FY25", options: { breakLine: true } },
-    { text: "Share: ", options: { bold: true, bullet: true } }, { text: "FTAI has added ~4 pts a year since 2024", options: { breakLine: true } },
-    { text: "Power: ", options: { bold: true, bullet: true } }, { text: "signed order covers the $450M low end" },
-  ], {
-    x: 2.3, y: 5.2, w: 5.6, h: 1.1, margin: 0, align: "left", valign: "top", fontSize: 15, color: INK, paraSpaceAfter: 3,
-    isTextBox: true, objectName: "Sanity bullets",
+  sectionHeader(s, "FY27E Sum of the Parts ($ / Share)", 0.35, 1.7, 6.25, "Waterfall header");
+  const wc = ["Aerospace", "Power", "Leasing", "– Corporate", "– Net debt", "SOTP", "Today"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Base", labels: wc, values: [0, 236.9, 288.8, 300.4, 276.7, 0, 0] },
+    { name: "Adds", labels: wc, values: [236.9, 51.9, 39.4, 0, 0, 0, 0] },
+    { name: "Less", labels: wc, values: [0, 0, 0, 27.8, 23.8, 0, 0] },
+    { name: "Totals", labels: wc, values: [0, 0, 0, 0, 0, 276.7, 0] },
+    { name: "Today", labels: wc, values: [0, 0, 0, 0, 0, 0, 167.0] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 6.25, h: 3.25, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30,
+    chartColors: ["FFFFFF", NAVY, PLAT, NAVY, PLAT], valAxisMinVal: 0, valAxisMaxVal: 345, catAxisLabelFontSize: 10,
+    dataLabelFormatCode: '"$"0;;;', dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF", dataLabelFontSize: 11, objectName: "SOTP waterfall",
+  }));
+  s.addText("Aerospace 16x · Power 12x · Leasing + SCI 9x FY27E EBITDA", {
+    x: 0.35, y: 5.55, w: 6.25, h: 0.28, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Multiples caption",
   });
 
-  source(s, "GPS model (DCF tab R/R: bull vs. bear blended DCF; Assumptions tab bull/bear rows); FTAI filings and earnings calls");
-  s.addNotes("Reward = bull-case blended DCF upside (+131.9%); risk = bear-case blended DCF downside (−38.6%); skew 3.4x (GPS model, DCF tab). " +
-    "Bull rows: Aerospace margin ex-PMA rising to 33.5% by FY31, FTAI share to 25% by FY31, higher shop visits, Power units ahead of base ($550M FY27E EBITDA). " +
-    "Bear rows: margin ex-PMA flat at 28.5%, no PMA, OEM pass-through 30%, share capped at 15%, SCI fleet capped at 400 aircraft, faster retirements, " +
-    "Power at 50% JV share and 30% margins ($113M FY27E EBITDA). Sanity check: FY25 Aerospace margin 34.7%; share ~4% → ~8% → ~12% (2024–26E); " +
-    "the $1.465B J&F order underpins the $450M low end of FY27 Power guidance.");
+  sectionHeader(s, "What It Means", 6.9, 1.7, 2.75, "Means header");
+  [["+66%", "upside to our $277 target"], ["$225", "core business alone, 35% above today"], ["$52", "for Power, on just the signed order"]].forEach(([big, lab], i) => {
+    s.addText([{ text: big, options: { fontSize: 28, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 12, color: INK } }], {
+      x: 6.9, y: 2.3 + i * 1.1, w: 2.75, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Means stat ${i + 1}`,
+    });
+  });
+
+  takeaway(s, "Strip out Power and the core is still worth $225. Power is the free call option on top.");
+  source(s, "GPS model (DCF tab SOTP: FY27E segment EBITDA, YE27E net debt, 104.0M diluted shares); price $167.03 (10/2/26)");
+  s.addNotes("SOTP per share: Aerospace $1,541M × 16x = $237; Power $450M × 12x = $52; Leasing + SCI $455M × 9x = $39; corporate ($207M at the blended 14.0x) = −$28; " +
+    "net debt and preferred = −$24; total $277 vs. $167.03 (+66%). Excluding Power: $225 (+35%).");
 }
 
 (async () => {
