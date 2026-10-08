@@ -1200,23 +1200,35 @@ pres.addSection({ title: "Thesis 2" });
   // The bridge
   sectionHeader(s, "The Bridge", 5.7, 1.7, 3.95, "Bridge header");
   const steps = [
-    ["Today", "GPUs bought, data center shells built", PLAT_LT, C.text2],
-    ["2026–2029", "FTAI's mobile turbines power the site", NAVY, C.background1],
-    ["2029+", "Grid connections and new plants arrive", PLAT_LT, C.text2],
+    ["Today", "GPUs and shells ready", PLAT_LT, C.text2],
+    ["2026–29", "FTAI turbines power the site", NAVY, C.background1],
+    ["2029+", "Grid and new plants arrive", PLAT_LT, C.text2],
   ];
   steps.forEach(([when, what, fill, col], i) => {
-    const y = 2.35 + i * 1.08;
-    s.addText([{ text: when, options: { fontSize: 15, bold: true, breakLine: true } }, { text: what, options: { fontSize: 12 } }], {
-      x: 5.7, y, w: 3.95, h: 0.85, fill: { color: fill }, color: col, align: "center", valign: "middle", margin: 6,
+    const y = 2.3 + i * 0.66;
+    s.addText([{ text: when + "  ", options: { fontSize: 14, bold: true } }, { text: what, options: { fontSize: 11 } }], {
+      x: 5.7, y, w: 3.95, h: 0.52, fill: { color: fill }, color: col, align: "center", valign: "middle", margin: 6,
       isTextBox: true, objectName: `Bridge step ${i + 1}`,
     });
-    if (i < 2) s.addShape(pres.shapes.DOWN_ARROW, { x: 7.47, y: y + 0.87, w: 0.4, h: 0.2, fill: { color: PLAT }, line: { type: "none" }, objectName: `Bridge arrow ${i + 1}` });
+    if (i < 2) s.addShape(pres.shapes.DOWN_ARROW, { x: 7.52, y: y + 0.53, w: 0.3, h: 0.12, fill: { color: PLAT }, line: { type: "none" }, objectName: `Bridge arrow ${i + 1}` });
+  });
+  // Terminal value risk, addressed head-on
+  s.addText([
+    { text: "But does the bridge end? (TV risk)", options: { bold: true, fontSize: 13, color: C.text2, breakLine: true } },
+    { text: "Gap still widens: 47 GW short in 2031", options: { bullet: { indent: 12 }, fontSize: 11, breakLine: true } },
+    { text: "Units can stay as backup and peaking power", options: { bullet: { indent: 12 }, fontSize: 11, breakLine: true } },
+    { text: "Valued at 12x, below Aerospace's 16x", options: { bullet: { indent: 12 }, fontSize: 11 } },
+  ], {
+    x: 5.7, y: 4.35, w: 3.95, h: 1.5, line: { color: NAVY, width: 1.25, dashType: "dash" }, align: "left", valign: "middle",
+    color: INK, margin: [8, 6, 3, 3], paraSpaceAfter: 2, isTextBox: true, objectName: "TV risk box",
   });
 
   takeaway(s, "Data centers built today need power now. Transitory units like FTAI's fill the gap.");
   source(s, "GPS model (Power agreements tab: 45 hyperscaler deals, new/restart MW by full COD); company announcements");
   s.addNotes("Power agreements tab: 45 included hyperscaler deals with ~25.3 GW of new or restarted capacity. By full commercial operation date: ≤2026 1.8 GW, 2027 5.7 GW, 2028 3.3 GW, " +
-    "2029 3.1 GW, 2030 2.2 GW, 2031 6.2 GW, 2032+ 3.0 GW. 57% is fully online in 2029 or later (38% by first COD). Existing-plant offtake deals (no new MW) are excluded.");
+    "2029 3.1 GW, 2030 2.2 GW, 2031 6.2 GW, 2032+ 3.0 GW. 57% is fully online in 2029 or later (38% by first COD). Existing-plant offtake deals (no new MW) are excluded. " +
+    "TV risk: a bridge business ends when the grid catches up. Mitigants: the modeled shortfall still widens to 47 GW by 2031; turbines can remain as on-site backup/peaking capacity; " +
+    "the SOTP applies 12x to Power vs. 16x for Aerospace, pricing in a shorter life. The DCF does carry Power growth to FY31, so judges may push here.");
 }
 
 // T2 (3/4): waiting is expensive, supply is scarce — pricing power
@@ -1266,53 +1278,49 @@ pres.addSection({ title: "Thesis 2" });
     "FTAI guided first Mod-1 deliveries to Q4'26, later saying it is prudent to expect deliveries in 2027.");
 }
 
-// T2 (4/4): the signal — FTAI's deal survived; the Power ramp
+// T2 (4/4): returns by contracts signed / units delivered
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 2" });
   s.addText("Thesis 2: Power (4/4)", { placeholder: "title" });
-  s.addText("A hyperscaler cancelled a rival's later-dated order but kept FTAI's. That's a vote of confidence.", { placeholder: "subtitle" });
+  s.addText("Each new contract the size of FTAI's first adds ~20 points to your return.", { placeholder: "subtitle" });
 
-  sectionHeader(s, "Same Buyer, Different Outcome", 0.35, 1.7, 4.6, "Signal header");
-  const cards = [
-    ["Competitor", "Similar aeroderivative product", "Later delivery date", "Cancelled", PLAT_LT, C.text2],
-    ["FTAI", "Mod-1, 25 MW units", "Deliveries from 2027", "Intact: $1.465B", NAVY, C.background1],
+  sectionHeader(s, "Scenario Build (FY27E)", 0.35, 1.7, 3.75, "Scenario header");
+  const rows = [
+    ["Signed order", "~50", "$450M", PLAT_LT, C.text2],
+    ["+1 contract", "~90", "$750M", "B5AEA9", C.text2],
+    ["+2 contracts", "~130", "$1,050M", NAVY, C.background1],
   ];
-  cards.forEach(([who, prod, when, result, fill, col], i) => {
-    const x = 0.35 + i * 2.38;
-    s.addText([
-      { text: who, options: { fontSize: 17, bold: true, breakLine: true } },
-      { text: prod, options: { fontSize: 11, breakLine: true } },
-      { text: when, options: { fontSize: 11 } },
-    ], { x, y: 2.35, w: 2.22, h: 1.55, fill: { color: fill }, color: col, align: "center", valign: "middle", margin: 6, isTextBox: true, objectName: `${who} card` });
-    s.addShape(pres.shapes.DOWN_ARROW, { x: x + 0.91, y: 3.95, w: 0.4, h: 0.32, fill: { color: PLAT }, line: { type: "none" }, objectName: `${who} arrow` });
-    s.addText(result, {
-      x, y: 4.32, w: 2.22, h: 0.62, fill: { color: i ? NAVY : "FFFFFF" }, line: { color: NAVY, width: 1.5 }, align: "center", valign: "middle",
-      fontSize: 15, bold: true, color: i ? C.background1 : C.text2, margin: 0, isTextBox: true, objectName: `${who} result`,
-    });
+  s.addText("Units", { x: 1.85, y: 2.22, w: 1.0, h: 0.25, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Units col" });
+  s.addText("EBITDA", { x: 2.95, y: 2.22, w: 1.15, h: 0.25, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "EBITDA col" });
+  rows.forEach(([name, units, ebitda, fill, col], i) => {
+    const y = 2.52 + i * 0.95;
+    s.addText(name, { x: 0.35, y, w: 1.45, h: 0.78, fill: { color: fill }, color: col, align: "center", valign: "middle", fontSize: 14, bold: true, margin: 2, isTextBox: true, objectName: `Scenario ${i + 1} name` });
+    s.addText(units, { x: 1.85, y, w: 1.0, h: 0.78, align: "center", valign: "middle", fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, objectName: `Scenario ${i + 1} units` });
+    s.addText(ebitda, { x: 2.95, y, w: 1.15, h: 0.78, align: "center", valign: "middle", fontSize: 16, bold: true, color: C.text2, margin: 0, isTextBox: true, objectName: `Scenario ${i + 1} EBITDA` });
   });
-  s.addText("The market still values Power at ~zero.", {
-    x: 0.35, y: 5.15, w: 4.6, h: 0.5, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 13, italic: true, bold: true,
-    color: C.text2, isTextBox: true, objectName: "Market value note",
+  s.addText("Each new ~$1B order ≈ 40 more units and ~$300M of EBITDA", {
+    x: 0.35, y: 5.4, w: 3.75, h: 0.4, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Scenario caption",
   });
 
-  sectionHeader(s, "FTAI Power Adj. EBITDA ($M)", 5.35, 1.7, 4.3, "Power EBITDA header");
-  const py = ["FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
+  sectionHeader(s, "Your Return", 4.45, 1.7, 5.2, "Return header");
+  const sc = ["No Power", "Signed order", "+1 contract", "+2 contracts"];
   s.addChart(pres.charts.BAR, [
-    { name: "Power EBITDA", labels: py, values: [20, 450, 900, 1100, 1200, 1300] },
+    { name: "Return", labels: sc, values: [0.35, 0.66, null, null] },
+    { name: "Upside scenarios", labels: sc, values: [null, null, 0.86, 1.07] },
   ], chartFrame({
-    x: 5.35, y: 2.3, w: 4.3, h: 3.15, barDir: "col", barGapWidthPct: 35, chartColors: [NAVY],
-    valAxisMinVal: 0, valAxisMaxVal: 1500, catAxisLabelFontSize: 10, dataLabelFormatCode: "#,##0", dataLabelPosition: "outEnd",
-    dataLabelFontSize: 12, objectName: "Power EBITDA chart",
+    x: 4.45, y: 2.3, w: 5.2, h: 3.15, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 45,
+    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, catAxisLabelFontSize: 11, catAxisLabelColor: NAVY,
+    dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 14, objectName: "Contract return chart",
   }));
-  s.addText("Our FY27E sits at the low end of the $450–750M guide", {
-    x: 5.35, y: 5.45, w: 4.3, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Power EBITDA caption",
+  s.addText("Base case = signed order only; returns on the FY27E SOTP vs. $167 today", {
+    x: 4.45, y: 5.45, w: 5.2, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Return caption",
   });
 
-  takeaway(s, "Delivering just the low end of guidance is worth ~$52 a share the market isn't paying for.");
-  source(s, "GPS diligence; FTAI earnings calls and filings; GPS model (RPM tab: units × 25 MW × $1M/MW × 40% margin)");
-  s.addNotes("Competitor cancellation is from GPS diligence: a competitor offering a similar aeroderivative product had its hyperscaler deal cancelled, with a later delivery date than FTAI's. " +
-    "Name and source to be added before presenting. FTAI's $1.465B order through the J&F JV remains in place. " +
-    "Power EBITDA: units delivered 2 (FY26E), 45, 90, 110, 120, 130 × 25 MW × $1M/MW × 40% margin. Low-end FY27E guide $450M × 12x = ~$52/share in the SOTP.");
+  takeaway(s, "Our base case needs no new contracts. Every one FTAI signs is upside the market isn't paying for.");
+  source(s, "FTAI earnings calls ($450–750M FY27 guide; 'materially fewer than 100 units'); GPS estimates; GPS model (SOTP, Power at 12x)");
+  s.addNotes("Scenarios on FTAI's FY27 Power guide: the signed $1.465B J&F order (est. 40–60 units, ~1.0–1.5 GW) underpins the $450M low end; reaching $750M needs ~$1B of new orders " +
+    "(follow-ons under the hyperscaler master agreement or a second customer). A second ~$1B contract is extrapolated at the same ~$300M step to ~$1,050M. Units ≈ $1B / ($1M/MW × 25 MW) ≈ 40 per contract. " +
+    "Returns: SOTP ex-Power $224.75 + Power EBITDA × 12 / 104.0M shares, vs. $167.03: no Power 35%, signed order 66% (base case), +1 contract 86%, +2 contracts 107%.");
 }
 
 (async () => {
