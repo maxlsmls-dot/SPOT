@@ -1578,6 +1578,14 @@ appendix("Appendix: Sum of the Parts", "FY27E sum of the parts", (s) => {
 
 
 
+appendix("Appendix: Revenue Build", "Revenue build, base case", (s) => {
+  shot(s, "app_rpm_rev.png", 0.35, 1.2, 9.3, 2120, 1010, "RPM revenue build", 6.8);
+});
+
+appendix("Appendix: Adj. EBITDA Build", "Adj. EBITDA build, base case", (s) => {
+  shot(s, "app_rpm_ebitda.png", 0.35, 1.2, 9.3, 2120, 900, "RPM EBITDA build", 6.8);
+});
+
 // ---------- Appendix: Trading Comps ----------
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });

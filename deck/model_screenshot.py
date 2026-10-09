@@ -1,5 +1,5 @@
 # Renders a cell range from the FTAI model to a cropped PNG for the appendix.
-# Usage: python3 model_screenshot.py <model.xlsx> <soffice.py> <name> <sheet> <range> <out.png> [hide rows a-b|-] [hide cols C:F,...|-] [width factor] [min col width]
+# Usage: python3 model_screenshot.py <model.xlsx> <soffice.py> <name> <sheet> <range> <out.png> [hide rows a-b,c-d|-] [hide cols C:F,...|-] [width factor] [min col width]
 import openpyxl, subprocess, sys, os, glob
 from PIL import Image, ImageChops
 SRC, SOFFICE, name, sheet, rng, out = sys.argv[1:7]
@@ -25,9 +25,16 @@ for spec in filter(None, hidecols.replace("-", "").split(",")):
     for c in range(range_boundaries(a + "1")[0], range_boundaries(b + "1")[0] + 1):
         ws.column_dimensions[get_column_letter(c)].hidden = True
 if hide and hide != "-":
-    a, b = map(int, hide.split("-"))
-    for r in range(a, b + 1):
-        ws.row_dimensions[r].hidden = True
+    for spec in hide.split(","):
+        a, b = map(int, spec.split("-"))
+        for r in range(a, b + 1):
+            ws.row_dimensions[r].hidden = True
+# Optional: right-align a header row so year labels sit over right-aligned numbers
+if os.environ.get("HDR_ROW"):
+    from openpyxl.styles import Alignment
+    for c in range(c1, c2 + 1):
+        cell = ws.cell(int(os.environ["HDR_ROW"]), c)
+        cell.alignment = Alignment(horizontal="right", vertical=cell.alignment.vertical)
 ws.page_setup.orientation = "landscape"
 ws.page_setup.fitToWidth = 1
 ws.page_setup.fitToHeight = 1
