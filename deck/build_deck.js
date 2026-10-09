@@ -623,11 +623,11 @@ pres.addSection({ title: "Returns" });
     fontSize: 16, color: C.background1, margin: 0, isTextBox: true, objectName: "Sub banner",
   });
 
-  // $/share contributions to the base-case FY27E SOTP: Shapley average over all orderings, starting from the bear case
+  // $/share contributions to the base-case FY27E SOTP: Power = its SOTP value (model ex-Power line); margins vs. share split the rest pro rata to their model on/off contributions
   const rows = [
-    ["Thesis 1a) Margins Have Bottomed", "PMA parts, OEM-linked pricing and technician productivity lift Aerospace margins from ~30% to ~32.5% by FY31.", "+$18", "+11% upside"],
-    ["Thesis 1b) Volume Grows With Share", "New capacity, OEMs moving to LEAP and faster turnaround lift FTAI's CFM56 module share from ~12% to 20% by FY30.", "+$34", "+20% upside"],
-    ["Thesis 2) Power Is a Call Option", "Mod-1 deliveries ramp from 45 units in FY27 to 110 by FY29 at ~40% EBITDA margins.", "+$58", "+35% upside"],
+    ["Thesis 1a) Margins Have Bottomed", "PMA parts, OEM-linked pricing and technician productivity lift Aerospace margins from ~30% to ~32.5% by FY31.", "+$20", "+12% upside"],
+    ["Thesis 1b) Volume Grows With Share", "New capacity, OEMs moving to LEAP and faster turnaround lift FTAI's CFM56 module share from ~12% to 20% by FY30.", "+$38", "+23% upside"],
+    ["Thesis 2) Power Is a Call Option", "Mod-1 deliveries ramp from 45 units in FY27 to 110 by FY29 at ~40% EBITDA margins.", "+$52", "+31% upside"],
   ];
   const by0 = 2.38, bh = 0.94, bgap = 0.12;
   rows.forEach(([head, body, big, small], i) => {
@@ -656,7 +656,7 @@ pres.addSection({ title: "Returns" });
     isTextBox: true, objectName: "Baseline note",
   });
   s.addText([
-    { text: "$167 today + $18 margins + $34 volume + $58 Power = " },
+    { text: "$167 today + $20 margins + $38 volume + $52 Power = " },
     { text: "$277 SOTP", options: { bold: true } },
     { text: " (+66%)" },
   ], {
@@ -856,7 +856,7 @@ thesisSummary("Thesis 1a", "Thesis 1a: Summary", "Margins have found their floor
 ], [
   ["~30% → 32.5%", "Aerospace margin, FY27E → FY31E"],
   ["$876K → $1.14M", "EBITDA per module, FY26E → FY31E"],
-  ["+$18 / share", "+11% of the 66% upside"],
+  ["+$20 / share", "+12% of the 66% upside"],
 ], "Margins don't need to recover to the old 35%+ for this thesis to pay.", "FTAI filings and earnings calls; FY27E sum of the parts");
 
 // ---------- Thesis 1b: Share Gains (5 slides) ----------
@@ -1191,7 +1191,7 @@ thesisSummary("Thesis 1b", "Thesis 1b: Summary", "Speed and capacity win share, 
 ], [
   ["1,193 → 1,687", "Modules, FY26E → FY27E (target: 1,700)"],
   ["~12% → 20%", "CFM56 module share, FY26E → FY30E"],
-  ["+$34 / share", "+20% of the 66% upside"],
+  ["+$38 / share", "+23% of the 66% upside"],
 ], "LEAP isn't in our target. Matching CFM56 share on LEAP adds ~35 points of return.", "FTAI Q2'26 supplement; FY27E sum of the parts");
 
 // ---------- Thesis 2: Power (4 slides) ----------
@@ -1352,7 +1352,7 @@ thesisSummary("Thesis 2", "Thesis 2: Summary", "Power is a bridge the market isn
 ], [
   ["$450M → $1.3B", "Power EBITDA, FY27E → FY31E"],
   ["12x", "FY27E multiple, below Aerospace's 16x"],
-  ["+$58 / share", "+35% of the 66% upside"],
+  ["+$52 / share", "+31% of the 66% upside"],
 ], "No new contracts needed for our target. Each one FTAI signs adds ~20 points of return.", "FTAI earnings calls ($450–750M FY27 guide); FY27E sum of the parts");
 
 // ---------- Valuation: What You Need to Believe (TATT architecture) ----------
@@ -1384,13 +1384,13 @@ pres.addSection({ title: "Valuation" });
 
   const th = ["Margins + share", "Power"];
   s.addChart(pres.charts.BAR, [
-    { name: "Return", labels: th, values: [0.31, 0.35] },
+    { name: "Return", labels: th, values: [0.35, 0.31] },
   ], chartFrame({
     x: 2.55, y: 4.05, w: 4.9, h: 2.25, barDir: "col", barGapWidthPct: 110, chartColors: [NAVY],
     valAxisMinVal: 0, valAxisMaxVal: 0.45, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 15,
     catAxisLabelFontSize: 13, objectName: "Pick one chart",
   }));
-  s.addText("Each bar is that side's share of the $110 upside ($52 + $58)", {
+  s.addText("Each bar is that side's share of the $110 upside ($58 + $52)", {
     x: 0.35, y: 4.65, w: 2.0, h: 1.05, line: { color: INK, width: 1, dashType: "dash" }, align: "center", valign: "middle",
     fontSize: 12, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Left assumption box",
   });
@@ -1411,9 +1411,9 @@ pres.addSection({ title: "Valuation" });
   sectionHeader(s, "From Today to Our Base Case ($ / Share)", 0.35, 1.7, 6.25, "Waterfall header");
   const wc = ["Today", "Margins", "Share", "Power", "Base case"];
   s.addChart(pres.charts.BAR, [
-    { name: "Base", labels: wc, values: [0, 167.0, 184.9, 219.0, 0] },
+    { name: "Base", labels: wc, values: [0, 167.0, 186.8, 224.8, 0] },
     { name: "Today", labels: wc, values: [167.0, 0, 0, 0, 0] },
-    { name: "Theses", labels: wc, values: [0, 17.8, 34.2, 57.6, 0] },
+    { name: "Theses", labels: wc, values: [0, 19.8, 37.9, 51.9, 0] },
     { name: "Base case", labels: wc, values: [0, 0, 0, 0, 276.6] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 6.25, h: 3.25, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30,
@@ -1421,7 +1421,7 @@ pres.addSection({ title: "Valuation" });
     showValue: false, objectName: "Thesis waterfall",
   }));
   // Value labels above each bar (plot: $0 at y≈5.0", ~0.00878"/$; bar centers ~1" apart from x≈0.97")
-  [["$167", 1.07, 167.0], ["+$18", 2.27, 184.9], ["+$34", 3.47, 219.0], ["+$58", 4.67, 276.6], ["$277", 5.87, 276.6]].forEach(([t, cx, top], i) => {
+  [["$167", 1.07, 167.0], ["+$20", 2.27, 186.8], ["+$38", 3.47, 224.8], ["+$52", 4.67, 276.6], ["$277", 5.87, 276.6]].forEach(([t, cx, top], i) => {
     s.addText(t, {
       x: cx - 0.45, y: 5.0 - top * 0.00878 - 0.3, w: 0.9, h: 0.26, margin: 0, align: "center", valign: "bottom", fontSize: 13, bold: true,
       color: i === 0 ? INK : i === 4 ? ORANGE : C.text2, isTextBox: true, objectName: `Waterfall label ${i + 1}`,
@@ -1429,13 +1429,13 @@ pres.addSection({ title: "Valuation" });
   });
 
   sectionHeader(s, "What It Means", 6.9, 1.7, 2.75, "Means header");
-  [["+66%", "upside to our $277 base case"], ["$52", "from the aviation theses: margins and share"], ["$58", "from Power, on just the signed order"]].forEach(([big, lab], i) => {
+  [["+66%", "upside to our $277 base case"], ["$58", "from the aviation theses: margins and share"], ["$52", "from Power, on just the signed order"]].forEach(([big, lab], i) => {
     s.addText([{ text: big, options: { fontSize: 28, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 12, color: INK } }], {
       x: 6.9, y: 2.3 + i * 1.1, w: 2.75, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Means stat ${i + 1}`,
     });
   });
 
-  takeaway(s, "The aviation theses alone add $52 a share. Power on just the signed order takes it to 66%.");
+  takeaway(s, "Aviation alone adds $58 a share (+35%). Power's signed order takes it to 66%.");
   source(s, "FY27E sum of the parts (Aerospace 16x, Power 12x, Leasing + SCI 9x); price $167.03 (10/2/26)");
 }
 
