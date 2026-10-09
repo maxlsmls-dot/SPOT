@@ -116,7 +116,7 @@ pres.addSection({ title: "Introduction" });
     const x = sx + i * colW;
     s.addText(big, {
       x, y: sy, w: colW, h: 0.95, margin: 0, align: "center", valign: "bottom",
-      fontSize: 48, bold: true, color: C.text2, isTextBox: true, objectName: `Stat ${i + 1} value`,
+      fontSize: 48, bold: true, color: i >= 2 ? ORANGE : C.text2, isTextBox: true, objectName: `Stat ${i + 1} value`,
     });
     s.addText(lab, {
       x, y: sy + 1.0, w: colW, h: 0.4, margin: 0, align: "center", valign: "top",
@@ -381,7 +381,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
     const y = 2.35 + i * 1.18;
     s.addText(big, {
       x: 6.45, y, w: 3.2, h: 0.58, margin: 0, align: "center", valign: "bottom", fontSize: 30, bold: true,
-      color: C.text2, isTextBox: true, objectName: `Power stat ${i + 1}`,
+      color: ORANGE, isTextBox: true, objectName: `Power stat ${i + 1}`,
     });
     s.addText(lab, {
       x: 6.45, y: y + 0.6, w: 3.2, h: 0.35, margin: 0, align: "center", valign: "top", fontSize: 13,
@@ -428,7 +428,7 @@ pres.addSection({ title: "Returns" });
     });
     s.addText([
       { text: "Contribution:", options: { fontSize: 13, bold: true, color: INK, breakLine: true } },
-      { text: big, options: { fontSize: 24, bold: true, color: C.text2, breakLine: true } },
+      { text: big, options: { fontSize: 24, bold: true, color: ORANGE, breakLine: true } },
       { text: small, options: { fontSize: 12, color: C.accent2 } },
     ], {
       x: 7.2, y, w: 2.45, h: bh, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Thesis ${i + 1} contribution`,
@@ -484,7 +484,7 @@ pres.addSection({ title: "Business Overview" });
       x, y: 3.75, w: colW, h: 1.0, margin: 0, align: "center", valign: "top", fontSize: 13, color: INK,
       isTextBox: true, objectName: `${name} description`,
     });
-    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 12, color: C.accent2 } }], {
+    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 12, color: C.accent2 } }], {
       x: x + 0.2, y: 4.85, w: colW - 0.4, h: 0.95, fill: { color: PLAT_XLT }, align: "center", valign: "middle",
       margin: 0, isTextBox: true, objectName: `${name} stat`,
     });
@@ -860,7 +860,7 @@ pres.addSection({ title: "Thesis 1b" });
     x: 5.35, y: 4.52, w: 2.45, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Mix legend",
   });
   [["~1/2", "of GE's $1B+ MRO spend goes to LEAP"], ["+50%", "LEAP shop visits, y/y (GE, 2026)"]].forEach(([big, lab], i) => {
-    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 11, color: INK } }], {
+    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 11, color: INK } }], {
       x: 7.85, y: 2.45 + i * 1.1, w: 1.8, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `LEAP stat ${i + 1}`,
     });
   });
@@ -1082,8 +1082,8 @@ pres.addSection({ title: "Thesis 1b" });
     const x = 0.35 + i * 3.17;
     s.addShape(pres.shapes.RECTANGLE, { x, y: 3.6, w: 2.96, h: 2.25, fill: { color: PLAT_XLT }, line: { type: "none" }, objectName: `Card ${i + 1}` });
     s.addText([{ text: big, options: { fontSize: big.length > 5 ? 14 : 20, bold: true, breakLine: true } }, { text: unit, options: { fontSize: 10 } }], {
-      shape: pres.shapes.OVAL, x: x + 0.1, y: 3.72, w: 1.25, h: 1.25, fill: { color: i === 2 ? NAVY : "FFFFFF" },
-      line: { color: NAVY, width: 2 }, color: i === 2 ? C.background1 : C.text2, align: "center", valign: "middle", margin: 0,
+      shape: pres.shapes.OVAL, x: x + 0.1, y: 3.72, w: 1.25, h: 1.25, fill: { color: i === 2 ? ORANGE : "FFFFFF" },
+      line: { color: ORANGE, width: 2.5 }, color: i === 2 ? C.background1 : C.text2, align: "center", valign: "middle", margin: 0,
       objectName: `Card ${i + 1} stat`,
     });
     s.addText(head, { x: x + 1.42, y: 3.85, w: 1.5, h: 0.95, margin: 0, align: "left", valign: "middle", fontSize: 15, bold: true, color: C.text2, isTextBox: true, objectName: `Card ${i + 1} head` });
@@ -1122,7 +1122,7 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "Matches CFM56 share", labels: shares, values: [null, null, null, null, 1.01, null] },
   ], chartFrame({
     x: 1.05, y: 3.2, w: 8.4, h: 2.35, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 55,
-    chartColors: [TEAL, NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
+    chartColors: [TEAL, ORANGE], valAxisMinVal: 0, valAxisMaxVal: 1.25, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
     dataLabelFontSize: 14, catAxisLabelColor: NAVY, catAxisLabelFontSize: 13, objectName: "LEAP return chart",
   }));
   s.addText("Your return", {
@@ -1196,7 +1196,7 @@ pres.addSection({ title: "Thesis 2" });
     dataLabelFormatCode: "0.0", dataLabelPosition: "outEnd", dataLabelFontSize: 12, objectName: "COD chart",
   }));
   s.addText([{ text: "57%", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "2029 or later", options: { fontSize: 10, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 2.95, y: 2.3, w: 1.1, h: 1.1, fill: { color: ORANGE }, line: { color: ORANGE },
+    shape: pres.shapes.OVAL, x: 2.55, y: 2.3, w: 1.05, h: 1.05, fill: { color: ORANGE }, line: { color: ORANGE },
     align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Late share callout",
   });
   s.addText("25 GW of new and restarted capacity across 45 tracked hyperscaler power deals", {
@@ -1388,14 +1388,14 @@ pres.addSection({ title: "Valuation" });
     { name: "Base case", labels: wc, values: [0, 0, 0, 0, 0, 276.6] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 6.25, h: 3.25, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30,
-    chartColors: ["FFFFFF", TEAL, NAVY, NAVY], valAxisMinVal: 0, valAxisMaxVal: 300, catAxisLabelFontSize: 11,
+    chartColors: ["FFFFFF", TEAL, NAVY, ORANGE], valAxisMinVal: 0, valAxisMaxVal: 300, catAxisLabelFontSize: 11,
     showValue: false, objectName: "Thesis waterfall",
   }));
   // Value labels above each bar (plot: $0 at y≈5.0", ~0.00878"/$; bar centers ~1" apart from x≈0.97")
   [["$167", 0.97, 167.0], ["+$5", 1.97, 171.9], ["+$17", 2.97, 188.9], ["+$33", 3.97, 221.6], ["+$55", 4.97, 276.7], ["$277", 5.97, 276.6]].forEach(([t, cx, top], i) => {
     s.addText(t, {
       x: cx - 0.45, y: 5.0 - top * 0.00878 - 0.3, w: 0.9, h: 0.26, margin: 0, align: "center", valign: "bottom", fontSize: 13, bold: true,
-      color: i === 0 ? INK : C.text2, isTextBox: true, objectName: `Waterfall label ${i + 1}`,
+      color: i === 0 ? INK : i === 5 ? ORANGE : C.text2, isTextBox: true, objectName: `Waterfall label ${i + 1}`,
     });
   });
   s.addText("FY27E SOTP; each thesis switched from our bear case to base (Shapley average)", {
@@ -1404,7 +1404,7 @@ pres.addSection({ title: "Valuation" });
 
   sectionHeader(s, "What It Means", 6.9, 1.7, 2.75, "Means header");
   [["+66%", "upside to our $277 base case"], ["$50", "from the aviation theses: margins and share"], ["$55", "from Power, on just the signed order"]].forEach(([big, lab], i) => {
-    s.addText([{ text: big, options: { fontSize: 28, bold: true, color: C.text2, breakLine: true } }, { text: lab, options: { fontSize: 12, color: INK } }], {
+    s.addText([{ text: big, options: { fontSize: 28, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 12, color: INK } }], {
       x: 6.9, y: 2.3 + i * 1.1, w: 2.75, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Means stat ${i + 1}`,
     });
   });
@@ -1543,7 +1543,7 @@ appendix("Appendix: DCF (1/2)", "GPS model (DCF tab), base case", (s) => {
 });
 
 appendix("Appendix: DCF (2/2)", "GPS model (DCF tab), base case", (s) => {
-  shot(s, "app_methods.png", 0.75, 1.2, 8.5, 1699, 890, "Valuation methods");
+  shot(s, "app_methods.png", 0.35, 1.25, 9.3, 2015, 891, "Valuation methods");
 }, "Present value bridge (mid-year convention, 0.5 stub for FY26) and both terminal-value methods: perpetuity growth at 3.0% ($281) and 13.0x exit multiple ($335), both at a 9.5% WACC.");
 
 appendix("Appendix: DCF Sensitivities", "GPS model (DCF tab): implied share price by WACC, terminal growth and exit multiple", (s) => {
@@ -1551,7 +1551,7 @@ appendix("Appendix: DCF Sensitivities", "GPS model (DCF tab): implied share pric
 });
 
 appendix("Appendix: Sum of the Parts", "GPS model (DCF tab): FY27E SOTP", (s) => {
-  shot(s, "app_sotp.png", 0.75, 1.3, 8.5, 1639, 661, "SOTP table");
+  shot(s, "app_sotp.png", 0.35, 1.3, 9.3, 2120, 655, "SOTP table");
 });
 
 
@@ -1562,9 +1562,9 @@ appendix("Appendix: Power Model", "GPS model (RPM tab Mod-1 build; Power outlook
 });
 
 appendix("Appendix: Repair Pricing", "GPS model (Pricing Data tab): matched OEM catalogue parts, CFM56-5B and -7B", (s) => {
-  shot(s, "app_pricing.png", 0.35, 1.25, 9.3, 2103, 681, "Pricing summary");
+  shot(s, "app_pricing.png", 0.35, 1.2, 9.3, 2109, 695, "Pricing summary");
   s.addText("OEM list prices rose a median ~6% a year across ~3,400 matched parts, with almost none falling.", {
-    x: 0.35, y: 4.6, w: 9.3, h: 0.6, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 15, bold: true,
+    x: 0.35, y: 4.75, w: 9.3, h: 0.6, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 15, bold: true, line: { color: ORANGE, width: 1.5 },
     color: C.text2, isTextBox: true, objectName: "Pricing takeaway",
   });
 }, "Supports the OEM escalator assumption on Thesis 1a (2/4): matched catalogue parts rose a median 6.1–6.2% per year (2024–25 and 2025–26), with only 1 of ~3,400 matched parts falling.");

@@ -1,10 +1,12 @@
 # Renders a cell range from the FTAI model to a cropped PNG for the appendix.
-# Usage: python3 model_screenshot.py <model.xlsx> <soffice.py> <name> <sheet> <range> <out.png> [hide rows a-b] [hide cols C:F,...]
+# Usage: python3 model_screenshot.py <model.xlsx> <soffice.py> <name> <sheet> <range> <out.png> [hide rows a-b|-] [hide cols C:F,...|-] [width factor] [min col width]
 import openpyxl, subprocess, sys, os, glob
 from PIL import Image, ImageChops
 SRC, SOFFICE, name, sheet, rng, out = sys.argv[1:7]
 hide = sys.argv[7] if len(sys.argv) > 7 else ""
 hidecols = sys.argv[8] if len(sys.argv) > 8 else ""
+wf = float(sys.argv[9]) if len(sys.argv) > 9 else 1.22
+minw = float(sys.argv[10]) if len(sys.argv) > 10 else 0
 wb = openpyxl.load_workbook(SRC)
 for ws in wb.worksheets:
     if ws.title != sheet:
@@ -17,8 +19,8 @@ c1, r1, c2, r2 = range_boundaries(rng)
 for c in range(c1, c2 + 1):
     L = get_column_letter(c)
     w = ws.column_dimensions[L].width or 9
-    ws.column_dimensions[L].width = w * 1.22
-for spec in filter(None, hidecols.split(",")):
+    ws.column_dimensions[L].width = max(w * wf, minw)
+for spec in filter(None, hidecols.replace("-", "").split(",")):
     a, b = spec.split(":")
     for c in range(range_boundaries(a + "1")[0], range_boundaries(b + "1")[0] + 1):
         ws.column_dimensions[get_column_letter(c)].hidden = True
