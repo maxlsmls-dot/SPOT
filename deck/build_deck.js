@@ -147,6 +147,38 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   x: 0.35, y: 6.95, w: 7.8, h: 0.3, margin: 0, fontSize: 11, color: INK, isTextBox: true, objectName: "Source",
 });
 
+
+// ---------- Thesis summary slide (2 points + what it means for the model) ----------
+const thesisSummary = (section, title, subtitle, points, stats, take, src) => {
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: section });
+  s.addText(title, { placeholder: "title" });
+  s.addText(subtitle, { placeholder: "subtitle" });
+  const boxX = 1.35, boxW = 8.3, boxH = 0.82, circ = 0.78;
+  points.forEach((t, i) => {
+    const y = 1.85 + i * 1.02;
+    s.addText(t, {
+      x: boxX, y, w: boxW, h: boxH, fill: { color: PLAT_LT }, align: "left", valign: "middle",
+      fontSize: 15, bold: true, color: C.text2, margin: [40, 12, 2, 2], isTextBox: true, objectName: `Summary point ${i + 1}`,
+    });
+    s.addText(String(i + 1), {
+      shape: pres.shapes.OVAL, x: boxX - circ / 2, y: y + boxH / 2 - circ / 2, w: circ, h: circ,
+      fill: { color: "FFFFFF" }, line: { color: ORANGE, width: 2.5 }, align: "center", valign: "middle",
+      fontSize: 22, bold: true, color: C.text2, margin: 0, objectName: `Summary point ${i + 1} number`,
+    });
+  });
+  sectionHeader(s, "What It Means for the Model", 0.35, 3.95, 9.3, "Model header");
+  const tw = 9.3 / stats.length;
+  stats.forEach(([big, lab], i) => {
+    const x = 0.35 + i * tw;
+    s.addText([{ text: big, options: { fontSize: 26, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 12, color: INK } }], {
+      x: x + 0.1, y: 4.55, w: tw - 0.2, h: 1.2, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Model stat ${i + 1}`,
+    });
+    if (i > 0) s.addShape(pres.shapes.LINE, { x, y: 4.65, w: 0, h: 1.0, line: { color: PLAT_LT, width: 1 }, objectName: `Model stat divider ${i}` });
+  });
+  takeaway(s, take);
+  source(s, src);
+};
+
 // ---------- Slide 1: Title ----------
 pres.addSection({ title: "Introduction" });
 {
@@ -807,6 +839,15 @@ pres.addSection({ title: "Thesis 1a" });
   source(s, "Jefferies estimates; FAA PMA data; FTAI earnings calls");
 }
 
+thesisSummary("Thesis 1a", "Thesis 1a: Summary", "Margins have found their floor and rebuild from here.", [
+  "The bear case is nearly spent: under 8% of cheap leasing stock is left, so ~30% is the floor.",
+  "Price catch-up, PMA parts and a late-cycle return of light work rebuild margins over time.",
+], [
+  ["~30% → 32.5%", "Aerospace margin, FY27E → FY31E"],
+  ["$876K → $1.14M", "EBITDA per module, FY26E → FY31E"],
+  ["+$18 / share", "+11% of the 66% upside"],
+], "Margins don't need to recover to the old 35%+ for this thesis to pay.", "FTAI filings and earnings calls; FY27E sum of the parts");
+
 // ---------- Thesis 1b: Share Gains (5 slides) ----------
 pres.addSection({ title: "Thesis 1b" });
 
@@ -1133,6 +1174,15 @@ pres.addSection({ title: "Thesis 1b" });
   source(s, "Aviation Week; assumes 2,000 LEAP visits/yr, 50% off contract, 3 modules/visit, FY27E EBITDA/module, 16x, discounted 4 yrs at 9.5%");
 }
 
+thesisSummary("Thesis 1b", "Thesis 1b: Summary", "Speed and capacity win share, with SCI as a contracted floor.", [
+  "FTAI wins on turnaround (5–25 days vs. 120–180) as OEMs pivot to LEAP and independents clog.",
+  "Share rises from ~12% to 20% by FY30, half its historical pace, using ~70% of announced capacity.",
+], [
+  ["1,193 → 1,687", "Modules, FY26E → FY27E (target: 1,700)"],
+  ["~12% → 20%", "CFM56 module share, FY26E → FY30E"],
+  ["+$34 / share", "+20% of the 66% upside"],
+], "LEAP isn't in our target. Matching CFM56 share on LEAP adds ~35 points of return.", "FTAI Q2'26 supplement; FY27E sum of the parts");
+
 // ---------- Thesis 2: Power (4 slides) ----------
 pres.addSection({ title: "Thesis 2" });
 
@@ -1284,6 +1334,15 @@ pres.addSection({ title: "Thesis 2" });
   takeaway(s, "Our base case needs no new contracts. Every one FTAI signs is upside the market isn't paying for.");
   source(s, "FTAI earnings calls ($450–750M FY27 guide)");
 }
+
+thesisSummary("Thesis 2", "Thesis 2: Summary", "Power is a bridge the market isn't paying for.", [
+  "The grid falls short from 2029 and new turbines are sold out, so mobile units bridge the gap.",
+  "The signed $1.465B order already covers the $450M low end of FY27 guidance.",
+], [
+  ["$450M → $1.3B", "Power EBITDA, FY27E → FY31E"],
+  ["12x", "FY27E multiple, below Aerospace's 16x"],
+  ["+$58 / share", "+35% of the 66% upside"],
+], "No new contracts needed for our target. Each one FTAI signs adds ~20 points of return.", "FTAI earnings calls ($450–750M FY27 guide); FY27E sum of the parts");
 
 // ---------- Valuation: What You Need to Believe (TATT architecture) ----------
 pres.addSection({ title: "Valuation" });
