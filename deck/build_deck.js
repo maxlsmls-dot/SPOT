@@ -504,45 +504,54 @@ pres.addSection({ title: "The Opportunity" });
   s.addText("The Opportunity (2/3)", { placeholder: "title" });
   s.addText("A 2025 short report gave the market a darker explanation, and it stuck.", { placeholder: "subtitle" });
 
+  // Quote banner (TATT style)
+  s.addText([
+    { text: "“Why are you looking at FTAI, isn't that a fraud?”", options: { bold: true } },
+    { text: "   — Teddy Wallen, GPS '24", options: { italic: true, fontSize: 13 } },
+  ], {
+    x: 0.35, y: 1.62, w: 9.3, h: 0.6, fill: { color: PLAT_XLT }, line: { color: ORANGE, width: 1.5 }, align: "center", valign: "middle",
+    fontSize: 16, color: INK, margin: 0, isTextBox: true, objectName: "Fraud quote",
+  });
+
   // Left: the short thesis as a flow
-  sectionHeader(s, "The Short Thesis (Jan. 2025)", 0.35, 1.7, 5.0, "Short thesis header");
+  sectionHeader(s, "The Short Thesis (Jan. 2025)", 0.35, 2.32, 5.0, "Short thesis header");
   const steps = [
     ["Leasing engines sit on the books at depreciated value", PLAT_LT, C.text2],
     ["They are moved into Aerospace Products as inventory", PLAT_LT, C.text2],
     ["Sold at market prices, the low cost basis inflates AP margins", NAVY, C.background1],
   ];
   steps.forEach(([t, fill, col], i) => {
-    const y = 2.35 + i * 1.18;
+    const y = 2.98 + i * 0.98;
     s.addText(t, {
-      x: 0.6, y, w: 4.5, h: 0.8, fill: { color: fill }, align: "center", valign: "middle",
-      fontSize: 15, bold: true, color: col, margin: [10, 10, 2, 2], isTextBox: true, objectName: `Short step ${i + 1}`,
+      x: 0.6, y, w: 4.5, h: 0.68, fill: { color: fill }, align: "center", valign: "middle",
+      fontSize: 14, bold: true, color: col, margin: [10, 10, 2, 2], isTextBox: true, objectName: `Short step ${i + 1}`,
     });
     if (i < steps.length - 1) {
       s.addShape(pres.shapes.DOWN_ARROW, {
-        x: 2.62, y: y + 0.83, w: 0.46, h: 0.32, fill: { color: PLAT }, line: { type: "none" }, objectName: `Short arrow ${i + 1}`,
+        x: 2.65, y: y + 0.7, w: 0.4, h: 0.26, fill: { color: PLAT }, line: { type: "none" }, objectName: `Short arrow ${i + 1}`,
       });
     }
   });
 
   // Right: two readings of the same margin drop
-  sectionHeader(s, "Two Readings of the Drop", 5.75, 1.7, 3.9, "Readings header");
+  sectionHeader(s, "Two Readings of the Drop", 5.75, 2.32, 3.9, "Readings header");
   const readings = [
     ["Management", "Heavier-scope work, new shops still ramping, and prices held below OEM to win share.", "Temporary: margins recover", PLAT_LT, C.text2, C.text2],
     ["The Bears", "The cheap, depreciated leasing engines that flattered margins are running out.", "Structural: margins keep falling", NAVY, C.background1, C.background1],
   ];
   readings.forEach(([who, why, verdict, fill, col, vcol], i) => {
-    const y = 2.35 + i * 1.72;
+    const y = 2.98 + i * 1.42;
     s.addText([
-      { text: who, options: { fontSize: 15, bold: true, breakLine: true } },
-      { text: why, options: { fontSize: 12, breakLine: true } },
-      { text: "→ " + verdict, options: { fontSize: 13, bold: true, italic: true } },
+      { text: who, options: { fontSize: 14, bold: true, breakLine: true } },
+      { text: why, options: { fontSize: 11, breakLine: true } },
+      { text: "→ " + verdict, options: { fontSize: 12, bold: true, italic: true } },
     ], {
-      x: 5.75, y, w: 3.9, h: 1.45, fill: { color: fill }, color: col, align: "center", valign: "middle",
-      margin: [10, 10, 4, 4], paraSpaceAfter: 4, isTextBox: true, objectName: `${who} reading`,
+      x: 5.75, y, w: 3.9, h: 1.24, fill: { color: fill }, color: col, align: "center", valign: "middle",
+      margin: [10, 10, 3, 3], paraSpaceAfter: 2, isTextBox: true, objectName: `${who} reading`,
     });
   });
   s.addText("vs.", {
-    x: 7.35, y: 3.8, w: 0.7, h: 0.27, margin: 0, align: "center", valign: "middle", fontSize: 14, bold: true, italic: true,
+    x: 7.35, y: 4.21, w: 0.7, h: 0.2, margin: 0, align: "center", valign: "middle", fontSize: 14, bold: true, italic: true,
     color: C.accent2, isTextBox: true, objectName: "Readings vs",
   });
 
