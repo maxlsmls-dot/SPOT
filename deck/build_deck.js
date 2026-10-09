@@ -129,7 +129,6 @@ pres.addSection({ title: "Introduction" });
     s.addShape(pres.shapes.OVAL, { x: xx - 0.07, y: yy - 0.07, w: 0.14, h: 0.14, fill: { color: ORANGE }, line: { color: "FFFFFF", width: 1 }, objectName: `Event ${n + 1} dot` });
     s.addText(lab, { x: xx + dx - 0.55, y: yy + dy - 0.12, w: 1.1, h: 0.24, margin: 0, align: "center", fontSize: 10, bold: true, color: ORANGE, isTextBox: true, objectName: `Event ${n + 1} label` });
   });
-  s.addText("FTAI share price, last 5 years", { x: cx0, y: cy0 + ch - 0.02, w: cw, h: 0.22, margin: 0, align: "center", fontSize: 9, italic: true, color: C.accent2, isTextBox: true, objectName: "Chart caption" });
 
   // Key figures, 2x2 to the right of the chart
   const stats = [
@@ -181,10 +180,6 @@ pres.addSection({ title: "Introduction" });
     align: "center", valign: "middle", isTextBox: true, objectName: "Presenter",
   });
 
-  s.addNotes(
-    "Price as of 10/2/26. Target is the base-case blended DCF: 50% perpetuity growth ($281) and 50% exit multiple ($335). " +
-    "R/R = 132% bull blended upside vs. 39% bear blended downside."
-  );
 }
 
 // ---------- Slide 2: The Opportunity ----------
@@ -306,9 +301,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   });
 
   takeaway(s, "The drop is real. Is ~30% the floor, or just a waypoint?");
-  source(s, "FTAI filings and earnings calls, GPS model");
-  s.addNotes("Reported quarterly Aerospace Products Adj. EBITDA margins from the RPM tab. Q4'25 34.6% to Q1'26 29.9% = -470 bps. " +
-    "Mix example is management's: a 6,000-cycle engine sold for ~$6M earns ~$2.5M; a 10,000-cycle engine sold for ~$12M earns ~$3M; one of each blends to ~30%.");
+  source(s, "FTAI filings and earnings calls");
 }
 
 // ---------- Slide 4: The Opportunity (2/3) — the fraud overhang ----------
@@ -361,8 +354,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
 
   takeaway(s, "The market reads the margin reset as the short thesis unwinding, and prices FTAI as if it's still over-earning.");
   source(s, "Muddy Waters Research (Jan. 2025), FTAI filings and earnings calls, GPS analysis");
-  s.addNotes("Both readings explain the same 1Q26 drop. Management cites heavier-scope work, new facilities and technician productivity still ramping, and pricing held below OEM escalators to take share. " +
-    "The bear reading, following the short report, is that depreciated leasing inventory moved into Aerospace Products had been propping up margins and is running out.");}
+  }
 
 // ---------- Slide 5: The Opportunity (3/3) — Power is free ----------
 {
@@ -389,9 +381,6 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "GE Vernova  " }, { text: "■ ", options: { color: "3B4C82" } }, { text: "Siemens Energy  " }, { text: "■ ", options: { color: TEAL } }, { text: "Mitsubishi" }], {
     x: 0.35, y: 5.2, w: 5.75, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Backlog legend",
   });
-  s.addText("GE Vernova booking out to 2031; Siemens lead times 3+ years", {
-    x: 0.35, y: 5.48, w: 5.75, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Backlog caption",
-  });
 
   // Right: Power at a glance
   sectionHeader(s, "FTAI Power at a Glance", 6.45, 1.7, 3.2, "Power stats header");
@@ -414,8 +403,6 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
 
   takeaway(s, "Even with Power at zero, FTAI is cheap. Power is a free call option on top.");
   source(s, "GE Vernova, Siemens Energy and MHI results, mid-2025 vs. mid-2026 (via Utility Dive, Industrial Info); FTAI filings");
-  s.addNotes("Combined backlog: GE Vernova gas backlog + slot reservations 55 GW (Q2'25) → 116 GW (Q2'26; ≥125 GW guided for YE26); Siemens Energy firm gas turbine backlog 37 GW (Q3 FY25) → 69 GW (Q3 FY26); " +
-    "Mitsubishi large-frame backlog 23 GW → 35 GW. Definitions differ (GEV includes reservations; Siemens firm only; MHI large-frame only), so treat the total as indicative. End-2024 GW figures were not disclosed. ");
 }
 
 // ---------- Slide 6: Returns Summary (modeled on SPOT "Pitch Summary – Thesis 2") ----------
@@ -473,14 +460,7 @@ pres.addSection({ title: "Returns" });
     x: 0.35, y: 5.98, w: 9.3, h: 0.56, fill: { color: PLAT_XLT }, line: { color: NAVY, width: 1.25 },
     align: "center", valign: "middle", fontSize: 13, color: INK, margin: 0, isTextBox: true, objectName: "Base case bridge",
   });
-  source(s, "GPS model: base-case FY27E SOTP; thesis drivers switched Bear vs. Base (Power off = 0 units), Shapley average");
-  s.addNotes(
-    "Return math uses the base-case FY27E sum of the parts ($276.65/share): Aerospace 16x, Power 12x, Leasing + SCI 9x, less corporate, net debt and preferred. " +
-    "Attribution re-runs the full model for all 8 on/off combinations of the three theses. Margins = OEM escalator, pass-through, Aerospace margin ex-PMA and PMA rows. " +
-    "Volume = FTAI share of MRO and SCI aircraft rows. Power = Mod-1 units delivered (off = 0, i.e. what the market prices today). " +
-    "Bear case with no Power = $171.86 vs. $167.03 today (+$4.83). Shapley contributions: margins +$17.04, volume +$32.66, Power +$55.08 " +
-    "(the $51.90 SOTP value plus ~$3 of FY27 Power cash that lowers net debt). Total $276.64."
-  );
+  source(s, "FTAI filings; base-case FY27E sum of the parts, each thesis switched from bear to base case");
 }
 
 // ---------- Slide 6: Business Overview ----------
@@ -517,7 +497,7 @@ pres.addSection({ title: "Business Overview" });
   });
 
   takeaway(s, "One engine, three ways to earn: fix it, power with it, and own the planes it flies on.");
-  source(s, "FTAI filings and earnings calls, GPS model. Illustrations are schematic.");
+  source(s, "FTAI filings and earnings calls. Illustrations are schematic.");
 }
 
 // ---------- Slide 7: Business Overview (2/2) — the module exchange ----------
@@ -609,9 +589,6 @@ pres.addSection({ title: "Business Overview" });
 
   takeaway(s, "FTAI sells speed to airlines and harvests cycles from engines no one else can use.");
   source(s, "FTAI investor materials (Module Factory example), GPS analysis");
-  s.addNotes("Module Factory example (FTAI): three unserviceable engines worth $2.0M, $2.5M and $2.0M each still hold modules with life left " +
-    "(cycles shown per Fan / Core / LPT). FTAI splits them into nine modules, adds $3.5M of MRO work, and reassembles two serviceable engines " +
-    "($8.5M at 7k/7k/7k and $6.0M at 4k/4k/4k) plus one run-out core ($1.5M): $16.0M out vs. $10.0M in, $6.0M of value created.");
 }
 
 // ---------- Thesis 1a: Margins Have Bottomed (3 slides) ----------
@@ -638,7 +615,7 @@ pres.addSection({ title: "Thesis 1a" });
   const mc = ["FY25", "Q1'26", "Q2'26", "FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
   s.addChart(pres.charts.BAR, [
     { name: "Reported", labels: mc, values: [0.347, 0.299, 0.285, null, null, null, null, null, null] },
-    { name: "GPS model", labels: mc, values: [null, null, null, 0.301, 0.299, 0.307, 0.314, 0.320, 0.325] },
+    { name: "Forecast", labels: mc, values: [null, null, null, 0.301, 0.299, 0.307, 0.314, 0.320, 0.325] },
   ], chartFrame({
     x: 4.55, y: 2.3, w: 5.1, h: 3.5, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 30,
     chartColors: [NAVY, TEAL], valAxisMinVal: 0, valAxisMaxVal: 0.4, catAxisLabelFontSize: 10,
@@ -651,9 +628,7 @@ pres.addSection({ title: "Thesis 1a" });
   });
 
   takeaway(s, "With little cheap stock left, ~30% is the floor, and margins rebuild from here.");
-  source(s, "FTAI filings, GPS analysis and model (Aerospace Adj. EBITDA margin incl. PMA)");
-  s.addNotes("Depreciated leasing inventory remaining in Aerospace Products is under 8% (GPS analysis), so even on the short report's logic there is little left to compress margins. " +
-    "Margin path: FY25 34.7%, Q1'26 29.9%, Q2'26 28.5% reported; GPS model 30.1% FY26E, 29.9% FY27E, then 30.7% / 31.4% / 32.0% / 32.5% FY28E–FY31E.");
+  source(s, "FTAI filings, GPS analysis");
 }
 
 // 1a (2/3): price catch-up and EBITDA per module
@@ -677,9 +652,6 @@ pres.addSection({ title: "Thesis 1a" });
   s.addText("FTAI (half of OEM)", {
     x: 2.95, y: 3.65, w: 1.9, h: 0.3, margin: 0, align: "right", fontSize: 12, bold: true, color: C.accent2, isTextBox: true, objectName: "FTAI line label",
   });
-  s.addText("The gap is pricing room", {
-    x: 0.35, y: 5.45, w: 4.6, h: 0.3, margin: 0, align: "center", fontSize: 12, italic: true, color: C.accent2, isTextBox: true, objectName: "Price caption",
-  });
 
   sectionHeader(s, "EBITDA per Module ($K)", 5.35, 1.7, 4.3, "EPM header");
   const fy = ["FY25", "FY26E", "FY27E", "FY28E", "FY29E", "FY30E", "FY31E"];
@@ -693,9 +665,7 @@ pres.addSection({ title: "Thesis 1a" });
   }));
 
   takeaway(s, "Passing through just half of OEM increases, plus PMA, lifts EBITDA per module ~30% by FY31.");
-  source(s, "GPS model (RPM tab: CFM escalator 7%/yr, FTAI pass-through 50% from 2027; EBITDA per module incl. PMA)");
-  s.addNotes("OEM index compounds the CFM escalator (7% in 2026, 6.5% in 2027, 7% thereafter). FTAI index applies the model's pass-through: 0% in 2026, then 50% of the escalator. " +
-    "EBITDA per module: $887K FY25, $876K FY26E trough, $913K FY27E, $969K FY28E, $1,027K FY29E, $1,084K FY30E, $1,139K FY31E (+30% vs. FY26E).");
+  source(s, "CFM catalogue pricing (~7%/yr escalator); FTAI filings and earnings calls");
 }
 
 // 1a (3/4): cohort build — light-scope work returns late in the cycle
@@ -755,12 +725,7 @@ pres.addSection({ title: "Thesis 1a" });
   });
 
   takeaway(s, "When light work returns, every 10 pts of mix adds ~1.5–2 pts of margin, above today's ~30%.");
-  source(s, "GPS model (CFM56 Data tab: cohort roll-forward, central case); FTAI earnings call (light vs. heavy job economics)");
-  s.addNotes("Cohort roll-forward (central): first visits fall 976 → 598 (2025–2030) as the last 737NG / A320ceo deliveries pass their first run; " +
-    "second visits, typically the heaviest, peak at 914 in 2027; third-and-later visits rise 532 → 720. Dashed lines extend the 2029–30 slopes (-42/yr and +20/yr), which cross around 2032. Late-life engines increasingly get green-time-only " +
-    "restorations (model assumes 100% / 90% / 70% of due engines get a full visit at <20 / 20–25 / 25+ years). " +
-    "Mix curve uses management's example: light job ~$6M revenue / ~$2.5M profit, heavy ~$12M / ~$3.0M; blended margin by share of jobs. " +
-    "Caveat: the model's broader-work share still rises from 48% to 52% through 2030, so the light-scope return is a late-cycle (2030+) effect.");
+  source(s, "CFM56 fleet cohort analysis; FTAI earnings call (light vs. heavy job economics)");
 }
 
 // 1a (3/3): PMA parts
@@ -805,10 +770,7 @@ pres.addSection({ title: "Thesis 1a" });
   });
 
   takeaway(s, "3 of 5 Chromalloy parts are approved, and every 5 pts of adoption adds ~$43M of EBITDA.");
-  source(s, "GPS model (RPM tab: PMA penetration × $0.4M uplift per module); Jefferies estimates; FAA PMA data");
-  s.addNotes("Our model: PMA penetration 0.9% FY27E rising to 9% FY31E at $0.4M EBITDA uplift per PMA module = $6M to $77M. " +
-    "Jefferies estimates ~$0.8M uplift per PMA module and ~$43M of 2026E Aerospace EBITDA per 5 pts of adoption, so our case is conservative on both rate and uplift. " +
-    "Chromalloy JV program: 3 of 5 parts approved (LPT stage 1 vane 2021, HPT stage 1 vane Oct 2024, HPT stage 1 blade Oct 2025), covering ~80% of targeted savings; 2 in FAA review.");
+  source(s, "Jefferies estimates; FAA PMA data; FTAI earnings calls");
 }
 
 // ---------- Thesis 1b: Share Gains (5 slides) ----------
@@ -844,7 +806,7 @@ pres.addSection({ title: "Thesis 1b" });
     x: 1.3, y: 5.68, w: 7.7, h: 0.85, fill: { color: NAVY }, align: "center", valign: "middle",
     fontSize: 16, bold: true, color: C.background1, margin: [10, 10, 2, 2], isTextBox: true, objectName: "Conclusion",
   });
-  source(s, "GE Aerospace earnings calls (2026), Aviation Business News (2025), FTAI Q2'24 call and Q2'26 supplement, GPS model");
+  source(s, "GE Aerospace earnings calls (2026), Aviation Business News (2025), FTAI Q2'24 call and Q2'26 supplement");
 }
 
 // 1b (2/5): then vs. now — MROs clogged, OEMs moving to LEAP
@@ -898,12 +860,7 @@ pres.addSection({ title: "Thesis 1b" });
   });
 
   takeaway(s, "OEM slots shift to LEAP as independent shops clog. CFM56 owners need a faster option.");
-  source(s, "Aviation Business News (2025); Bain (2024); GE Q4'25–Q2'26 calls; CFM LEAP forecast; GPS model; GPS expert call");
-  s.addNotes("CFM56 full overhaul ~60 days pre-pandemic vs. 90–120 days now (Aviation Business News, 2025; secondary source). Slot waits up 2–6 months (Bain, 2024; 2025 market summaries). " +
-    "GE: LEAP shop visits up >50% in Q1 and Q2 2026; LEAP installed base to roughly triple 2024–2030; ~$500M of >$1B MRO investment to LEAP, roughly doubling internal LEAP capacity. " +
-    "Shop-visit mix: CFM56 2,350 (2025) and 2,150 (2030E) from GPS model; LEAP ~1,100 (2025) and ~2,200 (2030E) per CFM forecast that LEAP visits exceed CFM56 by 2030. " +
-    "No source found showing OEMs cutting CFM56 capacity outright; the shift is in where new OEM capacity goes. " +
-    "Former MRO executive: 'the variability in capital investment required to capture the LEAP is extremely low versus what it took them to capture the CFM.'");
+  source(s, "Aviation Business News (2025); Bain (2024); GE Q4'25–Q2'26 calls; CFM LEAP forecast; GPS expert call");
 }
 
 // 1b (3/5): turnaround time walk-through
@@ -956,9 +913,6 @@ pres.addSection({ title: "Thesis 1b" });
     s.addShape(pres.shapes.RECTANGLE, { x: bx, y, w: v * bscale, h: 0.38, fill: { color: col }, line: { type: "none" }, objectName: `Cost bar ${i + 1}` });
     s.addText(`$${v}K`, { x: bx + v * bscale + 0.08, y, w: 0.8, h: 0.38, margin: 0, align: "left", valign: "middle", fontSize: 13, bold: true, color: C.text2, isTextBox: true, objectName: `Cost value ${i + 1}` });
   });
-  s.addText("~$430K saved per visit (IBA lease rate, ~$100K/mo)", {
-    x: 0.35, y: 5.62, w: 4.55, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Cost caption",
-  });
 
   // Expert quote
   s.addText([
@@ -971,11 +925,6 @@ pres.addSection({ title: "Thesis 1b" });
 
   takeaway(s, "Every day an engine is off wing costs the airline a jet. FTAI sells that time back.");
   source(s, "FTAI Q2'24 call via third-party analysis; IBA (2024) lease rates; GPS expert call; step lengths illustrative");
-  s.addNotes("FTAI (Q2'24 call, as reported by third parties): average CFM56 engine turnaround ~120–180 days vs. 5–25 days for a module swap. Midpoints 150 vs. ~20 days = ~7x. " +
-    "Step lengths within the shop visit are illustrative; slot waits of 2–6 months and HPT blade shortages drive most of the delay. " +
-    "Caveat: the fastest swaps apply where the core does not need to be opened; roughly half of shop visits require core disassembly. " +
-    "Cost chart: IBA puts CFM56-7B spare-engine lease rates at ~$100K/month in 2024 (up from ~$75K in 2019), ~$3.3K/day. 150 days = ~$493K vs. 20 days = ~$66K. " +
-    "Lease cost only; lost flying revenue on a grounded jet (often $10K+ per day) would widen the gap.");
 }
 
 // 1b (4/5): new capacity
@@ -1018,8 +967,6 @@ pres.addSection({ title: "Thesis 1b" });
 
   takeaway(s, "With 3,000 modules of capacity against 1,700 planned, FTAI can absorb share gains.");
   source(s, "FTAI Q1/Q2'26 earnings supplements; GMF and EgyptAir reports; GPS estimates (E)");
-  s.addNotes("Network output 757 modules in 2025, 1,200 guided for 2026 (Montreal 450, Miami 475, Europe 275) and 1,700 targeted for 2027 including GMF and EgyptAir. " +
-    "Network capacity raised from 2,000 to 3,000 modules in 2026. Montreal capacity up to 900 (377 output in 2025). Jakarta 300–450 and Cairo 150–180 are GPS estimates; partners are ~7–18% of 2027 output.");
 }
 
 // 1b (5/5): share gains and the volume math
@@ -1043,7 +990,7 @@ pres.addSection({ title: "Thesis 1b" });
   const sy = ["2024", "2025", "2026E", "2027E", "2028E", "2029E", "2030E"];
   s.addChart(pres.charts.BAR, [
     { name: "Reported", labels: sy, values: [0.04, 0.08, null, null, null, null, null] },
-    { name: "GPS model", labels: sy, values: [null, null, 0.124, 0.168, 0.19, 0.195, 0.20] },
+    { name: "Forecast", labels: sy, values: [null, null, 0.124, 0.168, 0.19, 0.195, 0.20] },
   ], chartFrame({
     x: 0.35, y: 3.4, w: 4.6, h: 2.45, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 35,
     chartColors: [NAVY, TEAL], valAxisMinVal: 0, valAxisMaxVal: 0.25, catAxisLabelFontSize: 10,
@@ -1064,10 +1011,7 @@ pres.addSection({ title: "Thesis 1b" });
   });
 
   takeaway(s, "Even if share stalls, SCI's contracted fleet keeps adding volume: a floor under the thesis.");
-  source(s, "GPS model (RPM tab); 2024–25 share per GPS analysis; FTAI 2027 target of 1,700 modules (Q2'26 supplement)");
-  s.addNotes("Volume math (FY27E, GPS model): 2,386 CFM56 shop visits × 3 modules = 7,159 modules of demand × 16.8% FTAI share = 1,206 third-party modules, " +
-    "plus 482 SCI modules (450 aircraft × 2 engines × 20% shop-visit rate × 3 modules, approx.) = 1,687, vs. FTAI's 1,700 target. " +
-    "Share path 12.4% FY26E → 20% by FY30E. 2025 split approximates SCI at 82 modules and the remainder third-party.");
+  source(s, "FTAI Q2'26 supplement (1,700-module 2027 target); 2024–25 share per GPS analysis");
 }
 
 // ---------- Thesis 1b: The LEAP Option (2 slides) ----------
@@ -1115,11 +1059,6 @@ pres.addSection({ title: "Thesis 1b" });
 
   takeaway(s, "As OEM contracts roll off, LEAP becomes FTAI's next CFM56, with costlier, more frequent visits.");
   source(s, "Safran via Aviation Week; Visual Approach; The Air Current; Safe Fly Aviation; FTAI Q2'26 call; GPS expert call");
-  s.addNotes("LTSA coverage: Safran estimates ~50% of ~5,500 in-service LEAPs are on long-term agreements vs. ~15% of CFM56s, peaking near 70% in 2030 before shifting back to time-and-materials (Aviation Week). " +
-    "LEAP overhauls ~2,000 a year by 2030, roughly matching CFM56 (Aviation Week). First LEAP shop visits clustering at 2,000–6,000 cycles with ~4,000 as a planning base, vs. 10,000+ originally expected (Visual Approach). " +
-    "LEAP-1A/1B shop visit $2.0–4.5M+ before LLPs (Safe Fly, unsourced benchmark); The Air Current: the overhaul far eclipses the cost of the same work on a CFM56. " +
-    "FTAI: CFM56/LEAP test cell planned at Rome as its entry into next-generation engine maintenance (Q2'26 call coverage). No public LEAP repair licence found; confirm before presenting. " +
-    "Former MRO executive: the machines and capital equipment for LEAP are 'very near that for CFM'.");
 }
 
 // LEAP (2/2): TATT "APU Summary" architecture — your return vs. LEAP share
@@ -1158,9 +1097,6 @@ pres.addSection({ title: "Thesis 1b" });
 
   takeaway(s, "Every 5 pts of off-contract LEAP share adds ~9 pts to your return on top of our base case.");
   source(s, "GPS analysis: 2,000 LEAP visits/yr, 50% off contract, 3 modules/visit, FY27E EBITDA/module, 16x, discounted 4 yrs at 9.5%");
-  s.addNotes("Return = (base-case SOTP $276.65 + LEAP value per share) / $167.03 − 1. LEAP value: 2,000 LEAP shop visits a year (Aviation Week, ~2030) × 50% off OEM contracts " +
-    "(coverage falling back from the ~70% 2030 peak) × FTAI share × 3 modules per visit × $0.913M EBITDA per module (FY27E CFM56 level; LEAP visits cost more, so conservative) × 16x Aerospace multiple, " +
-    "discounted four years at the 9.5% WACC. Each point of share ≈ $2.93/share. 20% share (FTAI's FY28E+ CFM56 share) ≈ $548M EBITDA and +$59/share → 101% return.");
 }
 
 // ---------- Thesis 2: Power (4 slides) ----------
@@ -1192,14 +1128,9 @@ pres.addSection({ title: "Thesis 2" });
     valAxisMinVal: 0, valAxisMaxVal: 54, dataLabelFormatCode: "0.0;;0", dataLabelPosition: "outEnd", dataLabelFontSize: 12,
     objectName: "Shortfall chart",
   }));
-  s.addText("Capacity below required reserve margin, NERC regions (GPS model)", {
-    x: 5.35, y: 5.5, w: 4.3, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Shortfall caption",
-  });
 
   takeaway(s, "Hyperscalers will spend ~$730B this year, but there won't be enough power to run it.");
-  source(s, "Company filings and 2026 guidance (Amazon, Alphabet, Meta, Microsoft); NERC; GPS model (Power outlook, Regional model tabs)");
-  s.addNotes("Big Four cash capex: $69B (2019) → $376B (2025); 2026 guidance midpoints sum to ~$733B. Reserve shortfall = required capacity (NERC demand × reserve margin) minus anticipated capacity " +
-    "and contracted additions, summed across NERC regions: 8.4 GW in 2029 (PJM), 27.2 GW in 2030 (PJM, MISO), 47.2 GW in 2031. US data center energy demand rises from ~298 TWh (2026) to ~649 TWh (2030).");
+  source(s, "Company filings and 2026 guidance (Amazon, Alphabet, Meta, Microsoft); NERC 2025 LTRA");
 }
 
 // T2 (2/4): new supply arrives too late — the bridge
@@ -1222,9 +1153,6 @@ pres.addSection({ title: "Thesis 2" });
     shape: pres.shapes.OVAL, x: 2.55, y: 2.3, w: 1.05, h: 1.05, fill: { color: ORANGE }, line: { color: ORANGE },
     align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Late share callout",
   });
-  s.addText("25 GW of new and restarted capacity across 45 tracked hyperscaler power deals", {
-    x: 0.35, y: 5.5, w: 5.0, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "COD caption",
-  });
 
   // The bridge
   sectionHeader(s, "The Bridge", 5.7, 1.7, 3.95, "Bridge header");
@@ -1243,11 +1171,7 @@ pres.addSection({ title: "Thesis 2" });
   });
 
   takeaway(s, "Data centers built today need power now. Transitory units like FTAI's fill the gap.");
-  source(s, "GPS model (Power agreements tab: 45 hyperscaler deals, new/restart MW by full COD); company announcements");
-  s.addNotes("Power agreements tab: 45 included hyperscaler deals with ~25.3 GW of new or restarted capacity. By full commercial operation date: ≤2026 1.8 GW, 2027 5.7 GW, 2028 3.3 GW, " +
-    "2029 3.1 GW, 2030 2.2 GW, 2031 6.2 GW, 2032+ 3.0 GW. 57% is fully online in 2029 or later (38% by first COD). Existing-plant offtake deals (no new MW) are excluded. " +
-    "TV risk: a bridge business ends when the grid catches up. Mitigants: the modeled shortfall still widens to 47 GW by 2031; turbines can remain as on-site backup/peaking capacity; " +
-    "the SOTP applies 12x to Power vs. 16x for Aerospace, pricing in a shorter life. The DCF does carry Power growth to FY31, so judges may push here.");
+  source(s, "Company announcements (45 hyperscaler power deals, new and restarted capacity)");
 }
 
 // T2 (3/4): waiting is expensive, supply is scarce — pricing power
@@ -1286,15 +1210,9 @@ pres.addSection({ title: "Thesis 2" });
     s.addText(lab, { x: 5.0, y, w: 1.65, h: 0.55, margin: 0, align: "right", valign: "middle", fontSize: 12, bold: i === 0, color: i === 0 ? C.text2 : INK, isTextBox: true, objectName: `Lane ${i + 1} label` });
     s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: tl0 + (a - y0) * tscale, y: y + 0.08, w: (b - a) * tscale, h: 0.4, rectRadius: 0.08, fill: { color: col }, line: { type: "none" }, objectName: `Lane ${i + 1} bar` });
   });
-  s.addText("Delivery windows; large-turbine order books full to 2029", {
-    x: 5.0, y: 5.4, w: 4.65, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Lead time caption",
-  });
 
   takeaway(s, "Idle data centers cost far more than power. FTAI delivers years before the competition.");
-  source(s, "GPS model ($12M/MW facility; ~$1M/MW, 25 MW units, 50% redundancy); CNBC (Jun-26); Tom's Hardware (Oct-25); FTAI calls");
-  s.addNotes("Build cost: GPS model assumes ~$12M per MW of data center facility spend, so 100 MW ≈ $1.2B before GPUs; FTAI's contract implies ~$1M per MW; 100 MW of load needs ~150 MW of turbines with the model's 50% redundancy allowance, so six 25 MW Mod-1 units ≈ $150M (~13%). Hot-weather derating could add a unit. " +
-    "Lead times: GE Vernova's large gas turbine order book is full until 2029 with orders out to 2031 (CNBC, Jun-26); new aeroderivative orders are being slotted for 2028–2030 (Tom's Hardware, Oct-25). " +
-    "FTAI guided first Mod-1 deliveries to Q4'26, later saying it is prudent to expect deliveries in 2027.");
+  source(s, "CNBC (Jun-26); Tom's Hardware (Oct-25); FTAI earnings calls");
 }
 
 // T2 (4/4): returns by contracts signed / units delivered
@@ -1317,9 +1235,6 @@ pres.addSection({ title: "Thesis 2" });
     s.addText(units, { x: 1.85, y, w: 1.0, h: 0.78, align: "center", valign: "middle", fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, objectName: `Scenario ${i + 1} units` });
     s.addText(ebitda, { x: 2.95, y, w: 1.15, h: 0.78, align: "center", valign: "middle", fontSize: 16, bold: true, color: C.text2, margin: 0, isTextBox: true, objectName: `Scenario ${i + 1} EBITDA` });
   });
-  s.addText("Each new ~$1B order ≈ 40 more units and ~$300M of EBITDA", {
-    x: 0.35, y: 5.4, w: 3.75, h: 0.4, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Scenario caption",
-  });
 
   sectionHeader(s, "Your Return", 4.45, 1.7, 5.2, "Return header");
   const sc = ["No Power", "Signed order", "+1 contract", "+2 contracts"];
@@ -1331,15 +1246,9 @@ pres.addSection({ title: "Thesis 2" });
     chartColors: [TEAL, NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, catAxisLabelFontSize: 11, catAxisLabelColor: NAVY,
     dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 14, objectName: "Contract return chart",
   }));
-  s.addText("Base case = signed order only; returns on the FY27E SOTP vs. $167 today", {
-    x: 4.45, y: 5.45, w: 5.2, h: 0.3, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Return caption",
-  });
 
   takeaway(s, "Our base case needs no new contracts. Every one FTAI signs is upside the market isn't paying for.");
-  source(s, "FTAI earnings calls ($450–750M FY27 guide; 'materially fewer than 100 units'); GPS estimates; GPS model (SOTP, Power at 12x)");
-  s.addNotes("Scenarios on FTAI's FY27 Power guide: the signed $1.465B J&F order (est. 40–60 units, ~1.0–1.5 GW) underpins the $450M low end; reaching $750M needs ~$1B of new orders " +
-    "(follow-ons under the hyperscaler master agreement or a second customer). A second ~$1B contract is extrapolated at the same ~$300M step to ~$1,050M. Units ≈ $1B / ($1M/MW × 25 MW) ≈ 40 per contract. " +
-    "Returns: SOTP ex-Power $224.75 + Power EBITDA × 12 / 104.0M shares, vs. $167.03: no Power 35%, signed order 66% (base case), +1 contract 86%, +2 contracts 107%.");
+  source(s, "FTAI earnings calls ($450–750M FY27 guide); GPS estimates");
 }
 
 // ---------- Valuation: What You Need to Believe (TATT architecture) ----------
@@ -1377,9 +1286,6 @@ pres.addSection({ title: "Valuation" });
     valAxisMinVal: 0, valAxisMaxVal: 0.45, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 15,
     catAxisLabelFontSize: 13, objectName: "Pick one chart",
   }));
-  s.addText("Your return if only one comes true", {
-    x: 2.55, y: 6.3, w: 4.9, h: 0.28, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Pick one caption",
-  });
   s.addText("Each bar holds the other side at our bear case", {
     x: 0.35, y: 4.65, w: 2.0, h: 1.05, line: { color: INK, width: 1, dashType: "dash" }, align: "center", valign: "middle",
     fontSize: 12, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Left assumption box",
@@ -1389,11 +1295,7 @@ pres.addSection({ title: "Valuation" });
     fontSize: 13, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Right assumption box",
   });
 
-  source(s, "GPS model: SOTP (FY27E EBITDA, base multiples), aviation theses vs. Power switched on separately; share history per GPS analysis");
-  s.addNotes("Bars = base-case SOTP with one thesis on and the others off (bear-case margins/share rows, Power units = 0), at base multiples, vs. $167.03: " +
-    "margins + share only (no Power) $222 (+33%); Power (signed order) only, with bear-case margins and share, $227 (+36%). All three = $277 (+66%). " +
-    "Share path: ~4% (2024) → ~8% (2025) → ~12% (2026E), i.e. ~4 pts a year; the model reaches 20% by FY30, ~2 pts a year. " +
-    "With all three off, the SOTP is $172, about today's price: the market is pricing the bear case.");
+  source(s, "FY27E sum of the parts at base multiples; share history per GPS analysis");
 }
 
 // ---------- Valuation: SOTP waterfall ----------
@@ -1421,9 +1323,6 @@ pres.addSection({ title: "Valuation" });
       color: i === 0 ? INK : i === 5 ? ORANGE : C.text2, isTextBox: true, objectName: `Waterfall label ${i + 1}`,
     });
   });
-  s.addText("FY27E SOTP; each thesis switched from our bear case to base (Shapley average)", {
-    x: 0.35, y: 5.55, w: 6.25, h: 0.28, margin: 0, align: "center", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Waterfall caption",
-  });
 
   sectionHeader(s, "What It Means", 6.9, 1.7, 2.75, "Means header");
   [["+66%", "upside to our $277 base case"], ["$50", "from the aviation theses: margins and share"], ["$55", "from Power, on just the signed order"]].forEach(([big, lab], i) => {
@@ -1433,9 +1332,7 @@ pres.addSection({ title: "Valuation" });
   });
 
   takeaway(s, "Get the aviation theses right and you make 33%. Power on just the signed order takes it to 66%.");
-  source(s, "GPS model (SOTP: Aerospace 16x, Power 12x, Leasing + SCI 9x FY27E EBITDA); thesis attribution re-runs; price $167.03 (10/2/26)");
-  s.addNotes("Waterfall: today $167.03; bear case (bear margins and share, no Power) SOTP $171.86 (+$4.83); Shapley contributions on the SOTP: margins +$17.04, share +$32.66, Power +$55.08 = $276.65 (+66%). " +
-    "Base-case SOTP build: Aerospace $1,541M × 16x = $237; Power $450M × 12x = $52; Leasing + SCI $455M × 9x = $39; corporate −$28; net debt and preferred −$24.");
+  source(s, "FY27E sum of the parts (Aerospace 16x, Power 12x, Leasing + SCI 9x); price $167.03 (10/2/26)");
 }
 
 // ---------- Catalysts (TATT timeline, centered arrow) ----------
@@ -1473,9 +1370,6 @@ pres.addSection({ title: "Catalysts" });
 
   takeaway(s, "Each catalyst tests one thesis directly, and all three land by the end of 2027.");
   source(s, "FTAI earnings calls and Q2'26 supplement (1,700-module 2027 target; FY27 Power guide $450–750M); GPS analysis");
-  s.addNotes("1) Q3'26 (late Oct. 2026) and Q4'26 (~Feb. 2027) prints: Aerospace Adj. EBITDA margin holding at ~30% confirms the floor; watch PMA usage and parts 4/5 approval commentary. " +
-    "2) Capacity (1H'27) and 3) Power (2H'27), reordered. Power: management moved first Mod-1 deliveries from Q4'26 to 'prudent to expect deliveries in 2027'; delivery cadence or a follow-on order (Jereh must disclose large contracts) moves Power toward the top of the $450–750M FY27 guide. " +
-    "3) Capacity: partner sites in Jakarta (GMF) and Cairo (EgyptAir) plus Lisbon ramp in 2027; network capacity 3,000 modules vs. a 1,700-module 2027 target.");
 }
 
 // ---------- Risks / Mitigants (TATT architecture) ----------
@@ -1523,11 +1417,7 @@ pres.addSection({ title: "Risks" });
   });
 
   takeaway(s, "None of these risks is new to the market. The bear case is already in the price.");
-  source(s, "GE Aerospace Q2'26 call; CFM via StandardAero; IATA (Jun-26); GPS model; FTAI Q2'26 supplement; FTAI job postings");
-  s.addNotes("1) LEAP: GE says the LEAP installed base more than doubles 2025–2030 and LEAP shop visits grow ~25% a year; CFM expects LEAP visits to triple by 2030; IATA sees 600–800 visits in 2025 rising to 5,000+ by 2040 and says capacity alone will not be enough. " +
-    "GE is spending ~$500M to roughly double internal LEAP capacity, and third-party shops' share of LEAP visits rises from 10% (2024) to ~15% today and ~30% by 2030. " +
-    "2) Short-report discount: the bear-case SOTP ($172) is roughly today's price; with <8% of depreciated leasing inventory left in Aerospace Products, margins now reflect the core business; Q3/Q4 '26 prints are the test. " +
-    "3) Technicians: no public description of an FTAI academy was found; job postings show dedicated engine-module technical trainers in Montreal and Miami. Partners: GMF ~200 and EgyptAir ~120 technicians. FTAI cited Palantir workflow tools and a productivity lag from rapid hiring. Confirm academy details before presenting.");
+  source(s, "GE Aerospace Q2'26 call; CFM via StandardAero; IATA (Jun-26); FTAI Q2'26 supplement; FTAI job postings");
 }
 
 // ---------- Q&A and Appendix ----------
@@ -1557,34 +1447,33 @@ const appendix = (title, src, build, notes) => {
   s.addText(title, { placeholder: "title" });
   build(s);
   source(s, src);
-  if (notes) s.addNotes(notes);
 };
 
-appendix("Appendix: DCF (1/2)", "GPS model (DCF tab), base case", (s) => {
+appendix("Appendix: DCF (1/2)", "DCF, base case", (s) => {
   shot(s, "app_pv.png", 0.35, 1.3, 9.3, 2135, 479, "PV bridge");
   shot(s, "app_blend.png", 1.25, 4.0, 7.5, 1695, 347, "Blended valuation");
 });
 
-appendix("Appendix: DCF (2/2)", "GPS model (DCF tab), base case", (s) => {
+appendix("Appendix: DCF (2/2)", "DCF, base case", (s) => {
   shot(s, "app_methods.png", 0.35, 1.25, 9.3, 2015, 891, "Valuation methods");
 }, "Present value bridge (mid-year convention, 0.5 stub for FY26) and both terminal-value methods: perpetuity growth at 3.0% ($281) and 13.0x exit multiple ($335), both at a 9.5% WACC.");
 
-appendix("Appendix: DCF Sensitivities", "GPS model (DCF tab): implied share price by WACC, terminal growth and exit multiple", (s) => {
+appendix("Appendix: DCF Sensitivities", "Implied share price by WACC, terminal growth and exit multiple", (s) => {
   shot(s, "app_sens.png", 1.3, 1.2, 7.4, 1392, 849, "Sensitivity tables");
 });
 
-appendix("Appendix: Sum of the Parts", "GPS model (DCF tab): FY27E SOTP", (s) => {
+appendix("Appendix: Sum of the Parts", "FY27E sum of the parts", (s) => {
   shot(s, "app_sotp.png", 0.35, 1.3, 9.3, 2120, 655, "SOTP table");
 });
 
 
 
-appendix("Appendix: Power Model", "GPS model (RPM tab Mod-1 build; Power outlook tab, NERC 2025 LTRA inputs)", (s) => {
+appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
   shot(s, "app_power.png", 0.35, 1.2, 9.3, 2120, 460, "Mod-1 build");
   shot(s, "app_shortfall.png", 1.6, 3.55, 6.8, 1899, 480, "Power shortfall");
 });
 
-appendix("Appendix: Repair Pricing", "GPS model (Pricing Data tab): matched OEM catalogue parts, CFM56-5B and -7B", (s) => {
+appendix("Appendix: Repair Pricing", "CFM catalogue pricing, matched parts, CFM56-5B and -7B", (s) => {
   shot(s, "app_pricing.png", 0.35, 1.2, 9.3, 2109, 695, "Pricing summary");
   s.addText("OEM list prices rose a median ~6% a year across ~3,400 matched parts, with almost none falling.", {
     x: 0.35, y: 4.75, w: 9.3, h: 0.6, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 15, bold: true, line: { color: ORANGE, width: 1.5 },
