@@ -1644,6 +1644,46 @@ appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
   source(s, "Wood Mackenzie; BNEF; NextEra (CERAWeek '25); GE Vernova Q1'26; Siemens Energy Q2–Q3 FY26; MHI");
 }
 
+// ---------- Appendix: Management & Turnover ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: Management & Turnover", { placeholder: "title" });
+  s.addText("The CEO and auditor stayed; most changes since the report are internal promotions.", { placeholder: "subtitle" });
+
+  const hdr = { margin: 0, valign: "bottom", fontSize: 13, bold: true, color: C.text2, isTextBox: true };
+  s.addText("Date", { ...hdr, x: 0.35, y: 1.68, w: 0.95, h: 0.3, align: "center", objectName: "Date header" });
+  s.addText("Change", { ...hdr, x: 1.45, y: 1.68, w: 5.3, h: 0.3, objectName: "Change header" });
+  s.addText("Our Read", { ...hdr, x: 6.9, y: 1.68, w: 2.75, h: 0.3, align: "center", objectName: "Read header" });
+  s.addShape(pres.shapes.LINE, { x: 0.35, y: 2.0, w: 9.3, h: 0, line: { color: TEAL, width: 1.5 }, objectName: "Header rule" });
+
+  const rows = [
+    ["Jan-25", "Muddy Waters publishes its short report", "The starting point"],
+    ["May-25", "Shyam Gidumal joins the board as an independent director on the Audit Committee; Judith Hannaway named lead independent director", "More independent oversight"],
+    ["May-25", "CEO Joe Adams and COO David Moreno buy shares on the open market", "Insiders buying, not selling"],
+    ["Feb-26", "David Moreno promoted to President; Stacy Kuperus promoted to COO", "Promotions from within"],
+    ["Mar-26", "CFO Angela Nam leaves after 12 years for a public company outside aviation; Nicholas McAleese (CFO) and Michael Hazan (CAO) promoted", "8-K: not related to any accounting issue or disagreement"],
+    ["Aug-26", "Head of IR Alan Andreini leaves after 10+ years; Charlie Arestia hired from CION", "Routine succession"],
+  ];
+  rows.forEach(([d, chg, read], i) => {
+    const y = 2.1 + i * 0.64, first = i === 0;
+    s.addText(d, {
+      x: 0.35, y, w: 0.95, h: 0.54, fill: { color: first ? ORANGE : NAVY }, margin: 0, align: "center", valign: "middle",
+      fontSize: 13, bold: true, color: C.background1, isTextBox: true, objectName: `Date ${i + 1}`,
+    });
+    s.addText(chg, {
+      x: 1.45, y, w: 5.3, h: 0.54, margin: 0, valign: "middle", fontSize: 12, color: INK, isTextBox: true, objectName: `Change ${i + 1}`,
+    });
+    s.addText(read, {
+      x: 6.9, y, w: 2.75, h: 0.54, fill: { color: PLAT_XLT }, margin: [6, 6, 2, 2], align: "center", valign: "middle",
+      fontSize: 12, bold: true, color: first ? ORANGE : C.text2, isTextBox: true, objectName: `Read ${i + 1}`,
+    });
+    if (i < rows.length - 1) s.addShape(pres.shapes.LINE, { x: 1.45, y: y + 0.59, w: 5.3, h: 0, line: { color: PLAT_LT, width: 0.75 }, objectName: `Row rule ${i + 1}` });
+  });
+
+  takeaway(s, "No departure since the report has come with a disclosed accounting disagreement.");
+  source(s, "FTAI 8-Ks and press releases (May-25, Feb-26, Mar-26, Aug-26); SEC Form 4 filings; Muddy Waters (Jan-25)");
+}
+
 appendix("Appendix: Repair Pricing", "CFM catalogue pricing, matched parts, CFM56-5B and -7B", (s) => {
   shot(s, "app_pricing.png", 0.35, 1.2, 9.3, 2109, 695, "Pricing summary", 4.55);
   s.addText("OEM list prices rose a median ~6% a year across ~3,400 matched parts, with almost none falling.", {
