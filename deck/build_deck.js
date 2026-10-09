@@ -1450,6 +1450,58 @@ pres.addSection({ title: "Catalysts" });
     "3) Capacity: partner sites in Jakarta (GMF) and Cairo (EgyptAir) plus Lisbon ramp in 2027; network capacity 3,000 modules vs. a 1,700-module 2027 target.");
 }
 
+// ---------- Risks / Mitigants (TATT architecture) ----------
+pres.addSection({ title: "Risks" });
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Risks" });
+  s.addText("Risks / Mitigants", { placeholder: "title" });
+  s.addText("The risks are real, but each is either priced in or being closed.", { placeholder: "subtitle" });
+
+  const risks = [
+    ["Locked Out of LEAP", "CFM keeps LEAP work in-house through service contracts and licenses.", [
+      "LEAP visits ~3x by 2030; 5,000+ a year by 2040",
+      "GE is doubling LEAP capacity, yet IATA says it won't be enough",
+      "Third parties: 10% → ~30% of LEAP visits by 2030",
+    ]],
+    ["Short-Report Overhang", "The market keeps a fraud discount on FTAI's multiple.", [
+      "Priced in: at $167 the market pays our bear case",
+      "<8% cheap stock left: margins now show the core business",
+      "Each clean print (Q3 & Q4 '26) shrinks the discount",
+    ]],
+    ["Technician Shortage", "Too few skilled techs caps how many modules FTAI can turn.", [
+      "FTAI's academy trains its own techs (trainers in Montreal, Miami)",
+      "Partners add ~320 techs in Jakarta and Cairo",
+      "New hires speed up with experience and Palantir tools",
+    ]],
+  ];
+  risks.forEach(([head, desc, mits], i) => {
+    const y = 1.75 + i * 1.42;
+    s.addText(String(i + 1), {
+      shape: pres.shapes.OVAL, x: 0.35, y: y - 0.08, w: 0.58, h: 0.58, fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 },
+      align: "center", valign: "middle", fontSize: 18, bold: true, color: C.text2, margin: 0, objectName: `Risk ${i + 1} number`,
+    });
+    s.addText(head, {
+      x: 0.95, y, w: 3.45, h: 0.42, line: { color: INK, width: 1.25 }, align: "center", valign: "middle", fontSize: 15, bold: true,
+      color: C.text2, margin: 0, isTextBox: true, objectName: `Risk ${i + 1} head`,
+    });
+    s.addText(desc, {
+      x: 0.95, y: y + 0.42, w: 3.45, h: 0.72, line: { color: INK, width: 1, dashType: "dash" }, align: "center", valign: "middle",
+      fontSize: 12, bold: true, color: INK, margin: 6, isTextBox: true, objectName: `Risk ${i + 1} detail`,
+    });
+    s.addText(mits.map((t, k) => ({ text: t, options: { bullet: { indent: 12 }, breakLine: k < mits.length - 1 } })), {
+      shape: pres.shapes.PENTAGON, flipH: true, x: 4.6, y: y - 0.05, w: 5.05, h: 1.25, fill: { color: PLAT_LT }, line: { type: "none" },
+      align: "left", valign: "middle", fontSize: 11, color: INK, margin: [42, 8, 2, 2], paraSpaceAfter: 3, objectName: `Risk ${i + 1} mitigants`,
+    });
+  });
+
+  takeaway(s, "None of these risks is new to the market. The bear case is already in the price.");
+  source(s, "GE Aerospace Q2'26 call; CFM via StandardAero; IATA (Jun-26); GPS model; FTAI Q2'26 supplement; FTAI job postings");
+  s.addNotes("1) LEAP: GE says the LEAP installed base more than doubles 2025–2030 and LEAP shop visits grow ~25% a year; CFM expects LEAP visits to triple by 2030; IATA sees 600–800 visits in 2025 rising to 5,000+ by 2040 and says capacity alone will not be enough. " +
+    "GE is spending ~$500M to roughly double internal LEAP capacity, and third-party shops' share of LEAP visits rises from 10% (2024) to ~15% today and ~30% by 2030. " +
+    "2) Short-report discount: the bear-case SOTP ($172) is roughly today's price; with <8% of depreciated leasing inventory left in Aerospace Products, margins now reflect the core business; Q3/Q4 '26 prints are the test. " +
+    "3) Technicians: no public description of an FTAI academy was found; job postings show dedicated engine-module technical trainers in Montreal and Miami. Partners: GMF ~200 and EgyptAir ~120 technicians. FTAI cited Palantir workflow tools and a productivity lag from rapid hiring. Confirm academy details before presenting.");
+}
+
 (async () => {
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
