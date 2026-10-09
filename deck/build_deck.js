@@ -1578,6 +1578,51 @@ appendix("Appendix: Sum of the Parts", "FY27E sum of the parts", (s) => {
 
 
 
+// ---------- Appendix: Trading Comps ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: Trading Comps", { placeholder: "title" });
+  s.addText("On FY26 FTAI screens rich, but on guided FY27 EBITDA it's the cheapest aftermarket name.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Aftermarket & Aviation Peers", 0.35, 1.7, 6.2, "Comps header");
+  const H = (t) => ({ text: t, options: { bold: true, color: C.background1, fill: { color: NAVY }, align: "center" } });
+  const L = (t, o = {}) => ({ text: t, options: { align: "left", ...o } });
+  const N = (t, o = {}) => ({ text: t, options: { align: "center", ...o } });
+  const f = { bold: true, color: ORANGE, fill: { color: PLAT_XLT } };
+  const peers = [
+    ["StandardAero (SARO)", "$6.7B", "~10x FY26", "~16x"],
+    ["AAR (AIR)", "$4.1B", "~12x LTM", "~15x"],
+    ["HEICO (HEI)", "$42B", "~27x LTM", "~45x+"],
+    ["GE Aerospace (GE)", "$317B", "n/a", "~36x"],
+    ["AerCap (AER)", "$22B", "n/m (lessor)", "~8x"],
+  ];
+  const rowsC = [
+    [H("Company"), H("Mkt Cap"), H("EV / EBITDA"), H("Fwd P/E")],
+    [L("FTAI at $167", f), N("$17.2B", f), N("13.3x FY26 / 8.8x FY27", f), N("n/m", f)],
+    ...peers.map(([a, b, c, d]) => [L(a), N(b), N(c), N(d)]),
+  ];
+  s.addTable(rowsC, {
+    x: 0.35, y: 2.32, w: 6.2, colW: [2.0, 1.0, 2.1, 1.1], rowH: 0.44,
+    fontSize: 12, color: INK, valign: "middle", margin: [0.04, 0.06, 0.04, 0.06],
+    border: { type: "solid", pt: 0.75, color: PLAT_LT }, objectName: "Comps table",
+  });
+
+  sectionHeader(s, "FTAI vs. Closest Peer", 6.85, 1.7, 2.8, "Peer vs header");
+  const stats = [
+    ["8.8x", "FTAI EV / FY27 guided EBITDA ($2.3B)"],
+    ["~10x", "StandardAero EV / FY26 EBITDA, the pure-play CFM56 MRO"],
+    ["+51%", "FTAI guided EBITDA growth, FY26 → FY27"],
+  ];
+  stats.forEach(([big, lab], i) => {
+    const y = 2.32 + i * 1.18;
+    s.addText(big, { x: 6.85, y, w: 2.8, h: 0.52, margin: 0, align: "center", valign: "bottom", fontSize: 28, bold: true, color: i === 1 ? NAVY : ORANGE, isTextBox: true, objectName: `Comp stat ${i + 1}` });
+    s.addText(lab, { x: 6.85, y: y + 0.54, w: 2.8, h: 0.5, margin: 0, align: "center", valign: "top", fontSize: 12, color: C.accent2, isTextBox: true, objectName: `Comp stat ${i + 1} label` });
+  });
+
+  takeaway(s, "The market is paying a peer multiple for FY26 and getting FY27's growth for free.");
+  source(s, "Prices Oct-26; FTAI net debt $3.1B (6/30/26), excl. preferred; FTAI FY26–27 guidance");
+}
+
 appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
   shot(s, "app_power.png", 0.35, 1.2, 9.3, 2120, 460, "Mod-1 build", 3.35);
   shot(s, "app_shortfall.png", 1.6, 3.55, 6.8, 1899, 480, "Power shortfall");
@@ -1644,11 +1689,46 @@ appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
   source(s, "Wood Mackenzie; BNEF; NextEra (CERAWeek '25); GE Vernova Q1'26; Siemens Energy Q2–Q3 FY26; MHI");
 }
 
+// ---------- Appendix: Short Report Claims ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: Short Report Claims", { placeholder: "title" });
+  s.addText("20 months on: no restatement, no regulator action, and EBITDA has kept growing.", { placeholder: "subtitle" });
+
+  const cols = [["Claim", 0.35, 2.85], ["FTAI's Response", 3.3, 2.55], ["What Happened Since", 5.95, 2.55], ["Our Read", 8.6, 1.05]];
+  cols.forEach(([t, x, w]) => s.addText(t, { x, y: 1.68, w, h: 0.3, margin: 0, align: x === 0.35 ? "left" : "center", valign: "bottom", fontSize: 13, bold: true, color: C.text2, isTextBox: true, objectName: `${t} header` }));
+  s.addShape(pres.shapes.LINE, { x: 0.35, y: 2.0, w: 9.3, h: 0, line: { color: TEAL, width: 1.5 }, objectName: "Claims rule" });
+
+  const claims = [
+    ["~80% of Aerospace EBITDA is whole-engine sales dressed up as module / MRO revenue", "Audit Committee review with outside forensic accountants: “without merit” (Feb-25)", "Aerospace EBITDA $381M (FY24) → $671M (FY25) → ~$1.05B FY26 guide", "Rejected", NAVY],
+    ["Fast leasing depreciation moves cheap engines into Aerospace and flatters margins", "Policy unchanged since the 2015 IPO; GAAP, in line with lessor peers", "Cheap stock ran out and margins reset to ~30%. Our floor assumes none left", "Partly right, priced in", ORANGE],
+    ["Iran: FTAI-packaged CFM56 engines seen at a Tehran shop (Mar-25)", "No public comment", "No OFAC action or disclosed inquiry", "No follow-through", NAVY],
+    ["EBITDA isn't cash (Snowcap)", "Adjusted FCF guidance: $878M for FY26", "GAAP operating cash flow still weighed down by inventory build", "Open: watch", TEAL],
+  ];
+  claims.forEach(([c, r, since, read, col], i) => {
+    const y = 2.08 + i * 0.8;
+    s.addText(c, { x: 0.35, y, w: 2.85, h: 0.72, margin: 0, valign: "middle", fontSize: 11, bold: true, color: INK, isTextBox: true, objectName: `Claim ${i + 1}` });
+    s.addText(r, { x: 3.3, y, w: 2.55, h: 0.72, margin: [4, 4, 2, 2], valign: "middle", align: "center", fontSize: 11, color: INK, fill: { color: PLAT_XLT }, isTextBox: true, objectName: `Response ${i + 1}` });
+    s.addText(since, { x: 5.95, y, w: 2.55, h: 0.72, margin: [4, 4, 2, 2], valign: "middle", align: "center", fontSize: 11, color: INK, fill: { color: PLAT_XLT }, isTextBox: true, objectName: `Since ${i + 1}` });
+    s.addText(read, { x: 8.6, y, w: 1.05, h: 0.72, margin: [3, 3, 2, 2], valign: "middle", align: "center", fontSize: 11, bold: true, color: C.background1, fill: { color: col }, isTextBox: true, objectName: `Read ${i + 1}` });
+  });
+  s.addText([
+    { text: "Also since: ", options: { bold: true } },
+    { text: "10-K filed on time · auditor moved EY → KPMG, no disagreements · class action at motion-to-dismiss · no SEC action disclosed" },
+  ], {
+    x: 0.35, y: 5.36, w: 9.3, h: 0.46, fill: { color: PLAT_XLT }, line: { color: ORANGE, width: 1.5 }, margin: 0, align: "center", valign: "middle",
+    fontSize: 12, color: INK, isTextBox: true, objectName: "Also since",
+  });
+
+  takeaway(s, "The one real point, cheap stock flattering margins, is already in our numbers.");
+  source(s, "Muddy Waters (Jan-25, Mar-25); Snowcap (Jan-25); FTAI releases, 10-K, 8-Ks; Shannahan v. FTAI (S.D.N.Y.)");
+}
+
 // ---------- Appendix: Management & Turnover ----------
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
   s.addText("Appendix: Management & Turnover", { placeholder: "title" });
-  s.addText("The CEO and auditor stayed; most changes since the report are internal promotions.", { placeholder: "subtitle" });
+  s.addText("The CEO stayed, and most changes since the report are internal promotions.", { placeholder: "subtitle" });
 
   const hdr = { margin: 0, valign: "bottom", fontSize: 13, bold: true, color: C.text2, isTextBox: true };
   s.addText("Date", { ...hdr, x: 0.35, y: 1.68, w: 0.95, h: 0.3, align: "center", objectName: "Date header" });
@@ -1660,28 +1740,210 @@ appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
     ["Jan-25", "Muddy Waters publishes its short report", "The starting point"],
     ["May-25", "Shyam Gidumal joins the board as an independent director on the Audit Committee; Judith Hannaway named lead independent director", "More independent oversight"],
     ["May-25", "CEO Joe Adams and COO David Moreno buy shares on the open market", "Insiders buying, not selling"],
+    ["Jun-25", "Auditor changed from EY (since 2016) to KPMG", "8-K: no disagreements or reportable events"],
     ["Feb-26", "David Moreno promoted to President; Stacy Kuperus promoted to COO", "Promotions from within"],
     ["Mar-26", "CFO Angela Nam leaves after 12 years for a public company outside aviation; Nicholas McAleese (CFO) and Michael Hazan (CAO) promoted", "8-K: not related to any accounting issue or disagreement"],
     ["Aug-26", "Head of IR Alan Andreini leaves after 10+ years; Charlie Arestia hired from CION", "Routine succession"],
   ];
   rows.forEach(([d, chg, read], i) => {
-    const y = 2.1 + i * 0.64, first = i === 0;
+    const y = 2.08 + i * 0.555, first = i === 0;
     s.addText(d, {
-      x: 0.35, y, w: 0.95, h: 0.54, fill: { color: first ? ORANGE : NAVY }, margin: 0, align: "center", valign: "middle",
+      x: 0.35, y, w: 0.95, h: 0.48, fill: { color: first ? ORANGE : NAVY }, margin: 0, align: "center", valign: "middle",
       fontSize: 13, bold: true, color: C.background1, isTextBox: true, objectName: `Date ${i + 1}`,
     });
     s.addText(chg, {
-      x: 1.45, y, w: 5.3, h: 0.54, margin: 0, valign: "middle", fontSize: 12, color: INK, isTextBox: true, objectName: `Change ${i + 1}`,
+      x: 1.45, y, w: 5.3, h: 0.48, margin: 0, valign: "middle", fontSize: 12, color: INK, isTextBox: true, objectName: `Change ${i + 1}`,
     });
     s.addText(read, {
-      x: 6.9, y, w: 2.75, h: 0.54, fill: { color: PLAT_XLT }, margin: [6, 6, 2, 2], align: "center", valign: "middle",
+      x: 6.9, y, w: 2.75, h: 0.48, fill: { color: PLAT_XLT }, margin: [6, 6, 2, 2], align: "center", valign: "middle",
       fontSize: 12, bold: true, color: first ? ORANGE : C.text2, isTextBox: true, objectName: `Read ${i + 1}`,
     });
-    if (i < rows.length - 1) s.addShape(pres.shapes.LINE, { x: 1.45, y: y + 0.59, w: 5.3, h: 0, line: { color: PLAT_LT, width: 0.75 }, objectName: `Row rule ${i + 1}` });
+    if (i < rows.length - 1) s.addShape(pres.shapes.LINE, { x: 1.45, y: y + 0.515, w: 5.3, h: 0, line: { color: PLAT_LT, width: 0.75 }, objectName: `Row rule ${i + 1}` });
   });
 
   takeaway(s, "No departure since the report has come with a disclosed accounting disagreement.");
-  source(s, "FTAI 8-Ks and press releases (May-25, Feb-26, Mar-26, Aug-26); SEC Form 4 filings; Muddy Waters (Jan-25)");
+  source(s, "FTAI 8-Ks and press releases (May-25 to Aug-26); SEC Form 4 filings; Muddy Waters (Jan-25)");
+}
+
+// ---------- Appendix: Strategic Capital Initiative ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: Strategic Capital Initiative", { placeholder: "title" });
+  s.addText("An outside-funded aircraft fund: FTAI owns ~19%, and SCI's engines come to FTAI.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "How SCI Works", 0.35, 1.7, 5.9, "SCI header");
+  // Funding boxes on the left
+  const fund = [["Outside equity", "~$1.6B (81%)"], ["FTAI co-invest", "~$380M (19%)"], ["Asset-level debt", "~$4B (Apollo / DB-led)"]];
+  fund.forEach(([h, v], i) => {
+    s.addText([{ text: h, options: { bold: true, fontSize: 12, breakLine: true } }, { text: v, options: { fontSize: 11 } }], {
+      x: 0.35, y: 2.32 + i * 0.86, w: 1.75, h: 0.7, fill: { color: i === 1 ? ORANGE : PLAT_LT }, color: i === 1 ? C.background1 : INK,
+      margin: 2, align: "center", valign: "middle", isTextBox: true, objectName: `SCI fund ${i + 1}`,
+    });
+    s.addShape(pres.shapes.LINE, { x: 2.12, y: 2.67 + i * 0.86, w: 0.4, h: 0, line: { color: NAVY, width: 1.5, endArrowType: "triangle" }, objectName: `SCI fund arrow ${i + 1}` });
+  });
+  s.addText([
+    { text: "SCI 1", options: { bold: true, fontSize: 18, breakLine: true } },
+    { text: "~$6B, 300+ mid-life A320ceo / 737NG", options: { fontSize: 11 } },
+  ], { x: 2.55, y: 2.32, w: 1.6, h: 2.42, fill: { color: NAVY }, color: C.background1, margin: 4, align: "center", valign: "middle", isTextBox: true, objectName: "SCI box" });
+  // What flows back to FTAI
+  const back = [["Aircraft sales", "FTAI sells on-lease aircraft into SCI"], ["Fees + equity income", "Servicing fees and its ~19% share"], ["Captive engine work", "All SCI engines go to FTAI's modules"]];
+  back.forEach(([h, v], i) => {
+    s.addShape(pres.shapes.LINE, { x: 4.18, y: 2.67 + i * 0.86, w: 0.4, h: 0, line: { color: NAVY, width: 1.5, endArrowType: "triangle" }, objectName: `SCI back arrow ${i + 1}` });
+    s.addText([{ text: h, options: { bold: true, fontSize: 12, color: C.text2, breakLine: true } }, { text: v, options: { fontSize: 11, color: INK } }], {
+      x: 4.6, y: 2.32 + i * 0.86, w: 1.65, h: 0.7, fill: { color: PLAT_XLT }, margin: 3, align: "center", valign: "middle", isTextBox: true, objectName: `SCI back ${i + 1}`,
+    });
+  });
+  s.addText([
+    { text: "Accounting: ", options: { bold: true } },
+    { text: "equity method, not consolidated. FTAI's share of profit on sales to SCI is eliminated." },
+  ], {
+    x: 0.35, y: 5.1, w: 5.9, h: 0.6, fill: { color: PLAT_XLT }, line: { color: ORANGE, width: 1.5 }, margin: [6, 6, 2, 2], align: "center", valign: "middle",
+    fontSize: 12, color: INK, isTextBox: true, objectName: "SCI accounting",
+  });
+
+  sectionHeader(s, "What It's Worth to FTAI", 6.6, 1.7, 3.05, "SCI value header");
+  const stats = [
+    ["$35M", "SCI Leasing EBITDA in Q2'26 ($7M fees + $28M co-invest return)"],
+    ["$183M", "Q2'26 Aerospace exchange revenue from SCI"],
+    ["~$6B", "SCI 2 target; $2.0B warehouse closed Aug-26"],
+  ];
+  stats.forEach(([big, lab], i) => {
+    const y = 2.32 + i * 1.18;
+    s.addText(big, { x: 6.6, y, w: 3.05, h: 0.5, margin: 0, align: "center", valign: "bottom", fontSize: 28, bold: true, color: ORANGE, isTextBox: true, objectName: `SCI stat ${i + 1}` });
+    s.addText(lab, { x: 6.6, y: y + 0.52, w: 3.05, h: 0.55, margin: 0, align: "center", valign: "top", fontSize: 12, color: C.accent2, isTextBox: true, objectName: `SCI stat ${i + 1} label` });
+  });
+
+  takeaway(s, "SCI turns leasing into fees plus captive module volume. That's our floor.");
+  source(s, "FTAI releases (Dec-24, Feb-25, Oct-25, Aug-26); Q2'26 earnings supplement and call; Q2'26 10-Q");
+}
+
+// ---------- Appendix: Market Share Build ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: Market Share Build", { placeholder: "title" });
+  s.addText("FY26–27 share is what module guidance implies. After that, we slow it down.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "From CFM56 Demand to FTAI Modules", 0.35, 1.7, 6.05, "Share build header");
+  const H = (t) => ({ text: t, options: { bold: true, color: C.background1, fill: { color: NAVY }, align: "center" } });
+  const L = (t, o = {}) => ({ text: t, options: { align: "left", ...o } });
+  const N = (t, o = {}) => ({ text: t, options: { align: "center", ...o } });
+  const hi = { bold: true, color: ORANGE, fill: { color: PLAT_XLT } };
+  const tot = { bold: true, fill: { color: PLAT_XLT } };
+  const rowsT = [
+    [H(""), H("FY26E"), H("FY27E"), H("FY28E"), H("FY29E"), H("FY30E"), H("FY31E")],
+    [L("CFM56 shop visits"), ...["2,385", "2,386", "2,318", "2,219", "2,120", "2,056"].map((v) => N(v))],
+    [L("Module demand (× 3)"), ...["7,156", "7,159", "6,953", "6,656", "6,359", "6,168"].map((v) => N(v))],
+    [L("FTAI third-party share", hi), ...["12.1%", "16.8%", "19.0%", "19.5%", "20.0%", "20.0%"].map((v) => N(v, hi))],
+    [L("= Third-party modules"), ...["865", "1,206", "1,321", "1,298", "1,272", "1,234"].map((v) => N(v))],
+    [L("+ SCI (captive) modules"), ...["328", "482", "660", "780", "840", "900"].map((v) => N(v))],
+    [L("= FTAI modules produced", tot), ...["1,193", "1,687", "1,981", "2,078", "2,112", "2,134"].map((v) => N(v, tot))],
+  ];
+  s.addTable(rowsT, {
+    x: 0.35, y: 2.32, w: 6.05, colW: [1.97, 0.68, 0.68, 0.68, 0.68, 0.68, 0.68], rowH: 0.42,
+    fontSize: 12, color: INK, valign: "middle", margin: [0.04, 0.06, 0.04, 0.06],
+    border: { type: "solid", pt: 0.75, color: PLAT_LT }, objectName: "Share build table",
+  });
+  s.addText("Matches ~1,200 / ~1,700 guidance", {
+    x: 1.9, y: 5.34, w: 2.2, h: 0.25, margin: 0, align: "center", valign: "top", fontSize: 10, italic: true, color: C.accent2, isTextBox: true, objectName: "Guidance note",
+  });
+  s.addShape(pres.shapes.LINE, { x: 2.35, y: 5.29, w: 1.3, h: 0, line: { color: ORANGE, width: 2 }, objectName: "Guidance bracket" });
+
+  sectionHeader(s, "Why It's Conservative", 6.7, 1.7, 2.95, "Conservative header");
+  const pts = [
+    ["~4 → 0 pts", "Gains per year after FY27, vs. ~4 pts a year historically"],
+    ["~70%", "Share of FTAI's announced 3,000-module capacity needed by FY31"],
+    ["15% / 25%", "Bear / bull FY31 share"],
+  ];
+  pts.forEach(([big, lab], i) => {
+    const y = 2.32 + i * 1.18;
+    s.addText(big, { x: 6.7, y, w: 2.95, h: 0.5, margin: 0, align: "center", valign: "bottom", fontSize: 26, bold: true, color: ORANGE, isTextBox: true, objectName: `Share stat ${i + 1}` });
+    s.addText(lab, { x: 6.7, y: y + 0.52, w: 2.95, h: 0.5, margin: 0, align: "center", valign: "top", fontSize: 12, color: C.accent2, isTextBox: true, objectName: `Share stat ${i + 1} label` });
+  });
+
+  takeaway(s, "We take guidance, strip out SCI, and slow the historical pace by half or more.");
+  source(s, "CFM56 fleet counts (Safran, MTU, GE) × engine-level shop-visit rates; FTAI module guidance; FTAI filings");
+}
+
+// ---------- Appendix: CFM56 Fleet & Shop Visits ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: CFM56 Fleet & Shop Visits", { placeholder: "title" });
+  s.addText("Shop visits peak in 2026–27 and fade slowly, and the OEMs keep pushing the peak out.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "CFM56-5B / -7B Shop Visits per Year", 0.35, 1.7, 5.75, "SV header");
+  const yrs = ["2025", "2026", "2027", "2028", "2029", "2030", "2031"];
+  s.addChart(pres.charts.BAR, [
+    { name: "Peak", labels: yrs, values: [null, 2400, 2400, null, null, null, null] },
+    { name: "Shop visits", labels: yrs, values: [2350, null, null, 2350, 2250, 2150, 2085] },
+  ], chartFrame({
+    x: 0.35, y: 2.3, w: 5.75, h: 3.0, barDir: "col", barGrouping: "stacked", barGapWidthPct: 35, chartColors: [ORANGE, NAVY],
+    valAxisMinVal: 0, valAxisMaxVal: 2800, dataLabelFormatCode: "#,##0;;;", dataLabelPosition: "inEnd",
+    dataLabelColor: "FFFFFF", dataLabelFontSize: 11, objectName: "Shop visit chart",
+  }));
+  s.addText([
+    { text: "Peak keeps moving out: ", options: { bold: true } },
+    { text: "~2025 (GE, 2024) → 2027–28 (GE, Safran, 2026)" },
+  ], {
+    x: 0.35, y: 5.38, w: 5.75, h: 0.46, fill: { color: PLAT_XLT }, line: { color: ORANGE, width: 1.5 }, margin: 0, align: "center", valign: "middle",
+    fontSize: 13, color: INK, isTextBox: true, objectName: "Peak callout",
+  });
+
+  sectionHeader(s, "Why It Melts Slowly", 6.45, 1.7, 3.2, "Slow melt header");
+  const stats = [
+    ["~87%", "FY31 shop visits as a share of the peak"],
+    ["<2%", "Annual fleet retirements (GE run rate, 2026)"],
+    ["–16%", "Airbus Q1'26 deliveries y/y, held back by LEAP engines"],
+  ];
+  stats.forEach(([big, lab], i) => {
+    const y = 2.32 + i * 1.18;
+    s.addText(big, { x: 6.45, y, w: 3.2, h: 0.52, margin: 0, align: "center", valign: "bottom", fontSize: 28, bold: true, color: ORANGE, isTextBox: true, objectName: `SV stat ${i + 1}` });
+    s.addText(lab, { x: 6.45, y: y + 0.54, w: 3.2, h: 0.5, margin: 0, align: "center", valign: "top", fontSize: 12, color: C.accent2, isTextBox: true, objectName: `SV stat ${i + 1} label` });
+  });
+
+  takeaway(s, "The ice cube melts slowly: 2031 shop visits are still ~87% of peak.");
+  source(s, "CFM/OEM shop-visit outlook (GE, Safran); GE Investor Day (Mar-24), Q2'26 call; Airbus Q1'26; Aviation Week");
+}
+
+// ---------- Appendix: Pricing & Scope Mix ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: Pricing & Scope Mix", { placeholder: "title" });
+  s.addText("Holding price was a land grab, and a heavier mix lowers the margin but raises profit per job.", { placeholder: "subtitle" });
+
+  sectionHeader(s, "Why FTAI Held Price", 0.35, 1.7, 4.55, "Held price header");
+  const why = [
+    ["Challenger", "Airlines rarely switch engine shops. A widening price gap wins the first contract, and the swap's speed keeps it."],
+    ["Price-sensitive customers", "Growth came from regional and smaller carriers, who feel OEM escalators most."],
+    ["Capacity to fill", "New sites ramping toward 3,000 modules. Full shops at a lower price beat half-empty ones."],
+    ["The gap compounds", "Flat vs. ~7% OEM increases is a ~14% discount after two years, without cutting price."],
+  ];
+  why.forEach(([h, b], i) => {
+    const y = 2.3 + i * 0.86;
+    s.addText(String(i + 1), { x: 0.35, y: y + 0.12, w: 0.5, h: 0.5, shape: pres.shapes.OVAL, fill: { color: i === 3 ? ORANGE : NAVY }, margin: 0, align: "center", valign: "middle", fontSize: 16, bold: true, color: C.background1, isTextBox: true, objectName: `Why ${i + 1} num` });
+    s.addText([
+      { text: h, options: { bold: true, fontSize: 14, color: C.text2, breakLine: true } },
+      { text: b, options: { fontSize: 11, color: INK } },
+    ], { x: 0.98, y, w: 3.92, h: 0.76, margin: 0, valign: "middle", isTextBox: true, objectName: `Why ${i + 1}` });
+  });
+
+  sectionHeader(s, "What If FTAI Went All Heavy? (Profit per Job)", 5.25, 1.7, 4.4, "Heavy header");
+  const mix = [["All light", 2.5, "42%", PLAT], ["~50/50 today", 2.75, "31%", NAVY], ["All heavy", 3.0, "25%", ORANGE]];
+  const base = 5.0, maxH = 2.1, bw = 0.95;
+  mix.forEach(([lab, v, m, col], i) => {
+    const h = maxH * v / 3.0, x = 5.55 + i * 1.4;
+    s.addShape(pres.shapes.RECTANGLE, { x, y: base - h, w: bw, h, fill: { color: col }, line: { color: col, width: 0 }, objectName: `Mix bar ${i + 1}` });
+    s.addText("$" + v.toFixed(2).replace(/0$/, "") + "M", { x: x - 0.2, y: base - h - 0.34, w: bw + 0.4, h: 0.3, margin: 0, align: "center", valign: "bottom", fontSize: 15, bold: true, color: i === 2 ? ORANGE : INK, isTextBox: true, objectName: `Mix value ${i + 1}` });
+    s.addText(m + " margin", { x, y: base - 0.4, w: bw, h: 0.3, margin: 0, align: "center", valign: "middle", fontSize: 11, bold: true, color: C.background1, isTextBox: true, objectName: `Mix margin ${i + 1}` });
+    s.addText(lab, { x: x - 0.2, y: base + 0.06, w: bw + 0.4, h: 0.3, margin: 0, align: "center", valign: "top", fontSize: 12, bold: true, color: INK, isTextBox: true, objectName: `Mix label ${i + 1}` });
+  });
+  s.addShape(pres.shapes.LINE, { x: 5.35, y: base, w: 4.2, h: 0, line: { color: "BFBFBF", width: 1 }, objectName: "Mix baseline" });
+  s.addText("Built for both: Jakarta heavy, Cairo light, other sites both", {
+    x: 5.25, y: 5.42, w: 4.4, h: 0.45, fill: { color: PLAT_XLT }, line: { color: ORANGE, width: 1.5 }, margin: [6, 6, 2, 2], align: "center", valign: "middle",
+    fontSize: 11, color: INK, isTextBox: true, objectName: "Network note",
+  });
+
+  takeaway(s, "We value EBITDA dollars, not margin %. Either mix grows earnings.");
+  source(s, "FTAI earnings calls (light vs. heavy job economics: $6M / $2.5M light, $12M / $3.0M heavy); CFM catalogue pricing");
 }
 
 appendix("Appendix: Repair Pricing", "CFM catalogue pricing, matched parts, CFM56-5B and -7B", (s) => {
