@@ -785,6 +785,8 @@ pres.addSection({ title: "Thesis 1a" });
     valAxisMinVal: 0.24, valAxisMaxVal: 0.39, dataLabelFormatCode: "0%", dataLabelPosition: "t", dataLabelFontSize: 11,
     objectName: "Mix margin chart",
   }));
+  // Orange ring on the modeled point (60% light-scope mix, ~32% margin)
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 7.6, y: 3.2, w: 0.47, h: 0.58, rectRadius: 0.06, fill: { type: "none" }, line: { color: ORANGE, width: 2.25 }, objectName: "Modeled point box" });
   s.addText("Light-scope share of jobs (management's job economics)", {
     x: 5.35, y: 5.35, w: 4.3, h: 0.45, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2,
     isTextBox: true, objectName: "Mix caption",
