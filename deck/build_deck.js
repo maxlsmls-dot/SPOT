@@ -1583,6 +1583,67 @@ appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
   shot(s, "app_shortfall.png", 1.6, 3.55, 6.8, 1899, 480, "Power shortfall");
 });
 
+// ---------- Appendix: Gas Turbine Pricing ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Appendix" });
+  s.addText("Appendix: Gas Turbine Pricing", { placeholder: "title" });
+  s.addText("New gas capacity costs ~3x what it did in 2022, and the OEMs are still raising prices.", { placeholder: "subtitle" });
+
+  // Left: combined-cycle build cost, drawn as shapes so each bar can carry its own source
+  sectionHeader(s, "New Combined-Cycle Build Cost ($/kW)", 0.35, 1.7, 5.3, "Build cost header");
+  const bars = [
+    ["2022", "NextEra, last plant", 785, PLAT],
+    ["2023", "BNEF avg.", 1500, PLAT],
+    ["2025", "BNEF avg.", 2157, NAVY],
+    ["2025", "NextEra, same plant", 2400, ORANGE],
+  ];
+  const base = 4.72, maxH = 2.0, maxV = 2400, bw = 0.78, bx0 = 0.62, bstep = 1.27;
+  bars.forEach(([yr, who, v, col], i) => {
+    const h = maxH * v / maxV, x = bx0 + i * bstep;
+    s.addShape(pres.shapes.RECTANGLE, { x, y: base - h, w: bw, h, fill: { color: col }, line: { color: col, width: 0 }, objectName: `Cost bar ${i + 1}` });
+    s.addText((i === 1 ? "~$" : "$") + v.toLocaleString("en-US"), {
+      x: x - 0.25, y: base - h - 0.34, w: bw + 0.5, h: 0.3, margin: 0, align: "center", valign: "bottom", fontSize: 14, bold: true,
+      color: i === 3 ? ORANGE : INK, isTextBox: true, objectName: `Cost label ${i + 1}`,
+    });
+    s.addText([{ text: yr, options: { bold: true, fontSize: 13, breakLine: true } }, { text: who, options: { fontSize: 10 } }], {
+      x: x - 0.25, y: base + 0.05, w: bw + 0.5, h: 0.46, margin: 0, align: "center", valign: "top", color: INK, isTextBox: true, objectName: `Cost cat ${i + 1}`,
+    });
+  });
+  s.addShape(pres.shapes.LINE, { x: 0.45, y: base, w: 5.1, h: 0, line: { color: "BFBFBF", width: 1 }, objectName: "Cost baseline" });
+  s.addText("~3x", { x: 0.85, y: 2.3, w: 1.0, h: 0.36, margin: 0, align: "center", fontSize: 18, bold: true, color: C.text2, isTextBox: true, objectName: "Cost multiple" });
+  s.addShape(pres.shapes.LINE, { x: 1.1, y: 2.4, w: 1.75, h: 0.55, flipV: true, line: { color: NAVY, width: 2, endArrowType: "triangle" }, objectName: "Cost arrow" });
+
+  s.addText([
+    { text: "Turbine equipment alone: ", options: { bold: true } },
+    { text: "~$200/kW (2019) → $600/kW (2027E), +195%" },
+  ], {
+    x: 0.35, y: 5.38, w: 5.3, h: 0.46, fill: { color: PLAT_XLT }, line: { color: ORANGE, width: 1.5 }, margin: 0, align: "center", valign: "middle",
+    fontSize: 13, color: INK, isTextBox: true, objectName: "Equipment callout",
+  });
+
+  // Right: what each OEM says about pricing
+  sectionHeader(s, "What the OEMs Are Saying", 5.95, 1.7, 3.7, "OEM header");
+  const oems = [
+    ["GE Vernova", "1H26 orders priced 10–20 pts higher per kW than 4Q25", "Slots sold into 2031; reservation fees up to $25M"],
+    ["Siemens Energy", "New-unit margins “improved significantly” vs. backlog", "69 GW gas backlog; 3+ year lead times"],
+    ["Mitsubishi", "“Improving profitability on new orders”", "Large-frame backlog 23 → 35 GW in a year"],
+  ];
+  oems.forEach(([name, l1, l2], i) => {
+    const y = 2.3 + i * 1.18;
+    s.addShape(pres.shapes.RECTANGLE, { x: 5.95, y, w: 0.07, h: 1.04, fill: { color: i === 0 ? ORANGE : TEAL }, line: { color: i === 0 ? ORANGE : TEAL, width: 0 }, objectName: `${name} accent` });
+    s.addText([
+      { text: name, options: { bold: true, fontSize: 14, color: C.text2, breakLine: true } },
+      { text: l1, options: { fontSize: 12, color: INK, breakLine: true } },
+      { text: l2, options: { fontSize: 11, italic: true, color: C.accent2 } },
+    ], {
+      x: 6.1, y, w: 3.55, h: 1.04, fill: { color: PLAT_XLT }, margin: [8, 6, 3, 3], valign: "middle", paraSpaceAfter: 2, isTextBox: true, objectName: `${name} card`,
+    });
+  });
+
+  takeaway(s, "New turbine capacity is scarce and getting pricier. That's the market FTAI Power sells into.");
+  source(s, "Wood Mackenzie; BNEF; NextEra (CERAWeek '25); GE Vernova Q1'26; Siemens Energy Q2–Q3 FY26; MHI");
+}
+
 appendix("Appendix: Repair Pricing", "CFM catalogue pricing, matched parts, CFM56-5B and -7B", (s) => {
   shot(s, "app_pricing.png", 0.35, 1.2, 9.3, 2109, 695, "Pricing summary", 4.55);
   s.addText("OEM list prices rose a median ~6% a year across ~3,400 matched parts, with almost none falling.", {
