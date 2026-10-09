@@ -28,8 +28,42 @@ const THEME = {
 };
 
 const pres = new pptxgen();
-pres.defineLayout({ name: "GPS_4x3", width: 10, height: 7.5 });
-pres.layout = "GPS_4x3";
+// 16:9 widescreen. Slides are authored on a 10" x 7.5" grid and mapped horizontally onto 13.333" x 7.5":
+// x and w scale by K; circles and images keep their aspect ratio and stay centered on their scaled position.
+const WIDE_W = 13.333, K = WIDE_W / 10;
+pres.defineLayout({ name: "GPS_16x9", width: WIDE_W, height: 7.5 });
+pres.layout = "GPS_16x9";
+const widen = (o, keepAspect) => {
+  if (!o || typeof o.x !== "number") return o;
+  if (keepAspect && typeof o.w === "number") { o.x = o.x * K + (o.w * K - o.w) / 2; }
+  else { o.x = o.x * K; if (typeof o.w === "number") o.w = o.w * K; }
+  if (Array.isArray(o.colW)) o.colW = o.colW.map((c) => c * K);
+  return o;
+};
+const isRound = (o, shape) => (shape === "ellipse" || (o && o.shape === "ellipse")) && o && Math.abs((o.w || 0) - (o.h || 0)) < 0.05;
+const origAddSlide = pres.addSlide.bind(pres);
+pres.addSlide = (opts) => {
+  const sl = origAddSlide(opts);
+  const t = sl.addText.bind(sl), sh = sl.addShape.bind(sl), im = sl.addImage.bind(sl), ch = sl.addChart.bind(sl), tb = sl.addTable.bind(sl);
+  sl.addText = (txt, o) => t(txt, o && o.placeholder ? o : widen(o, isRound(o)));
+  sl.addShape = (shape, o) => sh(shape, widen(o, isRound(o, shape)));
+  sl.addImage = (o) => { if (o.raw) { delete o.raw; return im(o); } return im(widen(o, true)); };
+  sl.addChart = (type, data, o) => ch(type, data, widen(o || data, false) && o);
+  sl.addTable = (rows, o) => tb(rows, widen(o, false));
+  return sl;
+};
+const origMaster = pres.defineSlideMaster.bind(pres);
+pres.defineSlideMaster = (m) => {
+  (m.objects || []).forEach((obj) => {
+    if (obj.line) widen(obj.line, false);
+    if (obj.image) widen(obj.image, true);
+    if (obj.text) widen(obj.text.options, false);
+    if (obj.rect) widen(obj.rect, false);
+    if (obj.placeholder) widen(obj.placeholder.options, false);
+  });
+  if (m.slideNumber) widen(m.slideNumber, false);
+  return origMaster(m);
+};
 pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
 pres.title = "FTAI Aviation — Long Recommendation";
 pres.company = "Global Platinum Securities";
@@ -876,14 +910,14 @@ pres.addSection({ title: "Thesis 1b" });
     s.addShape(pres.shapes.LINE, { x: tx + d * scale, y: 1.95, w: 0, h: 1.65, line: { color: "E3E0DC", width: 0.75 }, objectName: `Grid ${d}` });
     s.addText(String(d), { x: tx + d * scale - 0.3, y: 3.6, w: 0.6, h: 0.22, margin: 0, align: "center", fontSize: 10, color: C.accent2, isTextBox: true, objectName: `Tick ${d}` });
   });
-  s.addText([{ text: "Typical shop visit", options: { bold: true, breakLine: true } }, { text: "120–180 days", options: { fontSize: 12 } }], {
+  s.addText([{ text: "Typical shop visit", options: { bold: true, breakLine: true } }, { text: "120–180 days, then test", options: { fontSize: 12 } }], {
     x: 0.35, y: 2.0, w: 1.9, h: 0.6, margin: 0, align: "right", valign: "middle", fontSize: 14, color: INK, isTextBox: true, objectName: "Shop visit label",
   });
   const steps = [["Wait for slot", 40], ["Strip", 28], ["Wait for parts", 40], ["Repair", 32], ["Test", 10]];
   let cx = tx;
   steps.forEach(([name, d], i) => {
     const w = d * scale;
-    s.addText(name, {
+    s.addText(d >= 20 ? name : "", {
       shape: pres.shapes.CHEVRON, x: cx, y: 2.03, w: w + 0.12, h: 0.55, fill: { color: i % 2 ? TEAL : PLAT_LT }, line: { type: "none" },
       align: "center", valign: "middle", fontSize: 9, bold: true, color: i % 2 ? C.background1 : C.text2, margin: 0, objectName: `Shop step ${i + 1}`,
     });
@@ -1441,7 +1475,13 @@ coverSlide("Q&A", "Q&A");
 pres.addSection({ title: "Appendix" });
 coverSlide("Appendix", "Appendix");
 
-const shot = (s, file, x, y, w, pxW, pxH, name) => s.addImage({ path: path.join(__dirname, "img", file), x, y, w, h: w * pxH / pxW, objectName: name });
+// Appendix screenshots: use the extra 16:9 width, capped so the image stays above the source line
+const shot = (s, file, x, y, w, pxW, pxH, name, maxBottom = 6.75) => {
+  let W = w * K, H = W * pxH / pxW;
+  if (y + H > maxBottom) { H = maxBottom - y; W = H * pxW / pxH; }
+  const cx = (x + w / 2) * K;
+  return s.addImage({ raw: true, path: path.join(__dirname, "img", file), x: cx - W / 2, y, w: W, h: H, objectName: name });
+};
 const appendix = (title, src, build, notes) => {
   const s = pres.addSlide({ masterName: "GPS Content", sectionTitle: "Appendix" });
   s.addText(title, { placeholder: "title" });
@@ -1450,7 +1490,7 @@ const appendix = (title, src, build, notes) => {
 };
 
 appendix("Appendix: DCF (1/2)", "DCF, base case", (s) => {
-  shot(s, "app_pv.png", 0.35, 1.3, 9.3, 2135, 479, "PV bridge");
+  shot(s, "app_pv.png", 0.35, 1.3, 9.3, 2135, 479, "PV bridge", 3.9);
   shot(s, "app_blend.png", 1.25, 4.0, 7.5, 1695, 347, "Blended valuation");
 });
 
@@ -1469,12 +1509,12 @@ appendix("Appendix: Sum of the Parts", "FY27E sum of the parts", (s) => {
 
 
 appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
-  shot(s, "app_power.png", 0.35, 1.2, 9.3, 2120, 460, "Mod-1 build");
+  shot(s, "app_power.png", 0.35, 1.2, 9.3, 2120, 460, "Mod-1 build", 3.35);
   shot(s, "app_shortfall.png", 1.6, 3.55, 6.8, 1899, 480, "Power shortfall");
 });
 
 appendix("Appendix: Repair Pricing", "CFM catalogue pricing, matched parts, CFM56-5B and -7B", (s) => {
-  shot(s, "app_pricing.png", 0.35, 1.2, 9.3, 2109, 695, "Pricing summary");
+  shot(s, "app_pricing.png", 0.35, 1.2, 9.3, 2109, 695, "Pricing summary", 4.55);
   s.addText("OEM list prices rose a median ~6% a year across ~3,400 matched parts, with almost none falling.", {
     x: 0.35, y: 4.75, w: 9.3, h: 0.6, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 15, bold: true, line: { color: ORANGE, width: 1.5 },
     color: C.text2, isTextBox: true, objectName: "Pricing takeaway",
