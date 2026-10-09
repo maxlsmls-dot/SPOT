@@ -153,7 +153,7 @@ pres.addSection({ title: "Introduction" });
   // GPS logo | presenter
   s.addImage({ path: LOGO, x: 6.45, y: 6.05, w: 1.35, h: 1.24, objectName: "GPS logo" });
   s.addShape(pres.shapes.LINE, { x: 8.05, y: 6.1, w: 0, h: 1.2, line: { color: PLAT, width: 1 }, objectName: "Logo divider" });
-  s.addText([{ text: "Presenter", options: { breakLine: true } }, { text: "Name" }], {
+  s.addText([{ text: "Max", options: { breakLine: true } }, { text: "Salomon" }], {
     x: 8.15, y: 6.2, w: 1.55, h: 0.95, margin: 0, fontSize: 18, bold: true, color: C.accent2,
     align: "center", valign: "middle", isTextBox: true, objectName: "Presenter",
   });
@@ -1518,7 +1518,7 @@ const coverSlide = (label, section) => {
   s.addText(label, { x: 0.6, y: 3.2, w: 8.8, h: 0.9, margin: 0, align: "center", valign: "middle", fontSize: 44, bold: true, color: C.text2, isTextBox: true, objectName: "Cover label" });
   s.addImage({ path: LOGO, x: 6.45, y: 6.05, w: 1.35, h: 1.24, objectName: "GPS logo" });
   s.addShape(pres.shapes.LINE, { x: 8.05, y: 6.1, w: 0, h: 1.2, line: { color: PLAT, width: 1 }, objectName: "Logo divider" });
-  s.addText([{ text: "Presenter", options: { breakLine: true } }, { text: "Name" }], {
+  s.addText([{ text: "Max", options: { breakLine: true } }, { text: "Salomon" }], {
     x: 8.15, y: 6.2, w: 1.55, h: 0.95, margin: 0, fontSize: 18, bold: true, color: C.accent2, align: "center", valign: "middle", isTextBox: true, objectName: "Presenter",
   });
   return s;
