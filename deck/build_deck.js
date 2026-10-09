@@ -253,7 +253,7 @@ pres.addSection({ title: "The Opportunity" });
       fontSize: 17, bold: true, color: C.background1, margin: [10, 10, 2, 2], isTextBox: true, objectName: "Conclusion",
     }
   );
-  s.addText([{ text: "Source: ", options: { bold: true } }, { text: "Company filings, earnings calls, GPS estimates" }], {
+  s.addText([{ text: "Source: ", options: { bold: true } }, { text: "Company filings and earnings calls" }], {
     x: 0.35, y: 6.95, w: 6, h: 0.3, margin: 0, fontSize: 11, color: "1A1A1A", isTextBox: true, objectName: "Source",
   });
 }
@@ -387,7 +387,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   });
 
   takeaway(s, "The market reads the margin reset as the short thesis unwinding, and prices FTAI as if it's still over-earning.");
-  source(s, "Muddy Waters Research (Jan. 2025), FTAI filings and earnings calls, GPS analysis");
+  source(s, "Muddy Waters Research (Jan. 2025), FTAI filings and earnings calls");
   }
 
 // ---------- Slide 5: The Opportunity (3/3) — Power is free ----------
@@ -622,7 +622,7 @@ pres.addSection({ title: "Business Overview" });
   });
 
   takeaway(s, "FTAI sells speed to airlines and harvests cycles from engines no one else can use.");
-  source(s, "FTAI investor materials (Module Factory example), GPS analysis");
+  source(s, "FTAI investor materials (Module Factory example)");
 }
 
 // ---------- Thesis 1a: Margins Have Bottomed (3 slides) ----------
@@ -662,7 +662,7 @@ pres.addSection({ title: "Thesis 1a" });
   });
 
   takeaway(s, "With little cheap stock left, ~30% is the floor, and margins rebuild from here.");
-  source(s, "FTAI filings, GPS analysis");
+  source(s, "FTAI filings and earnings calls");
 }
 
 // 1a (2/3): price catch-up and EBITDA per module
@@ -894,7 +894,7 @@ pres.addSection({ title: "Thesis 1b" });
   });
 
   takeaway(s, "OEM slots shift to LEAP as independent shops clog. CFM56 owners need a faster option.");
-  source(s, "Aviation Business News (2025); Bain (2024); GE Q4'25–Q2'26 calls; CFM LEAP forecast; GPS expert call");
+  source(s, "Aviation Business News (2025); Bain (2024); GE Q4'25–Q2'26 calls; CFM LEAP forecast; expert call");
 }
 
 // 1b (3/5): turnaround time walk-through
@@ -951,14 +951,14 @@ pres.addSection({ title: "Thesis 1b" });
   // Expert quote
   s.addText([
     { text: "“FTAI's advantage is basically turnaround time and cheaper sourcing.”", options: { bold: true, fontSize: 16, breakLine: true } },
-    { text: "— Industry expert, GPS expert call", options: { italic: true, fontSize: 12 } },
+    { text: "— Industry expert", options: { italic: true, fontSize: 12 } },
   ], {
     x: 5.15, y: 4.0, w: 4.5, h: 1.9, fill: { color: PLAT_XLT }, align: "center", valign: "middle", color: INK,
     margin: [14, 14, 6, 6], paraSpaceAfter: 6, isTextBox: true, objectName: "Turnaround expert quote",
   });
 
   takeaway(s, "Every day an engine is off wing costs the airline a jet. FTAI sells that time back.");
-  source(s, "FTAI Q2'24 call via third-party analysis; IBA (2024) lease rates; GPS expert call; step lengths illustrative");
+  source(s, "FTAI Q2'24 call via third-party analysis; IBA (2024) lease rates; expert call; step lengths illustrative");
 }
 
 // 1b (4/5): new capacity
@@ -1000,7 +1000,7 @@ pres.addSection({ title: "Thesis 1b" });
   });
 
   takeaway(s, "With 3,000 modules of capacity against 1,700 planned, FTAI can absorb share gains.");
-  source(s, "FTAI Q1/Q2'26 earnings supplements; GMF and EgyptAir reports; GPS estimates (E)");
+  source(s, "FTAI Q1/Q2'26 earnings supplements; GMF and EgyptAir reports; (E) = estimate");
 }
 
 // 1b (5/5): share gains and the volume math
@@ -1045,7 +1045,7 @@ pres.addSection({ title: "Thesis 1b" });
   });
 
   takeaway(s, "Even if share stalls, SCI's contracted fleet keeps adding volume: a floor under the thesis.");
-  source(s, "FTAI Q2'26 supplement (1,700-module 2027 target); 2024–25 share per GPS analysis");
+  source(s, "FTAI Q2'26 supplement (1,700-module 2027 target); FTAI filings");
 }
 
 // ---------- Thesis 1b: The LEAP Option (2 slides) ----------
@@ -1092,7 +1092,7 @@ pres.addSection({ title: "Thesis 1b" });
   });
 
   takeaway(s, "As OEM contracts roll off, LEAP becomes FTAI's next CFM56, with costlier, more frequent visits.");
-  source(s, "Safran via Aviation Week; Visual Approach; The Air Current; Safe Fly Aviation; FTAI Q2'26 call; GPS expert call");
+  source(s, "Safran via Aviation Week; Visual Approach; The Air Current; Safe Fly Aviation; FTAI Q2'26 call; expert call");
 }
 
 // LEAP (2/2): TATT "APU Summary" architecture — your return vs. LEAP share
@@ -1130,7 +1130,7 @@ pres.addSection({ title: "Thesis 1b" });
   });
 
   takeaway(s, "Every 5 pts of off-contract LEAP share adds ~9 pts to your return on top of our base case.");
-  source(s, "GPS analysis: 2,000 LEAP visits/yr, 50% off contract, 3 modules/visit, FY27E EBITDA/module, 16x, discounted 4 yrs at 9.5%");
+  source(s, "Aviation Week; assumes 2,000 LEAP visits/yr, 50% off contract, 3 modules/visit, FY27E EBITDA/module, 16x, discounted 4 yrs at 9.5%");
 }
 
 // ---------- Thesis 2: Power (4 slides) ----------
@@ -1282,7 +1282,7 @@ pres.addSection({ title: "Thesis 2" });
   }));
 
   takeaway(s, "Our base case needs no new contracts. Every one FTAI signs is upside the market isn't paying for.");
-  source(s, "FTAI earnings calls ($450–750M FY27 guide); GPS estimates");
+  source(s, "FTAI earnings calls ($450–750M FY27 guide)");
 }
 
 // ---------- Valuation: What You Need to Believe (TATT architecture) ----------
@@ -1329,7 +1329,7 @@ pres.addSection({ title: "Valuation" });
     fontSize: 13, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Right assumption box",
   });
 
-  source(s, "FY27E sum of the parts at base multiples; share history per GPS analysis");
+  source(s, "FY27E sum of the parts at base multiples; FTAI filings");
 }
 
 // ---------- Valuation: SOTP waterfall ----------
@@ -1403,7 +1403,7 @@ pres.addSection({ title: "Catalysts" });
   });
 
   takeaway(s, "Each catalyst tests one thesis directly, and all three land by the end of 2027.");
-  source(s, "FTAI earnings calls and Q2'26 supplement (1,700-module 2027 target; FY27 Power guide $450–750M); GPS analysis");
+  source(s, "FTAI earnings calls and Q2'26 supplement (1,700-module 2027 target; FY27 Power guide $450–750M)");
 }
 
 // ---------- Risks / Mitigants (TATT architecture) ----------
