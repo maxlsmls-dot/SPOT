@@ -1382,15 +1382,15 @@ pres.addSection({ title: "Valuation" });
     x: 0.35, y: 3.62, w: 9.3, h: 0.42, margin: 0, align: "center", fontSize: 20, bold: true, color: INK, isTextBox: true, objectName: "Pick one",
   });
 
-  const th = ["Margins + share only", "Power only"];
+  const th = ["Margins + share", "Power"];
   s.addChart(pres.charts.BAR, [
-    { name: "Return", labels: th, values: [0.33, 0.36] },
+    { name: "Return", labels: th, values: [0.31, 0.35] },
   ], chartFrame({
     x: 2.55, y: 4.05, w: 4.9, h: 2.25, barDir: "col", barGapWidthPct: 110, chartColors: [NAVY],
     valAxisMinVal: 0, valAxisMaxVal: 0.45, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 15,
     catAxisLabelFontSize: 13, objectName: "Pick one chart",
   }));
-  s.addText("Each bar holds the other side at our bear case", {
+  s.addText("Each bar is that side's share of the $110 upside ($52 + $58)", {
     x: 0.35, y: 4.65, w: 2.0, h: 1.05, line: { color: INK, width: 1, dashType: "dash" }, align: "center", valign: "middle",
     fontSize: 12, bold: true, color: C.text2, margin: 4, isTextBox: true, objectName: "Left assumption box",
   });
