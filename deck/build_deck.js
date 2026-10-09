@@ -410,7 +410,7 @@ pres.addSection({ title: "The Opportunity" });
   s.addText("The Opportunity", { placeholder: "title" });
 
   const rows = [
-    "1Q26 margins compressed 500 bps, and management guided EBITDA margins down from 40% to 30% for two years.",
+    "1Q26 margins compressed ~470 bps, and management guided EBITDA margins of ~30% for two years.",
     "A fraud overhang from the 2025 short report leaves the market doubting this is the bottom: it still sees FTAI as over-earning.",
     "We believe FTAI has reached steady state: margins have bottomed and share gains will drive volume growth.",
   ];
@@ -846,7 +846,7 @@ pres.addSection({ title: "Thesis 1a" });
     x: 5.35, y: 5.35, w: 4.3, h: 0.45, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Sensitivity caption",
   });
 
-  takeaway(s, "3 of 5 Chromalloy parts are approved, and every 5 pts of adoption adds ~$43M of EBITDA.");
+  takeaway(s, "3 of 5 Chromalloy parts are approved, and every 5 pts of adoption adds ~$46M of EBITDA.");
   source(s, "Jefferies estimates; FAA PMA data; FTAI earnings calls");
 }
 
@@ -1318,9 +1318,9 @@ pres.addSection({ title: "Thesis 2" });
 
   sectionHeader(s, "Scenario Build (FY27E)", 0.35, 1.7, 3.75, "Scenario header");
   const rows = [
-    ["Signed order", "~50", "$450M", PLAT_LT, C.text2],
-    ["+1 contract", "~90", "$750M", TEAL, C.background1],
-    ["+2 contracts", "~130", "$1,050M", NAVY, C.background1],
+    ["Signed order", "45", "$450M", PLAT_LT, C.text2],
+    ["+1 contract", "~75", "$750M", TEAL, C.background1],
+    ["+2 contracts", "~105", "$1,050M", NAVY, C.background1],
   ];
   s.addText("Units", { x: 1.85, y: 2.22, w: 1.0, h: 0.25, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Units col" });
   s.addText("EBITDA", { x: 2.95, y: 2.22, w: 1.15, h: 0.25, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "EBITDA col" });
@@ -1923,7 +1923,7 @@ appendix("Appendix: Power Model", "Mod-1 build; NERC 2025 LTRA", (s) => {
     ["Challenger", "Airlines rarely switch engine shops. A widening price gap wins the first contract, and the swap's speed keeps it."],
     ["Price-sensitive customers", "Growth came from regional and smaller carriers, who feel OEM escalators most."],
     ["Capacity to fill", "New sites ramping toward 3,000 modules. Full shops at a lower price beat half-empty ones."],
-    ["The gap compounds", "Flat vs. ~7% OEM increases is a ~14% discount after two years, without cutting price."],
+    ["The gap compounds", "Flat vs. ~7% OEM increases leaves OEM prices ~14% higher after two years, without a price cut."],
   ];
   why.forEach(([h, b], i) => {
     const y = 2.3 + i * 0.86;
