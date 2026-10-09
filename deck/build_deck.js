@@ -12,6 +12,9 @@ const NAVY = "0A1C58";
 const PLAT = "847C7A";      // platinum gray (logo "PLATINUM" wordmark)
 const PLAT_LT = "DCD8D3";   // light platinum (globe highlights) — card fill
 const PLAT_XLT = "EFEDEA";  // banner fill
+const TEAL = "2E93AE";      // FTAI logo teal (secondary series)
+const ORANGE = "EE6E25";    // FTAI logo orange (highlights)
+const FTAI_LOGO = path.join(__dirname, "img", "ftai_logo.png");
 
 const THEME = {
   name: "Global Platinum Securities",
@@ -20,7 +23,7 @@ const THEME = {
   colors: {
     dk1: "1A1A1A", lt1: "FFFFFF", dk2: NAVY, lt2: PLAT_XLT,
     accent1: NAVY, accent2: PLAT, accent3: PLAT_LT, accent4: "3B4C82",
-    accent5: "B5AEA9", accent6: "5A5350", hlink: NAVY, folHlink: PLAT,
+    accent5: TEAL, accent6: ORANGE, hlink: NAVY, folHlink: PLAT,
   },
 };
 
@@ -42,11 +45,12 @@ pres.defineSlideMaster({
 const contentFrame = () => [
   { line: { x: 0.35, y: 0.95, w: 9.3, h: 0, line: { color: NAVY, width: 1.25 } } },
   { image: { path: LOGO, x: 8.88, y: 6.72, w: 0.68, h: 0.62 } },
+  { image: { path: FTAI_LOGO, x: 8.15, y: 0.27, w: 1.5, h: 1.5 * 305 / 800 } },
   {
     placeholder: {
       options: {
-        name: "title", type: "title", x: 0.35, y: 0.2, w: 9.3, h: 0.7,
-        fontSize: 32, bold: true, color: C.text2, valign: "middle", align: "left", margin: 0,
+        name: "title", type: "title", x: 0.35, y: 0.2, w: 7.7, h: 0.7,
+        fontSize: 30, bold: true, color: C.text2, valign: "middle", align: "left", margin: 0,
       },
       text: "",
     },
@@ -94,8 +98,9 @@ pres.addSection({ title: "Introduction" });
     ],
     { x: 0.6, y: 0.35, w: 7, h: 1.25, margin: 0, valign: "top", isTextBox: true, objectName: "Company name" }
   );
+  s.addImage({ path: FTAI_LOGO, x: 7.4, y: 0.4, w: 2.2, h: 2.2 * 305 / 800, objectName: "FTAI logo" });
   s.addText("Long Recommendation", {
-    x: 0.6, y: 1.65, w: 7, h: 0.55, margin: 0, fontSize: 28, bold: true, color: C.accent2,
+    x: 0.6, y: 1.65, w: 7, h: 0.55, margin: 0, fontSize: 28, bold: true, color: ORANGE,
     isTextBox: true, objectName: "Recommendation",
   });
 
@@ -179,7 +184,7 @@ pres.addSection({ title: "The Opportunity" });
     });
     s.addText(String(i + 1), {
       shape: pres.shapes.OVAL, x: boxX - circ / 2 - 0.05, y: y + boxH / 2 - circ / 2, w: circ, h: circ,
-      fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 }, align: "center", valign: "middle",
+      fill: { color: "FFFFFF" }, line: { color: ORANGE, width: 2.5 }, align: "center", valign: "middle",
       fontSize: 26, bold: true, color: C.text2, margin: 0, objectName: `Point ${i + 1} number`,
     });
   });
@@ -217,7 +222,7 @@ const sectionHeader = (s, text, x, y, w, name) => {
     x, y, w, h: 0.4, margin: 0, align: "center", valign: "bottom", fontSize: 16, bold: true,
     color: INK, isTextBox: true, objectName: name,
   });
-  s.addShape(pres.shapes.LINE, { x, y: y + 0.46, w, h: 0, line: { color: INK, width: 1 }, objectName: name + " rule" });
+  s.addShape(pres.shapes.LINE, { x, y: y + 0.46, w, h: 0, line: { color: TEAL, width: 1.5 }, objectName: name + " rule" });
 };
 
 const takeaway = (s, text) => s.addText(text, {
@@ -243,7 +248,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
     { name: "Mgmt. guide", labels: cats, values: [null, null, null, null, null, null, 0.30, 0.30] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 5.75, h: 3.5, barDir: "col", barGrouping: "stacked",
-    chartColors: [NAVY, "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 0.54,
+    chartColors: [NAVY, TEAL], valAxisMinVal: 0, valAxisMaxVal: 0.54,
     dataLabelFormatCode: "0.0%", dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF", dataLabelFontSize: 11, barGapWidthPct: 30,
     objectName: "Margin chart",
   }));
@@ -252,7 +257,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
     color: C.accent2, isTextBox: true, objectName: "Guide label",
   });
   s.addText([{ text: "–470", options: { fontSize: 20, bold: true, breakLine: true } }, { text: "bps q/q", options: { fontSize: 11, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 2.85, y: 2.3, w: 1.2, h: 1.2, fill: { color: NAVY }, line: { color: NAVY },
+    shape: pres.shapes.OVAL, x: 2.85, y: 2.3, w: 1.2, h: 1.2, fill: { color: ORANGE }, line: { color: ORANGE },
     align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Compression callout",
   });
 
@@ -261,7 +266,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   s.addChart(pres.charts.BAR, [
     { name: "Margin", labels: ["Light", "Heavy", "Blended"], values: [0.417, 0.25, 0.306] },
   ], chartFrame({
-    x: 6.45, y: 2.3, w: 3.2, h: 2.4, barDir: "col", chartColors: ["B5AEA9", NAVY, "5A5350"],
+    x: 6.45, y: 2.3, w: 3.2, h: 2.4, barDir: "col", chartColors: [TEAL, NAVY, "5A5350"],
     valAxisMinVal: 0, valAxisMaxVal: 0.5, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
     objectName: "Mix chart",
   }));
@@ -350,7 +355,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
     { name: "Mitsubishi", labels: by, values: [23, 35] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 5.75, h: 2.9, barDir: "col", barGrouping: "stacked", barGapWidthPct: 110,
-    chartColors: [NAVY, "3B4C82", "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 250, catAxisLabelFontSize: 13,
+    chartColors: [NAVY, "3B4C82", TEAL], valAxisMinVal: 0, valAxisMaxVal: 250, catAxisLabelFontSize: 13,
     dataLabelFormatCode: "0", dataLabelPosition: "ctr", dataLabelColor: "FFFFFF", dataLabelFontSize: 12, objectName: "Combined backlog chart",
   }));
   // Totals above bars and a connecting arrow
@@ -358,7 +363,7 @@ const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true
   s.addText("220 GW", { x: 4.1, y: 2.25, w: 1.3, h: 0.32, margin: 0, align: "center", fontSize: 16, bold: true, color: C.text2, isTextBox: true, objectName: "Total 2026" });
   s.addShape(pres.shapes.LINE, { x: 2.55, y: 2.6, w: 1.5, h: 0.85, flipV: true, line: { color: NAVY, width: 2.5, endArrowType: "triangle" }, objectName: "Backlog arrow" });
   s.addText("~1.9x", { x: 2.25, y: 2.55, w: 1.0, h: 0.34, margin: 0, align: "center", fontSize: 18, bold: true, color: C.text2, isTextBox: true, objectName: "Growth label" });
-  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "GE Vernova  " }, { text: "■ ", options: { color: "3B4C82" } }, { text: "Siemens Energy  " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "Mitsubishi" }], {
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "GE Vernova  " }, { text: "■ ", options: { color: "3B4C82" } }, { text: "Siemens Energy  " }, { text: "■ ", options: { color: TEAL } }, { text: "Mitsubishi" }], {
     x: 0.35, y: 5.2, w: 5.75, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Backlog legend",
   });
   s.addText("GE Vernova booking out to 2031; Siemens lead times 3+ years", {
@@ -430,7 +435,7 @@ pres.addSection({ title: "Returns" });
     });
   });
   s.addShape(pres.shapes.CHEVRON, {
-    x: 6.62, y: by0, w: 0.46, h: 3 * bh + 2 * bgap, fill: { color: PLAT_LT }, line: { type: "none" }, objectName: "Chevron",
+    x: 6.62, y: by0, w: 0.46, h: 3 * bh + 2 * bgap, fill: { color: TEAL }, line: { type: "none" }, objectName: "Chevron",
   });
 
   s.addText("Bear case (bear margins and share, no Power) is worth $172 on our SOTP, just above today's $167.", {
@@ -502,7 +507,7 @@ pres.addSection({ title: "Business Overview" });
   sectionHeader(s, "How an Exchange Works", 0.35, 1.7, 4.3, "Loop header");
   const cx = 2.5, cy = 3.97, rx = 1.5, ry = 1.22;
   s.addShape(pres.shapes.OVAL, {
-    x: cx - rx, y: cy - ry, w: 2 * rx, h: 2 * ry, fill: { type: "none" }, line: { color: "B5AEA9", width: 3 }, objectName: "Loop ring",
+    x: cx - rx, y: cy - ry, w: 2 * rx, h: 2 * ry, fill: { type: "none" }, line: { color: TEAL, width: 3 }, objectName: "Loop ring",
   });
   [45, 135, 225, 315].forEach((deg, i) => {
     const t = (deg * Math.PI) / 180, a = 0.24;
@@ -541,7 +546,7 @@ pres.addSection({ title: "Business Overview" });
   const after = [["$8.5M", [7, 7, 7]], ["$6.0M", [4, 4, 4]], ["$1.5M", [0, 0, 0]]];
   const sq = 0.4, sg = 0.06, rowY0 = 2.62, rowH = 0.78, px = 0.76;
   const cell = (x, y, k, name) => {
-    const style = k === 7 ? { fill: NAVY, col: "FFFFFF", line: NAVY } : k === 4 ? { fill: "B5AEA9", col: NAVY, line: "B5AEA9" } : { fill: "FFFFFF", col: PLAT, line: "B5AEA9" };
+    const style = k === 7 ? { fill: NAVY, col: "FFFFFF", line: NAVY } : k === 4 ? { fill: TEAL, col: "FFFFFF", line: TEAL } : { fill: "FFFFFF", col: PLAT, line: TEAL };
     s.addText(`${k}k`, {
       x, y, w: sq, h: sq, fill: { color: style.fill }, line: { color: style.line, width: 1.25 }, align: "center", valign: "middle",
       fontSize: 11, bold: true, color: style.col, margin: 0, objectName: name,
@@ -613,7 +618,7 @@ pres.addSection({ title: "Thesis 1a" });
     { name: "GPS model", labels: mc, values: [null, null, null, 0.301, 0.299, 0.307, 0.314, 0.320, 0.325] },
   ], chartFrame({
     x: 4.55, y: 2.3, w: 5.1, h: 3.5, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 30,
-    chartColors: [NAVY, "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 0.4, catAxisLabelFontSize: 10,
+    chartColors: [NAVY, TEAL], valAxisMinVal: 0, valAxisMaxVal: 0.4, catAxisLabelFontSize: 10,
     dataLabelFormatCode: "0.0%", dataLabelPosition: "outEnd", dataLabelFontSize: 10,
     objectName: "Margin path chart",
   }));
@@ -640,7 +645,7 @@ pres.addSection({ title: "Thesis 1a" });
     { name: "OEM list price", labels: yrs, values: [100, 107.0, 114.0, 121.9, 130.5, 139.6, 149.4] },
     { name: "FTAI price", labels: yrs, values: [100, 100.0, 103.3, 106.9, 110.6, 114.5, 118.5] },
   ], chartFrame({
-    x: 0.35, y: 2.3, w: 4.6, h: 3.1, chartColors: [NAVY, "B5AEA9"], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 7,
+    x: 0.35, y: 2.3, w: 4.6, h: 3.1, chartColors: [NAVY, TEAL], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 7,
     valAxisMinVal: 90, valAxisMaxVal: 160, showValue: false, objectName: "Price index chart",
   }));
   s.addText("OEM list (+7%/yr)", {
@@ -659,7 +664,7 @@ pres.addSection({ title: "Thesis 1a" });
     { name: "Trough", labels: fy, values: [null, 876, null, null, null, null, null] },
     { name: "EBITDA / module", labels: fy, values: [887, null, 913, 969, 1027, 1084, 1139] },
   ], chartFrame({
-    x: 5.35, y: 2.3, w: 4.3, h: 3.5, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30, chartColors: ["B5AEA9", NAVY],
+    x: 5.35, y: 2.3, w: 4.3, h: 3.5, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30, chartColors: [TEAL, NAVY],
     valAxisMinVal: 0, valAxisMaxVal: 1300, catAxisLabelFontSize: 10, dataLabelFormatCode: "#,##0;;;", dataLabelPosition: "inEnd",
     dataLabelColor: "FFFFFF", dataLabelFontSize: 10, objectName: "EBITDA per module chart",
   }));
@@ -682,11 +687,11 @@ pres.addSection({ title: "Thesis 1a" });
     { type: pres.charts.LINE, data: [
         { name: "Second visits (heaviest)", labels: cy, values: [842, 891, 914, 908, 874, 832, null, null] },
         { name: "Third+ visits (late life, lighter)", labels: cy, values: [532, 597, 641, 679, 700, 720, null, null] },
-      ], options: { chartColors: [NAVY, PLAT], lineSize: 3.5, lineDataSymbol: "circle", lineDataSymbolSize: 7 } },
+      ], options: { chartColors: [NAVY, TEAL], lineSize: 3.5, lineDataSymbol: "circle", lineDataSymbolSize: 7 } },
     { type: pres.charts.LINE, data: [
         { name: "Second trend", labels: cy, values: [null, null, null, null, null, 832, 790, 748] },
         { name: "Third+ trend", labels: cy, values: [null, null, null, null, null, 720, 740, 760] },
-      ], options: { chartColors: [NAVY, PLAT], lineSize: 2.5, lineDash: "dash", lineDataSymbol: "none" } },
+      ], options: { chartColors: [NAVY, TEAL], lineSize: 2.5, lineDash: "dash", lineDataSymbol: "none" } },
   ], {
     x: 0.35, y: 2.3, w: 4.75, h: 3.1, showLegend: false,
     valAxisHidden: true, valAxisMinVal: 450, valAxisMaxVal: 1000, valGridLine: { style: "none" },
@@ -699,12 +704,12 @@ pres.addSection({ title: "Thesis 1a" });
     isTextBox: true, objectName: "Peak label",
   });
   s.addText("Late-life, lighter visits keep rising", {
-    x: 0.95, y: 4.72, w: 3.3, h: 0.28, margin: 0, align: "left", fontSize: 11, bold: true, color: C.accent2,
+    x: 0.95, y: 4.72, w: 3.3, h: 0.28, margin: 0, align: "left", fontSize: 11, bold: true, color: TEAL,
     isTextBox: true, objectName: "Late-life label",
   });
-  s.addShape(pres.shapes.OVAL, { x: 4.6, y: 3.44, w: 0.18, h: 0.18, fill: { color: NAVY }, line: { color: "FFFFFF", width: 1.5 }, objectName: "Crossover dot" });
+  s.addShape(pres.shapes.OVAL, { x: 4.6, y: 3.44, w: 0.18, h: 0.18, fill: { color: ORANGE }, line: { color: "FFFFFF", width: 1.5 }, objectName: "Crossover dot" });
   s.addText([{ text: "Light work", options: { breakLine: true } }, { text: "overtakes ~2032" }], {
-    shape: pres.shapes.ROUNDED_RECTANGLE, rectRadius: 0.08, x: 3.55, y: 3.85, w: 1.5, h: 0.62, fill: { color: NAVY }, line: { color: NAVY },
+    shape: pres.shapes.ROUNDED_RECTANGLE, rectRadius: 0.08, x: 3.55, y: 3.85, w: 1.5, h: 0.62, fill: { color: ORANGE }, line: { color: ORANGE },
     align: "center", valign: "middle", fontSize: 11, bold: true, color: C.background1, margin: 0, objectName: "Crossover callout",
   });
   s.addText("Model through 2030; dashed = trend", {
@@ -749,7 +754,7 @@ pres.addSection({ title: "Thesis 1a" });
   s.addChart(pres.charts.LINE, [
     { name: "PMA adoption", labels: py, values: [0.9, 3, 5, 7, 9] },
   ], chartFrame({
-    x: 0.35, y: 2.45, w: 4.6, h: 1.05, chartColors: ["B5AEA9"], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 8,
+    x: 0.35, y: 2.45, w: 4.6, h: 1.05, chartColors: [TEAL], lineSize: 3, lineDataSymbol: "circle", lineDataSymbolSize: 8,
     catAxisHidden: true, catAxisLineShow: false, valAxisMinVal: 0, valAxisMaxVal: 13, dataLabelFormatCode: "0.0", dataLabelPosition: "t",
     dataLabelColor: PLAT, dataLabelFontSize: 11, objectName: "PMA adoption chart",
   }));
@@ -805,7 +810,7 @@ pres.addSection({ title: "Thesis 1b" });
     });
     s.addText(String(i + 1), {
       shape: pres.shapes.OVAL, x: boxX - circ / 2 - 0.05, y: y + boxH / 2 - circ / 2, w: circ, h: circ,
-      fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 }, align: "center", valign: "middle",
+      fill: { color: "FFFFFF" }, line: { color: ORANGE, width: 2.5 }, align: "center", valign: "middle",
       fontSize: 24, bold: true, color: C.text2, margin: 0, objectName: `Reason ${i + 1} number`,
     });
   });
@@ -832,7 +837,7 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "Today (range)", labels: ["Pre-COVID", "Today"], values: [null, 30] },
   ], chartFrame({
     x: 0.6, y: 2.45, w: 2.5, h: 2.05, barDir: "col", barGrouping: "stacked", barGapWidthPct: 45,
-    chartColors: ["B5AEA9", NAVY, "3B4C82"], valAxisMinVal: 0, valAxisMaxVal: 140, showValue: false, objectName: "Overhaul days chart",
+    chartColors: [TEAL, NAVY, "3B4C82"], valAxisMinVal: 0, valAxisMaxVal: 140, showValue: false, objectName: "Overhaul days chart",
   }));
   s.addText("~60", { x: 0.75, y: 3.2, w: 1.0, h: 0.3, margin: 0, align: "center", fontSize: 15, bold: true, color: INK, isTextBox: true, objectName: "Pre-COVID days" });
   s.addText("90–120", { x: 1.9, y: 2.3, w: 1.1, h: 0.3, margin: 0, align: "center", fontSize: 15, bold: true, color: C.text2, isTextBox: true, objectName: "Today days" });
@@ -848,10 +853,10 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "LEAP", labels: ly, values: [0.32, 0.51] },
   ], chartFrame({
     x: 5.35, y: 2.45, w: 2.45, h: 2.05, barDir: "col", barGrouping: "percentStacked", barGapWidthPct: 40,
-    chartColors: ["B5AEA9", NAVY], valAxisHidden: true, dataLabelFormatCode: "0%", dataLabelPosition: "ctr", dataLabelColor: "FFFFFF",
+    chartColors: [TEAL, NAVY], valAxisHidden: true, dataLabelFormatCode: "0%", dataLabelPosition: "ctr", dataLabelColor: "FFFFFF",
     dataLabelFontSize: 13, objectName: "Shop visit mix chart",
   }));
-  s.addText([{ text: "■ ", options: { color: "B5AEA9" } }, { text: "CFM56  " }, { text: "■ ", options: { color: NAVY } }, { text: "LEAP" }], {
+  s.addText([{ text: "■ ", options: { color: TEAL } }, { text: "CFM56  " }, { text: "■ ", options: { color: NAVY } }, { text: "LEAP" }], {
     x: 5.35, y: 4.52, w: 2.45, h: 0.26, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Mix legend",
   });
   [["~1/2", "of GE's $1B+ MRO spend goes to LEAP"], ["+50%", "LEAP shop visits, y/y (GE, 2026)"]].forEach(([big, lab], i) => {
@@ -899,12 +904,12 @@ pres.addSection({ title: "Thesis 1b" });
   steps.forEach(([name, d], i) => {
     const w = d * scale;
     s.addText(name, {
-      shape: pres.shapes.CHEVRON, x: cx, y: 2.03, w: w + 0.12, h: 0.55, fill: { color: i % 2 ? "B5AEA9" : PLAT_LT }, line: { type: "none" },
-      align: "center", valign: "middle", fontSize: 9, bold: true, color: C.text2, margin: 0, objectName: `Shop step ${i + 1}`,
+      shape: pres.shapes.CHEVRON, x: cx, y: 2.03, w: w + 0.12, h: 0.55, fill: { color: i % 2 ? TEAL : PLAT_LT }, line: { type: "none" },
+      align: "center", valign: "middle", fontSize: 9, bold: true, color: i % 2 ? C.background1 : C.text2, margin: 0, objectName: `Shop step ${i + 1}`,
     });
     cx += w;
   });
-  s.addShape(pres.shapes.RECTANGLE, { x: cx, y: 2.11, w: 30 * scale, h: 0.39, fill: { type: "none" }, line: { color: "B5AEA9", width: 1.25, dashType: "dash" }, objectName: "Shop visit range" });
+  s.addShape(pres.shapes.RECTANGLE, { x: cx, y: 2.11, w: 30 * scale, h: 0.39, fill: { type: "none" }, line: { color: TEAL, width: 1.25, dashType: "dash" }, objectName: "Shop visit range" });
   s.addText([{ text: "FTAI module swap", options: { bold: true, breakLine: true } }, { text: "5–25 days", options: { fontSize: 12 } }], {
     x: 0.25, y: 2.8, w: 2.0, h: 0.6, margin: 0, align: "right", valign: "middle", fontSize: 13, color: C.text2, isTextBox: true, objectName: "Swap label",
   });
@@ -914,7 +919,7 @@ pres.addSection({ title: "Thesis 1b" });
     isTextBox: true, objectName: "Swap description",
   });
   s.addText([{ text: "~7x", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "faster", options: { fontSize: 11, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 8.3, y: 2.65, w: 1.15, h: 0.95, fill: { color: NAVY }, line: { color: NAVY },
+    shape: pres.shapes.OVAL, x: 8.3, y: 2.65, w: 1.15, h: 0.95, fill: { color: ORANGE }, line: { color: ORANGE },
     align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Speed callout",
   });
 
@@ -922,7 +927,7 @@ pres.addSection({ title: "Thesis 1b" });
   sectionHeader(s, "Lease Cost While Grounded", 0.35, 3.92, 4.55, "Cost header");
   // Two-bar comparison drawn to scale ($K); 493 → 2.2"
   const bx = 2.3, bmax = 1.9, bscale = bmax / 493;
-  [["Shop visit, ~150 days", 493, NAVY], ["FTAI swap, ~20 days", 66, "B5AEA9"]].forEach(([lab, v, col], i) => {
+  [["Shop visit, ~150 days", 493, NAVY], ["FTAI swap, ~20 days", 66, TEAL]].forEach(([lab, v, col], i) => {
     const y = 4.55 + i * 0.52;
     s.addText(lab, { x: 0.35, y, w: bx - 0.45, h: 0.38, margin: 0, align: "right", valign: "middle", fontSize: 11, color: INK, isTextBox: true, objectName: `Cost label ${i + 1}` });
     s.addShape(pres.shapes.RECTANGLE, { x: bx, y, w: v * bscale, h: 0.38, fill: { color: col }, line: { type: "none" }, objectName: `Cost bar ${i + 1}` });
@@ -962,12 +967,12 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "Output", labels: cc, values: [757, 1200, 1700] },
     { name: "Unused capacity", labels: cc, values: [null, 1800, 1300] },
   ], chartFrame({
-    x: 0.35, y: 2.3, w: 4.6, h: 3.2, barDir: "col", barGrouping: "stacked", barGapWidthPct: 45, chartColors: [NAVY, "B5AEA9"],
+    x: 0.35, y: 2.3, w: 4.6, h: 3.2, barDir: "col", barGrouping: "stacked", barGapWidthPct: 45, chartColors: [NAVY, TEAL],
     valAxisMinVal: 0, valAxisMaxVal: 3300, dataLabelFormatCode: "#,##0;;;", dataLabelPosition: "inEnd", dataLabelColor: "FFFFFF",
     dataLabelFontSize: 13, objectName: "Capacity chart",
   }));
   s.addText("3,000 capacity", { x: 2.0, y: 2.3, w: 2.9, h: 0.3, margin: 0, align: "center", fontSize: 12, bold: true, italic: true, color: C.accent2, isTextBox: true, objectName: "Capacity label" });
-  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Output   " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "Unused capacity" }], {
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Output   " }, { text: "■ ", options: { color: TEAL } }, { text: "Unused capacity" }], {
     x: 0.35, y: 5.52, w: 4.6, h: 0.28, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Capacity legend",
   });
 
@@ -1018,7 +1023,7 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "GPS model", labels: sy, values: [null, null, 0.124, 0.168, 0.19, 0.195, 0.20] },
   ], chartFrame({
     x: 0.35, y: 3.4, w: 4.6, h: 2.45, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 35,
-    chartColors: [NAVY, "B5AEA9"], valAxisMinVal: 0, valAxisMaxVal: 0.25, catAxisLabelFontSize: 10,
+    chartColors: [NAVY, TEAL], valAxisMinVal: 0, valAxisMaxVal: 0.25, catAxisLabelFontSize: 10,
     dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 11, objectName: "Share chart",
   }));
 
@@ -1028,10 +1033,10 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "Third-party", labels: my, values: [675, 866, 1206, 1321, 1298, 1272] },
     { name: "SCI (contracted)", labels: my, values: [82, 328, 482, 660, 780, 840] },
   ], chartFrame({
-    x: 5.35, y: 3.4, w: 4.3, h: 2.2, barDir: "col", barGrouping: "stacked", barGapWidthPct: 35, chartColors: [NAVY, "B5AEA9"],
+    x: 5.35, y: 3.4, w: 4.3, h: 2.2, barDir: "col", barGrouping: "stacked", barGapWidthPct: 35, chartColors: [NAVY, TEAL],
     valAxisMinVal: 0, valAxisMaxVal: 2300, showValue: false, catAxisLabelFontSize: 10, objectName: "Modules chart",
   }));
-  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Third-party   " }, { text: "■ ", options: { color: "B5AEA9" } }, { text: "SCI floor" }], {
+  s.addText([{ text: "■ ", options: { color: NAVY } }, { text: "Third-party   " }, { text: "■ ", options: { color: TEAL } }, { text: "SCI floor" }], {
     x: 5.35, y: 5.6, w: 4.3, h: 0.25, margin: 0, align: "center", fontSize: 11, color: INK, isTextBox: true, objectName: "Modules legend",
   });
 
@@ -1046,7 +1051,7 @@ pres.addSection({ title: "Thesis 1b" });
 // LEAP (1/2): TATT "APU Licenses" timeline architecture
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
-  s.addText("Thesis 1b: The LEAP Option (1/2)", { placeholder: "title" });
+  s.addText("Thesis 1b: LEAP Upside (1/2)", { placeholder: "title" });
   s.addText("LEAP engines need more maintenance, and OEM contracts start rolling off after 2030.", { placeholder: "subtitle" });
 
   // Timeline arrow
@@ -1097,7 +1102,7 @@ pres.addSection({ title: "Thesis 1b" });
 // LEAP (2/2): TATT "APU Summary" architecture — your return vs. LEAP share
 {
   const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Thesis 1b" });
-  s.addText("Thesis 1b: The LEAP Option (2/2)", { placeholder: "title" });
+  s.addText("Thesis 1b: LEAP Upside (2/2)", { placeholder: "title" });
   s.addText("LEAP isn't in our target. Matching FTAI's CFM56 share takes your return past 100%.", { placeholder: "subtitle" });
 
   // Quote banner with attribution set below, TATT style
@@ -1117,7 +1122,7 @@ pres.addSection({ title: "Thesis 1b" });
     { name: "Matches CFM56 share", labels: shares, values: [null, null, null, null, 1.01, null] },
   ], chartFrame({
     x: 1.05, y: 3.2, w: 8.4, h: 2.35, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 55,
-    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
+    chartColors: [TEAL, NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, dataLabelFormatCode: "0%", dataLabelPosition: "outEnd",
     dataLabelFontSize: 14, catAxisLabelColor: NAVY, catAxisLabelFontSize: 13, objectName: "LEAP return chart",
   }));
   s.addText("Your return", {
@@ -1151,7 +1156,7 @@ pres.addSection({ title: "Thesis 2" });
     { name: "Guided", labels: cy, values: [null, null, null, null, null, null, null, 733] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 4.6, h: 3.5, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 35,
-    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 820, catAxisLabelFontSize: 10,
+    chartColors: [TEAL, NAVY], valAxisMinVal: 0, valAxisMaxVal: 820, catAxisLabelFontSize: 10,
     dataLabelFormatCode: "#,##0", dataLabelPosition: "outEnd", dataLabelFontSize: 11, objectName: "Capex chart",
   }));
 
@@ -1187,11 +1192,11 @@ pres.addSection({ title: "Thesis 2" });
     { name: "2029 or later", labels: yrs, values: [null, null, null, 3.1, 2.2, 6.2, 3.0] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 5.0, h: 3.2, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 35,
-    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 7.5, catAxisLabelFontSize: 11,
+    chartColors: [TEAL, NAVY], valAxisMinVal: 0, valAxisMaxVal: 7.5, catAxisLabelFontSize: 11,
     dataLabelFormatCode: "0.0", dataLabelPosition: "outEnd", dataLabelFontSize: 12, objectName: "COD chart",
   }));
   s.addText([{ text: "57%", options: { fontSize: 22, bold: true, breakLine: true } }, { text: "2029 or later", options: { fontSize: 10, bold: true } }], {
-    shape: pres.shapes.OVAL, x: 2.95, y: 2.3, w: 1.1, h: 1.1, fill: { color: NAVY }, line: { color: NAVY },
+    shape: pres.shapes.OVAL, x: 2.95, y: 2.3, w: 1.1, h: 1.1, fill: { color: ORANGE }, line: { color: ORANGE },
     align: "center", valign: "middle", color: C.background1, margin: 0, objectName: "Late share callout",
   });
   s.addText("25 GW of new and restarted capacity across 45 tracked hyperscaler power deals", {
@@ -1229,7 +1234,7 @@ pres.addSection({ title: "Thesis 2" });
   s.addText("Power is a small slice of a data center's cost, and new turbines are sold out. FTAI has pricing power.", { placeholder: "subtitle" });
 
   sectionHeader(s, "Cost to Build 100 MW ($M)", 0.35, 1.7, 4.3, "Cost header");
-  const bars = [["Data center facility", 1200, "B5AEA9"], ["FTAI turbines (6 units)", 150, NAVY]];
+  const bars = [["Data center facility", 1200, TEAL], ["FTAI turbines (6 units)", 150, NAVY]];
   const bx = 2.45, bscale = 1.5 / 1200;
   bars.forEach(([lab, v, col], i) => {
     const y = 2.45 + i * 0.85;
@@ -1250,8 +1255,8 @@ pres.addSection({ title: "Thesis 2" });
   });
   const lanes = [
     ["FTAI Mod-1", 2026.8, 2028.0, NAVY],
-    ["New aero orders", 2028.0, 2030.9, "B5AEA9"],
-    ["New large turbines", 2029.0, 2031.0, "B5AEA9"],
+    ["New aero orders", 2028.0, 2030.9, TEAL],
+    ["New large turbines", 2029.0, 2031.0, TEAL],
   ];
   lanes.forEach(([lab, a, b, col], i) => {
     const y = 2.5 + i * 0.85;
@@ -1278,7 +1283,7 @@ pres.addSection({ title: "Thesis 2" });
   sectionHeader(s, "Scenario Build (FY27E)", 0.35, 1.7, 3.75, "Scenario header");
   const rows = [
     ["Signed order", "~50", "$450M", PLAT_LT, C.text2],
-    ["+1 contract", "~90", "$750M", "B5AEA9", C.text2],
+    ["+1 contract", "~90", "$750M", TEAL, C.background1],
     ["+2 contracts", "~130", "$1,050M", NAVY, C.background1],
   ];
   s.addText("Units", { x: 1.85, y: 2.22, w: 1.0, h: 0.25, margin: 0, align: "center", fontSize: 11, italic: true, color: C.accent2, isTextBox: true, objectName: "Units col" });
@@ -1300,7 +1305,7 @@ pres.addSection({ title: "Thesis 2" });
     { name: "Upside scenarios", labels: sc, values: [null, null, 0.86, 1.07] },
   ], chartFrame({
     x: 4.45, y: 2.3, w: 5.2, h: 3.15, barDir: "col", barGrouping: "clustered", barOverlapPct: 100, barGapWidthPct: 45,
-    chartColors: ["B5AEA9", NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, catAxisLabelFontSize: 11, catAxisLabelColor: NAVY,
+    chartColors: [TEAL, NAVY], valAxisMinVal: 0, valAxisMaxVal: 1.25, catAxisLabelFontSize: 11, catAxisLabelColor: NAVY,
     dataLabelFormatCode: "0%", dataLabelPosition: "outEnd", dataLabelFontSize: 14, objectName: "Contract return chart",
   }));
   s.addText("Base case = signed order only; returns on the FY27E SOTP vs. $167 today", {
@@ -1318,7 +1323,7 @@ pres.addSection({ title: "Thesis 2" });
 pres.addSection({ title: "Valuation" });
 {
   const s = pres.addSlide({ masterName: "GPS Content", sectionTitle: "Valuation" });
-  s.addText("Valuation: What You Need to Believe", { placeholder: "title" });
+  s.addText("What You Need to Believe", { placeholder: "title" });
 
   const beliefs = [
     ["Margins: ~30% is the floor, and PMA parts, OEM-linked pricing and returning light work rebuild them."],
@@ -1328,7 +1333,7 @@ pres.addSection({ title: "Valuation" });
   beliefs.forEach(([t], i) => {
     const y = 1.2 + i * 0.78;
     s.addText(String(i + 1), {
-      shape: pres.shapes.OVAL, x: 1.15, y: y + 0.08, w: 0.5, h: 0.5, fill: { color: NAVY }, line: { color: NAVY },
+      shape: pres.shapes.OVAL, x: 1.15, y: y + 0.08, w: 0.5, h: 0.5, fill: { color: ORANGE }, line: { color: ORANGE },
       align: "center", valign: "middle", fontSize: 18, bold: true, color: C.background1, margin: 0, objectName: `Belief ${i + 1} number`,
     });
     s.addText(t, {
@@ -1383,7 +1388,7 @@ pres.addSection({ title: "Valuation" });
     { name: "Base case", labels: wc, values: [0, 0, 0, 0, 0, 276.6] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 6.25, h: 3.25, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30,
-    chartColors: ["FFFFFF", PLAT, NAVY, NAVY], valAxisMinVal: 0, valAxisMaxVal: 300, catAxisLabelFontSize: 11,
+    chartColors: ["FFFFFF", TEAL, NAVY, NAVY], valAxisMinVal: 0, valAxisMaxVal: 300, catAxisLabelFontSize: 11,
     showValue: false, objectName: "Thesis waterfall",
   }));
   // Value labels above each bar (plot: $0 at y≈5.0", ~0.00878"/$; bar centers ~1" apart from x≈0.97")
@@ -1435,7 +1440,7 @@ pres.addSection({ title: "Catalysts" });
       fontSize: 15, bold: true, color: C.text2, x: 0.5, y, w: 3.5, h: 1.08, margin: 0, align: "left", valign: "middle", isTextBox: true, objectName: `Catalyst ${i + 1} head`,
     });
     s.addText(when, {
-      x: 4.15, y: y + 0.19, w: 1.7, h: 0.7, fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 }, align: "center", valign: "middle",
+      x: 4.15, y: y + 0.19, w: 1.7, h: 0.7, fill: { color: "FFFFFF" }, line: { color: ORANGE, width: 2.5 }, align: "center", valign: "middle",
       fontSize: 15, bold: true, color: C.text2, margin: 0, isTextBox: true, objectName: `Catalyst ${i + 1} date`,
     });
     s.addText(watch, {
@@ -1477,7 +1482,7 @@ pres.addSection({ title: "Risks" });
   risks.forEach(([head, desc, mits], i) => {
     const y = 1.75 + i * 1.42;
     s.addText(String(i + 1), {
-      shape: pres.shapes.OVAL, x: 0.35, y: y - 0.08, w: 0.58, h: 0.58, fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 },
+      shape: pres.shapes.OVAL, x: 0.35, y: y - 0.08, w: 0.58, h: 0.58, fill: { color: "FFFFFF" }, line: { color: ORANGE, width: 2.5 },
       align: "center", valign: "middle", fontSize: 18, bold: true, color: C.text2, margin: 0, objectName: `Risk ${i + 1} number`,
     });
     s.addText(head, {
@@ -1509,6 +1514,7 @@ const coverSlide = (label, section) => {
     { text: "FTAI Aviation", options: { bold: true, color: C.text2, fontSize: 30, breakLine: true } },
     { text: "(NASDAQ: FTAI)", options: { color: C.text2, fontSize: 26 } },
   ], { x: 0.6, y: 0.35, w: 7, h: 1.15, margin: 0, valign: "top", isTextBox: true, objectName: "Company name" });
+  s.addImage({ path: FTAI_LOGO, x: 7.4, y: 0.4, w: 2.2, h: 2.2 * 305 / 800, objectName: "FTAI logo" });
   s.addText(label, { x: 0.6, y: 3.2, w: 8.8, h: 0.9, margin: 0, align: "center", valign: "middle", fontSize: 44, bold: true, color: C.text2, isTextBox: true, objectName: "Cover label" });
   s.addImage({ path: LOGO, x: 6.45, y: 6.05, w: 1.35, h: 1.24, objectName: "GPS logo" });
   s.addShape(pres.shapes.LINE, { x: 8.05, y: 6.1, w: 0, h: 1.2, line: { color: PLAT, width: 1 }, objectName: "Logo divider" });
@@ -1555,7 +1561,7 @@ appendix("Appendix: Power Model", "GPS model (RPM tab Mod-1 build; Power outlook
   shot(s, "app_shortfall.png", 1.6, 3.55, 6.8, 1899, 480, "Power shortfall");
 });
 
-appendix("Appendix: CFM56 Repair Pricing", "GPS model (Pricing Data tab): matched OEM catalogue parts, CFM56-5B and -7B", (s) => {
+appendix("Appendix: Repair Pricing", "GPS model (Pricing Data tab): matched OEM catalogue parts, CFM56-5B and -7B", (s) => {
   shot(s, "app_pricing.png", 0.35, 1.25, 9.3, 2103, 681, "Pricing summary");
   s.addText("OEM list prices rose a median ~6% a year across ~3,400 matched parts, with almost none falling.", {
     x: 0.35, y: 4.6, w: 9.3, h: 0.6, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 15, bold: true,
