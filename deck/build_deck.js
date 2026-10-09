@@ -1502,6 +1502,73 @@ pres.addSection({ title: "Risks" });
     "3) Technicians: no public description of an FTAI academy was found; job postings show dedicated engine-module technical trainers in Montreal and Miami. Partners: GMF ~200 and EgyptAir ~120 technicians. FTAI cited Palantir workflow tools and a productivity lag from rapid hiring. Confirm academy details before presenting.");
 }
 
+// ---------- Q&A and Appendix ----------
+const coverSlide = (label, section) => {
+  const s = pres.addSlide({ masterName: "GPS Title", sectionTitle: section });
+  s.addText([
+    { text: "FTAI Aviation", options: { bold: true, color: C.text2, fontSize: 30, breakLine: true } },
+    { text: "(NASDAQ: FTAI)", options: { color: C.text2, fontSize: 26 } },
+  ], { x: 0.6, y: 0.35, w: 7, h: 1.15, margin: 0, valign: "top", isTextBox: true, objectName: "Company name" });
+  s.addText(label, { x: 0.6, y: 3.2, w: 8.8, h: 0.9, margin: 0, align: "center", valign: "middle", fontSize: 44, bold: true, color: C.text2, isTextBox: true, objectName: "Cover label" });
+  s.addImage({ path: LOGO, x: 6.45, y: 6.05, w: 1.35, h: 1.24, objectName: "GPS logo" });
+  s.addShape(pres.shapes.LINE, { x: 8.05, y: 6.1, w: 0, h: 1.2, line: { color: PLAT, width: 1 }, objectName: "Logo divider" });
+  s.addText([{ text: "Presenter", options: { breakLine: true } }, { text: "Name" }], {
+    x: 8.15, y: 6.2, w: 1.55, h: 0.95, margin: 0, fontSize: 18, bold: true, color: C.accent2, align: "center", valign: "middle", isTextBox: true, objectName: "Presenter",
+  });
+  return s;
+};
+pres.addSection({ title: "Q&A" });
+coverSlide("Q&A", "Q&A");
+pres.addSection({ title: "Appendix" });
+coverSlide("Appendix", "Appendix");
+
+const shot = (s, file, x, y, w, pxW, pxH, name) => s.addImage({ path: path.join(__dirname, "img", file), x, y, w, h: w * pxH / pxW, objectName: name });
+const appendix = (title, src, build, notes) => {
+  const s = pres.addSlide({ masterName: "GPS Content", sectionTitle: "Appendix" });
+  s.addText(title, { placeholder: "title" });
+  build(s);
+  source(s, src);
+  if (notes) s.addNotes(notes);
+};
+
+appendix("Appendix: DCF (1/2)", "GPS model (DCF tab), base case", (s) => {
+  shot(s, "app_pv.png", 0.35, 1.3, 9.3, 2135, 479, "PV bridge");
+  shot(s, "app_blend.png", 1.25, 4.0, 7.5, 1695, 347, "Blended valuation");
+});
+
+appendix("Appendix: DCF (2/2)", "GPS model (DCF tab), base case", (s) => {
+  shot(s, "app_methods.png", 0.75, 1.2, 8.5, 1699, 890, "Valuation methods");
+}, "Present value bridge (mid-year convention, 0.5 stub for FY26) and both terminal-value methods: perpetuity growth at 3.0% ($281) and 13.0x exit multiple ($335), both at a 9.5% WACC.");
+
+appendix("Appendix: DCF Sensitivities", "GPS model (DCF tab): implied share price by WACC, terminal growth and exit multiple", (s) => {
+  shot(s, "app_sens.png", 1.3, 1.2, 7.4, 1392, 849, "Sensitivity tables");
+});
+
+appendix("Appendix: Sum of the Parts", "GPS model (DCF tab): FY27E SOTP", (s) => {
+  shot(s, "app_sotp.png", 0.75, 1.3, 8.5, 1639, 661, "SOTP table");
+});
+
+appendix("Appendix: Operating Build", "GPS model (Operating Model tab), $ millions", (s) => {
+  shot(s, "app_opbuild.png", 0.35, 1.25, 9.3, 2092, 888, "Operating build");
+});
+
+appendix("Appendix: Unlevered Free Cash Flow", "GPS model (Operating Model tab), $ millions", (s) => {
+  shot(s, "app_ufcf.png", 0.35, 1.25, 9.3, 2092, 781, "UFCF build");
+});
+
+appendix("Appendix: Power Model", "GPS model (RPM tab Mod-1 build; Power outlook tab, NERC 2025 LTRA inputs)", (s) => {
+  shot(s, "app_power.png", 0.35, 1.2, 9.3, 2120, 460, "Mod-1 build");
+  shot(s, "app_shortfall.png", 1.6, 3.55, 6.8, 1899, 480, "Power shortfall");
+});
+
+appendix("Appendix: CFM56 Repair Pricing", "GPS model (Pricing Data tab): matched OEM catalogue parts, CFM56-5B and -7B", (s) => {
+  shot(s, "app_pricing.png", 0.35, 1.25, 9.3, 2103, 681, "Pricing summary");
+  s.addText("OEM list prices rose a median ~6% a year across ~3,400 matched parts, with almost none falling.", {
+    x: 0.35, y: 4.6, w: 9.3, h: 0.6, fill: { color: PLAT_XLT }, margin: 0, align: "center", valign: "middle", fontSize: 15, bold: true,
+    color: C.text2, isTextBox: true, objectName: "Pricing takeaway",
+  });
+}, "Supports the OEM escalator assumption on Thesis 1a (2/4): matched catalogue parts rose a median 6.1–6.2% per year (2024–25 and 2025–26), with only 1 of ~3,400 matched parts falling.");
+
 (async () => {
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
