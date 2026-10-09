@@ -1421,18 +1421,18 @@ pres.addSection({ title: "Catalysts" });
   s.addShape(pres.shapes.DOWN_ARROW, { x: 4.72, y: 1.7, w: 0.56, h: 4.2, fill: { color: NAVY }, line: { type: "none" }, objectName: "Timeline arrow" });
 
   const rows = [
-    ["Q3 & Q4 '26 prints", "Two quarters of stable margins", "Thesis 1a: margin floor",
+    ["Q3 & Q4 '26 prints", "Two quarters of stable margins",
       "Aerospace margins hold at ~30% or better, plus early PMA usage commentary on the Q3 call (late Oct.)"],
-    ["2027", "Power units deliver, or a new contract", "Thesis 2: Power",
-      "First Mod-1 deliveries on schedule, or a follow-on order that pushes FY27 Power EBITDA toward $750M"],
-    ["2027", "New facilities ramp up", "Thesis 1b: share gains",
-      "Jakarta, Cairo and Lisbon come online and FTAI hits its 1,700-module target"],
+    ["1H '27", "New facilities ramp up",
+      "Jakarta, Cairo and Lisbon come online, putting FTAI on track for its 1,700-module target"],
+    ["2H '27", "Power units deliver, or a new contract",
+      "Mod-1 deliveries on schedule, or a follow-on order that pushes FY27 Power EBITDA toward $750M"],
   ];
-  rows.forEach(([when, head, tag, watch], i) => {
+  rows.forEach(([when, head, watch], i) => {
     const y = 1.85 + i * 1.33;
     s.addShape(pres.shapes.RECTANGLE, { x: 0.35, y, w: 9.3, h: 1.08, fill: { color: PLAT_XLT }, line: { type: "none" }, objectName: `Catalyst ${i + 1} band` });
-    s.addText([{ text: head, options: { fontSize: 14, bold: true, color: C.text2, breakLine: true } }, { text: tag, options: { fontSize: 11, italic: true, color: C.accent2 } }], {
-      x: 0.5, y, w: 3.5, h: 1.08, margin: 0, align: "left", valign: "middle", isTextBox: true, objectName: `Catalyst ${i + 1} head`,
+    s.addText(head, {
+      fontSize: 15, bold: true, color: C.text2, x: 0.5, y, w: 3.5, h: 1.08, margin: 0, align: "left", valign: "middle", isTextBox: true, objectName: `Catalyst ${i + 1} head`,
     });
     s.addText(when, {
       x: 4.15, y: y + 0.19, w: 1.7, h: 0.7, fill: { color: "FFFFFF" }, line: { color: NAVY, width: 2 }, align: "center", valign: "middle",
@@ -1446,7 +1446,7 @@ pres.addSection({ title: "Catalysts" });
   takeaway(s, "Each catalyst tests one thesis directly, and all three land by the end of 2027.");
   source(s, "FTAI earnings calls and Q2'26 supplement (1,700-module 2027 target; FY27 Power guide $450–750M); GPS analysis");
   s.addNotes("1) Q3'26 (late Oct. 2026) and Q4'26 (~Feb. 2027) prints: Aerospace Adj. EBITDA margin holding at ~30% confirms the floor; watch PMA usage and parts 4/5 approval commentary. " +
-    "2) Power: management moved first Mod-1 deliveries from Q4'26 to 'prudent to expect deliveries in 2027'; delivery cadence or a follow-on order (Jereh must disclose large contracts) moves Power toward the top of the $450–750M FY27 guide. " +
+    "2) Capacity (1H'27) and 3) Power (2H'27), reordered. Power: management moved first Mod-1 deliveries from Q4'26 to 'prudent to expect deliveries in 2027'; delivery cadence or a follow-on order (Jereh must disclose large contracts) moves Power toward the top of the $450–750M FY27 guide. " +
     "3) Capacity: partner sites in Jakarta (GMF) and Cairo (EgyptAir) plus Lisbon ramp in 2027; network capacity 3,000 modules vs. a 1,700-module 2027 target.");
 }
 
