@@ -104,30 +104,53 @@ pres.addSection({ title: "Introduction" });
     isTextBox: true, objectName: "Recommendation",
   });
 
-  // Key-figure strip
+  // Share price chart (weekly, digitized from the provided chart; last point = $167.03 on 10/2/26)
+  const px = require(path.join(__dirname, "ftai_price_digitized.json"));
+  let lastYr = "";
+  const pxLabels = px.map(([d]) => { const y = d.slice(0, 4); if (y !== lastYr && d.slice(5, 7) <= "01") { lastYr = y; return y; } return ""; });
+  const cx0 = 0.6, cy0 = 2.2, cw = 6.0, ch = 2.25, lay = { x: 0.08, y: 0.05, w: 0.9, h: 0.78 };
+  s.addChart(pres.charts.LINE, [{ name: "FTAI", labels: pxLabels, values: px.map((r) => r[1]) }], {
+    x: cx0, y: cy0, w: cw, h: ch, layout: lay, chartColors: [NAVY], lineSize: 2, lineDataSymbol: "none",
+    valAxisMinVal: 0, valAxisMaxVal: 350, valAxisMajorUnit: 100, valAxisLabelFormatCode: '"$"0', valAxisLabelFontSize: 9,
+    valAxisLabelColor: C.accent2, valAxisLabelFontFace: "+mn-lt", valAxisLineShow: false,
+    valGridLine: { color: "E3E0DC", size: 0.5 }, catGridLine: { style: "none" },
+    catAxisLabelFontSize: 9, catAxisLabelColor: C.accent2, catAxisLabelFontFace: "+mn-lt", catAxisLineColor: "BFBFBF",
+    catAxisMajorTickMark: "none", catAxisMinorTickMark: "none", valAxisMajorTickMark: "none", showLegend: false, showValue: false, objectName: "Share price chart",
+  });
+  // Annotations at plot coordinates
+  const ptXY = (date) => {
+    const k = px.findIndex(([d]) => d >= date);
+    const xx = cx0 + cw * (lay.x + lay.w * (k / (px.length - 1)));
+    const yy = cy0 + ch * (lay.y + lay.h * (1 - px[k][1] / 350)) - 0.04;
+    return [xx, yy];
+  };
+  [["2025-01-17", "Short report", 0.62, 0.22], ["2026-05-31", "1Q26 reset", -0.15, -0.6]].forEach(([d, lab, dx, dy], n) => {
+    const [xx, yy] = ptXY(d);
+    s.addShape(pres.shapes.OVAL, { x: xx - 0.07, y: yy - 0.07, w: 0.14, h: 0.14, fill: { color: ORANGE }, line: { color: "FFFFFF", width: 1 }, objectName: `Event ${n + 1} dot` });
+    s.addText(lab, { x: xx + dx - 0.55, y: yy + dy - 0.12, w: 1.1, h: 0.24, margin: 0, align: "center", fontSize: 10, bold: true, color: ORANGE, isTextBox: true, objectName: `Event ${n + 1} label` });
+  });
+  s.addText("FTAI share price, last 5 years", { x: cx0, y: cy0 + ch - 0.02, w: cw, h: 0.22, margin: 0, align: "center", fontSize: 9, italic: true, color: C.accent2, isTextBox: true, objectName: "Chart caption" });
+
+  // Key figures, 2x2 to the right of the chart
   const stats = [
     ["$167", "Current Price"],
     ["$308", "Target Price"],
     ["84%", "Upside"],
     ["3.4x", "Reward / Risk"],
   ];
-  const sx = 0.6, colW = 8.8 / 4, sy = 2.75;
   stats.forEach(([big, lab], i) => {
-    const x = sx + i * colW;
+    const x = 6.85 + (i % 2) * 1.42, y = 2.3 + Math.floor(i / 2) * 1.08;
     s.addText(big, {
-      x, y: sy, w: colW, h: 0.95, margin: 0, align: "center", valign: "bottom",
-      fontSize: 48, bold: true, color: i >= 2 ? ORANGE : C.text2, isTextBox: true, objectName: `Stat ${i + 1} value`,
+      x, y, w: 1.38, h: 0.62, margin: 0, align: "center", valign: "bottom",
+      fontSize: 30, bold: true, color: i >= 2 ? ORANGE : C.text2, isTextBox: true, objectName: `Stat ${i + 1} value`,
     });
     s.addText(lab, {
-      x, y: sy + 1.0, w: colW, h: 0.4, margin: 0, align: "center", valign: "top",
-      fontSize: 16, color: C.accent2, isTextBox: true, objectName: `Stat ${i + 1} label`,
+      x, y: y + 0.63, w: 1.38, h: 0.3, margin: 0, align: "center", valign: "top",
+      fontSize: 12, color: C.accent2, isTextBox: true, objectName: `Stat ${i + 1} label`,
     });
-    if (i > 0) {
-      s.addShape(pres.shapes.LINE, {
-        x, y: sy + 0.2, w: 0, h: 1.15, line: { color: PLAT_LT, width: 1 }, objectName: `Stat divider ${i}`,
-      });
-    }
   });
+  s.addShape(pres.shapes.LINE, { x: 8.27, y: 2.35, w: 0, h: 1.95, line: { color: PLAT_LT, width: 1 }, objectName: "Stat divider v" });
+  s.addShape(pres.shapes.LINE, { x: 6.95, y: 3.33, w: 2.6, h: 0, line: { color: PLAT_LT, width: 1 }, objectName: "Stat divider h" });
 
   // Quote banner
   s.addText("“Be fearful when others are greedy and greedy when others are fearful.”", {
