@@ -456,9 +456,9 @@ pres.addSection({ title: "Returns" });
 
   // $/share contributions to the base-case FY27E SOTP: Shapley average over all orderings, starting from the bear case
   const rows = [
-    ["Thesis 1a) Margins Have Bottomed", "PMA parts, OEM-linked pricing and technician productivity lift Aerospace margins from ~30% to ~32.5% by FY31.", "+$17", "+10% upside"],
-    ["Thesis 1b) Volume Grows With Share", "New capacity, OEMs moving to LEAP and faster turnaround lift FTAI's CFM56 module share from ~12% to 20% by FY30.", "+$33", "+20% upside"],
-    ["Thesis 2) Power Is a Call Option", "Mod-1 deliveries ramp from 45 units in FY27 to 110 by FY29 at ~40% EBITDA margins.", "+$55", "+33% upside"],
+    ["Thesis 1a) Margins Have Bottomed", "PMA parts, OEM-linked pricing and technician productivity lift Aerospace margins from ~30% to ~32.5% by FY31.", "+$18", "+11% upside"],
+    ["Thesis 1b) Volume Grows With Share", "New capacity, OEMs moving to LEAP and faster turnaround lift FTAI's CFM56 module share from ~12% to 20% by FY30.", "+$34", "+20% upside"],
+    ["Thesis 2) Power Is a Call Option", "Mod-1 deliveries ramp from 45 units in FY27 to 110 by FY29 at ~40% EBITDA margins.", "+$58", "+35% upside"],
   ];
   const by0 = 2.38, bh = 0.94, bgap = 0.12;
   rows.forEach(([head, body, big, small], i) => {
@@ -482,12 +482,12 @@ pres.addSection({ title: "Returns" });
     x: 6.62, y: by0, w: 0.46, h: 3 * bh + 2 * bgap, fill: { color: TEAL }, line: { type: "none" }, objectName: "Chevron",
   });
 
-  s.addText("Bear case (bear margins and share, no Power) is worth $172 on our SOTP, just above today's $167.", {
+  s.addText("Today's $167 is roughly our bear case ($172: bear margins and share, no Power).", {
     x: 0.35, y: 5.6, w: 9.3, h: 0.3, margin: 0, align: "center", fontSize: 12, color: C.accent2,
     isTextBox: true, objectName: "Baseline note",
   });
   s.addText([
-    { text: "$167 today + $5 to bear value + $17 margins + $33 volume + $55 Power = " },
+    { text: "$167 today + $18 margins + $34 volume + $58 Power = " },
     { text: "$277 SOTP", options: { bold: true } },
     { text: " (+66%)" },
   ], {
@@ -1339,33 +1339,33 @@ pres.addSection({ title: "Valuation" });
   s.addText("At $167 the market prices our bear case. Each thesis builds from there to $277.", { placeholder: "subtitle" });
 
   sectionHeader(s, "From Today to Our Base Case ($ / Share)", 0.35, 1.7, 6.25, "Waterfall header");
-  const wc = ["Today", "To bear case", "Margins", "Share", "Power", "Base case"];
+  const wc = ["Today", "Margins", "Share", "Power", "Base case"];
   s.addChart(pres.charts.BAR, [
-    { name: "Base", labels: wc, values: [0, 167.0, 171.9, 188.9, 221.6, 0] },
-    { name: "Today", labels: wc, values: [167.0, 0, 0, 0, 0, 0] },
-    { name: "Theses", labels: wc, values: [0, 4.8, 17.0, 32.7, 55.1, 0] },
-    { name: "Base case", labels: wc, values: [0, 0, 0, 0, 0, 276.6] },
+    { name: "Base", labels: wc, values: [0, 167.0, 184.9, 219.0, 0] },
+    { name: "Today", labels: wc, values: [167.0, 0, 0, 0, 0] },
+    { name: "Theses", labels: wc, values: [0, 17.8, 34.2, 57.6, 0] },
+    { name: "Base case", labels: wc, values: [0, 0, 0, 0, 276.6] },
   ], chartFrame({
     x: 0.35, y: 2.3, w: 6.25, h: 3.25, barDir: "col", barGrouping: "stacked", barGapWidthPct: 30,
     chartColors: ["FFFFFF", TEAL, NAVY, ORANGE], valAxisMinVal: 0, valAxisMaxVal: 300, catAxisLabelFontSize: 11,
     showValue: false, objectName: "Thesis waterfall",
   }));
   // Value labels above each bar (plot: $0 at y≈5.0", ~0.00878"/$; bar centers ~1" apart from x≈0.97")
-  [["$167", 0.97, 167.0], ["+$5", 1.97, 171.9], ["+$17", 2.97, 188.9], ["+$33", 3.97, 221.6], ["+$55", 4.97, 276.7], ["$277", 5.97, 276.6]].forEach(([t, cx, top], i) => {
+  [["$167", 1.07, 167.0], ["+$18", 2.27, 184.9], ["+$34", 3.47, 219.0], ["+$58", 4.67, 276.6], ["$277", 5.87, 276.6]].forEach(([t, cx, top], i) => {
     s.addText(t, {
       x: cx - 0.45, y: 5.0 - top * 0.00878 - 0.3, w: 0.9, h: 0.26, margin: 0, align: "center", valign: "bottom", fontSize: 13, bold: true,
-      color: i === 0 ? INK : i === 5 ? ORANGE : C.text2, isTextBox: true, objectName: `Waterfall label ${i + 1}`,
+      color: i === 0 ? INK : i === 4 ? ORANGE : C.text2, isTextBox: true, objectName: `Waterfall label ${i + 1}`,
     });
   });
 
   sectionHeader(s, "What It Means", 6.9, 1.7, 2.75, "Means header");
-  [["+66%", "upside to our $277 base case"], ["$50", "from the aviation theses: margins and share"], ["$55", "from Power, on just the signed order"]].forEach(([big, lab], i) => {
+  [["+66%", "upside to our $277 base case"], ["$52", "from the aviation theses: margins and share"], ["$58", "from Power, on just the signed order"]].forEach(([big, lab], i) => {
     s.addText([{ text: big, options: { fontSize: 28, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 12, color: INK } }], {
       x: 6.9, y: 2.3 + i * 1.1, w: 2.75, h: 1.0, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: `Means stat ${i + 1}`,
     });
   });
 
-  takeaway(s, "Get the aviation theses right and you make 33%. Power on just the signed order takes it to 66%.");
+  takeaway(s, "The aviation theses alone add $52 a share. Power on just the signed order takes it to 66%.");
   source(s, "FY27E sum of the parts (Aerospace 16x, Power 12x, Leasing + SCI 9x); price $167.03 (10/2/26)");
 }
 
