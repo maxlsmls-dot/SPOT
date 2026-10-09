@@ -1548,13 +1548,7 @@ appendix("Appendix: Sum of the Parts", "GPS model (DCF tab): FY27E SOTP", (s) =>
   shot(s, "app_sotp.png", 0.75, 1.3, 8.5, 1639, 661, "SOTP table");
 });
 
-appendix("Appendix: Operating Build", "GPS model (Operating Model tab), $ millions", (s) => {
-  shot(s, "app_opbuild.png", 0.35, 1.25, 9.3, 2092, 888, "Operating build");
-});
 
-appendix("Appendix: Unlevered Free Cash Flow", "GPS model (Operating Model tab), $ millions", (s) => {
-  shot(s, "app_ufcf.png", 0.35, 1.25, 9.3, 2092, 781, "UFCF build");
-});
 
 appendix("Appendix: Power Model", "GPS model (RPM tab Mod-1 build; Power outlook tab, NERC 2025 LTRA inputs)", (s) => {
   shot(s, "app_power.png", 0.35, 1.2, 9.3, 2120, 460, "Mod-1 build");
