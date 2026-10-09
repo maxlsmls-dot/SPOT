@@ -133,9 +133,9 @@ pres.addSection({ title: "Introduction" });
   // Key figures, 2x2 to the right of the chart
   const stats = [
     ["$167", "Current Price"],
-    ["$308", "Target Price"],
-    ["84%", "Upside"],
-    ["3.4x", "Reward / Risk"],
+    ["$277", "Target Price"],
+    ["66%", "Upside"],
+    ["2.7x", "Reward / Risk"],
   ];
   stats.forEach(([big, lab], i) => {
     const x = 6.85 + (i % 2) * 1.42, y = 2.3 + Math.floor(i / 2) * 1.08;
@@ -166,7 +166,7 @@ pres.addSection({ title: "Introduction" });
     [
       { text: "Date: October 2026", options: { breakLine: true } },
       { text: "Current Price: $167.03 (10/2/26)", options: { breakLine: true } },
-      { text: "Target Price: $308.03 (84% upside, 3.4x R/R)" },
+      { text: "Target Price: $277 (66% upside, 2.7x R/R)" },
     ],
     { x: 0.6, y: 6.3, w: 5.2, h: 0.95, margin: 0, fontSize: 15, color: "1A1A1A", valign: "top",
       paraSpaceAfter: 2, isTextBox: true, objectName: "Pitch details" }
@@ -213,7 +213,7 @@ pres.addSection({ title: "The Opportunity" });
     flipV: true, objectName: "Funnel",
   });
   s.addText(
-    "The market is pricing a trough as a cliff. We see 84% upside, with Power as a free call option.",
+    "The market is pricing a trough as a cliff. We see 66% upside, with Power as a free call option.",
     {
       x: 1.3, y: 5.6, w: 7.7, h: 0.85, fill: { color: NAVY }, align: "center", valign: "middle",
       fontSize: 17, bold: true, color: C.background1, margin: [10, 10, 2, 2], isTextBox: true, objectName: "Conclusion",
