@@ -120,6 +120,33 @@ pres.defineSlideMaster({
   slideNumber: slideNum(),
 });
 
+// ---------- Shared chart / slide helpers ----------
+const INK = "1A1A1A";
+const chartFrame = (extra) => Object.assign({
+  catAxisLabelColor: INK, catAxisLabelFontFace: "+mn-lt", catAxisLabelFontSize: 12,
+  catAxisLineShow: true, catAxisLineColor: "BFBFBF",
+  valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" },
+  showValue: true, dataLabelColor: INK, dataLabelFontFace: "+mn-lt", dataLabelFontSize: 13,
+  dataLabelFontBold: true, showLegend: false, barGapWidthPct: 45,
+}, extra);
+
+const sectionHeader = (s, text, x, y, w, name) => {
+  s.addText(text, {
+    x, y, w, h: 0.4, margin: 0, align: "center", valign: "bottom", fontSize: 16, bold: true,
+    color: INK, isTextBox: true, objectName: name,
+  });
+  s.addShape(pres.shapes.LINE, { x, y: y + 0.46, w, h: 0, line: { color: TEAL, width: 1.5 }, objectName: name + " rule" });
+};
+
+const takeaway = (s, text) => s.addText(text, {
+  x: 0.35, y: 6.02, w: 9.3, h: 0.62, fill: { color: NAVY }, align: "center", valign: "middle",
+  fontSize: 17, bold: true, color: C.background1, margin: [8, 8, 2, 2], isTextBox: true, objectName: "Takeaway",
+});
+
+const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true } }, { text }], {
+  x: 0.35, y: 6.95, w: 7.8, h: 0.3, margin: 0, fontSize: 11, color: INK, isTextBox: true, objectName: "Source",
+});
+
 // ---------- Slide 1: Title ----------
 pres.addSection({ title: "Introduction" });
 {
@@ -216,6 +243,134 @@ pres.addSection({ title: "Introduction" });
 
 }
 
+// ---------- Slide 6: Business Overview ----------
+pres.addSection({ title: "Business Overview" });
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Business Overview" });
+  s.addText("Business Overview (1/2)", { placeholder: "title" });
+  s.addText("FTAI keeps the world's best-selling jet engine flying, and turns old ones into power.", { placeholder: "subtitle" });
+
+  const cols = [
+    ["cfm56.png", "Aerospace Products", "Restores and swaps CFM56 engine modules, so airlines get engines back in days, not months.", "757 → 1,200", "Modules, 2025 → 2026E"],
+    ["power.png", "FTAI Power", "Converts CFM56 cores into 25 MW mobile gas turbines that power data centers.", "$450–750M", "FY27 EBITDA guide"],
+    ["aircraft.png", "Leasing + SCI", "Leases jets and engines. The SCI partnership buys mid-life jets and sends all engine work to FTAI.", "316", "SCI aircraft, YE26E"],
+  ];
+  const colW = 2.9, gap = 0.3, x0 = 0.35;
+  cols.forEach(([img, name, desc, big, lab], i) => {
+    const x = x0 + i * (colW + gap);
+    s.addImage({ path: path.join(__dirname, "img", img), x: x + 0.15, y: 1.75, w: 2.6, h: 1.47, objectName: `${name} illustration` });
+    s.addText(name, {
+      x, y: 3.32, w: colW, h: 0.4, margin: 0, align: "center", fontSize: 18, bold: true, color: C.text2,
+      isTextBox: true, objectName: `${name} name`,
+    });
+    s.addText(desc, {
+      x, y: 3.75, w: colW, h: 1.0, margin: 0, align: "center", valign: "top", fontSize: 13, color: INK,
+      isTextBox: true, objectName: `${name} description`,
+    });
+    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 12, color: C.accent2 } }], {
+      x: x + 0.2, y: 4.85, w: colW - 0.4, h: 0.95, fill: { color: PLAT_XLT }, align: "center", valign: "middle",
+      margin: 0, isTextBox: true, objectName: `${name} stat`,
+    });
+    if (i > 0) {
+      s.addShape(pres.shapes.LINE, { x: x - gap / 2, y: 1.85, w: 0, h: 3.9, line: { color: PLAT_LT, width: 1 }, objectName: `Column divider ${i}` });
+    }
+  });
+
+  takeaway(s, "One engine, three ways to earn: fix it, power with it, and own the planes it flies on.");
+  source(s, "FTAI filings and earnings calls. Illustrations are schematic.");
+}
+
+// ---------- Slide 7: Business Overview (2/2) — the module exchange ----------
+{
+  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Business Overview" });
+  s.addText("Business Overview (2/2)", { placeholder: "title" });
+  s.addText("FTAI swaps worn modules for restored ones from its own pool, so airlines skip the shop queue.", { placeholder: "subtitle" });
+
+  // Left: the exchange loop
+  sectionHeader(s, "How an Exchange Works", 0.35, 1.7, 4.3, "Loop header");
+  const cx = 2.5, cy = 3.97, rx = 1.5, ry = 1.22;
+  s.addShape(pres.shapes.OVAL, {
+    x: cx - rx, y: cy - ry, w: 2 * rx, h: 2 * ry, fill: { type: "none" }, line: { color: TEAL, width: 3 }, objectName: "Loop ring",
+  });
+  [45, 135, 225, 315].forEach((deg, i) => {
+    const t = (deg * Math.PI) / 180, a = 0.24;
+    s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
+      x: cx + rx * Math.sin(t) - a / 2, y: cy - ry * Math.cos(t) - a / 2, w: a, h: a, rotate: deg + 90,
+      fill: { color: PLAT }, line: { type: "none" }, objectName: `Loop arrow ${i + 1}`,
+    });
+  });
+  s.addText([{ text: "Module", options: { breakLine: true } }, { text: "pool" }], {
+    shape: pres.shapes.OVAL, x: cx - 0.55, y: cy - 0.55, w: 1.1, h: 1.1, fill: { color: NAVY }, line: { color: NAVY },
+    align: "center", valign: "middle", fontSize: 13, bold: true, color: C.background1, margin: 0, objectName: "Module pool",
+  });
+  const nodes = [
+    [0, "Engine needs a shop visit"],
+    [90, "FTAI swaps in a restored module"],
+    [180, "Engine back in service in days"],
+    [270, "Worn module restored for the pool"],
+  ];
+  const nw = 1.32, nh = 0.8;
+  nodes.forEach(([deg, t], i) => {
+    const a = (deg * Math.PI) / 180;
+    const nx = cx + rx * Math.sin(a) - nw / 2, ny = cy - ry * Math.cos(a) - nh / 2;
+    s.addText(t, {
+      x: nx, y: ny, w: nw, h: nh, fill: { color: PLAT_LT }, align: "center", valign: "middle",
+      fontSize: 12, bold: true, color: C.text2, margin: [6, 4, 2, 2], isTextBox: true, objectName: `Loop step ${i + 1}`,
+    });
+    s.addText(String(i + 1), {
+      shape: pres.shapes.OVAL, x: nx - 0.2, y: ny - 0.2, w: 0.34, h: 0.34, fill: { color: NAVY }, line: { color: "FFFFFF", width: 1.5 },
+      align: "center", valign: "middle", fontSize: 12, bold: true, color: C.background1, margin: 0, objectName: `Loop step ${i + 1} number`,
+    });
+  });
+
+  // Right: Module Factory before / after grids
+  sectionHeader(s, "Why It Pays: The Module Factory", 4.95, 1.7, 4.7, "Factory header");
+  const before = [["$2.0M", [7, 0, 4]], ["$2.5M", [4, 7, 0]], ["$2.0M", [0, 4, 7]]];
+  const after = [["$8.5M", [7, 7, 7]], ["$6.0M", [4, 4, 4]], ["$1.5M", [0, 0, 0]]];
+  const sq = 0.4, sg = 0.06, rowY0 = 2.62, rowH = 0.78, px = 0.76;
+  const cell = (x, y, k, name) => {
+    const style = k === 7 ? { fill: NAVY, col: "FFFFFF", line: NAVY } : k === 4 ? { fill: TEAL, col: "FFFFFF", line: TEAL } : { fill: "FFFFFF", col: PLAT, line: TEAL };
+    s.addText(`${k}k`, {
+      x, y, w: sq, h: sq, fill: { color: style.fill }, line: { color: style.line, width: 1.25 }, align: "center", valign: "middle",
+      fontSize: 11, bold: true, color: style.col, margin: 0, objectName: name,
+    });
+  };
+  const grid = (x0, rows, label, tag) => {
+    s.addText(label, {
+      x: x0, y: 2.2, w: 2.08, h: 0.3, margin: 0, align: "center", fontSize: 13, bold: true, italic: true, color: C.accent2,
+      isTextBox: true, objectName: `${tag} label`,
+    });
+    rows.forEach(([price, ks], i) => {
+      const y = rowY0 + i * rowH;
+      s.addText(price, {
+        x: x0, y, w: px - 0.04, h: sq, margin: 0, align: "left", valign: "middle", fontSize: 14, bold: true, color: C.text2,
+        isTextBox: true, objectName: `${tag} engine ${i + 1} value`,
+      });
+      ks.forEach((k, j) => cell(x0 + px + j * (sq + sg), y, k, `${tag} engine ${i + 1} module ${j + 1}`));
+    });
+    ["Fan", "Core", "LPT"].forEach((m, j) => s.addText(m, {
+      x: x0 + px + j * (sq + sg) - 0.05, y: rowY0 + 3 * rowH - 0.32, w: sq + 0.1, h: 0.25, margin: 0, align: "center",
+      fontSize: 10, color: C.accent2, isTextBox: true, objectName: `${tag} ${m} caption`,
+    }));
+  };
+  grid(4.95, before, "3 worn engines in", "Before");
+  grid(7.57, after, "Engines out", "After");
+  s.addShape(pres.shapes.RIGHT_ARROW, {
+    x: 7.1, y: 3.4, w: 0.4, h: 0.36, fill: { color: PLAT }, line: { type: "none" }, objectName: "Factory arrow",
+  });
+  s.addText([{ text: "$6.5M", options: { fontSize: 18, bold: true, breakLine: true } }, { text: "engines + $3.5M of work", options: { fontSize: 11 } }], {
+    x: 4.95, y: 5.08, w: 2.08, h: 0.72, fill: { color: PLAT_LT }, align: "center", valign: "middle", color: C.text2, margin: 0,
+    isTextBox: true, objectName: "Before total",
+  });
+  s.addText([{ text: "$16.0M", options: { fontSize: 18, bold: true, breakLine: true } }, { text: "+$6.0M of value created", options: { fontSize: 11 } }], {
+    x: 7.57, y: 5.08, w: 2.08, h: 0.72, fill: { color: NAVY }, align: "center", valign: "middle", color: C.background1, margin: 0,
+    isTextBox: true, objectName: "After total",
+  });
+
+  takeaway(s, "FTAI sells speed to airlines and harvests cycles from engines no one else can use.");
+  source(s, "FTAI investor materials (Module Factory example)");
+}
+
 // ---------- Slide 2: The Opportunity ----------
 pres.addSection({ title: "The Opportunity" });
 {
@@ -258,33 +413,6 @@ pres.addSection({ title: "The Opportunity" });
   });
 }
 
-
-// ---------- Shared chart / slide helpers ----------
-const INK = "1A1A1A";
-const chartFrame = (extra) => Object.assign({
-  catAxisLabelColor: INK, catAxisLabelFontFace: "+mn-lt", catAxisLabelFontSize: 12,
-  catAxisLineShow: true, catAxisLineColor: "BFBFBF",
-  valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" },
-  showValue: true, dataLabelColor: INK, dataLabelFontFace: "+mn-lt", dataLabelFontSize: 13,
-  dataLabelFontBold: true, showLegend: false, barGapWidthPct: 45,
-}, extra);
-
-const sectionHeader = (s, text, x, y, w, name) => {
-  s.addText(text, {
-    x, y, w, h: 0.4, margin: 0, align: "center", valign: "bottom", fontSize: 16, bold: true,
-    color: INK, isTextBox: true, objectName: name,
-  });
-  s.addShape(pres.shapes.LINE, { x, y: y + 0.46, w, h: 0, line: { color: TEAL, width: 1.5 }, objectName: name + " rule" });
-};
-
-const takeaway = (s, text) => s.addText(text, {
-  x: 0.35, y: 6.02, w: 9.3, h: 0.62, fill: { color: NAVY }, align: "center", valign: "middle",
-  fontSize: 17, bold: true, color: C.background1, margin: [8, 8, 2, 2], isTextBox: true, objectName: "Takeaway",
-});
-
-const source = (s, text) => s.addText([{ text: "Source: ", options: { bold: true } }, { text }], {
-  x: 0.35, y: 6.95, w: 7.8, h: 0.3, margin: 0, fontSize: 11, color: INK, isTextBox: true, objectName: "Source",
-});
 
 // ---------- Slide 3: The Opportunity (1/3) — margin compression ----------
 {
@@ -495,134 +623,6 @@ pres.addSection({ title: "Returns" });
     align: "center", valign: "middle", fontSize: 13, color: INK, margin: 0, isTextBox: true, objectName: "Base case bridge",
   });
   source(s, "FTAI filings; base-case FY27E sum of the parts, each thesis switched from bear to base case");
-}
-
-// ---------- Slide 6: Business Overview ----------
-pres.addSection({ title: "Business Overview" });
-{
-  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Business Overview" });
-  s.addText("Business Overview (1/2)", { placeholder: "title" });
-  s.addText("FTAI keeps the world's best-selling jet engine flying, and turns old ones into power.", { placeholder: "subtitle" });
-
-  const cols = [
-    ["cfm56.png", "Aerospace Products", "Restores and swaps CFM56 engine modules, so airlines get engines back in days, not months.", "757 → 1,200", "Modules, 2025 → 2026E"],
-    ["power.png", "FTAI Power", "Converts CFM56 cores into 25 MW mobile gas turbines that power data centers.", "$450–750M", "FY27 EBITDA guide"],
-    ["aircraft.png", "Leasing + SCI", "Leases jets and engines. The SCI partnership buys mid-life jets and sends all engine work to FTAI.", "316", "SCI aircraft, YE26E"],
-  ];
-  const colW = 2.9, gap = 0.3, x0 = 0.35;
-  cols.forEach(([img, name, desc, big, lab], i) => {
-    const x = x0 + i * (colW + gap);
-    s.addImage({ path: path.join(__dirname, "img", img), x: x + 0.15, y: 1.75, w: 2.6, h: 1.47, objectName: `${name} illustration` });
-    s.addText(name, {
-      x, y: 3.32, w: colW, h: 0.4, margin: 0, align: "center", fontSize: 18, bold: true, color: C.text2,
-      isTextBox: true, objectName: `${name} name`,
-    });
-    s.addText(desc, {
-      x, y: 3.75, w: colW, h: 1.0, margin: 0, align: "center", valign: "top", fontSize: 13, color: INK,
-      isTextBox: true, objectName: `${name} description`,
-    });
-    s.addText([{ text: big, options: { fontSize: 22, bold: true, color: ORANGE, breakLine: true } }, { text: lab, options: { fontSize: 12, color: C.accent2 } }], {
-      x: x + 0.2, y: 4.85, w: colW - 0.4, h: 0.95, fill: { color: PLAT_XLT }, align: "center", valign: "middle",
-      margin: 0, isTextBox: true, objectName: `${name} stat`,
-    });
-    if (i > 0) {
-      s.addShape(pres.shapes.LINE, { x: x - gap / 2, y: 1.85, w: 0, h: 3.9, line: { color: PLAT_LT, width: 1 }, objectName: `Column divider ${i}` });
-    }
-  });
-
-  takeaway(s, "One engine, three ways to earn: fix it, power with it, and own the planes it flies on.");
-  source(s, "FTAI filings and earnings calls. Illustrations are schematic.");
-}
-
-// ---------- Slide 7: Business Overview (2/2) — the module exchange ----------
-{
-  const s = pres.addSlide({ masterName: "GPS Content Subtitle", sectionTitle: "Business Overview" });
-  s.addText("Business Overview (2/2)", { placeholder: "title" });
-  s.addText("FTAI swaps worn modules for restored ones from its own pool, so airlines skip the shop queue.", { placeholder: "subtitle" });
-
-  // Left: the exchange loop
-  sectionHeader(s, "How an Exchange Works", 0.35, 1.7, 4.3, "Loop header");
-  const cx = 2.5, cy = 3.97, rx = 1.5, ry = 1.22;
-  s.addShape(pres.shapes.OVAL, {
-    x: cx - rx, y: cy - ry, w: 2 * rx, h: 2 * ry, fill: { type: "none" }, line: { color: TEAL, width: 3 }, objectName: "Loop ring",
-  });
-  [45, 135, 225, 315].forEach((deg, i) => {
-    const t = (deg * Math.PI) / 180, a = 0.24;
-    s.addShape(pres.shapes.ISOSCELES_TRIANGLE, {
-      x: cx + rx * Math.sin(t) - a / 2, y: cy - ry * Math.cos(t) - a / 2, w: a, h: a, rotate: deg + 90,
-      fill: { color: PLAT }, line: { type: "none" }, objectName: `Loop arrow ${i + 1}`,
-    });
-  });
-  s.addText([{ text: "Module", options: { breakLine: true } }, { text: "pool" }], {
-    shape: pres.shapes.OVAL, x: cx - 0.55, y: cy - 0.55, w: 1.1, h: 1.1, fill: { color: NAVY }, line: { color: NAVY },
-    align: "center", valign: "middle", fontSize: 13, bold: true, color: C.background1, margin: 0, objectName: "Module pool",
-  });
-  const nodes = [
-    [0, "Engine needs a shop visit"],
-    [90, "FTAI swaps in a restored module"],
-    [180, "Engine back in service in days"],
-    [270, "Worn module restored for the pool"],
-  ];
-  const nw = 1.32, nh = 0.8;
-  nodes.forEach(([deg, t], i) => {
-    const a = (deg * Math.PI) / 180;
-    const nx = cx + rx * Math.sin(a) - nw / 2, ny = cy - ry * Math.cos(a) - nh / 2;
-    s.addText(t, {
-      x: nx, y: ny, w: nw, h: nh, fill: { color: PLAT_LT }, align: "center", valign: "middle",
-      fontSize: 12, bold: true, color: C.text2, margin: [6, 4, 2, 2], isTextBox: true, objectName: `Loop step ${i + 1}`,
-    });
-    s.addText(String(i + 1), {
-      shape: pres.shapes.OVAL, x: nx - 0.2, y: ny - 0.2, w: 0.34, h: 0.34, fill: { color: NAVY }, line: { color: "FFFFFF", width: 1.5 },
-      align: "center", valign: "middle", fontSize: 12, bold: true, color: C.background1, margin: 0, objectName: `Loop step ${i + 1} number`,
-    });
-  });
-
-  // Right: Module Factory before / after grids
-  sectionHeader(s, "Why It Pays: The Module Factory", 4.95, 1.7, 4.7, "Factory header");
-  const before = [["$2.0M", [7, 0, 4]], ["$2.5M", [4, 7, 0]], ["$2.0M", [0, 4, 7]]];
-  const after = [["$8.5M", [7, 7, 7]], ["$6.0M", [4, 4, 4]], ["$1.5M", [0, 0, 0]]];
-  const sq = 0.4, sg = 0.06, rowY0 = 2.62, rowH = 0.78, px = 0.76;
-  const cell = (x, y, k, name) => {
-    const style = k === 7 ? { fill: NAVY, col: "FFFFFF", line: NAVY } : k === 4 ? { fill: TEAL, col: "FFFFFF", line: TEAL } : { fill: "FFFFFF", col: PLAT, line: TEAL };
-    s.addText(`${k}k`, {
-      x, y, w: sq, h: sq, fill: { color: style.fill }, line: { color: style.line, width: 1.25 }, align: "center", valign: "middle",
-      fontSize: 11, bold: true, color: style.col, margin: 0, objectName: name,
-    });
-  };
-  const grid = (x0, rows, label, tag) => {
-    s.addText(label, {
-      x: x0, y: 2.2, w: 2.08, h: 0.3, margin: 0, align: "center", fontSize: 13, bold: true, italic: true, color: C.accent2,
-      isTextBox: true, objectName: `${tag} label`,
-    });
-    rows.forEach(([price, ks], i) => {
-      const y = rowY0 + i * rowH;
-      s.addText(price, {
-        x: x0, y, w: px - 0.04, h: sq, margin: 0, align: "left", valign: "middle", fontSize: 14, bold: true, color: C.text2,
-        isTextBox: true, objectName: `${tag} engine ${i + 1} value`,
-      });
-      ks.forEach((k, j) => cell(x0 + px + j * (sq + sg), y, k, `${tag} engine ${i + 1} module ${j + 1}`));
-    });
-    ["Fan", "Core", "LPT"].forEach((m, j) => s.addText(m, {
-      x: x0 + px + j * (sq + sg) - 0.05, y: rowY0 + 3 * rowH - 0.32, w: sq + 0.1, h: 0.25, margin: 0, align: "center",
-      fontSize: 10, color: C.accent2, isTextBox: true, objectName: `${tag} ${m} caption`,
-    }));
-  };
-  grid(4.95, before, "3 worn engines in", "Before");
-  grid(7.57, after, "Engines out", "After");
-  s.addShape(pres.shapes.RIGHT_ARROW, {
-    x: 7.1, y: 3.4, w: 0.4, h: 0.36, fill: { color: PLAT }, line: { type: "none" }, objectName: "Factory arrow",
-  });
-  s.addText([{ text: "$6.5M", options: { fontSize: 18, bold: true, breakLine: true } }, { text: "engines + $3.5M of work", options: { fontSize: 11 } }], {
-    x: 4.95, y: 5.08, w: 2.08, h: 0.72, fill: { color: PLAT_LT }, align: "center", valign: "middle", color: C.text2, margin: 0,
-    isTextBox: true, objectName: "Before total",
-  });
-  s.addText([{ text: "$16.0M", options: { fontSize: 18, bold: true, breakLine: true } }, { text: "+$6.0M of value created", options: { fontSize: 11 } }], {
-    x: 7.57, y: 5.08, w: 2.08, h: 0.72, fill: { color: NAVY }, align: "center", valign: "middle", color: C.background1, margin: 0,
-    isTextBox: true, objectName: "After total",
-  });
-
-  takeaway(s, "FTAI sells speed to airlines and harvests cycles from engines no one else can use.");
-  source(s, "FTAI investor materials (Module Factory example)");
 }
 
 // ---------- Thesis 1a: Margins Have Bottomed (3 slides) ----------
