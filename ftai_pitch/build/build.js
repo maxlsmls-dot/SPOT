@@ -1,0 +1,24 @@
+const L = require("./lib");
+const V = require("./s_val");
+(async () => {
+  const pres = L.makePres();
+  pres.addSection({ title: "Introduction" });
+  await require("./s_intro")(pres);
+  V.thesesSlide(pres, null, "Introduction");
+  pres.addSection({ title: "Thesis 1: Margins" });
+  V.thesesSlide(pres, 0, "Thesis 1: Margins");
+  await require("./s_t1")(pres);
+  pres.addSection({ title: "Thesis 2: Share" });
+  V.thesesSlide(pres, 1, "Thesis 2: Share");
+  await require("./s_t2")(pres);
+  pres.addSection({ title: "Thesis 3: Power" });
+  V.thesesSlide(pres, 2, "Thesis 3: Power");
+  await require("./s_t3")(pres);
+  pres.addSection({ title: "Valuation & Risks" });
+  await V.valuation(pres);
+  pres.addSection({ title: "Appendix" });
+  await require("./s_app")(pres);
+  const out = process.argv[2] || "FTAI_Long_Pitch.pptx";
+  await pres.writeFile({ fileName: out });
+  console.log("wrote", out);
+})().catch((e) => { console.error(e); process.exit(1); });
