@@ -16,7 +16,7 @@ const vline = (s, x, y, h) => s.addShape("line", { x, y, w: 0, h, line: { color:
 
 // ======================= SLIDE 1: CFM56 keeps flying
 async function slide1(pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Thesis II: Variance on CFM56 Life – LEAP Can't Replace It and Fuel Hasn't Moved It");
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.35, R = 7.18, RW = 5.75;
 
@@ -53,13 +53,13 @@ async function slide1(pres) {
   G.para(s, "**Bear watch:** all-type retirements +15% in 9M26 (low base), Spirit's ~57 A320ceos back to lessors, GE sees ~3% in 2027 – retirements also ++feed FTAI's feedstock++", R + 0.04, 5.88, RW - 0.08, 0.52, { size: 10, valign: "middle" });
 
   G.banner(s, "LEAP can't replace the CFM56 before 2027–28 and fuel hasn't moved retirements: demand holds at ~2,400 visits a year.", X, 6.48, W, 0.44, 14);
-  G.source(s, "GPS CFM56 Outsourcing Flip Tracker (14 tier-1 shops, Oct-26), Company Releases, GE / Safran, IATA / Platts, Aviation Week",
-    ["Tracker: public releases, filings, trade press; not exhaustive (a floor).", "Fuel: IATA / Platts avg.; Jan, 15-Sep USGC.", "GPS est.: 15% fuel saving vs. $2–2.6M / yr MAX lease premium."]);
+  G.source(s, "Company Releases, GE / Safran, IATA / Platts, Aviation Week",
+    ["Flip tracker (14 tier-1 shops, Oct-26): public sources; a floor.", "Fuel: IATA / Platts avg.; Jan, 15-Sep USGC.", "Estimate: 15% fuel saving vs. $2–2.6M / yr MAX lease premium."]);
 }
 
 // ======================= SLIDE 2: FTAI wins the whitespace
 async function slide2(pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Thesis II: Variance on Share – FTAI Fills the Whitespace With Capacity Already Built");
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.0, R = 6.93, RW = 6.0;
 
@@ -119,8 +119,8 @@ async function slide2(pres) {
   ], R, 5.3, RW, 1.1, { size: 10.5, psa: 2 });
 
   G.banner(s, "With slots built and partners funding new shops, FTAI reaches ~25% of CFM56 module demand; each point of share is ~$10 / share.", X, 6.48, W, 0.44, 14);
-  G.source(s, "FTAI Calls and Supplement, United / FTAI (Oct-26), GMF / FTAI (Sep-26), Willis Lease, SR Technics, In Practise, GPS Model",
-    ["GPS Test Cell Tracker (18 cells, Oct-26); no public case of a cell dropping CFM56 for LEAP.", "Physical capacity 2,000 (2025) and 3,000 modules (from Q2'26) per management."]);
+  G.source(s, "FTAI Calls and Supplement, United / FTAI (Oct-26), GMF / FTAI (Sep-26), Willis Lease, SR Technics, In Practise",
+    ["Test cell tracker (18 cells, Oct-26); no public case of a cell dropping CFM56 for LEAP.", "Physical capacity 2,000 (2025) and 3,000 modules (from Q2'26) per management."]);
 }
 
 module.exports = async function (pres) { await slide1(pres); await slide2(pres); };

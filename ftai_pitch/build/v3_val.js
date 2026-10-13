@@ -15,7 +15,7 @@ function tbl(s, hdr, rows, x, y, w, colW, o = {}) {
 const vline = (s, x, y, h) => s.addShape("line", { x, y, w: 0, h, line: { color: C.TXT, width: 1, dashType: "sysDot" } });
 
 module.exports = async function (pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Valuation – 1-Year Target of $309 (+85%) With ~5x Reward-to-Risk");
   s.addText("($ in millions, except per share)", { x: 9.9, y: 0.52, w: 3.03, h: 0.3, align: "right", fontFace: F, fontSize: 11, italic: true, color: C.INK, margin: 0, isTextBox: true });
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.0, R = 6.93, RW = 6.0;
@@ -74,6 +74,6 @@ module.exports = async function (pres) {
   G.para(s, "12x Aero, 6x Power: **$249**, 49% upside", R + 2.75, 5.92, RW - 2.75, 0.3, { size: 10 });
 
   G.banner(s, "Base $309 (+85%) in 12 months; probability-weighted $294 (+76%); bear $114 (–32%) – roughly 5x reward-to-risk.", X, 6.48, W, 0.44, 14);
-  G.source(s, "GPS Model (case toggle, driver-level bear → base switch), FTAI filings; $167.03 (10/2/26); 104.0M shares",
+  G.source(s, "FTAI filings; $167.03 (10/2/26); 104.0M shares",
     ["NTM ≈ ¼ FY27E + ¾ FY28E. Bridge: each thesis's model drivers switched bear → base in order, at base multiples."]);
 };

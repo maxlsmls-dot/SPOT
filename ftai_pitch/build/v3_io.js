@@ -5,7 +5,7 @@ const ax = { catAxisLabelFontFace: F, valAxisLabelFontFace: F, catAxisLabelFontS
   dataLabelFontFace: F, dataLabelFontSize: 10, legendFontFace: F, legendFontSize: 10, catGridLine: { style: "none" }, valGridLine: { style: "none" }, catAxisLineColor: "7F7F7F" };
 
 module.exports = async function (pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Industry Overview – A Price-Taking Aftermarket Entering Its Heaviest Years");
   G.sub(s, "The CFM56 aftermarket is aging into heavier visits, with flat demand through 2028 and repair prices compounding ~6% a year. FTAI chose share over margin in 1H26 – a deliberate reset the market reads as structural.", { h: 0.6, size: 13.5 });
 
@@ -56,5 +56,5 @@ module.exports = async function (pres) {
     chartColors: [C.ORANGE], lineSize: 2.25, lineDataSymbol: "circle", lineDataSymbolSize: 6, showValue: true, dataLabelPosition: "t", dataLabelColor: "262626",
     dataLabelFormatCode: "0.0%", valAxisHidden: true, valAxisMinVal: 0.24, valAxisMaxVal: 0.38, showLegend: false, ...ax, catAxisLabelFontSize: 9, dataLabelFontSize: 9,
     showTitle: true, title: "Aerospace Adj. EBITDA Margin", titleFontFace: F, titleFontSize: 11, titleColor: "262626" });
-  G.source(s, "GE / Safran shop-visit outlook & cohort data, Aviation Week, SR Technics CFM56 catalogues (2024–26), Company Filings, GPS Model");
+  G.source(s, "GE / Safran shop-visit outlook & cohort data, Aviation Week, SR Technics CFM56 catalogues (2024–26), Company Filings");
 };

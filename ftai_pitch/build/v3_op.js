@@ -7,7 +7,7 @@ function num(s, n, x, y, fill = C.NAVY) {
 }
 
 module.exports = async function (pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Opportunity Summary – A Compounder Still Priced for a Fraud");
   const X = 0.68, W = 12.25;
 
@@ -36,5 +36,5 @@ module.exports = async function (pres) {
   G.para(s, "**All we need is for margins to hold ~30% for two more prints. At $167 the market pays for our bear case; we see ++$309 in a year, 85% upside,++ with ++~5x reward-to-risk++.**^^1^^",
     X + 0.1, 6.35, W - 0.2, 0.62, { size: 14, color: C.WHITE, align: "center", valign: "middle" });
 
-  G.source(s, "Company Filings, Muddy Waters Research (Jan-25), Earnings Calls, Bloomberg, GPS Model", ["1-year base-case sum of the parts (Oct-27); reward-to-risk = bull upside (+157%) / bear downside (–32%)."]);
+  G.source(s, "Company Filings, Muddy Waters Research (Jan-25), Earnings Calls, Bloomberg", ["1-year base-case sum of the parts (Oct-27); reward-to-risk = bull upside (+157%) / bear downside (–32%)."]);
 };

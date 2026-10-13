@@ -16,7 +16,7 @@ const sub = (s, t, x, y, w) => G.para(s, `**++${t}++**`, x, y, w, 0.26, { size: 
 
 // ======================= SLIDE 1: <8% + heavy scope
 async function slide1(pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Thesis I: Variance on Margins – The Unwind Is Done and Heavy Mix Has Peaked");
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.35, R = 7.18, RW = 5.75;
 
@@ -62,13 +62,13 @@ async function slide1(pres) {
   s.addShape("line", { x: R - 0.12, y: 4.28, w: 0, h: 2.12, line: { color: C.TXT, width: 1, dashType: "sysDot" } });
 
   G.banner(s, "Even granting the short thesis, it is <8% of the stock – and heavy mix is capacity-capped: ~30% is the floor, not a waypoint.", X, 6.48, W, 0.44, 14);
-  G.source(s, "10-Q disclosures, Muddy Waters, Earnings Calls, In Practise, OEM cohort data, GPS Model",
+  G.source(s, "10-Q disclosures, Muddy Waters, Earnings Calls, In Practise, OEM cohort data",
     ["Illustrative: stock share × cost edge vs. market feedstock × material share of revenue. 1H26 transfers per Q2'26 10-Q summary.", "Paraphrase of the CEO's cycle/margin example; quoted phrase per call summary."]);
 }
 
 // ======================= SLIDE 2: PMA via SCI + two prints
 async function slide2(pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Thesis I: Variance on Margins – PMA Through SCI and Two Prints Re-Rate the Trough");
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.0, R = 6.93, RW = 6.0;
   G.head(s, "The market prices ~0% PMA and reads 30% as a waypoint; FTAI controls its own PMA channel and only needs 30% to hold.", X, 0.88, W, { size: 13.5 });
@@ -133,7 +133,7 @@ async function slide2(pres) {
   G.para(s, "On base earnings, $167 pays only ++~5x++ for Aerospace a year out; ++each turn ≈ $16 / share++.", R, 6.07, RW, 0.3, { size: 11 });
 
   G.banner(s, "PMA through SCI and price pass-through rebuild margin to 32.5%; two ~30% prints re-rate a business priced at ~5x.", X, 6.48, W, 0.44, 14);
-  G.source(s, "Chromalloy / FAA, Aviation Week, AviTrader, SR Technics catalogues, FTAI filings, GPS Model",
+  G.source(s, "Chromalloy / FAA, Aviation Week, AviTrader, SR Technics catalogues, FTAI filings",
     ["1-yr base SOTP (NTM ≈ ¼ FY27E + ¾ FY28E), holding Power 10x, Leasing + SCI 9x and Sep-27 net debt."]);
 }
 

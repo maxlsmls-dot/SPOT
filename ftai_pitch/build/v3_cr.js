@@ -11,7 +11,7 @@ function box(s, x, y, w, h, fill, head, body, o = {}) {
 }
 
 module.exports = async function (pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Catalysts & Risks – Risks Sit in the Bear Case; Catalysts Land Within the Hold");
   const W = 3.95, xs = [0.68, 4.83, 8.98];
   ["Risks", "Mitigants", "Catalysts"].forEach((t, i) => {
@@ -49,6 +49,6 @@ module.exports = async function (pres) {
   const cy0 = y0 + 1.16, ch = 0.75, cg = 0.065;
   cats.forEach((c, i) => box(s, xs[2], cy0 + i * (ch + cg), W, ch, C.NAVY, c[0], c[1], { color: C.WHITE, hs: 10.5, bs: 10 }));
 
-  G.source(s, "Company Filings and Calls, Muddy Waters, GE Aerospace, J&F order release (Jul-26), TechCrunch (Boom–Crusoe), GPS Model",
+  G.source(s, "Company Filings and Calls, Muddy Waters, GE Aerospace, J&F order release (Jul-26), TechCrunch (Boom–Crusoe)",
     ["Value at risk from the valuation bridge (bear → base by thesis). FTAI Q3 date to confirm (26- or 29-Oct)."]);
 };

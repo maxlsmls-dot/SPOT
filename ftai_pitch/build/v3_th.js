@@ -7,7 +7,7 @@ function num(s, n, x, y, fill) {
 }
 
 module.exports = async function (pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "The Story: The Fraud Discount Frames Our Three Bets");
 
   const cols = [

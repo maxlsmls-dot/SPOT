@@ -16,7 +16,7 @@ const vline = (s, x, y, h) => s.addShape("line", { x, y, w: 0, h, line: { color:
 
 // ======================= SLIDE 1: shortfall + the first order
 async function slide1(pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Thesis III: Variance on Power – The Grid Gap Is Where the First Order Came From");
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.0, R = 6.93, RW = 6.0;
 
@@ -74,13 +74,13 @@ async function slide1(pres) {
   G.para(s, "Diligence flag: FTAI hasn't named the buyer; the xAI link rests on Jereh gensets on the Southaven equipment list (CV Research). ++The order is signed either way++.", L, 6.0, W, 0.4, { size: 10, color: C.MUTE });
 
   G.banner(s, "The grid falls 8–47 GW short from 2029; sites at the first buyer's stage need power in 2027–28 that only mobile units can deliver.", X, 6.48, W, 0.44, 14);
-  G.source(s, "Company filings (AMZN, GOOGL, META, MSFT), BCSE / BNEF, NERC 2025 LTRA, ERCOT, PJM, FTAI release (22-Jul-26), MDEQ, DCD, SemiAnalysis, GPS Model",
-    ["GPS regional model: NERC demand vs. anticipated capacity + 67 tracked hyperscaler power agreements."]);
+  G.source(s, "Company filings (AMZN, GOOGL, META, MSFT), BCSE / BNEF, NERC 2025 LTRA, ERCOT, PJM, FTAI release (22-Jul-26), MDEQ, DCD, SemiAnalysis",
+    ["Regional model: NERC demand vs. anticipated capacity + 67 tracked hyperscaler power agreements."]);
 }
 
 // ======================= SLIDE 2: pipeline + ramp + right to win
 async function slide2(pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Thesis III: Variance on Power – A Pipeline at the First Buyer's Stage and a Right to Win");
   const X = 0.68, W = 12.25, L = 0.68;
 
@@ -140,7 +140,7 @@ async function slide2(pres) {
     R, 5.58, RW, [1.75, 0.8, 1.35, 1.8], { rowH: 0.22, size: 9.5 });
 
   G.banner(s, "Power is a free call option: we see ~75% odds of another order within 12 months, and each ~1 GW contract adds ~$35 / share.", X, 6.48, W, 0.44, 14);
-  G.source(s, "GPS Power Next-Contract Model, Jereh filings / order ledger, Company releases, TCEQ / MDEQ filings, Cleanview, Epoch AI, DCD, GE Vernova / Siemens Energy / MHI Q2'26, GridLab, JLL, FTAI calls, GPS Model",
+  G.source(s, "Jereh filings / order ledger, Company releases, TCEQ / MDEQ filings, Cleanview, Epoch AI, DCD, GE Vernova / Siemens Energy / MHI Q2'26, GridLab, JLL, FTAI calls",
     ["Site-level P = S × [1 – Π(1 – p_i)] + (1 – S) × P(E | shock), S = 0.855, 37 sites + residual; Chinese-supplier risk excluded. $ / share at 12x, 104.0M shares."]);
 }
 

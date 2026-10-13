@@ -2,7 +2,7 @@ const G = require("./g");
 const { C, F } = G;
 
 module.exports = async function (pres) {
-  const s = pres.addSlide({ masterName: "GPS" });
+  const s = pres.addSlide({ masterName: "Pitch" });
   G.title(s, "Business Overview – A Module Factory Scaling Through a Margin Reset");
   s.addText("($ in millions)", { x: 11.3, y: 0.52, w: 1.63, h: 0.3, align: "right", fontFace: F, fontSize: 13, italic: true, color: C.INK, margin: 0, isTextBox: true });
   G.sub(s, "FTAI offers 1) a CFM56 aftermarket business still winning share, 2) an asset-light leasing arm that feeds it, and 3) a new Power segment");
@@ -60,5 +60,5 @@ module.exports = async function (pres) {
     s.addText(lab, { x, y: 6.64, w, h: 0.32, align: "center", valign: "middle", fontFace: F, fontSize: 14, bold: true, color: C.INK, margin: 0, isTextBox: true });
   });
 
-  G.source(s, "Company Filings, Earnings Calls, Investor Presentation, GPS Model", ["Segment EBITDA mix excludes Corporate & Other.", "Module share of CFM56 third-party module demand, per management (Q2'26)."]);
+  G.source(s, "Company Filings, Earnings Calls, Investor Presentation", ["Segment EBITDA mix excludes Corporate & Other.", "Module share of CFM56 third-party module demand, per management (Q2'26)."]);
 };

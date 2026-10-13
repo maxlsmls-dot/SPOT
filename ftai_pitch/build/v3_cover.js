@@ -29,11 +29,7 @@ module.exports = async function (pres) {
   // left text (CARG cover style)
   s.addText("FTAI Aviation\n(NASDAQ: FTAI)", { x: 0.55, y: 1.9, w: 6.2, h: 1.5, fontFace: F, fontSize: 44, color: C.INK, margin: 0, isTextBox: true, valign: "bottom" });
   s.addText("Long Recommendation (1-Year Target $309, +85%)", { x: 0.55, y: 3.45, w: 6.3, h: 0.45, fontFace: F, fontSize: 21, color: C.INK, margin: 0, isTextBox: true });
-  s.addText("Global Platinum Securities", { x: 0.55, y: 4.1, w: 6.2, h: 0.4, fontFace: F, fontSize: 21, color: C.INK, margin: 0, isTextBox: true });
-  s.addText("Max Salomon  |  October 2026", { x: 0.55, y: 4.5, w: 6.2, h: 0.3, fontFace: F, fontSize: 13, color: C.INK, margin: 0, isTextBox: true });
-  s.addText("A compounder still priced for a fraud.", { x: 0.55, y: 5.05, w: 6.2, h: 0.45, fontFace: F, fontSize: 21, bold: true, italic: true, color: C.TXT, margin: 0, isTextBox: true });
-  s.addText([{ text: "GLOBAL", options: { fontSize: 26, bold: true, color: C.NAVY, charSpacing: 6, breakLine: true } },
-    { text: "PLATINUM", options: { fontSize: 13, color: "7F8FA6", charSpacing: 9, breakLine: true } },
-    { text: "SECURITIES", options: { fontSize: 13, bold: true, color: C.NAVY, charSpacing: 7 } }],
-    { x: 0.55, y: 5.9, w: 4, h: 1.1, fontFace: F, margin: 0, isTextBox: true });
+  s.addText("By Sara Jankovic, Josephine Sun,\nAndrew Chen, and Max Salomon", { x: 0.55, y: 4.1, w: 6.1, h: 0.75, fontFace: F, fontSize: 18, color: C.INK, margin: 0, isTextBox: true, valign: "top" });
+  s.addText("October 2026", { x: 0.55, y: 4.9, w: 6.2, h: 0.3, fontFace: F, fontSize: 13, color: C.INK, margin: 0, isTextBox: true });
+  s.addText("A compounder still priced for a fraud.", { x: 0.55, y: 5.45, w: 6.2, h: 0.45, fontFace: F, fontSize: 21, bold: true, italic: true, color: C.TXT, margin: 0, isTextBox: true });
 };

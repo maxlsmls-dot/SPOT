@@ -1,4 +1,4 @@
-// GPS house style (CarGurus deck): Garamond, navy rules, banner takeaways, underlined emphasis
+// House style (CarGurus deck): Garamond, navy rules, banner takeaways, underlined emphasis
 const pptxgen = require("pptxgenjs");
 
 const C = { NAVY: "1F3864", INK: "203040", TXT: "1A1A1A", GRAY: "D9D9D9", LGRAY: "EDEDED", BLUE: "9DC3E6", ORANGE: "E8702A", TEAL: "2E8FAE", WHITE: "FFFFFF", RED: "C00000", MUTE: "595959" };
@@ -8,11 +8,11 @@ function makePres() {
   const pres = new pptxgen();
   pres.layout = "LAYOUT_WIDE";
   pres.author = "Max Salomon";
-  pres.company = "Global Platinum Securities";
+  pres.company = "FTAI Long Pitch";
   pres.title = "FTAI Aviation - Long Recommendation";
   pres.theme = { headFontFace: F, bodyFontFace: F };
   pres.defineSlideMaster({
-    title: "GPS",
+    title: "Pitch",
     background: { color: C.WHITE },
     objects: [
       { line: { x: 0.68, y: 0.84, w: 12.25, h: 0, line: { color: C.NAVY, width: 3 } } },
