@@ -14,6 +14,7 @@ ORDER = {
     "lineChart": "grouping varyColors ser dLbls dropLines hiLowLines upDownBars marker smooth axId extLst",
     "doughnutChart": "varyColors ser dLbls firstSliceAng holeSize extLst",
     "pieChart": "varyColors ser dLbls firstSliceAng extLst",
+    "catAx": "axId scaling delete axPos majorGridlines minorGridlines title numFmt majorTickMark minorTickMark tickLblPos spPr txPr crossAx crosses crossesAt auto lblAlgn lblOffset tickLblSkip tickMarkSkip noMultiLvlLbl extLst",
     "dLbls": "dLbl delete numFmt spPr txPr dLblPos showLegendKey showVal showCatName showSerName showPercent showBubbleSize separator showLeaderLines leaderLines extLst",
 }
 
@@ -42,6 +43,8 @@ def fix(xml):
             for s in c.findall(q("ser")):
                 reorder(s, ser)
             reorder(c, chart)
+    for a in root.iter(q("catAx")):
+        reorder(a, "catAx")
     for d in root.iter(q("dLbls")):
         reorder(d, "dLbls")
     return etree.tostring(root, xml_declaration=True, encoding="UTF-8", standalone=True)

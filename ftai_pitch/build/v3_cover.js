@@ -27,9 +27,27 @@ module.exports = async function (pres) {
   });
 
   // left text (CARG cover style)
-  s.addText("FTAI Aviation\n(NASDAQ: FTAI)", { x: 0.55, y: 1.9, w: 6.2, h: 1.5, fontFace: F, fontSize: 44, color: C.INK, margin: 0, isTextBox: true, valign: "bottom" });
-  s.addText("Long Recommendation (1-Year Target $309, +85%)", { x: 0.55, y: 3.45, w: 6.3, h: 0.45, fontFace: F, fontSize: 21, color: C.INK, margin: 0, isTextBox: true });
-  s.addText("By Sara Jankovic, Josephine Sun,\nAndrew Chen, and Max Salomon", { x: 0.55, y: 4.1, w: 6.1, h: 0.75, fontFace: F, fontSize: 18, color: C.INK, margin: 0, isTextBox: true, valign: "top" });
-  s.addText("October 2026", { x: 0.55, y: 4.9, w: 6.2, h: 0.3, fontFace: F, fontSize: 13, color: C.INK, margin: 0, isTextBox: true });
-  s.addText("A compounder still priced for a fraud.", { x: 0.55, y: 5.45, w: 6.2, h: 0.45, fontFace: F, fontSize: 21, bold: true, italic: true, color: C.TXT, margin: 0, isTextBox: true });
+  s.addText("FTAI Aviation\n(NASDAQ: FTAI)", { x: 0.55, y: 0.45, w: 6.2, h: 1.45, fontFace: F, fontSize: 40, color: C.INK, margin: 0, isTextBox: true, valign: "bottom" });
+  s.addText("Long Recommendation (1-Year Target $309, +85%)", { x: 0.55, y: 1.98, w: 6.3, h: 0.4, fontFace: F, fontSize: 19, color: C.INK, margin: 0, isTextBox: true });
+  s.addText("By Sara Jankovic, Josephine Sun, Andrew Chen, and Max Salomon  |  October 2026", { x: 0.55, y: 2.42, w: 6.2, h: 0.3, fontFace: F, fontSize: 12.5, color: C.INK, margin: 0, isTextBox: true });
+  s.addText("A compounder still priced for a fraud.", { x: 0.55, y: 2.85, w: 6.2, h: 0.42, fontFace: F, fontSize: 20, bold: true, italic: true, color: C.TXT, margin: 0, isTextBox: true });
+
+  // share-price chart, last 12 months
+  const px = require("./px_1y.json");
+  const keep = new Set(["Nov-25", "Jan-26", "Mar-26", "May-26", "Jul-26", "Sep-26"]);
+  const labels = px.labels.map((l) => (keep.has(l) ? l : ""));
+  s.addShape("line", { x: 0.55, y: 3.45, w: 6.0, h: 0, line: { color: C.NAVY, width: 1 } });
+  s.addText("FTAI share price, last 12 months ($)", { x: 0.55, y: 3.5, w: 4.0, h: 0.28, fontFace: F, fontSize: 12, bold: true, color: C.INK, margin: 0, isTextBox: true });
+  s.addText("Roughly halved from the Feb-26 peak on the 1H26 margin reset", { x: 0.55, y: 3.78, w: 6.0, h: 0.26, fontFace: F, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0, isTextBox: true });
+  s.addChart(pres.charts.LINE, [
+    { name: "FTAI", labels, values: px.values },
+    { name: "1-yr target $309", labels, values: px.values.map(() => 309) },
+  ], { x: 0.4, y: 4.05, w: 6.25, h: 3.0, chartColors: [C.NAVY, C.ORANGE], lineSize: 1.5, lineDataSymbol: "none",
+    valAxisMinVal: 100, valAxisMaxVal: 350, valAxisMajorUnit: 50, valAxisLabelFormatCode: "$0",
+    catAxisLabelFrequency: 1, catAxisLabelFontSize: 9, valAxisLabelFontSize: 9, catAxisLabelFontFace: F, valAxisLabelFontFace: F,
+    catAxisLabelColor: "595959", valAxisLabelColor: "595959", catAxisLineColor: "A6A6A6", valAxisLineShow: false,
+    valGridLine: { color: "E7E6E6", size: 0.5 }, catGridLine: { style: "none" }, catAxisMajorTickMark: "none",
+    showLegend: true, legendPos: "t", legendFontFace: F, legendFontSize: 9, showValue: false });
+  s.addText("$165 (10/13/26)", { x: 5.3, y: 6.3, w: 1.3, h: 0.22, fontFace: F, fontSize: 9.5, bold: true, color: C.NAVY, align: "right", margin: 0, isTextBox: true });
+  s.addText("Daily closes traced from team price chart; approximate.", { x: 0.55, y: 7.12, w: 6.0, h: 0.2, fontFace: F, fontSize: 8, italic: true, color: C.MUTE, margin: 0, isTextBox: true });
 };
