@@ -89,18 +89,20 @@ async function slide2(pres) {
   // ---- top tier: why FTAI wins
   G.head(s, "FTAI takes the CFM56 visits the LEAP-focused shops can\u2019t turn fast enough: an engine back in weeks, not months.", X, 0.88, W, { size: 13.5 });
   s.addChart(pres.charts.BAR, [{ name: "Days", labels: ["Shop visit", "FTAI swap"], values: [150, 15] }],
-    { x: L, y: 1.28, w: 2.2, h: 1.75, barDir: "col", chartColors: ["A6A6A6", C.ORANGE], barGapWidthPct: 45, showValue: true, dataLabelPosition: "outEnd", dataLabelColor: "262626",
+    { x: L, y: 1.28, w: 1.95, h: 1.72, barDir: "col", chartColors: ["A6A6A6", C.ORANGE], barGapWidthPct: 45, showValue: true, dataLabelPosition: "outEnd", dataLabelColor: "262626",
       dataLabelFormatCode: "0", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 180, showLegend: false, ...ax, title: "Days Off Wing" });
-  s.addChart(pres.charts.BAR, [{ name: "Lease cost", labels: ["Shop visit", "FTAI swap"], values: [425, 43] }],
-    { x: L + 2.25, y: 1.28, w: 2.2, h: 1.75, barDir: "col", chartColors: ["A6A6A6", C.ORANGE], barGapWidthPct: 45, showValue: true, dataLabelPosition: "outEnd", dataLabelColor: "262626",
-      dataLabelFormatCode: "$0\"K\"", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 510, showLegend: false, ...ax, title: "Lease Cost Idle^^1^^".replace("^^1^^", "") });
-  G.dash(s, L + 4.55, 1.3, 1.45, 1.7);
-  G.para(s, "Shop visit ++120–180 days++ vs. swap ++5–25++\n\nMost swaps take ++5–7 days++ – In Practise expert", L + 4.6, 1.32, 1.37, 1.66, { size: 10, valign: "middle" });
+  G.para(s, "**++Test cells: LEAP now shares CFM56's scarcest slot++**^^1^^", L + 2.05, 1.26, LW - 2.05, 0.24, { size: 10.5, align: "center" });
+  tbl(s, ["Engine test cells tracked (18)", "Cells"], [
+    ["Existing cells adapted to test LEAP", "**9**"], ["...still testing CFM56 (where disclosed)", "4 of 4"], ["...dropped CFM56", "**0**"],
+    ["New cells built for LEAP", "7"], ["New cell built first for CFM56 (Willis + GEM)", "**1**"],
+  ], L + 2.05, 1.5, LW - 2.05, [3.15, 0.8], { rowH: 0.2, size: 9 });
+  G.para(s, "\u201C++Ongoing shortage of testing capacity++\u201D – Willis Lease; \u201CEurope-wide testing capacity constraints\u201D – SR Technics", L + 2.05, 2.72, LW - 2.05, 0.36, { size: 9, color: C.MUTE });
   tbl(s, ["Edge", "FTAI", "OEM / large MRO shops"], [
     ["Feedstock", "1,000+ owned engines; run-outs; AAR USM", "OEM parts at list (+6% / yr)"],
     ["Parts", "PMA (3 of 5), USM, in-house repair", "HPT blade shortage; OEM parts only"],
     ["Slots", "~1,800 spare modules (2026)", "Waits +2–6 mo.; capex to LEAP"],
-  ], L, 3.1, LW, [0.95, 2.8, 2.25], { rowH: 0.24, size: 10 });
+    ["Test", "Rome adding a cell; Jakarta, Cairo come with cells", "LEAP competes for same cells"],
+  ], L, 3.1, LW, [0.95, 2.8, 2.25], { rowH: 0.21, size: 9.5 });
   vline(s, R - 0.12, 1.3, 2.85);
   G.para(s, "**++FTAI's share of CFM56 module demand++**", R, 1.26, RW, 0.26, { size: 12, align: "center" });
   s.addChart(pres.charts.LINE, [
@@ -140,8 +142,8 @@ async function slide2(pres) {
   ], R, 5.3, RW, 1.1, { size: 10.5, psa: 2 });
 
   G.banner(s, "With slots built and partners funding new shops, FTAI reaches ~25% of CFM56 module demand; each point of share is ~$10 / share.", X, 6.48, W, 0.44, 14);
-  G.source(s, "FTAI Calls and Supplement, United / FTAI (Oct-26), GMF / FTAI (Sep-26), IBA, In Practise, GPS Model",
-    ["CFM56-7B lease ~$85K / month (IBA) × days off wing.", "Physical capacity 2,000 (2025) and 3,000 modules (from Q2'26) per management."]);
+  G.source(s, "FTAI Calls and Supplement, United / FTAI (Oct-26), GMF / FTAI (Sep-26), Willis Lease, SR Technics, In Practise, GPS Model",
+    ["GPS Test Cell Tracker (18 cells, Oct-26); no public case of a cell dropping CFM56 for LEAP.", "Physical capacity 2,000 (2025) and 3,000 modules (from Q2'26) per management."]);
 }
 
 module.exports = async function (pres) { await slide1(pres); await slide2(pres); };
