@@ -44,7 +44,7 @@ async function slide1(pres) {
     s.addShape(sh, { x, y: MY + MH + 0.08, w: 0.14, h: 0.14, rectRadius: 0.03, fill: { color: f }, line: { color: l, width: 1 } });
     s.addText(t, { x: x + 0.18, y: MY + MH + 0.04, w: 0.85, h: 0.2, fontFace: F, fontSize: 8.5, color: C.TXT, margin: 0, isTextBox: true });
   });
-  s.addText("CFM56 work flows OEM → independents", { x: L + 3.95, y: MY + MH + 0.04, w: 2.4, h: 0.2, fontFace: F, fontSize: 9, bold: true, color: C.ORANGE, margin: 0, isTextBox: true, align: "right" });
+  s.addText("CFM56 work flows OEM → independents", { x: L + 3.85, y: MY + MH + 0.04, w: 2.4, h: 0.2, fontFace: F, fontSize: 9, bold: true, color: C.ORANGE, margin: 0, isTextBox: true, align: "right" });
 
   vline(s, R - 0.12, 1.3, 2.45);
   tbl(s, ["Shops (14)", "Reviewed", "Add LEAP", "Pull back CFM56", "Win CFM56 work"], [
