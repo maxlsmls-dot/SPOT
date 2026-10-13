@@ -22,20 +22,17 @@ async function slide1(pres) {
 
   // ---- top tier: outsourcing flip tracker (14 tier-1 shops)
   G.head(s, "Every tier-1 shop is adding LEAP; OEMs are trimming CFM56, independents are catching it, and Lufthansa now sends its own out.", X, 0.88, W, { size: 13 });
-  tbl(s, ["Shops (14)", "Reviewed", "Add LEAP", "Pull back", "Win CFM56", "Pulling back on CFM56", "Holding CFM56", "Adding CFM56"], [
-    ["**OEM network**", "2", "2", "1", "2", "GE / CFM, Safran", "–", "–"],
-    ["**Airline-owned**", "8", "8", "1", "3", "Lufthansa", "AFI KLM, Delta, Iberia (planned), Turkish (exploring), Korean Air", "–"],
-    ["**Independent**", "4", "4", "–", "4", "–", "–", "MTU, StandardAero, ST Engineering, SR Technics, **FTAI**"],
-  ], L, 1.26, W, [1.35, 0.75, 0.75, 0.75, 0.8, 2.05, 3.0, 2.8], { rowH: 0.3, size: 9.5 });
-  G.para(s, "**++CFM56 work flows from OEMs and airline shops to independents++**^^1^^", L, 2.5, W, 0.24, { size: 10.5, align: "center", color: C.ORANGE });
+  s.addImage({ path: require("path").join(__dirname, "cfm56_map.png"), x: L, y: 1.25, w: LW, h: LW * 750 / 1905 });
+  vline(s, R - 0.12, 1.3, 2.45);
+  tbl(s, ["Shops (14)", "Reviewed", "Add LEAP", "Pull back CFM56", "Win CFM56 work"], [
+    ["Airline-owned", "8", "8", "1", "3"], ["OEM network", "2", "2", "1", "2"], ["Independent", "4", "4", "–", "4"],
+  ], R, 1.28, RW, [1.45, 0.85, 1.0, 1.3, 1.15], { rowH: 0.22, size: 9.5 });
   G.bullets(s, [
     "**OEMs:** all new sites ++LEAP-only++ (Brazil, India, Mexico, Belgium); CFM ++gives up Ryanair CFM56 labor from 2029++ – its largest CFM56 account – keeping only parts",
     "**First airline flip:** Lufthansa Group sends its ++own CFM56 to FL Technics++ (Oct-26) as Hamburg turns LEAP",
-  ], L, 2.78, 6.0, 0.98, { size: 10.5, psa: 2 });
-  G.bullets(s, [
     "**Moving to independents:** EVA Air → MTU (first non-OEM, May-26); ++United → FTAI++ CFM56-7B MRE (Oct-26)",
-    "**Counter:** Korean Air keeps CFM56, outsources LEAP; independents add CFM56 too – ++overflow is real, but contested++",
-  ], L + 6.25, 2.78, 6.0, 0.98, { size: 10.5, psa: 2 });
+    "**Counter:** Korean Air keeps CFM56, outsources LEAP; independents add CFM56 too – ++overflow is real, but contested++^^1^^",
+  ], R, 2.22, RW, 1.6, { size: 10, psa: 1 });
 
   // ---- bottom tier: fuel
   G.head(s, "Bears fear the 2026 fuel shock accelerates retirements – the data shows parked CFM56s falling, not rising.", X, 3.84, W, { size: 13.5 });
