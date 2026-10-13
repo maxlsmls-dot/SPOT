@@ -23,14 +23,14 @@ module.exports = async function (pres) {
       items: [
         "The market never sized the claim. We traced ++leasing-to-inventory transfers in the 10-Qs++: $90M vs. ~$1.4bn of inventory, and the flow now runs the other way.",
         "The street models retirements off assumptions. ++GE's own 2026 data++ shows 1.5–2%, and ++OEMs are moving slots to LEAP++, leaving visits to FTAI.",
-        "Power is valued off one order. We ++built a NERC reserve-shortfall model++ and ++screened 24 US AI campuses++ for sites at the first buyer's stage.",
+        "Power is valued off one order. We ++built a NERC reserve-shortfall model++ and ++a site-level next-order model++ across 37 AI campuses.",
       ] },
     { x: 8.98, head: "Our FTAI Story", circ: "2E9BD6", line: "2E9BD6",
       intro: "The reset is a choice to win share in a supply-constrained market.",
       items: [
         "~30% is ++the floor, not a waypoint++: heavy mix is capped by capacity, PMA enters through SCI, and price pass-through ++rebuilds margin to 32.5%++.",
         "FTAI fills the whitespace OEMs leave behind: built capacity and partner shops take it to ++~25% of CFM56 module demand++ incl. SCI.",
-        "Power is a call option: ++~10 GW of load++ sits at the first buyer's stage without a locked supplier; one more contract is worth ++~$35/share++.",
+        "Power is a call option: we see ++~75% odds of another order++ in 12 months (61% ex-xAI); one more contract is worth ++~$35/share++.",
       ] },
   ];
   const W = 3.95;

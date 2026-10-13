@@ -44,7 +44,7 @@ module.exports = async function (pres) {
     ["FTAI Q3'26 (late Oct-26) | Thesis I", "First print after the reset: margin ≥~30%, modules on track for 1,200, PMA usage"],
     ["Investor day (10-Dec-26) | I, II, III", "2027 framework: 1,700 modules, Jakarta / Cairo ramp, SCI II size, Power backlog"],
     ["Q4'26 + FY27 guide (Feb-27) | Thesis I", "Second ~30% print: 30% stops reading as a waypoint"],
-    ["Power deliveries / new order (2027) | III", "First revenue from the $1.465bn order; a second order adds ~$35 / share"],
+    ["Power deliveries / new order (2027) | III", "First revenue from the $1.465bn order; a second order (~75% odds in 12M) adds ~$35 / share"],
   ];
   const cy0 = y0 + 1.16, ch = 0.75, cg = 0.065;
   cats.forEach((c, i) => box(s, xs[2], cy0 + i * (ch + cg), W, ch, C.NAVY, c[0], c[1], { color: C.WHITE, hs: 10.5, bs: 10 }));

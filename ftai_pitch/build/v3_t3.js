@@ -84,17 +84,34 @@ async function slide2(pres) {
   G.title(s, "Thesis III: Variance on Power – A Pipeline at the First Buyer's Stage and a Right to Win");
   const X = 0.68, W = 12.25, L = 0.68;
 
-  G.head(s, "We screened 24 US AI campuses: 9 meet the first buyer's conditions – ~10 GW of load with no locked bridge supplier.", X, 0.88, W, { size: 13.5 });
-  tbl(s, ["Project (tenant)", "Location", "Target", "Power plan today", "Grid timing", "Need", "FTAI win"], [
-    ["Amazon “GW Ranch”", "Pecos Co., TX", "≤7.6 GW gen", "Off-grid; 35-turbine permit, mixed sizes", "Undefined", "High", "**High**"],
-    ["Poolside / CoreWeave “Horizon”", "Pecos Co., TX", "2 GW", "Behind-the-meter; no supplier named", "None planned", "High", "**High**"],
-    ["Project Jade (Tallgrass)", "Cheyenne, WY", "1.8 GW", "CCGT + “++temporary aeroderivatives++”", "Off-grid", "High", "**High**"],
-    ["Google / Crusoe “Goodnight”", "Armstrong Co., TX", "Multi-100 MW", "933 MW aeros, not sourced from GE", "Partial", "High", "Med"],
-    ["Meta El Paso", "El Paso, TX", "1 GW", "366 MW utility plant stalled at PUC", "2027 if approved", "High", "Med"],
-    ["Microsoft / Chevron “Kilby”", "Pecos area, TX", "2–2.5 GW", "Chevron BTM; first power 2028", "n/a", "Med-High", "Med"],
-    ["Cipher “Colchis” / Stargate Milam / Nebius", "TX, MO", "~3.3 GW", "AEP 2028; solar + storage; new plant Oct-27", "2027–28", "Med", "Med"],
-  ], L, 1.28, W, [2.75, 1.4, 1.15, 3.8, 1.3, 0.95, 0.9], { rowH: 0.24, size: 9.5 });
-  G.para(s, "**Screened out:** Stargate Jupiter → Bloom; Frontier → VoltaGrid; Prometheus → Williams; Homer City → GE 7HA. **Grid-led:** Saline, Lighthouse, Fairwater, Helios, Sweetwater. ++One High site ≈ another first order++.", L, 3.28, W, 0.48, { size: 10.5 });
+  G.head(s, "Our site-level model puts the odds of another J&F order within 12 months at ~75% – and ~61% from a buyer other than xAI.", X, 0.88, W, { size: 13.5 });
+  // left: P(>=1 order) by buyer group
+  const grp = [["Jereh repeat buyers (B–E)", 35.8], ["xAI / SpaceX (4 sites)", 30.4], ["Cipher (BYOG, 2.5 GW)", 17.0], ["Crusoe", 11.5], ["Developers (Fermi, Pacifico)", 9.4], ["Oracle / OpenAI", 8.4], ["Unidentified (residual)", 8.0], ["Anthropic / neoclouds", 6.0]];
+  s.addChart(pres.charts.BAR, [{ name: "P", labels: grp.map((g) => g[0]).reverse(), values: grp.map((g) => g[1]).reverse() }],
+    { x: L, y: 1.22, w: 3.95, h: 2.12, barDir: "bar", chartColors: [C.NAVY], barGapWidthPct: 35, showValue: true, dataLabelPosition: "outEnd", dataLabelColor: "262626",
+      dataLabelFontSize: 8.5, dataLabelFormatCode: "0\"%\"", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 44, showLegend: false, ...ax, catAxisLabelFontSize: 8.5,
+      valGridLine: { style: "none" }, title: "P(≥1 order) by buyer group, 12M" });
+  // middle: stat stack
+  const MX = L + 4.05, MW = 2.35;
+  [["75%", "60/40 blend: site-level 71%, top-down 82% (56–97%)", C.ORANGE], ["61%", "From a customer other than xAI – the option is not one buyer", C.NAVY], ["51–71", "2027 Mod-1 units left after the first order: room for 1–3+ more", C.NAVY]].forEach(([big, lab, col], i) => {
+    const y = 1.25 + i * 0.7;
+    s.addText(big, { x: MX, y, w: 0.95, h: 0.62, fontFace: F, fontSize: 22, bold: true, color: col, valign: "middle", margin: 0, isTextBox: true });
+    G.para(s, lab, MX + 0.95, y, MW - 0.95, 0.62, { size: 9, valign: "middle" });
+  });
+  G.para(s, "Top-down: Jereh wins ~4 DC orders / yr × 45% routed to J&F × 95% disclosed → λ ≈ 1.7.", MX, 3.33, MW, 0.42, { size: 8.5, color: C.MUTE });
+  vline(s, L + 6.45, 1.26, 2.45);
+  // right: top sites
+  const R0 = L + 6.55, RW0 = W - 6.55;
+  tbl(s, ["Most likely next buyers", "Why the gap is open", "p", "Gap MW"], [
+    ["Cipher BYOG sites (TX)", "2.5 GW of gas laterals; generator not selected", "15%", "600"],
+    ["xAI Minihard (Memphis)", "4th DC, 2027 load; power source undisclosed", "12%", "350"],
+    ["Jereh buyers C / D / E", "~$820M of 2027 gensets; repeat via packager", "11% ea.", "550"],
+    ["xAI Southaven", "69 temp turbines retire Aug-26 to Jul-27", "11%", "575"],
+    ["xAI Doosan frame sites", "Bridge power until 2027–28 combined cycle", "9%", "500"],
+    ["Crusoe Abilene (Microsoft)", "Cancelled 1.2 GW Boom order 25-Sep-26", "8%", "250"],
+    ["Fermi Matador (TensorWave)", "222 MW lease from H2-27; leased TM2500s", "7%", "214"],
+  ], R0, 1.24, RW0, [1.75, 2.75, 0.6, 0.6], { rowH: 0.24, size: 9, leftAll: true });
+  G.para(s, "**Locked out:** Jupiter → Bloom; Frontier → VoltaGrid; Prometheus → Williams; Kilby, Homer City → GE 7HA. Typical non-xAI Jereh order: ++$100–341M (3–11 units)++.", R0, 3.21, RW0, 0.5, { size: 9.5 });
 
   G.head(s, "FTAI can roll units faster than the street models – and its units are cheap, available now and mobile.", X, 3.84, W, { size: 13.5 });
   s.addChart(pres.charts.BAR, [
@@ -122,9 +139,9 @@ async function slide2(pres) {
   tbl(s, ["FY27E", "Units", "Power EBITDA", "Value @ 12x"], [["Signed order only", "45", "$450M", "$52 / sh"], ["+1 contract (~1 GW)", "~90", "~$750M", "**+$35 / sh**"], ["+2 contracts", "~130", "~$1.05bn", "**+$70 / sh**"]],
     R, 5.58, RW, [1.75, 0.8, 1.35, 1.8], { rowH: 0.22, size: 9.5 });
 
-  G.banner(s, "Power is a free call option: ~10 GW sits at the first buyer's stage, and each ~1 GW contract FTAI wins adds ~$35 / share.", X, 6.48, W, 0.44, 14);
-  G.source(s, "Company releases, TCEQ / MDEQ filings, Cleanview, Epoch AI, DCD, GE Vernova / Siemens Energy / MHI Q2'26, GridLab, JLL, FTAI calls, GPS Model",
-    ["Win-ability = gas access + BTM permitting + no locked supplier + 2026–28 load date. Value per share at 12x Power EBITDA, 104.0M shares."]);
+  G.banner(s, "Power is a free call option: we see ~75% odds of another order within 12 months, and each ~1 GW contract adds ~$35 / share.", X, 6.48, W, 0.44, 14);
+  G.source(s, "GPS Power Next-Contract Model, Jereh filings / order ledger, Company releases, TCEQ / MDEQ filings, Cleanview, Epoch AI, DCD, GE Vernova / Siemens Energy / MHI Q2'26, GridLab, JLL, FTAI calls, GPS Model",
+    ["Site-level P = S × [1 – Π(1 – p_i)] + (1 – S) × P(E | shock), S = 0.855, 37 sites + residual; Chinese-supplier risk excluded. $ / share at 12x, 104.0M shares."]);
 }
 
 module.exports = async function (pres) { await slide1(pres); await slide2(pres); };
