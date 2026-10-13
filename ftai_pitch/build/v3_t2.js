@@ -22,52 +22,32 @@ async function slide1(pres) {
 
   // ---- top tier: outsourcing flip tracker (14 tier-1 shops)
   G.head(s, "Every tier-1 shop is adding LEAP; OEMs are trimming CFM56, independents are catching it, and Lufthansa now sends its own out.", X, 0.88, W, { size: 13 });
-  const MY = 1.28, MH = 2.2;
-  s.addShape("rect", { x: L, y: MY, w: LW, h: MH, fill: { type: "none" }, line: { color: "BFBFBF", width: 0.75 } });
-  [1, 2].forEach((k) => s.addShape("line", { x: L + k * LW / 3, y: MY, w: 0, h: MH, line: { color: "BFBFBF", width: 0.75, dashType: "dash" } }));
-  ["Pulling back on CFM56", "Holding CFM56", "Adding CFM56"].forEach((t, k) =>
-    s.addText(t, { x: L + k * LW / 3, y: MY + MH - 0.24, w: LW / 3, h: 0.22, align: "center", fontFace: F, fontSize: 9.5, bold: true, color: "595959", margin: 0, isTextBox: true }));
-  s.addText("More LEAP", { x: L + 0.05, y: MY + 0.02, w: 1.0, h: 0.18, fontFace: F, fontSize: 8.5, italic: true, color: "7F7F7F", margin: 0, isTextBox: true });
-  s.addText("Less LEAP", { x: L + 0.05, y: MY + MH - 0.44, w: 1.0, h: 0.18, fontFace: F, fontSize: 8.5, italic: true, color: "7F7F7F", margin: 0, isTextBox: true });
-  const sty = { OEM: ["roundRect", "FBE5D6", "A0522D"], AIR: ["ellipse", "E6E4FA", "5B4FC4"], IND: ["ellipse", "D5EFE6", "2E8B57"], FTAI: ["ellipse", C.ORANGE, C.ORANGE] };
-  const pts = [["GE / CFM", "OEM", 410, 265], ["Safran", "OEM", 545, 335], ["Lufthansa", "AIR", 500, 450], ["AFI KLM", "AIR", 1085, 300], ["Delta", "AIR", 940, 400],
-    ["Iberia (planned)", "AIR", 940, 560], ["Turkish (exploring)", "AIR", 880, 690], ["Korean Air", "AIR", 880, 790], ["MTU", "IND", 1365, 270], ["StandardAero", "IND", 1530, 365],
-    ["ST Engineering", "IND", 1440, 460], ["SR Technics", "IND", 1500, 560], ["FTAI", "FTAI", 1590, 750]];
-  pts.forEach(([n, t, ix, iy]) => {
-    const x = L + (ix - 235) / 1590 * LW, y = MY + 0.12 + (iy - 220) / 640 * (MH - 0.5), st = sty[t];
-    s.addShape(st[0], { x, y, w: t === "IND" ? 0.22 : 0.16, h: 0.16, rectRadius: 0.03, fill: { color: st[1] }, line: { color: st[2], width: 1 } });
-    s.addText(n, { x: x + (t === "IND" ? 0.26 : 0.2), y: y - 0.03, w: 1.6, h: 0.22, fontFace: F, fontSize: 9.5, bold: t === "FTAI", color: t === "FTAI" ? C.ORANGE : C.TXT, margin: 0, isTextBox: true });
-  });
-  const leg = [["roundRect", "FBE5D6", "A0522D", "OEM"], ["ellipse", "E6E4FA", "5B4FC4", "Airline-owned"], ["ellipse", "D5EFE6", "2E8B57", "Independent"], ["ellipse", C.ORANGE, C.ORANGE, "FTAI"]];
-  leg.forEach(([sh, f, l, t], k) => {
-    const x = L + k * 1.02;
-    s.addShape(sh, { x, y: MY + MH + 0.08, w: 0.14, h: 0.14, rectRadius: 0.03, fill: { color: f }, line: { color: l, width: 1 } });
-    s.addText(t, { x: x + 0.18, y: MY + MH + 0.04, w: 0.85, h: 0.2, fontFace: F, fontSize: 8.5, color: C.TXT, margin: 0, isTextBox: true });
-  });
-  s.addText("CFM56 work flows OEM → independents", { x: L + 3.85, y: MY + MH + 0.04, w: 2.4, h: 0.2, fontFace: F, fontSize: 9, bold: true, color: C.ORANGE, margin: 0, isTextBox: true, align: "right" });
-
-  vline(s, R - 0.12, 1.3, 2.45);
-  tbl(s, ["Shops (14)", "Reviewed", "Add LEAP", "Pull back CFM56", "Win CFM56 work"], [
-    ["Airline-owned", "8", "8", "1", "3"], ["OEM network", "2", "2", "1", "2"], ["Independent", "4", "4", "–", "4"],
-  ], R, 1.28, RW, [1.45, 0.85, 1.0, 1.3, 1.15], { rowH: 0.22, size: 9.5 });
+  tbl(s, ["Shops (14)", "Reviewed", "Add LEAP", "Pull back", "Win CFM56", "Pulling back on CFM56", "Holding CFM56", "Adding CFM56"], [
+    ["**OEM network**", "2", "2", "1", "2", "GE / CFM, Safran", "–", "–"],
+    ["**Airline-owned**", "8", "8", "1", "3", "Lufthansa", "AFI KLM, Delta, Iberia (planned), Turkish (exploring), Korean Air", "–"],
+    ["**Independent**", "4", "4", "–", "4", "–", "–", "MTU, StandardAero, ST Engineering, SR Technics, **FTAI**"],
+  ], L, 1.26, W, [1.35, 0.75, 0.75, 0.75, 0.8, 2.05, 3.0, 2.8], { rowH: 0.3, size: 9.5 });
+  G.para(s, "**++CFM56 work flows from OEMs and airline shops to independents++**^^1^^", L, 2.5, W, 0.24, { size: 10.5, align: "center", color: C.ORANGE });
   G.bullets(s, [
     "**OEMs:** all new sites ++LEAP-only++ (Brazil, India, Mexico, Belgium); CFM ++gives up Ryanair CFM56 labor from 2029++ – its largest CFM56 account – keeping only parts",
     "**First airline flip:** Lufthansa Group sends its ++own CFM56 to FL Technics++ (Oct-26) as Hamburg turns LEAP",
+  ], L, 2.78, 6.0, 0.98, { size: 10.5, psa: 2 });
+  G.bullets(s, [
     "**Moving to independents:** EVA Air → MTU (first non-OEM, May-26); ++United → FTAI++ CFM56-7B MRE (Oct-26)",
     "**Counter:** Korean Air keeps CFM56, outsources LEAP; independents add CFM56 too – ++overflow is real, but contested++",
-  ], R, 2.22, RW, 1.6, { size: 10, psa: 1 });
+  ], L + 6.25, 2.78, 6.0, 0.98, { size: 10.5, psa: 2 });
 
   // ---- bottom tier: fuel
   G.head(s, "Bears fear the 2026 fuel shock accelerates retirements – the data shows parked CFM56s falling, not rising.", X, 3.84, W, { size: 13.5 });
-  s.addChart(pres.charts.LINE, [{ name: "Jet fuel", labels: ["Jan-26", "3-Apr (peak)", "17-Apr", "14-Aug", "15-Sep"], values: [85, 209, 185, 159, 198] }],
-    { x: L, y: 4.24, w: 3.1, h: 2.18, chartColors: [C.ORANGE], lineSize: 2.25, lineDataSymbol: "circle", lineDataSymbolSize: 6, showValue: true, dataLabelPosition: "t",
-      dataLabelColor: "262626", dataLabelFormatCode: "$0", valAxisHidden: true, valAxisMinVal: 40, valAxisMaxVal: 240, showLegend: false, ...ax, catAxisLabelFontSize: 8.5, title: "Jet Fuel ($ / bbl)^^1^^".replace("^^1^^", "") });
+  s.addChart(pres.charts.BAR, [{ name: "Jet fuel", labels: ["Jan-26", "3-Apr (peak)", "17-Apr", "14-Aug", "15-Sep"], values: [85, 209, 185, 159, 198] }],
+    { x: L, y: 4.24, w: 3.1, h: 2.18, barDir: "col", chartColors: [C.ORANGE], barGapWidthPct: 40, showValue: true, dataLabelPosition: "outEnd",
+      dataLabelColor: "262626", dataLabelFormatCode: "$0", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 240, showLegend: false, ...ax, catAxisLabelFontSize: 8.5, title: "Jet Fuel ($ / bbl)" });
   s.addChart(pres.charts.BAR, [{ name: "Retirement", labels: ["Original", "Jan-26", "Spring", "Sep-26"], values: [0.035, 0.025, 0.02, 0.0175] }],
     { x: L + 3.2, y: 4.24, w: 3.15, h: 2.18, barDir: "col", chartColors: ["A6A6A6", "A6A6A6", "A6A6A6", C.NAVY], barGapWidthPct: 40, showValue: true, dataLabelPosition: "outEnd",
-      dataLabelColor: "262626", dataLabelFormatCode: "0.0%", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 0.042, showLegend: false, ...ax, catAxisLabelFontSize: 8.5, title: "GE's 2026 CFM56 Retirement View (Q1 actual <1%)" });
+      dataLabelColor: "262626", dataLabelFormatCode: "0.0%", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 0.042, showLegend: false, ...ax, catAxisLabelFontSize: 8.5, title: "GE CFM56 Retirement View, 2026" });
   vline(s, R - 0.12, 4.26, 2.15);
   G.bullets(s, [
-    "**Parked CFM56s down since March:** “no meaningful change in customer behavior” – GE CEO, Jul-26; Safran H1 spares up ++27.9%++ on CFM56",
+    "**Parked CFM56s down since March:** “no meaningful change in customer behavior” – GE CEO, Jul-26; Safran H1 spares up ++27.9%++ on CFM56; Q1 retirements <1%",
     "**Airlines trimmed growth and hedged, not parked:** United –5%, Delta –3.5% growth; Ryanair ++80% hedged at ~$67++",
     "**Replacing an NG on fuel alone** breaks even only at a sustained ++$170–200 / bbl++ – and needs a slot that isn't there^^3^^",
     "**History:** 2022 fuel +95–150%, retirements only ++325 vs. 502 in 2019++",
