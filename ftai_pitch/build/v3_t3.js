@@ -84,7 +84,7 @@ async function slide2(pres) {
   G.title(s, "Thesis III: Variance on Power – A Pipeline at the First Buyer's Stage and a Right to Win");
   const X = 0.68, W = 12.25, L = 0.68;
 
-  G.head(s, "Our site-level model puts the odds of another J&F order within 12 months at ~75% – and ~61% from a buyer other than xAI.", X, 0.88, W, { size: 13.5 });
+  G.head(s, "Our site-level model put the odds of another J&F order at ~75% (61% ex-xAI) – Q3 then disclosed >100 units under contract.", X, 0.88, W, { size: 13.5 });
   // left: P(>=1 order) by buyer group
   const grp = [["Jereh repeat buyers (B–E)", 35.8], ["xAI / SpaceX (4 sites)", 30.4], ["Cipher (BYOG, 2.5 GW)", 17.0], ["Crusoe", 11.5], ["Developers (Fermi, Pacifico)", 9.4], ["Oracle / OpenAI", 8.4], ["Unidentified (residual)", 8.0], ["Anthropic / neoclouds", 6.0]];
   s.addChart(pres.charts.BAR, [{ name: "P", labels: grp.map((g) => g[0]).reverse(), values: grp.map((g) => g[1]).reverse() }],
@@ -124,8 +124,8 @@ async function slide2(pres) {
     "**Feedstock in hand:** 1,000+ owned CFM56s; no new hot section",
     "**Capacity:** 100+ units / yr; ~$400M of Power WC built / planned",
     "**Packaging outsourced** to Jereh (US, Canada, UAE, China)",
-    "**Base 45 units FY27** < the ~58 implied by the signed order; mgmt's $450M assumes “materially less” than 100",
-    "**Path:** launch Dec-25 → prototype 1H26 → order Jul-26 → first deliveries 2027",
+    "**Base 45 units FY27** vs. ++>100 under contract++ for 2027–28 (Q3'26) and mgmt's 100-unit 2027 plan",
+    "**Path:** launch Dec-25 → order Jul-26 → testing done (++25 MW peak++, Q3) → $234M deposits → deliveries 2027",
   ], L + 3.35, 4.22, 3.0, 2.2, { size: 9.5, psa: 1, valign: "middle" });
   vline(s, L + 6.45, 4.24, 2.17);
   const R = L + 6.55, RW = W - 6.55;
@@ -139,7 +139,7 @@ async function slide2(pres) {
   tbl(s, ["FY27E", "Units", "Power EBITDA", "Value @ 12x"], [["Signed order only", "45", "$450M", "$52 / sh"], ["+1 contract (~1 GW)", "~90", "~$750M", "**+$35 / sh**"], ["+2 contracts", "~130", "~$1.05bn", "**+$70 / sh**"]],
     R, 5.58, RW, [1.75, 0.8, 1.35, 1.8], { rowH: 0.22, size: 9.5 });
 
-  G.banner(s, "Power is a free call option: we see ~75% odds of another order within 12 months, and each ~1 GW contract adds ~$35 / share.", X, 6.48, W, 0.44, 14);
+  G.banner(s, "Power is a call option now paying: >100 units under contract vs. 45 in our FY27 base, and each ~1 GW more adds ~$35 / share.", X, 6.48, W, 0.44, 14);
   G.source(s, "Jereh filings / order ledger, Company releases, TCEQ / MDEQ filings, Cleanview, Epoch AI, DCD, GE Vernova / Siemens Energy / MHI Q2'26, GridLab, JLL, FTAI calls",
     ["Site-level P = S × [1 – Π(1 – p_i)] + (1 – S) × P(E | shock), S = 0.855, 37 sites + residual; Chinese-supplier risk excluded. $ / share at 12x, 104.0M shares."]);
 }

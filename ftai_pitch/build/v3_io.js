@@ -47,12 +47,12 @@ module.exports = async function (pres) {
   // ---- BR: FTAI reset
   G.head(s, "However, FTAI deliberately traded margin for share in 1H26.", R, 4.25, W);
   G.quote(s, "“We're inclined to say yes and take market share.” – FTAI CEO, Q2'26 Earnings Call", R, 4.66, W, 0.36, { size: 11.5 });
-  const q = ["Q1'25", "Q2'25", "Q3'25", "Q4'25", "Q1'26", "Q2'26"];
-  s.addChart(pres.charts.BAR, [{ name: "Modules", labels: q, values: [138, 184, 207, 228, 270, 296] }], { x: R, y: 5.08, w: 2.95, h: 1.92, barDir: "col",
-    chartColors: [C.NAVY, C.NAVY, C.NAVY, C.NAVY, C.ORANGE, C.ORANGE], barGapWidthPct: 45, showValue: true, dataLabelPosition: "outEnd", dataLabelColor: "262626",
+  const q = ["Q1'25", "Q2'25", "Q3'25", "Q4'25", "Q1'26", "Q2'26", "Q3'26"];
+  s.addChart(pres.charts.BAR, [{ name: "Modules", labels: q, values: [138, 184, 207, 228, 270, 296, 311] }], { x: R, y: 5.08, w: 2.95, h: 1.92, barDir: "col",
+    chartColors: [C.NAVY, C.NAVY, C.NAVY, C.NAVY, C.ORANGE, C.ORANGE, C.ORANGE], barGapWidthPct: 45, showValue: true, dataLabelPosition: "outEnd", dataLabelColor: "262626",
     dataLabelFormatCode: "#,##0", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 350, showLegend: false, ...ax, catAxisLabelFontSize: 9, dataLabelFontSize: 9,
-    showTitle: true, title: "Modules Produced (+61% y/y in Q2'26)", titleFontFace: F, titleFontSize: 11, titleColor: "262626" });
-  s.addChart(pres.charts.LINE, [{ name: "Margin", labels: q, values: [0.359, 0.336, 0.348, 0.346, 0.299, 0.285] }], { x: R + 3.0, y: 5.08, w: 2.95, h: 1.92,
+    showTitle: true, title: "Modules Produced (+50% y/y in Q3'26)", titleFontFace: F, titleFontSize: 11, titleColor: "262626" });
+  s.addChart(pres.charts.LINE, [{ name: "Margin", labels: q, values: [0.359, 0.336, 0.348, 0.346, 0.299, 0.285, 0.310] }], { x: R + 3.0, y: 5.08, w: 2.95, h: 1.92,
     chartColors: [C.ORANGE], lineSize: 2.25, lineDataSymbol: "circle", lineDataSymbolSize: 6, showValue: true, dataLabelPosition: "t", dataLabelColor: "262626",
     dataLabelFormatCode: "0.0%", valAxisHidden: true, valAxisMinVal: 0.24, valAxisMaxVal: 0.38, showLegend: false, ...ax, catAxisLabelFontSize: 9, dataLabelFontSize: 9,
     showTitle: true, title: "Aerospace Adj. EBITDA Margin", titleFontFace: F, titleFontSize: 11, titleColor: "262626" });

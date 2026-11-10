@@ -30,7 +30,7 @@ module.exports = async function (pres) {
       items: [
         "~30% is ++the floor, not a waypoint++: heavy mix is capped by capacity, PMA enters through SCI, and price pass-through ++rebuilds margin to 32.5%++.",
         "FTAI fills the whitespace OEMs leave behind: built capacity and partner shops take it to ++~25% of CFM56 module demand++ incl. SCI.",
-        "Power is a call option: we see ++~75% odds of another order++ in 12 months (61% ex-xAI); one more contract is worth ++~$35/share++.",
+        "Power is a call option now paying: ++>100 units under contract++ for 2027–28 vs. 45 in our FY27 base; each ~1 GW more is ++~$35/share++.",
       ] },
   ];
   const W = 3.95;
@@ -45,11 +45,11 @@ module.exports = async function (pres) {
     });
   });
   s.addShape("rect", { x: 0.68, y: 5.93, w: W, h: 0.45, fill: { color: C.GRAY }, line: { color: C.GRAY } });
-  G.para(s, "Thus, consensus prices a ++fraud discount on a shrinking business++: 9.2x FY27E EBITDA.", 0.73, 5.93, W - 0.1, 0.45, { size: 12, valign: "middle" });
+  G.para(s, "Thus, consensus prices a ++fraud discount on a shrinking business++: 10.6x FY27E EBITDA.", 0.73, 5.93, W - 0.1, 0.45, { size: 12, valign: "middle" });
   G.para(s, "Diligence: 10-Q cash-flow footnotes, GE retirement data, SR Technics catalogues, NERC LTRA, site permits.", 4.83, 5.93, W, 0.45, { size: 12, valign: "middle", color: C.MUTE });
-  G.para(s, "Catalysts: Q3'26 (late Oct), investor day (10-Dec), Q4'26 print and FY27 guide (Feb-27).", 8.98, 5.93, W, 0.45, { size: 12, valign: "middle", color: C.MUTE });
+  G.para(s, "Catalysts: Q3'26 printed 31% (29-Oct); investor day (10-Dec); Q4'26 print and FY27 guide (Feb-27).", 8.98, 5.93, W, 0.45, { size: 12, valign: "middle", color: C.MUTE });
 
   s.addShape("rect", { x: 0.68, y: 6.43, w: 12.25, h: 0.52, fill: { type: "none" }, line: { color: C.RED, width: 1.5, dashType: "dash" } });
-  G.para(s, "**Taking the other side of the fraud discount is a highly attractive proposition: two more ~30% prints prove the trough. Our bets playing out yield $309 in a year, 85% upside.**",
+  G.para(s, "**Taking the other side of the fraud discount is a highly attractive proposition: Q3 printed 31%, and one more ~30% print proves the trough. Our bets playing out yield $309 in a year, 56% upside.**",
     0.75, 6.43, 12.1, 0.52, { size: 14.5, align: "center", valign: "middle" });
 };

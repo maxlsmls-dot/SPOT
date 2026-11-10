@@ -69,7 +69,7 @@ async function slide1(pres) {
 // ======================= SLIDE 2: PMA via SCI + two prints
 async function slide2(pres) {
   const s = pres.addSlide({ masterName: "Pitch" });
-  G.title(s, "Thesis I: Variance on Margins – PMA Through SCI and Two Prints Re-Rate the Trough");
+  G.title(s, "Thesis I: Variance on Margins – PMA Through SCI and One More Print Re-Rate the Trough");
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.0, R = 6.93, RW = 6.0;
   G.head(s, "The market prices ~0% PMA and reads 30% as a waypoint; FTAI controls its own PMA channel and only needs 30% to hold.", X, 0.88, W, { size: 13.5 });
 
@@ -103,7 +103,7 @@ async function slide2(pres) {
   s.addShape("line", { x: R - 0.12, y: 1.28, w: 0, h: 5.12, line: { color: C.TXT, width: 1, dashType: "sysDot" } });
 
   // ---- right: rebuild + prints
-  sub(s, "Price and PMA rebuild margin; two prints prove the trough", R, 1.26, RW);
+  sub(s, "Price and PMA rebuild margin; Q3 printed 31%, one more proves the trough", R, 1.26, RW);
   s.addChart(pres.charts.BAR, [
     { name: "base", labels: ["FY27E", "Price", "PMA", "FY31E"], values: [0, 29.9, 31.6, 0] },
     { name: "val", labels: ["FY27E", "Price", "PMA", "FY31E"], values: [29.9, 1.7, 0.9, 32.5] },
@@ -116,7 +116,7 @@ async function slide2(pres) {
     "**No mix recovery** and no outside-lessor PMA in the base case",
   ], R + 2.65, 1.56, RW - 2.65, 1.95, { size: 10.5, psa: 1, valign: "middle" });
   const cats = [
-    ["Q3'26 | Oct", "First print after the reset: Aerospace margin ++≥~30%++, modules on track for 1,200, PMA usage"],
+    ["Q3'26 | 29-Oct ✓", "Delivered: Aerospace margin ++31%++ on record $910M revenue; 311 modules (+50% y/y); 1,200 reaffirmed"],
     ["Inv. day | 10-Dec", "2027 framework: 1,700 modules, Jakarta / Cairo ramp, SCI II size, Power backlog"],
     ["Q4'26 | Feb-27", "++Second ~30% print++ + FY27 guide: 30% stops reading as a waypoint"],
   ];
@@ -127,12 +127,12 @@ async function slide2(pres) {
     G.dash(s, R + 1.35, y, RW - 1.35, 0.41);
     G.para(s, c[1], R + 1.4, y, RW - 1.45, 0.41, { size: 10.5, valign: "middle" });
   });
-  sub(s, "What $167 implies for Aerospace", R, 5.04, RW);
-  tbl(s, ["Aero EV / NTM EBITDA (Oct-27)", "5.3x", "10x", "12x", "14x"], [["Implied price / share^^1^^", "**$167**", "$244", "$277", "**$309**"], ["Upside vs. $167", "–", "+46%", "+66%", "+85%"]],
+  sub(s, "What $198 implies for Aerospace", R, 5.04, RW);
+  tbl(s, ["Aero EV / NTM EBITDA (Oct-27)", "7.2x", "10x", "12x", "14x"], [["Implied price / share^^1^^", "**$198**", "$244", "$277", "**$309**"], ["Upside vs. $198", "–", "+23%", "+40%", "+56%"]],
     R, 5.33, RW, [2.4, 0.9, 0.9, 0.9, 0.9], { rowH: 0.23, hi: 1 });
-  G.para(s, "On base earnings, $167 pays only ++~5x++ for Aerospace a year out; ++each turn ≈ $16 / share++.", R, 6.07, RW, 0.3, { size: 11 });
+  G.para(s, "On base earnings, $198 pays only ++~7x++ for Aerospace a year out; ++each turn ≈ $16 / share++.", R, 6.07, RW, 0.3, { size: 11 });
 
-  G.banner(s, "PMA through SCI and price pass-through rebuild margin to 32.5%; two ~30% prints re-rate a business priced at ~5x.", X, 6.48, W, 0.44, 14);
+  G.banner(s, "PMA through SCI and price pass-through rebuild margin to 32.5%; one more ~30% print re-rates a business priced at ~7x.", X, 6.48, W, 0.44, 14);
   G.source(s, "Chromalloy / FAA, Aviation Week, AviTrader, SR Technics catalogues, FTAI filings",
     ["1-yr base SOTP (NTM ≈ ¼ FY27E + ¾ FY28E), holding Power 10x, Leasing + SCI 9x and Sep-27 net debt."]);
 }

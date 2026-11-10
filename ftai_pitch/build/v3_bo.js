@@ -17,8 +17,8 @@ module.exports = async function (pres) {
   seg(1.68, 1.3, "**1)  Aerospace Products** (77% of FY25 Revenue, 52% of Segment EBITDA^^1^^):", [
     "Swaps restored ++fan, core and LPT modules++ from its own pool: engines back in ++5–25 days vs. 120–180++ at a shop",
     "Feedstock is ++run-out engines++ bought from airlines, lessors and SCI; also sells used serviceable parts",
-    "++757 modules (FY25) → 1,200 (FY26E) → 1,700 (FY27E)++; CFM56 module share ~10% → 14% in 1H26^^2^^",
-    "Margin ++reset from ~35% to ~30%++ in 1H26 on heavier workscopes and large airline deals (United)",
+    "++757 modules (FY25) → 1,200 (FY26E) → 1,700 (FY27E)++; 877 built through Q3; CFM56 module share ~10% → ~15% (Q3'26)^^2^^",
+    "Margin ++reset from ~35% to ~30%++ in 1H26 on heavier workscopes and airline deals; ++31% in Q3'26++",
   ]);
   s.addShape("line", { x: lx, y: 3.0, w: lw, h: 0, line: { color: C.TXT, width: 1, dashType: "dash" } });
   seg(3.04, 0.8, "**2)  Aviation Leasing + SCI** (23% of FY25 Revenue, 48% of Segment EBITDA):", [
@@ -28,20 +28,20 @@ module.exports = async function (pres) {
   s.addShape("line", { x: lx, y: 3.88, w: lw, h: 0, line: { color: C.TXT, width: 1, dashType: "dash" } });
   seg(3.92, 0.8, "**3)  FTAI Power** (launched Dec-25; $450–750M FY27 EBITDA guidance):", [
     "Converts CFM56 cores into ++25 MW \"Mod-1\" gas turbines++ (~$1M per MW) sold as bridge power to AI data centers",
-    "First order ++$1.465bn++ (Jul-26) via J&F, FTAI's JV with Jereh; delivered in batches through Nov-27",
+    "First order ++$1.465bn++ (Jul-26) via J&F, FTAI's JV with Jereh; delivered in batches through Nov-27; ++>100 units under contract++ for 2027–28 (Q3'26)",
   ]);
 
   // ---------------- Tables (right)
   const rx = 9.5, rw = 3.43;
   const y1 = G.finTable(s, "Key Aerospace Financials (FY25)", [
     ["Aerospace Revenue", "$1,936", "hi"], ["FY26E Revenue Growth (%)", "79.4%", "it ul"],
-    ["Aerospace Adj. EBITDA", "$671", "hi"], ["EBITDA Margin (%)", "34.7%", "it"], ["Q2'26 EBITDA Margin (%)", "28.5%", "it ul"],
+    ["Aerospace Adj. EBITDA", "$671", "hi"], ["EBITDA Margin (%)", "34.7%", "it"], ["Q3'26 EBITDA Margin (%)", "31.0%", "it ul"],
     ["Modules Produced", "757", "hi"], ["FY26E Guidance", "1,200", "it"],
   ], rx, 1.3, rw, { size: 10.5, rowH: 0.2 });
   G.finTable(s, "Cap Table", [
-    ["Share Price (As of 10/2/26)", "$167.03"], ["(x) Diluted Shares", "104.0"], ["Market Cap", "$17,378", "hi"],
-    ["(+) Total Debt", "3,453"], ["(–) Cash", "(337)"], ["(+) Preferred Equity", "65", "ul"], ["Enterprise Value", "$20,560", "hi"],
-    ["EV / FY26E Adj. EBITDA", "15.7x"], ["EV / FY27E Adj. EBITDA", "9.2x"],
+    ["Share Price (As of 11/9/26)", "$198.00"], ["(x) Diluted Shares", "104.0"], ["Market Cap", "$20,592", "hi"],
+    ["(+) Total Debt", "3,456"], ["(–) Cash", "(386)"], ["(+) Preferred Equity", "65", "ul"], ["Enterprise Value", "$23,727", "hi"],
+    ["EV / FY26E Adj. EBITDA", "18.1x"], ["EV / FY27E Adj. EBITDA", "10.6x"],
   ], rx, y1 + 0.03, rw, { size: 10.5, rowH: 0.2 });
 
   // ---------------- Revenue algorithm (bottom)
@@ -60,5 +60,5 @@ module.exports = async function (pres) {
     s.addText(lab, { x, y: 6.64, w, h: 0.32, align: "center", valign: "middle", fontFace: F, fontSize: 14, bold: true, color: C.INK, margin: 0, isTextBox: true });
   });
 
-  G.source(s, "Company Filings, Earnings Calls, Investor Presentation", ["Segment EBITDA mix excludes Corporate & Other.", "Module share of CFM56 third-party module demand, per management (Q2'26)."]);
+  G.source(s, "Company Filings, Earnings Calls, Investor Presentation", ["Segment EBITDA mix excludes Corporate & Other.", "Module share of CFM56 third-party module demand, per management (Q3'26). Cap table: Q3'26 balance sheet; shares pre-ASR."]);
 };

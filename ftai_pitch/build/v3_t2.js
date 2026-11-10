@@ -88,8 +88,8 @@ async function slide2(pres) {
   ], { x: R, y: 1.5, w: 3.6, h: 2.65, chartColors: [C.ORANGE, C.NAVY], lineSize: 2.25, lineDataSymbol: "circle", lineDataSymbolSize: 6, showValue: true, dataLabelPosition: "t",
     dataLabelColor: "262626", dataLabelFormatCode: "0%", valAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: 0.4, showLegend: true, legendPos: "b", ...ax, showTitle: false });
   G.bullets(s, [
-    "**Proof:** share ~10% → 12% → ++14%++ in 1H26; Q2 modules up ++61% y/y++",
-    "**Guide raised twice:** 1,000 → 1,050 → ++1,200++ (2026); ++1,700++ in 2027",
+    "**Proof:** share ~10% → 14% (1H26) → ++~15%++ (Q3); Q3 built ++311 modules, up 50% y/y++",
+    "**Guide raised twice:** 1,000 → 1,050 → ++1,200++ (2026), reaffirmed Q3; ++1,700++ in 2027",
     "**United** expanded to a multi-year ++CFM56-7B MRE++ (Oct-26)",
     "Bull case: third-party alone reaches ++25%++ by FY31",
   ], R + 3.65, 1.52, RW - 3.65, 2.62, { size: 10.5, psa: 3, valign: "middle" });
