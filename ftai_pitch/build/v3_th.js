@@ -50,6 +50,6 @@ module.exports = async function (pres) {
   G.para(s, "Catalysts: Q3'26 printed 31% (29-Oct); investor day (10-Dec); Q4'26 print and FY27 guide (Feb-27).", 8.98, 5.93, W, 0.45, { size: 12, valign: "middle", color: C.MUTE });
 
   s.addShape("rect", { x: 0.68, y: 6.43, w: 12.25, h: 0.52, fill: { type: "none" }, line: { color: C.RED, width: 1.5, dashType: "dash" } });
-  G.para(s, "**Taking the other side of the fraud discount is a highly attractive proposition: Q3 printed 31%, and one more ~30% print proves the trough. Our bets playing out yield $309 in a year, 56% upside.**",
+  G.para(s, "**Taking the other side of the fraud discount is a highly attractive proposition: Q3 printed 31%, and one more ~30% print proves the trough. Our bets playing out yield $304 in a year, 54% upside.**",
     0.75, 6.43, 12.1, 0.52, { size: 14.5, align: "center", valign: "middle" });
 };

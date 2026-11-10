@@ -10,7 +10,7 @@ module.exports = async function (pres) {
   s.addText([{ text: "FTAI", options: { bold: true, color: C.WHITE } }, { text: " AVIATION", options: { color: "9DC3E6" } }],
     { x: PX + 0.5, y: 0.45, w: 5.5, h: 0.4, fontFace: "Calibri", fontSize: 18, margin: 0, isTextBox: true });
   const stats = [
-    ["$198", "Share price (11/9/26)"], ["$309", "1-year target (+56%)"], ["~3x", "Reward-to-risk (+117% / –42%)"], ["31%", "Q3'26 Aerospace margin: the trough holds"],
+    ["$198", "Share price (11/9/26)"], ["$304", "1-year target (+54%)"], ["~3x", "Reward-to-risk (+117% / –43%)"], ["31%", "Q3'26 Aerospace margin: the trough holds"],
   ];
   stats.forEach(([big, lab], i) => {
     const x = PX + 0.5 + (i % 2) * 2.9, y = 1.45 + Math.floor(i / 2) * 1.55;
@@ -28,7 +28,7 @@ module.exports = async function (pres) {
 
   // left text (CARG cover style)
   s.addText("FTAI Aviation\n(NASDAQ: FTAI)", { x: 0.55, y: 1.9, w: 6.2, h: 1.5, fontFace: F, fontSize: 44, color: C.INK, margin: 0, isTextBox: true, valign: "bottom" });
-  s.addText("Long Recommendation (1-Year Target $309, +56%)", { x: 0.55, y: 3.45, w: 6.3, h: 0.45, fontFace: F, fontSize: 21, color: C.INK, margin: 0, isTextBox: true });
+  s.addText("Long Recommendation (1-Year Target $304, +54%)", { x: 0.55, y: 3.45, w: 6.3, h: 0.45, fontFace: F, fontSize: 21, color: C.INK, margin: 0, isTextBox: true });
   s.addText("By Sara Jankovic, Josephine Sun,\nAndrew Chen, and Max Salomon", { x: 0.55, y: 4.1, w: 6.1, h: 0.75, fontFace: F, fontSize: 18, color: C.INK, margin: 0, isTextBox: true, valign: "top" });
   s.addText("November 2026", { x: 0.55, y: 4.9, w: 6.2, h: 0.3, fontFace: F, fontSize: 13, color: C.INK, margin: 0, isTextBox: true });
   s.addText("A compounder still priced for a fraud.", { x: 0.55, y: 5.45, w: 6.2, h: 0.45, fontFace: F, fontSize: 21, bold: true, italic: true, color: C.TXT, margin: 0, isTextBox: true });

@@ -69,7 +69,7 @@ async function slide1(pres) {
 // ======================= SLIDE 2: PMA via SCI + two prints
 async function slide2(pres) {
   const s = pres.addSlide({ masterName: "Pitch" });
-  G.title(s, "Thesis I: Variance on Margins – PMA Through SCI and One More Print Re-Rate the Trough");
+  G.title(s, "Thesis I: Variance on Margins – PMA Via SCI and One More Print Re-Rate the Trough");
   const X = 0.68, W = 12.25, L = 0.68, LW = 6.0, R = 6.93, RW = 6.0;
   G.head(s, "The market prices ~0% PMA and reads 30% as a waypoint; FTAI controls its own PMA channel and only needs 30% to hold.", X, 0.88, W, { size: 13.5 });
 
@@ -128,7 +128,7 @@ async function slide2(pres) {
     G.para(s, c[1], R + 1.4, y, RW - 1.45, 0.41, { size: 10.5, valign: "middle" });
   });
   sub(s, "What $198 implies for Aerospace", R, 5.04, RW);
-  tbl(s, ["Aero EV / NTM EBITDA (Oct-27)", "7.2x", "10x", "12x", "14x"], [["Implied price / share^^1^^", "**$198**", "$244", "$277", "**$309**"], ["Upside vs. $198", "–", "+23%", "+40%", "+56%"]],
+  tbl(s, ["Aero EV / NTM EBITDA (Oct-27)", "7.2x", "10x", "12x", "13.7x"], [["Implied price / share^^1^^", "**$198**", "$244", "$277", "**$304**"], ["Upside vs. $198", "–", "+23%", "+40%", "+54%"]],
     R, 5.33, RW, [2.4, 0.9, 0.9, 0.9, 0.9], { rowH: 0.23, hi: 1 });
   G.para(s, "On base earnings, $198 pays only ++~7x++ for Aerospace a year out; ++each turn ≈ $16 / share++.", R, 6.07, RW, 0.3, { size: 11 });
 

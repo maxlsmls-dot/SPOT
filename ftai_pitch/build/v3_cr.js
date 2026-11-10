@@ -21,13 +21,13 @@ module.exports = async function (pres) {
 
   const rows = [
     ["Margins keep falling (Thesis I)", "Heavier workscopes and a thinning supply of cheap engines take Aerospace margin below 30%, and the market keeps reading every print as the short thesis unwinding. **Value at risk:** ++~$22 / share++ (Thesis I, bear vs. base).",
-      "Little cheap stock left to unwind", "Leasing-sourced engines are ++<8% of inventory++ and flows now run back to leasing. Heavy mix is capacity-capped and United is signed. Q3 printed ++31%++; our bear case holds 28.5% – worth ++$161, 19% below today++."],
+      "Little cheap stock left to unwind", "Leasing-sourced engines are ++<8% of inventory++ and flows now run back to leasing. Heavy mix is capacity-capped and United is signed. Q3 printed ++31%++; our bear case holds 28.5% – worth ++$158, 20% below today++."],
     ["Fraud overhang never clears (Thesis I)", "Muddy Waters or a follow-on short revisits inventory accounting; the governance discount persists even if margins hold. **Value at risk:** each turn of Aerospace multiple is ++~$16 / share++.",
       "Claims reviewed; capital returned", "Audit-committee review found the claims ++without merit++; ++no restatement++. Buyback doubled to ++$1.0bn++ with a ++$500M ASR++ (Oct-26), and the 10-Q transfer disclosures let anyone track the stock."],
-    ["CFM56 retires faster or LEAP catches up (Thesis II)", "The 2026 fuel shock or LEAP durability fixes push airlines to park CFM56s; independents (StandardAero, ST Eng., SRT, MTU) take the overflow instead of FTAI. **Value at risk:** ++~$62 / share++ (Thesis II).",
+    ["CFM56 retires faster or LEAP catches up (Thesis II)", "The 2026 fuel shock or LEAP durability fixes push airlines to park CFM56s; independents (StandardAero, ST Eng., SRT, MTU) take the overflow instead of FTAI. **Value at risk:** ++~$61 / share++ (Thesis II).",
       "Retirements falling; FTAI's edge is speed", "GE (Q3): CFM56 retirements ++below ~2%++ vs. an original 3–4% plan; visits at the ++top of 2,300–2,400++. Retired jets become FTAI feedstock (WestJet). A ++5–25 day++ swap with owned parts beats a 120–180 day shop visit."],
     ["Power slips or the buyer walks (Thesis III)", "Mod-1 deliveries slip past Nov-27, output misses spec, or – like Crusoe with Boom – the customer walks. Jereh's Chinese ownership adds tariff / supply-chain risk. **Value at risk:** ++~$63 / share++ (Thesis III).",
-      "Signed, paid for, and not in the price", "Signed PO with ++advance and milestone payments++; output penalty ++capped at 10%++. Testing hit 25 MW; ++>100 units++ now under contract vs. 45 in our base. Jereh packages in the US, Canada and UAE. Ex-Power, the target is still ++$239, 21% upside++."],
+      "Signed, paid for, and not in the price", "Signed PO with ++advance and milestone payments++; output penalty ++capped at 10%++. Testing hit 25 MW; ++>100 units++ now under contract vs. 45 in our base. Jereh packages in the US, Canada and UAE. Ex-Power, the target is still ++$234, 18% upside++."],
   ];
   const y0 = 1.42, h = 1.3, gap = 0.08;
   rows.forEach((r, i) => {

@@ -33,8 +33,8 @@ module.exports = async function (pres) {
   });
 
   s.addShape("rect", { x: X, y: 6.35, w: W, h: 0.62, fill: { color: "5B7189" }, line: { color: "5B7189" } });
-  G.para(s, "**Q3 printed 31%; we need one more ~30% print. At $198 the market pays for margins and little else; we see ++$309 in a year, 56% upside,++ with ++~3x reward-to-risk++.**^^1^^",
+  G.para(s, "**Q3 printed 31%; we need one more ~30% print. At $198 the market pays for margins and little else; we see ++$304 in a year, 54% upside,++ with ++~3x reward-to-risk++.**^^1^^",
     X + 0.1, 6.35, W - 0.2, 0.62, { size: 14, color: C.WHITE, align: "center", valign: "middle" });
 
-  G.source(s, "Company Filings, Muddy Waters Research (Jan-25), Earnings Calls, Bloomberg", ["1-year base-case sum of the parts (Oct-27); reward-to-risk = bull upside (+117%) / bear downside (–42%) vs. $198 (11/9/26)."]);
+  G.source(s, "Company Filings, Muddy Waters Research (Jan-25), Earnings Calls, Bloomberg", ["1-year base-case sum of the parts (Oct-27); reward-to-risk = bull upside (+117%) / bear downside (–43%) vs. $198 (11/9/26)."]);
 };
